@@ -1,0 +1,64 @@
+import React, { useEffect } from 'react';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import AppsSideBarFolderItem from '@crema/components/AppsSideBarFolderItem';
+import AppList from '@crema/components/AppList';
+import ListEmptyResult from '@crema/components/ListEmptyResult';
+import SidebarPlaceholder from '@crema/components/SidebarListSkeleton';
+import { useRouter } from 'next/router';
+import { Button } from 'antd';
+import {
+  StyledSidebarHeader,
+  StyledPlusOutlined,
+  StyledSidebarScrollbar,
+  StyledSidebarList,
+} from './index.styled';
+import { onGetInvoiceFolderList } from '../../../../toolkit/actions';
+import { useAppSelector, useAppDispatch } from '../../../../toolkit/hooks';
+
+const TaskSideBar = () => {
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+  const folderList = useAppSelector(({ invoiceApp }) => invoiceApp.folderList);
+
+  useEffect(() => {
+    dispatch(onGetInvoiceFolderList());
+  }, [dispatch]);
+
+  return (
+    <>
+      <StyledSidebarHeader>
+        <Button
+          ghost
+          type="primary"
+          icon={<StyledPlusOutlined style={{ marginRight: 8 }} />}
+          onClick={() => router.push('/invoice/add-invoice')}
+        >
+          <IntlMessages id="invoice.addNewInvoice" />
+        </Button>
+      </StyledSidebarHeader>
+
+      <StyledSidebarScrollbar>
+        <StyledSidebarList>
+          <AppList
+            data={folderList}
+            ListEmptyComponent={
+              <ListEmptyResult
+                loading={true}
+                placeholder={<SidebarPlaceholder />}
+              />
+            }
+            renderItem={(item) => (
+              <AppsSideBarFolderItem
+                key={item.id}
+                item={item}
+                path={`/invoice/home/${item.alias}`}
+              />
+            )}
+          />
+        </StyledSidebarList>
+      </StyledSidebarScrollbar>
+    </>
+  );
+};
+
+export default TaskSideBar;
