@@ -53,11 +53,15 @@ const TaskDetailHeader = (props: Props) => {
     const task = selectedTask;
     task.folderValue = 126;
 
-    putDataApi<TodoObjType>('/api/calendar/task/', infoViewActionsContext, {
-      task,
-    })
+    putDataApi<{ task: TodoObjType }>(
+      '/api/calendar/task/',
+      infoViewActionsContext,
+      {
+        task,
+      }
+    )
       .then((data) => {
-        onUpdateSelectedTask(data);
+        onUpdateSelectedTask(data.task);
         infoViewActionsContext.showMessage('Task Deleted Successfully');
       })
       .catch((error) => {

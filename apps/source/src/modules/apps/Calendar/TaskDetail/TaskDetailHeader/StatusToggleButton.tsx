@@ -18,11 +18,15 @@ const StatusToggleButton = ({ selectedTask, onUpdateSelectedTask }: Props) => {
     const task = selectedTask;
     task.status = status;
 
-    putDataApi<TodoObjType>('/api/calendar/task/', infoViewActionsContext, {
-      task,
-    })
+    putDataApi<{ task: TodoObjType }>(
+      '/api/calendar/task/',
+      infoViewActionsContext,
+      {
+        task,
+      }
+    )
       .then((data) => {
-        onUpdateSelectedTask(data);
+        onUpdateSelectedTask(data.task);
         infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {

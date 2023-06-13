@@ -53,7 +53,7 @@ const TaskCalender = ({ taskList, onUpdateTask, onSetFilterText }: Props) => {
   };
 
   const onViewTaskDetail = (task: TodoObjType) => {
-    if (folder) router.push(`/apps/calender/${folder}/${task.id}`);
+    if (folder) router.push(`/apps/calender/folder/${folder}/${task.id}`);
     if (label) router.push(`/apps/calender/label/${label}/${task.id}`);
   };
 

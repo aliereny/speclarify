@@ -26,11 +26,15 @@ const TaskPriority: React.FC<TaskPriorityProps> = ({
     selectedTask.priority = priorityList.find(
       (priority: PriorityObjType) => priority.type === value
     ) as PriorityObjType;
-    putDataApi<TodoObjType>('/api/todoApp/task/', infoViewActionsContext, {
-      task: selectedTask,
-    })
+    putDataApi<{ task: TodoObjType }>(
+      '/api/todoApp/task/',
+      infoViewActionsContext,
+      {
+        task: selectedTask,
+      }
+    )
       .then((data) => {
-        onUpdateSelectedTask(data);
+        onUpdateSelectedTask(data.task);
         infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {

@@ -2,7 +2,7 @@ import AppCard from '@crema/components/AppCard';
 import AppList from '@crema/components/AppList';
 import React from 'react';
 import AppScrollbar from '@crema/components/AppScrollbar';
-import useIntl from 'react-intl/lib/src/components/useIntl';
+import { useIntl } from 'react-intl';
 import {
   StyledContent,
   StyledFlex,

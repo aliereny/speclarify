@@ -64,6 +64,7 @@ const OrderTable: React.FC<OrderTableProps> = ({ marketingCampaignData }) => {
 
   return (
     <StyledMarketingCampaignTable
+      scroll={{ x: 'auto', y: 320 }}
       data={marketingCampaignData}
       columns={columns}
       pagination={false}

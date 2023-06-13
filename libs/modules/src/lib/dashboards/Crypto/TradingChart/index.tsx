@@ -1,9 +1,13 @@
 import React from 'react';
-import ReactApexChart from 'react-apexcharts';
 import AppCard from '@crema/components/AppCard';
 import ChartHeader from './ChartHeader';
 import TimeSelection from './TimeSelection';
 import { ApexOptions } from 'apexcharts';
+import dynamic from 'next/dynamic';
+
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
+  ssr: false,
+});
 
 const seriesData = [
   {

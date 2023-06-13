@@ -90,11 +90,15 @@ const TaskDetailBody: React.FC<TaskDetailBodyProps> = ({
     task.title = title;
     task.startDate = getFormattedDate(scheduleDate);
     task.assignedTo = selectedStaff;
-    putDataApi<TodoObjType>('/api/todoApp/task/', infoViewActionsContext, {
-      task,
-    })
+    putDataApi<{ task: TodoObjType }>(
+      '/api/todoApp/task/',
+      infoViewActionsContext,
+      {
+        task,
+      }
+    )
       .then((data) => {
-        onUpdateSelectedTask(data);
+        onUpdateSelectedTask(data.task);
         infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {
@@ -112,11 +116,15 @@ const TaskDetailBody: React.FC<TaskDetailBodyProps> = ({
       image: user.photoURL,
       date: dayjs().format('MMM DD'),
     });
-    putDataApi<TodoObjType>('/api/todoApp/task/', infoViewActionsContext, {
-      task,
-    })
+    putDataApi<{ task: TodoObjType }>(
+      '/api/todoApp/task/',
+      infoViewActionsContext,
+      {
+        task,
+      }
+    )
       .then((data) => {
-        onUpdateSelectedTask(data);
+        onUpdateSelectedTask(data.task);
         infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {

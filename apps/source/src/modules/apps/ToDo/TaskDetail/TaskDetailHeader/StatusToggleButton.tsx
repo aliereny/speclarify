@@ -21,11 +21,15 @@ const StatusToggleButton: React.FC<StatusToggleButtonProps> = ({
     const task = selectedTask;
     task.status = status;
 
-    putDataApi<TodoObjType>('/api/todoApp/task/', infoViewActionsContext, {
-      task,
-    })
+    putDataApi<{ task: TodoObjType }>(
+      '/api/todoApp/task/',
+      infoViewActionsContext,
+      {
+        task,
+      }
+    )
       .then((data) => {
-        onUpdateSelectedTask(data);
+        onUpdateSelectedTask(data.task);
         infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {

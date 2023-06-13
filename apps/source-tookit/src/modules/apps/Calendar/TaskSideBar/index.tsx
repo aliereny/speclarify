@@ -72,7 +72,7 @@ const TaskSideBar = ({ filterData, setFilterData }: Props) => {
                 <AppsSideBarFolderItem
                   key={item.id}
                   item={item}
-                  path={`/apps/calender/${item.alias}`}
+                  path={`/apps/calender/folder/${item.alias}`}
                 />
               )}
             />

@@ -21,11 +21,15 @@ const TaskStatus: React.FC<TaskDetailHeaderProps> = ({
 
   const onChangeStatus = (value: number) => {
     selectedTask.status = value;
-    putDataApi<TodoObjType>('/api/todoApp/task/', infoViewActionsContext, {
-      task: selectedTask,
-    })
+    putDataApi<{ task: TodoObjType }>(
+      '/api/todoApp/task/',
+      infoViewActionsContext,
+      {
+        task: selectedTask,
+      }
+    )
       .then((data) => {
-        onUpdateSelectedTask(data);
+        onUpdateSelectedTask(data.task);
         infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {

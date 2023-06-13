@@ -79,11 +79,15 @@ const TaskDetailBody = (props: Props) => {
     task.startDate = getFormattedDate(scheduleDate);
     task.endDate = getFormattedDate(scheduleEndDate);
     task.assignedTo = selectedStaff;
-    putDataApi<TodoObjType>('/api/calendar/task/', infoViewActionsContext, {
-      task,
-    })
+    putDataApi<{ task: TodoObjType }>(
+      '/api/calendar/task/',
+      infoViewActionsContext,
+      {
+        task,
+      }
+    )
       .then((data) => {
-        onUpdateSelectedTask(data);
+        onUpdateSelectedTask(data.task);
         infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {
@@ -101,11 +105,15 @@ const TaskDetailBody = (props: Props) => {
       image: user.photoURL,
       date: dayjs().format('MMM DD'),
     });
-    putDataApi<TodoObjType>('/api/calendar/task/', infoViewActionsContext, {
-      task,
-    })
+    putDataApi<{ task: TodoObjType }>(
+      '/api/calendar/task/',
+      infoViewActionsContext,
+      {
+        task,
+      }
+    )
       .then((data) => {
-        onUpdateSelectedTask(data);
+        onUpdateSelectedTask(data.task);
         infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {

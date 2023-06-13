@@ -23,11 +23,15 @@ const TaskPriority = ({ selectedTask, onUpdateSelectedTask }: Props) => {
     const task = selectedTask;
     task.priority = priority as PriorityObjType;
 
-    putDataApi<TodoObjType>('/api/calendar/task/', infoViewActionsContext, {
-      task: selectedTask,
-    })
+    putDataApi<{ task: TodoObjType }>(
+      '/api/calendar/task/',
+      infoViewActionsContext,
+      {
+        task: selectedTask,
+      }
+    )
       .then((data) => {
-        onUpdateSelectedTask(data);
+        onUpdateSelectedTask(data.task);
         infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {

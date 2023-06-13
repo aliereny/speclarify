@@ -17,7 +17,7 @@ const NewCustomers: React.FC<NewCustomersProps> = ({ newCustomers }) => {
       className="no-card-space-ltr-rtl"
       title={messages['eCommerce.newCustomers'] as string}
     >
-      <StyledCustomerScrollbar>
+      <StyledCustomerScrollbar style={{ height: 350 }}>
         <List
           dataSource={newCustomers}
           renderItem={(item: any) => <CustomerItem key={item.id} item={item} />}

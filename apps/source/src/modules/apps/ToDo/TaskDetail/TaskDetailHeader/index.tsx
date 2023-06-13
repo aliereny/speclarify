@@ -56,11 +56,15 @@ const TaskDetailHeader: React.FC<TaskDetailHeaderProps> = ({
     const task = selectedTask;
     task.folderValue = 126;
 
-    putDataApi<TodoObjType>('/api/todoApp/task/', infoViewActionsContext, {
-      task,
-    })
+    putDataApi<{ task: TodoObjType }>(
+      '/api/todoApp/task/',
+      infoViewActionsContext,
+      {
+        task,
+      }
+    )
       .then((data) => {
-        onUpdateSelectedTask(data);
+        onUpdateSelectedTask(data.task);
         infoViewActionsContext.showMessage('Task Deleted Successfully');
       })
       .catch((error) => {
