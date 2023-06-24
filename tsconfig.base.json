@@ -281,7 +281,7 @@
       "@crema/helpers/IntlMessages": ["libs/helpers/src/IntlMessages.tsx"],
       "@crema/hooks": ["libs/hooks/src/index.tsx"],
       "@crema/hooks/APIHooks": ["libs/hooks/src/APIHooks.tsx"],
-      "@crema/hooks/AuthHelper": ["libs/helpers/src/AuthHelper.ts"],
+      "@crema/helpers/AuthHelper": ["libs/helpers/src/AuthHelper.ts"],
       "@crema/hooks/AuthHooks": ["libs/hooks/src/AuthHooks.ts"],
       "@crema/mockapi": ["libs/mockapi/src/index.ts"],
       "@crema/models/*": ["libs/types/src/models/*"],
