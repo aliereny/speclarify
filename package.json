@@ -1,13 +1,13 @@
 {
-  "name": "@crema-dev-ant-next-ts/source",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test"
-  },
+  "name": "next-sample-ts-antd",
+  "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
     "@ant-design/compatible": "^5.1.1",
