@@ -1,5 +1,5 @@
-import { Form, Tabs } from 'antd';
-import { rgba } from 'polished';
+import {Form, Tabs} from 'antd';
+import {rgba} from 'polished';
 import styled from 'styled-components';
 
 export const StyledUserProfileForm = styled(Form)`
@@ -156,7 +156,7 @@ export const StyledUserProfileTabs = styled(Tabs)`
 
   & .ant-tabs-content-holder {
     padding-top: 20px;
-
+    border: none;
     [dir='rtl'] & {
       order: 2;
     }
