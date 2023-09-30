@@ -47,7 +47,7 @@ export type TodoObjType = {
   isStarred?: boolean;
   label: LabelObjType[];
   priority: PriorityObjType;
-  isAttachment: boolean;
+  hasAttachments: boolean;
   sentAt: string;
   folderValue: number;
   scheduleMobile: string;

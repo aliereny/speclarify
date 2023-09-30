@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import React, { createContext, ReactNode, useContext } from "react";
 import { useGetDataApi } from "@crema/hooks/APIHooks";
 import type { ConnectionObjType } from "@crema/types/models/apps/Chat";

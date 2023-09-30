@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-import React, { createContext, ReactNode, useContext, useState } from 'react';
-import defaultConfig from '@crema/constants/defaultConfig';
+import React, { createContext, ReactNode, useContext, useState } from "react";
+import defaultConfig from "@crema/constants/defaultConfig";
 
 export type LayoutData = {
   layoutType: string;

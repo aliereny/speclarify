@@ -66,7 +66,9 @@ const TaskContentHeader: React.FC<TaskContentHeaderProps> = ({
 
       case 3:
         setCheckedTasks(
-          taskLists?.filter((task) => task.isAttachment).map((task) => task.id)
+          taskLists
+            ?.filter((task) => task.hasAttachments)
+            .map((task) => task.id)
         );
         break;
 

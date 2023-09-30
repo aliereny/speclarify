@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import React, {
   createContext,
   ReactNode,
@@ -6,9 +5,9 @@ import React, {
   useContext,
   useEffect,
   useState,
-} from 'react';
-import defaultConfig, { defaultTheme } from '@crema/constants/defaultConfig';
-import { LayoutDirection } from '@crema/constants/AppEnums';
+} from "react";
+import defaultConfig, { defaultTheme } from "@crema/constants/defaultConfig";
+import { LayoutDirection } from "@crema/constants/AppEnums";
 
 export interface ThemeData {
   theme: any;
@@ -70,9 +69,9 @@ const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
 
   useEffect(() => {
     if (theme.direction === LayoutDirection.RTL) {
-      document.body.setAttribute('dir', LayoutDirection.RTL);
+      document.body.setAttribute("dir", LayoutDirection.RTL);
     } else {
-      document.body.setAttribute('dir', LayoutDirection.LTR);
+      document.body.setAttribute("dir", LayoutDirection.LTR);
     }
   }, [theme]);
 

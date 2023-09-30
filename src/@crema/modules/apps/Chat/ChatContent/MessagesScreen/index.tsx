@@ -19,6 +19,7 @@ import {
   ChatApiResponseType,
   ConnectionObjType,
   MessageDataObjType,
+  MessageObjType,
   MessageType,
 } from "@crema/types/models/apps/Chat";
 
@@ -42,7 +43,15 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
     useState<MessageDataObjType | null>(null);
 
   const [{ apiData: userMessages }, { setQueryParams, setData }] =
-    useGetDataApi("/api/chatApp/connection/messages", {}, {}, false);
+    useGetDataApi<MessageObjType>(
+      "/api/chatApp/connection/messages",
+      {
+        channelId: selectedUser.channelId,
+        messageData: [],
+      },
+      {},
+      false
+    );
 
   const { user } = useAuthUser();
 

@@ -7,7 +7,7 @@ import { labelList, onGetLabel } from "../../fakedb/apps/todo/labelList";
 import statusList from "../../fakedb/apps/todo/statusList";
 import { TodoObjType } from "@crema/types/models/apps/Todo";
 
-let todoData = todoList;
+let todoData: TodoObjType[] = todoList;
 
 const onGetTaskList = (name: string, data: TodoObjType[]) => {
   switch (name) {

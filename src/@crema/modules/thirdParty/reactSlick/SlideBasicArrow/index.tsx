@@ -25,7 +25,7 @@ const SlideBasicArrow = ({ slideBasicArrow }: Props) => {
       <MediaSlider>
         <Slider {...settings}>
           {slideBasicArrow.map((slide, index) => (
-            <StyledSlickBasicContainer>
+            <StyledSlickBasicContainer key={index}>
               <StyledSlickWrapper>
                 <img src={slide.srcImg} alt={slide.title} />
               </StyledSlickWrapper>

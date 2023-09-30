@@ -115,7 +115,7 @@ const AddInvoice = ({
             {!selectedClient ? (
               <Select
                 placeholder="Add Client"
-                value={selectedClient}
+                value={selectedClient?.name ?? ""}
                 onChange={(value) =>
                   setSelectedClient(
                     clientsList.find((item) => item.id === value) ||

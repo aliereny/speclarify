@@ -32,7 +32,6 @@ export const getFormattedDateTime = (
   if (value === 0) {
     return dayjs().format(format);
   } else {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return dayjs().add(value, unit).format(format);
   }
