@@ -1,7 +1,9 @@
 import dayjs from "dayjs";
 import AdvancedFormat from "dayjs/plugin/advancedFormat"; // load on demand
 import relativeTime from "dayjs/plugin/relativeTime"; // load on demand
+import localizedFormat from "dayjs/plugin/localizedFormat"; // load on demand
 
+dayjs.extend(localizedFormat);
 dayjs.extend(AdvancedFormat); // use plugin
 dayjs.extend(relativeTime); // use plugin
 
