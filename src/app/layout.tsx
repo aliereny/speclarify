@@ -1,4 +1,5 @@
 import './globals.css'
+import '../../public/antd.min.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
