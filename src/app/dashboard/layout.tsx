@@ -1,76 +1,100 @@
 "use client";
-import { Button, Layout, Menu, theme } from "antd";
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import { Flex, Layout, Menu, MenuProps, theme } from "antd";
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+const items: MenuProps["items"] = [
+  {
+    key: "dashboard",
+    label: "Projects",
+  },
+  {
+    key: "dashboard/settings",
+    label: "Settings",
+  },
+];
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [collapsed, setCollapsed] = useState<boolean>(false);
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
+  const { token } = theme.useToken();
+
+  const [current, setCurrent] = useState("dashboard");
+  const router = useRouter();
+  const onClick: MenuProps["onClick"] = (e) => {
+    router.push(`/${e.key}`);
+    setCurrent(e.key);
+  };
 
   return (
     <Layout>
-      <Layout.Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              icon: <UserOutlined />,
-              label: "nav 1",
-            },
-            {
-              key: "2",
-              icon: <VideoCameraOutlined />,
-              label: "nav 2",
-            },
-            {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "nav 3",
-            },
-          ]}
-        />
-      </Layout.Sider>
-      <Layout>
-        <Layout.Header style={{ padding: 0, background: colorBgContainer }}>
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
+      <Layout.Header
+        style={{
+          background: token.colorBgContainer,
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Flex className={"container"}>
+          <Link
+            href="/"
             style={{
-              fontSize: "16px",
-              width: 64,
-              height: 64,
+              display: "inline-flex",
+              alignItems: "center",
             }}
+          >
+            <Image
+              src={"/logo-colored.png"}
+              alt="Logo"
+              width={116}
+              height={26}
+            />
+          </Link>
+          <Menu
+            theme="light"
+            mode="horizontal"
+            onClick={onClick}
+            selectedKeys={[current]}
+            items={items}
+            style={{ flex: 1, minWidth: 0 }}
           />
-        </Layout.Header>
-        <Layout.Content
+        </Flex>
+      </Layout.Header>
+      <Layout.Content>
+        <div
+          className={"container"}
           style={{
-            margin: "24px 16px",
-            padding: 24,
+            background: token.colorBgLayout,
             minHeight: 280,
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
+            padding: "1rem 0",
+            borderRadius: token.borderRadiusLG,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           {children}
-        </Layout.Content>
-      </Layout>
+        </div>
+      </Layout.Content>
+      <Layout.Footer
+        style={{
+          textAlign: "center",
+          background: token.colorBgSpotlight,
+          color: token.colorBgBase,
+        }}
+      >
+        Speclarify ©{new Date().getFullYear()} Created by{" "}
+        <Link
+          target={"_blank"}
+          href={"https://www.linkedin.com/in/ali-eren-yogurtcu/"}
+        >
+          Eren Yogurtcu
+        </Link>
+      </Layout.Footer>
     </Layout>
   );
 }

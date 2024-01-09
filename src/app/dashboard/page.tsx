@@ -1,125 +1,47 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Project, useProjectStore } from "@/stores/projectStore";
-import {
-  Button,
-  Form,
-  Input,
-  message,
-  Modal,
-  Popconfirm,
-  Skeleton,
-  Table,
-} from "antd";
+import React, { useEffect } from "react";
+import { useProjectStore } from "@/stores/projectStore";
+import { Alert, Button, Flex, Skeleton, Typography } from "antd";
 import { useIsClient } from "@/hooks/useIsClient";
+import styles from "./DashboardPage.module.scss";
+import { useRouter } from "next/navigation";
+import { ProjectCard } from "@/ui/molecules/project-card/projectCard";
+import { PlusOutlined } from "@ant-design/icons";
 
 export default function DashboardPage() {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [editingProject, setEditingProject] = useState<Project | null>(null);
-  const {
-    loading,
-    projects,
-    fetchProjects,
-    addProject,
-    updateProject,
-    deleteProject,
-  } = useProjectStore();
+  const { loading, error, projects, fetchProjects } = useProjectStore();
 
+  const router = useRouter();
   const isClient = useIsClient();
 
   useEffect(() => {
     fetchProjects();
   }, []);
 
-  const showModal = (project: Project | null) => {
-    setEditingProject(project);
-    setIsModalVisible(true);
-  };
-
-  const handleCancel = () => {
-    setEditingProject(null);
-    setIsModalVisible(false);
-  };
-
-  const handleFinish = async (values: { name: string }) => {
-    if (editingProject) {
-      await updateProject(editingProject.id, values.name);
-      message.success("Project updated successfully");
-    } else {
-      await addProject(values.name);
-      message.success("Project added successfully");
-    }
-    setIsModalVisible(false);
-    setEditingProject(null);
-  };
-
-  const handleDelete = async (projectId: number) => {
-    await deleteProject(projectId);
-    message.success("Project deleted successfully");
-  };
-
-  const columns = [
-    {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "Actions",
-      key: "actions",
-      render: (_: any, record: Project) => (
-        <>
-          <Button onClick={() => showModal(record)} type="link">
-            Edit
-          </Button>
-          <Popconfirm
-            title="Are you sure to delete this project?"
-            onConfirm={() => handleDelete(record.id)}
-          >
-            <Button type="link">Delete</Button>
-          </Popconfirm>
-        </>
-      ),
-    },
-  ];
-
   if (!isClient || loading) {
     return <Skeleton active />;
   }
 
   return (
-    <div className="projects-page">
-      <Button type="primary" onClick={() => showModal(null)}>
+    <Flex vertical className={styles.projectsPage} gap={16}>
+      <Typography.Title level={2}>Projects</Typography.Title>
+      {error && (
+        <Alert message="Error" description={error} type="error" showIcon />
+      )}
+      <Button
+        type="primary"
+        href={"/dashboard/projects/new"}
+        icon={<PlusOutlined />}
+        className={styles.addProjectButton}
+      >
         Add Project
       </Button>
-      <Table dataSource={projects} columns={columns} rowKey="id" />
-
-      <Modal
-        title={editingProject ? "Edit Project" : "Add Project"}
-        open={isModalVisible}
-        onCancel={handleCancel}
-        footer={null}
-      >
-        <Form
-          initialValues={
-            editingProject ? { name: editingProject.name } : { name: "" }
-          }
-          onFinish={handleFinish}
-        >
-          <Form.Item
-            name="name"
-            rules={[
-              { required: true, message: "Please input the project name!" },
-            ]}
-          >
-            <Input placeholder="Project Name" />
-          </Form.Item>
-          <Button type="primary" htmlType="submit">
-            {editingProject ? "Update" : "Add"}
-          </Button>
-        </Form>
-      </Modal>
-    </div>
+      <Flex wrap={"wrap"} gap={16}>
+        {projects.map((project) => (
+          <ProjectCard project={project} key={project.id} />
+        ))}
+      </Flex>
+    </Flex>
   );
 }

@@ -1,11 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Button, message, Table, Upload } from "antd";
+import { Alert, Button, message, Spin, Table, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { useProjectStore } from "@/stores/projectStore";
 import { useRequirementsStore } from "@/stores/requirementsStore";
 import { useRouter } from "next/navigation";
 import { RcFile } from "antd/es/upload";
+import styles from "./ProjectPage.module.scss";
 
 export default function ProjectPage({
   params,
@@ -15,7 +16,8 @@ export default function ProjectPage({
   const { projectId } = params;
   const router = useRouter();
   const { projects } = useProjectStore();
-  const { requirements, fetchRequirements, parsePdf } = useRequirementsStore();
+  const { requirements, loading, error, fetchRequirements, parsePdf } =
+    useRequirementsStore();
   const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
@@ -35,6 +37,7 @@ export default function ProjectPage({
     } finally {
       setIsUploading(false);
     }
+    return false;
   };
 
   const columns = [
@@ -42,32 +45,42 @@ export default function ProjectPage({
     // Add more columns as needed
   ];
 
+  if (loading) {
+    return (
+      <div className={styles.center}>
+        <Spin size="large" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={styles.center}>
+        <Alert message="Error" description={error} type="error" showIcon />
+      </div>
+    );
+  }
+
   return (
-    <div className="project-page">
+    <div className={styles.projectPage}>
       <h1>{project?.name}</h1>
       <p>Project ID: {projectId}</p>
 
-      <Upload
-        beforeUpload={(file) => {
-          handleUpload(file);
-          return false;
-        }}
-        showUploadList={false}
-      >
-        <Button icon={<UploadOutlined />} loading={isUploading}>
-          Upload SRS Document (PDF)
-        </Button>
-      </Upload>
-
-      <Table dataSource={requirements} columns={columns} rowKey="id" />
-
-      <Button onClick={() => fetchRequirements(projectId)}>
-        Refresh Requirements
-      </Button>
-
-      <Button onClick={() => router.push("/dashboard")}>
-        Back to Dashboard
-      </Button>
+      {requirements.length === 0 ? (
+        <div className={styles.uploadSection}>
+          <Upload beforeUpload={handleUpload} showUploadList={false}>
+            <Button
+              icon={<UploadOutlined />}
+              loading={isUploading}
+              size="large"
+            >
+              Upload SRS Document (PDF)
+            </Button>
+          </Upload>
+        </div>
+      ) : (
+          <Table dataSource={requirements} columns={columns} rowKey="id" />
+      )}
     </div>
   );
 }

@@ -5,6 +5,9 @@ import { persist } from "zustand/middleware";
 export interface Project {
   id: number;
   name: string;
+  description: string;
+  created_at: string;
+  number_of_requirements: number;
 }
 
 interface ProjectState {
@@ -12,8 +15,12 @@ interface ProjectState {
   loading: boolean;
   error: string | null;
   fetchProjects: () => Promise<void>;
-  addProject: (name: string) => Promise<void>;
-  updateProject: (projectId: number, name: string) => Promise<void>;
+  addProject: (name: string, description: string) => Promise<Project>;
+  updateProject: (
+    projectId: number,
+    name: string,
+    description: string,
+  ) => Promise<Project>;
   deleteProject: (projectId: number) => Promise<void>;
 }
 
@@ -34,23 +41,35 @@ export const useProjectStore = create(
           set({ loading: false });
         }
       },
-      addProject: async (name: string) => {
+      addProject: async (name: string, description: string) => {
         try {
-          const response = await projectsService.createProject(name);
-          const newProject = await projectsService.getProject(response.project_id);
+          const response = await projectsService.createProject(
+            name,
+            description,
+          );
+          const newProject = await projectsService.getProject(
+            response.project_id,
+          );
           const projects = get().projects;
           set({ projects: [...projects, newProject] });
+          return newProject;
         } catch (error) {
           set({ error: "Failed to add project" });
         }
       },
-      updateProject: async (projectId: number, name: string) => {
+      updateProject: async (
+        projectId: number,
+        name: string,
+        description: string,
+      ) => {
         try {
-          await projectsService.updateProject(projectId, name);
+          await projectsService.updateProject(projectId, name, description);
+          const newProject = await projectsService.getProject(projectId);
           const projects = get().projects.map((p) =>
-            p.id === projectId ? { ...p, name } : p,
+            p.id === projectId ? newProject : p,
           );
           set({ projects });
+          return newProject;
         } catch (error) {
           set({ error: "Failed to update project" });
         }

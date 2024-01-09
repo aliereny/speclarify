@@ -5,11 +5,11 @@ interface CreateProjectResponse {
   project_id: number;
 }
 
-export const createProject = async (name: string) => {
+export const createProject = async (name: string, description: string) => {
   try {
     const response = await axiosClient.post<CreateProjectResponse>(
       "/projects",
-      { name },
+      { name, description },
     );
     return response.data;
   } catch (error) {
@@ -38,9 +38,16 @@ export const getAllProjects = async () => {
   }
 };
 
-export const updateProject = async (projectId: number, name: string) => {
+export const updateProject = async (
+  projectId: number,
+  name: string,
+  description: string,
+) => {
   try {
-    const response = await axiosClient.put(`/projects/${projectId}`, { name });
+    const response = await axiosClient.put(`/projects/${projectId}`, {
+      name,
+      description,
+    });
     return response.data;
   } catch (error) {
     console.error("Error updating project", error);

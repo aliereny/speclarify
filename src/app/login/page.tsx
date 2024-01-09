@@ -19,7 +19,7 @@ export default function LoginPage() {
 
   const onFinish = async (values: LoginFormData) => {
     try {
-      const accessToken = await login(values.username, values.password);
+     await login(values.username, values.password);
       router.push("/dashboard");
     } catch (error: any) {
       notification.error({
