@@ -15,9 +15,16 @@ export interface Requirement {
   created_at: string;
 }
 
+export interface Ambiguity {
+  reason: string;
+  suggestions: string[];
+  requirement: Requirement;
+}
+
 export interface RequirementsState {
   requirements: Requirement[];
   duplicates: DuplicateRequirementPair[];
+  ambiguities: Ambiguity[];
   loading: boolean;
   error: string | null;
   fetchRequirements: (projectId: number) => Promise<void>;
@@ -38,6 +45,7 @@ export interface RequirementsState {
     requirementId: number,
   ) => Promise<void>;
   findDuplicates: (projectId: number) => Promise<void>;
+  findAmbiguities: (projectId: number) => Promise<void>;
 }
 
 export const useRequirementsStore = create(
@@ -45,6 +53,7 @@ export const useRequirementsStore = create(
     (set, get) => ({
       requirements: [],
       duplicates: [],
+      ambiguities: [],
       loading: false,
       error: null,
       fetchRequirements: async (projectId: number) => {
@@ -97,6 +106,30 @@ export const useRequirementsStore = create(
           );
           message.success("Requirement updated successfully");
           await get().fetchRequirements(projectId);
+          const ambiguity = get().ambiguities.find(
+            (ambiguity) => ambiguity.requirement.id === requirementId,
+          );
+          if (ambiguity) {
+            set({
+              ambiguities: [
+                ...get().ambiguities.filter(
+                  (ambiguity) => ambiguity.requirement.id !== requirementId,
+                ),
+                {
+                  ...ambiguity,
+                  requirement: {
+                    ...ambiguity.requirement,
+                    title,
+                    text,
+                  },
+                },
+              ].sort(
+                (a, b) =>
+                  new Date(b.requirement.created_at).getTime() -
+                  new Date(a.requirement.created_at).getTime(),
+              ),
+            });
+          }
         } catch (error) {
           set({ error: "Failed to update requirement" });
         } finally {
@@ -150,6 +183,25 @@ export const useRequirementsStore = create(
           set({ duplicates: response.data });
         } catch (error) {
           set({ error: "Failed to find duplicates" });
+        } finally {
+          set({ loading: false });
+        }
+      },
+      findAmbiguities: async (projectId) => {
+        set({ loading: true, error: null });
+        try {
+          const response = await axiosClient.get<Ambiguity[]>(
+            `/projects/${projectId}/requirements/ambiguities`,
+          );
+          set({
+            ambiguities: response.data.sort(
+              (a, b) =>
+                new Date(b.requirement.created_at).getTime() -
+                new Date(a.requirement.created_at).getTime(),
+            ),
+          });
+        } catch (error) {
+          set({ error: "Failed to find ambiguities" });
         } finally {
           set({ loading: false });
         }
