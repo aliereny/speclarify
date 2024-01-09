@@ -1,5 +1,5 @@
 "use client";
-import {Divider, Flex, MenuProps, Steps, theme} from "antd";
+import { Divider, Flex, MenuProps, Steps, theme } from "antd";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./StepsLayout.module.scss";
@@ -44,34 +44,36 @@ export default function DashboardLayout({
 
   return (
     <Flex className={styles.wrapper} gap={16}>
-      <Steps
-        size={"small"}
-        style={{ width: "auto" }}
-        current={current}
-        onChange={onChange}
-        direction="vertical"
-        items={[
-          {
-            title: "Upload a file",
-          },
-          {
-            title: "Review requirements",
-          },
-          {
-            title: "Remove duplicates",
-          },
-          {
-            title: "Fix ambiguities",
-          },
-          {
-            title: "Prioritize",
-          },
-          {
-            title: "Create SysML model",
-          },
-        ]}
-      />
-        <Divider type={"vertical"} style={{ height: "100%" }} />
+      <div>
+        <Steps
+          size={"small"}
+          style={{ width: "auto" }}
+          current={current}
+          onChange={onChange}
+          direction="vertical"
+          items={[
+            {
+              title: "Upload a file",
+            },
+            {
+              title: "Review requirements",
+            },
+            {
+              title: "Remove duplicates",
+            },
+            {
+              title: "Fix ambiguities",
+            },
+            {
+              title: "Prioritize",
+            },
+            {
+              title: "Create SysML model",
+            },
+          ]}
+        />
+      </div>
+      <Divider type={"vertical"} style={{ height: "100%" }} />
       {children}
     </Flex>
   );

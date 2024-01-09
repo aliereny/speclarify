@@ -25,8 +25,8 @@ export default function UploadPage({
   params: { projectId: string };
 }) {
   const { projectId } = params;
-  const { projects, error } = useProjectStore();
-  const { loading, parsePdf } = useRequirementsStore();
+  const { projects } = useProjectStore();
+  const { loading, parsePdf, error } = useRequirementsStore();
   const project = projects.find((p) => p.id === parseInt(projectId));
   const isClient = useIsClient();
   const router = useRouter();
