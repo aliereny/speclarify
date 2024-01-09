@@ -10,7 +10,7 @@ import {
   Skeleton,
   Typography,
 } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./UploadPage.module.scss";
 import { UploadOutlined } from "@ant-design/icons";
 import { useIsClient } from "@/hooks/useIsClient";
@@ -25,11 +25,15 @@ export default function UploadPage({
   params: { projectId: string };
 }) {
   const { projectId } = params;
-  const { projects } = useProjectStore();
+  const { projects, fetchProjects } = useProjectStore();
   const { loading, parsePdf, error } = useRequirementsStore();
   const project = projects.find((p) => p.id === parseInt(projectId));
   const isClient = useIsClient();
   const router = useRouter();
+
+  useEffect(() => {
+    fetchProjects();
+  }, [fetchProjects]);
 
   if (!isClient) {
     return <Skeleton active />;

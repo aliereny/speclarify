@@ -1,7 +1,8 @@
 import { Button, Flex, Input, Space, Typography } from "antd";
 import { useState } from "react";
+import useWindowDimensions from "@/hooks/useWindowDimensions";
 
-interface RequirementCardProps {
+interface ConfirmRequirementCardProps {
   disabled: boolean;
   onSave: () => void;
   onDelete: () => void;
@@ -9,7 +10,7 @@ interface RequirementCardProps {
   title?: string;
 }
 
-export const RequirementCard: React.FC<RequirementCardProps> = ({
+export const ConfirmRequirementCard: React.FC<ConfirmRequirementCardProps> = ({
   disabled,
   onSave,
   onDelete,
@@ -18,6 +19,8 @@ export const RequirementCard: React.FC<RequirementCardProps> = ({
 }) => {
   const [textValue, setTextValue] = useState<string>(text ?? "");
   const [titleValue, setTitleValue] = useState<string>(title ?? "");
+
+  const { width } = useWindowDimensions();
 
   return (
     <Flex
@@ -29,7 +32,7 @@ export const RequirementCard: React.FC<RequirementCardProps> = ({
         borderRadius: 4,
       }}
     >
-      <Flex gap={32}>
+      <Flex gap={width < 500 ? 16 : 32} vertical={width < 500}>
         <Flex style={{ flex: 1 }} gap={8} align={"center"}>
           <Typography.Text strong>Title:</Typography.Text>
           <Input

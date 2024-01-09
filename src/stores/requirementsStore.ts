@@ -3,6 +3,11 @@ import { persist } from "zustand/middleware";
 import { axiosClient } from "@/data/axiosClient";
 import { message } from "antd";
 
+export interface DuplicateRequirementPair {
+  either: Requirement;
+  other: Requirement;
+}
+
 export interface Requirement {
   id: number;
   title: string;
@@ -12,6 +17,7 @@ export interface Requirement {
 
 export interface RequirementsState {
   requirements: Requirement[];
+  duplicates: DuplicateRequirementPair[];
   loading: boolean;
   error: string | null;
   fetchRequirements: (projectId: number) => Promise<void>;
@@ -31,12 +37,14 @@ export interface RequirementsState {
     projectId: number,
     requirementId: number,
   ) => Promise<void>;
+  findDuplicates: (projectId: number) => Promise<void>;
 }
 
 export const useRequirementsStore = create(
   persist<RequirementsState>(
     (set, get) => ({
       requirements: [],
+      duplicates: [],
       loading: false,
       error: null,
       fetchRequirements: async (projectId: number) => {
@@ -129,6 +137,19 @@ export const useRequirementsStore = create(
           });
         } catch (error) {
           set({ error: "Failed to add requirement" });
+        } finally {
+          set({ loading: false });
+        }
+      },
+      findDuplicates: async (projectId) => {
+        set({ loading: true, error: null });
+        try {
+          const response = await axiosClient.get<DuplicateRequirementPair[]>(
+            `/projects/${projectId}/requirements/duplicates`,
+          );
+          set({ duplicates: response.data });
+        } catch (error) {
+          set({ error: "Failed to find duplicates" });
         } finally {
           set({ loading: false });
         }
