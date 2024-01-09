@@ -16,7 +16,7 @@ axiosClient.interceptors.response.use(
         if (error.response.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
             const refreshToken = useAuthStore.getState().refreshToken;
-            const response = await axiosClient.post('/auth/refresh', {
+            const response = await axiosClient.post('/refresh', {
                 refresh_token: refreshToken,
             });
             if (response.status === 201) {

@@ -37,9 +37,10 @@ export default function DashboardLayout({
           background: token.colorBgContainer,
           display: "flex",
           alignItems: "center",
+            padding: "0",
         }}
       >
-        <Flex className={"container"}>
+        <Flex className={"container"} style={{paddingLeft: "1rem", paddingRight: "1rem"}}>
           <Link
             href="/"
             style={{
@@ -70,10 +71,9 @@ export default function DashboardLayout({
           style={{
             background: token.colorBgLayout,
             minHeight: 280,
-            padding: "1rem 0",
+            padding: "1rem",
             borderRadius: token.borderRadiusLG,
             display: "flex",
-            alignItems: "center",
             justifyContent: "center",
           }}
         >

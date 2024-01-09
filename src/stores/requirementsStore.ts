@@ -1,9 +1,10 @@
-import create from "zustand";
 import * as requirementsService from "../services/requirementsService";
 import { persist } from "zustand/middleware";
+import {create} from "zustand";
 
 export interface Requirement {
   id: number;
+  title: string;
   text: string;
 }
 
@@ -12,7 +13,7 @@ export interface RequirementsState {
   loading: boolean;
   error: string | null;
   fetchRequirements: (projectId: number) => Promise<void>;
-  parsePdf: (projectId: number, file: File) => Promise<void>;
+  parsePdf: (projectId: number, file: File) => Promise<boolean>;
 }
 
 export const useRequirementsStore = create(
@@ -40,8 +41,10 @@ export const useRequirementsStore = create(
           const requirements =
             await requirementsService.getProjectRequirements(projectId);
           set({ requirements });
+          return true;
         } catch (error) {
           set({ error: "Failed to parse PDF" });
+          return false;
         } finally {
           set({ loading: false });
         }

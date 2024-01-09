@@ -20,7 +20,6 @@ export default function EditProjectPage({
   const router = useRouter();
 
   if (!project) {
-    console.log({ projects, projectId })
     return (
       <Result
         status="404"

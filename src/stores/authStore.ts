@@ -1,5 +1,5 @@
-import create from "zustand";
 import { axiosClient } from "@/data/axiosClient";
+import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface AuthStore {

@@ -1,4 +1,4 @@
-import create from "zustand";
+import { create } from "zustand";
 import * as projectsService from "../services/projectsService";
 import { persist } from "zustand/middleware";
 
