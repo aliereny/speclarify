@@ -34,7 +34,7 @@ export default function DashboardLayout({
     `/dashboard/projects/${params.projectId}/remove-duplicates`,
     `/dashboard/projects/${params.projectId}/fix-ambiguities`,
     `/dashboard/projects/${params.projectId}/prioritize`,
-    `/dashboard/projects/${params.projectId}/create-sysml-model`,
+    `/dashboard/projects/${params.projectId}/classify`,
   ];
 
   const onChange = (value: number) => {
@@ -68,7 +68,7 @@ export default function DashboardLayout({
               title: "Prioritize",
             },
             {
-              title: "Create SysML model",
+              title: "Classify",
             },
           ]}
         />

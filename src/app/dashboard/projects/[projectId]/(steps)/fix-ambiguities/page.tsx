@@ -29,7 +29,7 @@ export default function AmbiguityPage({
 
   useEffect(() => {
     findAmbiguities(parseInt(projectId));
-  }, [findAmbiguities, projectId]);
+  }, []);
 
   if (!isClient) {
     return <Skeleton active />;

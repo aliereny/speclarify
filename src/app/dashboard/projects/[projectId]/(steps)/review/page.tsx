@@ -36,7 +36,7 @@ export default function UploadPage({
 
   useEffect(() => {
     fetchRequirements(parseInt(projectId));
-  }, [fetchRequirements, projectId]);
+  }, []);
 
   if (!isClient) {
     return <Skeleton active />;

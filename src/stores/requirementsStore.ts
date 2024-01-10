@@ -13,6 +13,10 @@ export interface Requirement {
   title: string;
   text: string;
   created_at: string;
+  priority: string;
+  ambiguous: boolean;
+  req_class: string;
+  req_subclass: string;
 }
 
 export interface Ambiguity {
@@ -46,6 +50,17 @@ export interface RequirementsState {
   ) => Promise<void>;
   findDuplicates: (projectId: number) => Promise<void>;
   findAmbiguities: (projectId: number) => Promise<void>;
+  updateRequirementPriority: (
+    projectId: number,
+    requirementId: number,
+    priority: string,
+  ) => Promise<void>;
+  updateRequirementClass: (
+    projectId: number,
+    requirementId: number,
+    reqClass: string,
+    reqSubclass: string,
+  ) => Promise<void>;
 }
 
 export const useRequirementsStore = create(
@@ -202,6 +217,57 @@ export const useRequirementsStore = create(
           });
         } catch (error) {
           set({ error: "Failed to find ambiguities" });
+        } finally {
+          set({ loading: false });
+        }
+      },
+      updateRequirementPriority: async (projectId, requirementId, priority) => {
+        set({ loading: true, error: null });
+        try {
+          await axiosClient.put(
+            `/projects/${projectId}/requirements/${requirementId}/priority`,
+            { priority },
+          );
+          set({
+            requirements: get().requirements.map((req) =>
+              req.id === requirementId ? { ...req, priority } : req,
+            ),
+          });
+          message.success("Requirement priority updated successfully");
+        } catch (error) {
+          set({ error: "Failed to update requirement priority" });
+        } finally {
+          set({ loading: false });
+        }
+      },
+      updateRequirementClass: async (
+        projectId,
+        requirementId,
+        reqClass,
+        reqSubclass,
+      ) => {
+        set({ loading: true, error: null });
+        try {
+          await axiosClient.put(
+            `/projects/${projectId}/requirements/${requirementId}/class`,
+            {
+              class: reqClass,
+              subclass: reqSubclass,
+            },
+          );
+          const updatedRequirement = {
+            ...get().requirements.find((req) => req.id === requirementId),
+            req_class: reqClass,
+            req_subclass: reqSubclass,
+          } as Requirement;
+          set({
+            requirements: get().requirements.map((req) =>
+              req.id === requirementId ? updatedRequirement : req,
+            ),
+          });
+          message.success("Requirement class updated successfully");
+        } catch (error) {
+          set({ error: "Failed to update requirement class" });
         } finally {
           set({ loading: false });
         }

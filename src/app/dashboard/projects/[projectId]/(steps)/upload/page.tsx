@@ -33,7 +33,7 @@ export default function UploadPage({
 
   useEffect(() => {
     fetchProjects();
-  }, [fetchProjects]);
+  }, []);
 
   if (!isClient) {
     return <Skeleton active />;
@@ -53,7 +53,7 @@ export default function UploadPage({
     const success = await parsePdf(project.id, values.file);
     if (success) {
       message.success("File uploaded successfully");
-      router.push(`/dashboard/projects/${project.id}/requirements`);
+      router.push(`/dashboard/projects/${project.id}/review`);
     }
   };
 
