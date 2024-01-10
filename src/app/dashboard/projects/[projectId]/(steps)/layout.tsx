@@ -1,7 +1,7 @@
 "use client";
 import { Divider, Flex, MenuProps, Steps, theme } from "antd";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import styles from "./StepsLayout.module.scss";
 
 const items: MenuProps["items"] = [
@@ -28,6 +28,13 @@ export default function DashboardLayout({
 
   const router = useRouter();
 
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const index = routes.findIndex((route) => route === pathname);
+    setCurrent(index);
+  }, [pathname]);
+
   const routes = [
     `/dashboard/projects/${params.projectId}/upload`,
     `/dashboard/projects/${params.projectId}/review`,
@@ -35,6 +42,7 @@ export default function DashboardLayout({
     `/dashboard/projects/${params.projectId}/fix-ambiguities`,
     `/dashboard/projects/${params.projectId}/prioritize`,
     `/dashboard/projects/${params.projectId}/classify`,
+    `/dashboard/projects/${params.projectId}/export`,
   ];
 
   const onChange = (value: number) => {
@@ -69,6 +77,9 @@ export default function DashboardLayout({
             },
             {
               title: "Classify",
+            },
+            {
+              title: "Export",
             },
           ]}
         />

@@ -16,7 +16,7 @@ import { CheckOutlined } from "@ant-design/icons";
 import { PrioritizeRequirementCard } from "@/ui/molecules/prioritize-requirement-card/prioritizeRequirementCard";
 import {ClassifyRequirementCard} from "@/ui/molecules/classify-requirement-card/classifyRequirementCard";
 
-export default function PrioritizePage({
+export default function ClassifyPage({
   params,
 }: {
   params: { projectId: string };
