@@ -1,3 +1,4 @@
+'use client';
 import React, { ReactNode } from 'react';
 import ThemeContextProvider from './ThemeContextProvider';
 import LocaleContextProvider from './LocaleContextProvider';

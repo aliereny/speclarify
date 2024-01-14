@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const useClickInside = (ref, callback) => {
-  const handleClick = (e) => {
+export const useClickInside = (ref: any, callback: any) => {
+  const handleClick = (e: any) => {
     if (ref.current && ref.current.contains(e.target)) {
       callback();
     }

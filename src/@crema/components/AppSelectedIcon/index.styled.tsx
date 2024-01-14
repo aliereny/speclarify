@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 type StyledAppSelectedIconProps = {
-    backgroundColor:string | undefined;
-}
+  backgroundColor: string | undefined;
+};
 
 export const StyledAppSelectedIcon = styled.div<StyledAppSelectedIconProps>`
   width: 20px;
   height: 20px;
-  border-radius: ${({theme}) => theme.sizes.borderRadius.circle};
+  border-radius: ${({ theme }) => theme.sizes.borderRadius.circle};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +20,7 @@ export const StyledAppSelectedIcon = styled.div<StyledAppSelectedIconProps>`
     props.backgroundColor
       ? props.backgroundColor
       : props.theme.palette.text.primary};
-  color: ${({color}) => color};
+  color: ${({ color }) => color};
 
   .anticon {
     background-color: ${(props) =>
@@ -37,6 +37,6 @@ export const StyledAppSelectedIcon = styled.div<StyledAppSelectedIconProps>`
   }
 
   & svg {
-    font-size: ${({theme}) => theme.font.size.sm};
+    font-size: ${({ theme }) => theme.font.size.sm};
   }
 `;

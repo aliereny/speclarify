@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import AppCard from '../AppCard';
-import {HiOutlineCode} from 'react-icons/hi';
+import { HiOutlineCode } from 'react-icons/hi';
 
 export const StyledCompCard = styled(AppCard)`
   position: relative;
-  box-shadow: ${({theme}) => theme.cardShadow};
+  box-shadow: ${({ theme }) => theme.cardShadow};
 
   & > .ant-card-head {
     min-height: 10px;
-    font-weight: ${({theme}) => theme.font.weight.bold};
+    font-weight: ${({ theme }) => theme.font.weight.bold};
     padding-left: 20px;
     padding-right: 20px;
     border-bottom: 0 none;
@@ -35,14 +35,14 @@ export const StyledCompCard = styled(AppCard)`
 `;
 
 export const StyledCompCardTitleDesc = styled.span`
-  font-size: ${({theme}) => theme.font.size.base};
-  font-weight: ${({theme}) => theme.font.weight.regular};
-  color: ${({theme}) => theme.palette.text.secondary};
+  font-size: ${({ theme }) => theme.font.size.base};
+  font-weight: ${({ theme }) => theme.font.weight.regular};
+  color: ${({ theme }) => theme.palette.text.secondary};
 `;
 
 export const StyledHiOutlineCode = styled(HiOutlineCode)`
   font-size: 20px;
-  color: ${({theme}) => theme.palette.text.secondary};
+  color: ${({ theme }) => theme.palette.text.secondary};
 `;
 
 export const StyledPreTag = styled.pre`
@@ -58,5 +58,5 @@ export const StyledComponentRoot = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background-color: ${({theme}) => theme.palette.background.default};
+  background-color: ${({ theme }) => theme.palette.background.default};
 `;

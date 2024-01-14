@@ -1,10 +1,10 @@
-import React from "react";
-import { useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
+import React from 'react';
+import { useLayoutContext } from '@crema/context/AppContextProvider/LayoutContextProvider';
 import {
+  StyledFooterBtn,
   StyledFooterBtnView,
   StyledMainFooter,
-  StyledFooterBtn,
-} from "./AppFooter.styled";
+} from './AppFooter.styled';
 
 const AppFooter = () => {
   const { footer } = useLayoutContext();
@@ -14,7 +14,7 @@ const AppFooter = () => {
       <StyledMainFooter>
         <p>Copy right @crema 2021</p>
         <StyledFooterBtnView>
-          <StyledFooterBtn type="link" color="primary">
+          <StyledFooterBtn type='link' color='primary'>
             Buy Now
           </StyledFooterBtn>
         </StyledFooterBtnView>

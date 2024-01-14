@@ -1,58 +1,57 @@
-import React from "react";
-import AppsContainer from "@crema/components/AppsContainer";
-import { useIntl } from "react-intl";
-import AppPageMeta from "@crema/components/AppPageMeta";
+'use client';
+import React from 'react';
+import AppsContainer from '@crema/components/AppsContainer';
+import { useIntl } from 'react-intl';
+import AppPageMeta from '@crema/components/AppPageMeta';
 import {
   StyledAppRowContainer,
   StyledWallLeftSidebar,
   StyledWallMainContent,
   StyledWallRightSidebar,
   StyledWallScrollBar,
-} from "./index.styled";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import {
-  About,
-  CreatePost,
-  FriendRequests,
-  Photos,
-  PostsList,
-  RecentNews,
-  Suggestions,
-  SuggestTeam,
-  VideoCall,
-  Stories,
-  WhatsHappen,
-  WhoToFollow,
-} from "@crema/modules/apps/Wall";
-import { WallDataType } from "@crema/types/models/apps/Wall";
+} from './index.styled';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import VideoCall from './VideoCall';
+import FriendRequests from './FriendRequests';
+import Photos from './Photos';
+import RecentNews from './RecentNews';
+import WhoToFollow from './WhoToFollow';
+import Suggestions from './Suggestions';
+import CreatePost from './CreatePost';
+import PostsList from './PostsList';
+import About from './About';
+import SuggestTeam from './SuggestTeam';
+import Stories from './Stories';
+import WhatsHappen from './WhatsHappen';
+import { WallDataType } from '@crema/types/models/apps/Wall';
 
 const Wall = () => {
   const [{ apiData: wallData }] = useGetDataApi<WallDataType>(
-    "/wall",
-    undefined
+    '/wall',
+    undefined,
   );
   const [{ apiData: postList }, { setData: setPostList }] = useGetDataApi(
-    "/wall/posts",
-    []
+    '/wall/posts',
+    [],
   );
   const { messages } = useIntl();
 
   return (
     <AppsContainer
-      title={messages["sidebar.apps.wall"] as string}
-      cardStyle={{ backgroundColor: "transparent", boxShadow: "none" }}
+      title={messages['sidebar.apps.wall'] as string}
+      cardStyle={{ backgroundColor: 'transparent', boxShadow: 'none' }}
       fullView
     >
-      <AppPageMeta title="Wall App" />
+      <AppPageMeta title='Wall App' />
       {wallData && (
         <StyledAppRowContainer
           style={{
-            height: "calc(100% - 32px)",
+            height: 'calc(100% - 32px)',
             padding: 8,
           }}
         >
           <StyledWallLeftSidebar xs={24} md={6} xl={6} xxl={6}>
-          <StyledWallScrollBar style={{height: 'calc(100vh - 160px)'}}>
+            <StyledWallScrollBar style={{ height: 'calc(100vh - 160px)' }}>
               <div>
                 <VideoCall data={wallData?.videoCall} />
                 <About about={wallData?.about} />
@@ -63,9 +62,10 @@ const Wall = () => {
             </StyledWallScrollBar>
           </StyledWallLeftSidebar>
           <StyledWallMainContent xs={24} md={12} xl={12} xxl={12}>
-          <StyledWallScrollBar style={{height: 'calc(100vh - 160px)'}}>
+            <StyledWallScrollBar style={{ height: 'calc(100vh - 160px)' }}>
               <div>
                 <CreatePost wallData={wallData} setPostList={setPostList} />
+
                 <PostsList
                   wallData={wallData}
                   postList={postList}
@@ -75,7 +75,7 @@ const Wall = () => {
             </StyledWallScrollBar>
           </StyledWallMainContent>
           <StyledWallRightSidebar xs={24} md={6} xl={6} xxl={6}>
-          <StyledWallScrollBar style={{height: 'calc(100vh - 160px)'}}>
+            <StyledWallScrollBar style={{ height: 'calc(100vh - 160px)' }}>
               <div>
                 <Stories stories={wallData?.stories} />
                 <WhatsHappen whatsHappen={wallData?.whatsHappen} />

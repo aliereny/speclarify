@@ -1,20 +1,22 @@
-import React from "react";
-import ProductListing from "./ProductListing";
-import { useIntl } from "react-intl";
-import AppsContainer from "@crema/components/AppsContainer";
+'use client';
+import React from 'react';
+import ProductListing from './ProductListing';
+import { useIntl } from 'react-intl';
+import AppsContainer from '@crema/components/AppsContainer';
 
-import AppPageMeta from "@crema/components/AppPageMeta";
-import { ProductsSidebar } from "@crema/modules/ecommerce/Products";
-import { ProductDataFilterType } from "@crema/types/models/ecommerce/EcommerceApp";
+import AppPageMeta from '@crema/components/AppPageMeta';
+import ProductsSidebar from './ProductsSidebar';
+import { ProductDataFilterType } from '@crema/types/models/ecommerce/EcommerceApp';
+
 export const VIEW_TYPE = {
-  GRID: "grid",
-  LIST: "list",
+  GRID: 'grid',
+  LIST: 'list',
 };
 
 const Products = () => {
   const { messages } = useIntl();
   const [filterData, setFilterData] = React.useState<ProductDataFilterType>({
-    title: "",
+    title: '',
     brand: [],
     ideaFor: [],
     discount: [],
@@ -24,7 +26,7 @@ const Products = () => {
   const [viewType, setViewType] = React.useState(VIEW_TYPE.GRID);
   return (
     <AppsContainer
-      title={messages["sidebar.ecommerce.products"] as string}
+      title={messages['sidebar.ecommerce.products'] as string}
       sidebarContent={
         <ProductsSidebar
           filterData={filterData}
@@ -32,7 +34,7 @@ const Products = () => {
         />
       }
     >
-      <AppPageMeta title="Products Listing" />
+      <AppPageMeta title='Products Listing' />
       <ProductListing
         filterData={filterData}
         viewType={viewType}

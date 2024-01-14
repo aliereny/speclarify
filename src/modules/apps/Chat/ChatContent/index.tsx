@@ -1,8 +1,8 @@
-import React from "react";
-import { StyledChatContentScreen, StyledChatNoScreen } from "./index.styled";
-import { NoUserScreen } from "@crema/modules/apps/Chat";
-import MessagesScreen from "./ChatViewContainer";
-import { ConnectionObjType } from "@crema/types/models/apps/Chat";
+import React from 'react';
+import { StyledChatContentScreen, StyledChatNoScreen } from './index.styled';
+import NoUserScreen from './NoUserScreen';
+import MessagesScreen from './ChatViewContainer';
+import { ConnectionObjType } from '@crema/types/models/apps/Chat';
 
 type ChatContentProps = {
   selectedUser: ConnectionObjType | null;

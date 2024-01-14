@@ -1,4 +1,4 @@
-import { BlogType, BlogDetailType } from '../models/extrapages/Blog';
+import { BlogDetailType, BlogType } from '../models/extrapages/Blog';
 
 export const GET_BLOGS_LIST = 'GET_BLOGS_LIST';
 export const GET_BLOGS_DETAIL = 'GET_BLOGS_DETAIL';

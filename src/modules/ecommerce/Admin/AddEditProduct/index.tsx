@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from "react";
-import AppRowContainer from "@crema/components/AppRowContainer";
-import ProductSidebar from "./Sidebar";
-import ProductContent from "./Content";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { postDataApi, putDataApi } from "@crema/hooks/APIHooks";
-import { useRouter } from "next/router";
-import { getStringFromHtml } from "@crema/helpers/StringHelper";
-import dayjs from "dayjs";
-import { Form } from "antd";
-import { StyledTitle5 } from "../index.styled";
+'use client';
+import React, { useEffect, useState } from 'react';
+import AppRowContainer from '@crema/components/AppRowContainer';
+import ProductSidebar from './Sidebar';
+import ProductContent from './Content';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import { postDataApi, putDataApi } from '@crema/hooks/APIHooks';
+import { useRouter } from 'next/navigation';
+import { getStringFromHtml } from '@crema/helpers/StringHelper';
+import dayjs from 'dayjs';
+import { Form } from 'antd';
+import { StyledTitle5 } from '../index.styled';
 import {
   FileType,
   ProductDataType,
   ProductInfoType,
   TagType,
-} from "@crema/types/models/ecommerce/EcommerceApp";
+} from '@crema/types/models/ecommerce/EcommerceApp';
 
 type Props = {
   selectedProd?: ProductDataType;
@@ -27,17 +28,17 @@ export const AddEditProduct = ({ selectedProd }: Props) => {
   const infoViewActionsContext = useInfoViewActionsContext();
   const router = useRouter();
   const [productInfo, setProductInfo] = React.useState<ProductInfoType[]>([
-    { id: 1, title: "", desc: "" },
+    { id: 1, title: '', desc: '' },
   ]);
   const [productSpec, setProductSpec] = React.useState<ProductInfoType[]>([
-    { id: 1, title: "", desc: "" },
+    { id: 1, title: '', desc: '' },
   ]);
 
   useEffect(() => {
     if (selectedProd) {
       setSelectedTags(selectedProd?.tag || []);
       setUploadedFiles(
-        selectedProd.image.map((img) => ({ ...img, preview: img.src }))
+        selectedProd.image.map((img) => ({ ...img, preview: img.src })),
       );
       setProductInfo(selectedProd?.productInfo || []);
       setProductSpec(selectedProd?.productSpec || []);
@@ -50,18 +51,18 @@ export const AddEditProduct = ({ selectedProd }: Props) => {
         ...selectedProd,
         ...values,
       };
-      putDataApi("/api/ecommerce/list/update", infoViewActionsContext, {
+      putDataApi('ecommerce/admin', infoViewActionsContext, {
         product: updatedProd,
       })
         .then(() => {
-          router.push("/ecommerce/product-listing");
-          infoViewActionsContext.showMessage("Product updated successfully!");
+          router.push('/ecommerce/product-listing');
+          infoViewActionsContext.showMessage('Product updated successfully!');
         })
         .catch((error) => {
           infoViewActionsContext.fetchError(error.message);
         });
     } else {
-      postDataApi("/api/ecommerce/list/add", infoViewActionsContext, {
+      postDataApi('ecommerce/admin', infoViewActionsContext, {
         product: {
           ...values,
           description: getStringFromHtml(values.description),
@@ -71,7 +72,7 @@ export const AddEditProduct = ({ selectedProd }: Props) => {
             rating: 0,
             reviews: 0,
           })),
-          createdAt: dayjs().format("DD MMM YYYY"),
+          createdAt: dayjs().format('DD MMM YYYY'),
           inStock: values?.inStock || false,
           tag: selectedTags,
           productInfo,
@@ -79,8 +80,8 @@ export const AddEditProduct = ({ selectedProd }: Props) => {
         },
       })
         .then(() => {
-          infoViewActionsContext.showMessage("Product created successfully!");
-          router.push("/ecommerce/product-listing");
+          infoViewActionsContext.showMessage('Product created successfully!');
+          router.push('/ecommerce/product-listing');
         })
         .catch((error) => {
           infoViewActionsContext.fetchError(error.message);
@@ -90,7 +91,7 @@ export const AddEditProduct = ({ selectedProd }: Props) => {
   return (
     <>
       <StyledTitle5>
-        {selectedProd ? "Edit Product" : "Create a new product"}
+        {selectedProd ? 'Edit Product' : 'Create a new product'}
       </StyledTitle5>
 
       <Form
@@ -102,8 +103,8 @@ export const AddEditProduct = ({ selectedProd }: Props) => {
                 category: selectedProd?.category || 1,
               }
             : {
-                title: "",
-                SKU: "",
+                title: '',
+                SKU: '',
                 category: 1,
                 mrp: 0,
                 salemrp: 0,
@@ -111,7 +112,7 @@ export const AddEditProduct = ({ selectedProd }: Props) => {
                 inStock: false,
               }
         }
-        layout="vertical"
+        layout='vertical'
         onFinish={onFinish}
       >
         <AppRowContainer>

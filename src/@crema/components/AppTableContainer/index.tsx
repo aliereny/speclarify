@@ -25,7 +25,7 @@ const AppTableContainer: React.FC<AppTableContainerProps> = ({
       className={clsx({ hoverColor: hoverColor }, className)}
       columns={columns}
       dataSource={data}
-      rowKey="id"
+      rowKey='id'
       pagination={pagination}
       {...rest}
     />

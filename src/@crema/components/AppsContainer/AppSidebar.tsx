@@ -1,11 +1,11 @@
-import React, { ReactNode } from "react";
-import { LayoutDirection } from "@crema/constants/AppEnums";
-import { useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
+import React, { ReactNode } from 'react';
+import { LayoutDirection } from '@crema/constants/AppEnums';
+import { useLayoutContext } from '@crema/context/AppContextProvider/LayoutContextProvider';
 import {
   StyledAppSidebar,
   StyledAppSidebarCard,
   StyledAppSidebarDrawer,
-} from "./index.styled";
+} from './index.styled';
 
 type AppSidebarProps = {
   isAppDrawerOpen: boolean;
@@ -27,7 +27,7 @@ const AppSidebar: React.FC<AppSidebarProps> = ({
     <StyledAppSidebar>
       <StyledAppSidebarDrawer
         closeIcon={null}
-        placement={direction === LayoutDirection.LTR ? "left" : "right"}
+        placement={direction === LayoutDirection.LTR ? 'left' : 'right'}
         open={isAppDrawerOpen}
         onClose={() => setAppDrawerOpen(!isAppDrawerOpen)}
       >

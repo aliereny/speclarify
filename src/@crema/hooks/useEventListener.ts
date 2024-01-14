@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export const useEventListener = (type, handler, el = window) => {
+export const useEventListener = (type: any, handler: any, el = window) => {
   const savedHandler = React.useRef<any>();
 
   React.useEffect(() => {
@@ -8,7 +8,7 @@ export const useEventListener = (type, handler, el = window) => {
   }, [handler]);
 
   React.useEffect(() => {
-    const listener = (e) => savedHandler.current(e);
+    const listener = (e: any) => savedHandler.current(e);
 
     el.addEventListener(type, listener);
 

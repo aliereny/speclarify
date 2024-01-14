@@ -1,19 +1,19 @@
-import React from "react";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import AppsDeleteIcon from "@crema/components/AppsDeleteIcon";
-import { useRouter } from "next/router";
-import { Dropdown } from "antd";
-import { MdLabelOutline } from "react-icons/md";
-import AppIconButton from "@crema/components/AppIconButton";
-import { StyledTodoHeaderCheckedAction } from "../index.styled";
-import { putDataApi, useGetDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
+import React from 'react';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import AppsDeleteIcon from '@crema/components/AppsDeleteIcon';
+import { usePathname } from 'next/navigation';
+import { Dropdown } from 'antd';
+import { MdLabelOutline } from 'react-icons/md';
+import AppIconButton from '@crema/components/AppIconButton';
+import { StyledTodoHeaderCheckedAction } from '../index.styled';
+import { putDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 
-import { LabelObjType, TodoObjType } from "@crema/types/models/apps/Todo";
+import { LabelObjType, TodoObjType } from '@crema/types/models/apps/Todo';
 import {
   useTodoActionsContext,
   useTodoContext,
-} from "../../../context/TodoContextProvider";
+} from '../../../context/TodoContextProvider';
 
 type CheckedTasksActionsProps = {
   checkedTasks: number[];
@@ -26,26 +26,22 @@ const CheckedTasksActions: React.FC<CheckedTasksActionsProps> = ({
   setCheckedTasks,
   onUpdateTasks,
 }) => {
-  const { asPath } = useRouter();
-  const path = asPath.split("/");
+  const pathname = usePathname();
+  const path = pathname.split('/');
   const { labelList, page } = useTodoContext();
   const { setTodoData } = useTodoActionsContext();
   const infoViewActionsContext = useInfoViewActionsContext();
 
   const onDeleteTasks = () => {
-    putDataApi<TodoObjType[]>(
-      "/api/todo/update/folder",
-      infoViewActionsContext,
-      {
-        taskIds: checkedTasks,
-        type: path[path.length - 2],
-        name: path[path.length - 1],
-        page,
-      }
-    )
+    putDataApi<any>('todo/folders', infoViewActionsContext, {
+      taskIds: checkedTasks,
+      type: path[path.length - 2],
+      name: path[path.length - 1],
+      page,
+    })
       .then((data) => {
-        setTodoData({ data, count: data.length });
-        infoViewActionsContext.showMessage("Task Deleted Successfully");
+        setTodoData({ data: data.data, count: data.count });
+        infoViewActionsContext.showMessage('Task Deleted Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -55,13 +51,13 @@ const CheckedTasksActions: React.FC<CheckedTasksActionsProps> = ({
   };
 
   const onSelectLabel = (key: number) => {
-    putDataApi("/api/todo/update/label", infoViewActionsContext, {
+    putDataApi('todo/labels', infoViewActionsContext, {
       taskIds: checkedTasks,
       type: +key,
     })
       .then((data) => {
         onUpdateTasks(data as TodoObjType[]);
-        infoViewActionsContext.showMessage("Task Updated Successfully");
+        infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -80,12 +76,12 @@ const CheckedTasksActions: React.FC<CheckedTasksActionsProps> = ({
     <StyledTodoHeaderCheckedAction>
       <AppsDeleteIcon
         deleteAction={onDeleteTasks}
-        deleteTitle={<IntlMessages id="todo.deleteMessage" />}
+        deleteTitle={<IntlMessages id='todo.deleteMessage' />}
       />
 
-      <Dropdown menu={{ items: menuLabel }} trigger={["click"]}>
+      <Dropdown menu={{ items: menuLabel }} trigger={['click']}>
         <AppIconButton
-          title={<IntlMessages id="common.label" />}
+          title={<IntlMessages id='common.label' />}
           icon={<MdLabelOutline />}
         />
       </Dropdown>

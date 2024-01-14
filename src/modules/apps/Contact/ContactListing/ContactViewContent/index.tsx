@@ -1,21 +1,19 @@
-import React from "react";
-import AppList from "@crema/components/AppList";
-import AppGrid from "@crema/components/AppGrid";
-import ListEmptyResult from "@crema/components/AppList/ListEmptyResult";
-import ContactListSkeleton from "@crema/components/AppSkeleton/ContactListSkeleton";
+import React from 'react';
+import AppList from '@crema/components/AppList';
+import AppGrid from '@crema/components/AppGrid';
+import ListEmptyResult from '@crema/components/AppList/ListEmptyResult';
+import ContactListSkeleton from '@crema/components/AppSkeleton/ContactListSkeleton';
 import {
   StyledContactGridView,
   StyledContactListDesktop,
   StyledContactListMobile,
-} from "../index.styled";
-import { useIntl } from "react-intl";
-import {
-  ContactGridItem,
-  ContactListItem,
-  ContactListItemMobile,
-} from "@crema/modules/apps/Contact";
-import type { ContactObjType } from "@crema/types/models/apps/Contact";
-import { useContactContext } from "../../../context/ContactContextProvider";
+} from '../index.styled';
+import { useIntl } from 'react-intl';
+import ContactListItem from './ContactListItem';
+import ContactGridItem from './ContactGridItem';
+import ContactListItemMobile from './ContactListItemMobile';
+import type { ContactObjType } from '@crema/types/models/apps/Contact';
+import { useContactContext } from '../../../context/ContactContextProvider';
 
 type ContactViewContentProps = {
   list: ContactObjType[];
@@ -42,7 +40,7 @@ const ContactViewContent: React.FC<ContactViewContentProps> = ({
 
   const { messages } = useIntl();
 
-  return pageView === "list" ? (
+  return pageView === 'list' ? (
     <>
       <StyledContactListDesktop>
         <AppList
@@ -50,7 +48,7 @@ const ContactViewContent: React.FC<ContactViewContentProps> = ({
           ListEmptyComponent={
             <ListEmptyResult
               loading={loading}
-              actionTitle={messages["contactApp.createContact"] as string}
+              actionTitle={messages['contactApp.createContact'] as string}
               onClick={handleAddContactOpen}
               placeholder={<ContactListSkeleton />}
             />
@@ -76,7 +74,7 @@ const ContactViewContent: React.FC<ContactViewContentProps> = ({
           ListEmptyComponent={
             <ListEmptyResult
               loading={loading}
-              actionTitle={messages["contactApp.createContact"] as string}
+              actionTitle={messages['contactApp.createContact'] as string}
               onClick={handleAddContactOpen}
               placeholder={<ContactListSkeleton />}
             />

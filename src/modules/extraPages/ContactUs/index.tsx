@@ -1,20 +1,19 @@
-import React from "react";
-import AppCard from "@crema/components/AppCard";
-import AppRowContainer from "@crema/components/AppRowContainer";
-import { Col } from "antd";
-import { StyledContactSimpleMap } from "./index.styled";
-import AppAnimate from "@crema/components/AppAnimate";
-import { contactUsData } from "@crema/mockapi/fakedb/extraPages";
-import {
-  ContactUsForm,
-  SendMessage,
-  Address,
-  SimpleMap,
-} from "@crema/modules/extraPages/ContactUs";
+'use client';
+import React from 'react';
+import AppCard from '@crema/components/AppCard';
+import AppRowContainer from '@crema/components/AppRowContainer';
+import { Col } from 'antd';
+import { StyledContactSimpleMap } from './index.styled';
+import AppAnimate from '@crema/components/AppAnimate';
+import { contactUsData } from '@crema/fakedb/extraPages';
+import ContactUsForm from './ContactUsForm';
+import SendMessage from './SendMessage';
+import Address from './Address';
+import SimpleMap from './SimpleMap';
 
 const ContactUs = () => {
   return (
-    <AppAnimate animation="transition.slideUpIn" delay={200}>
+    <AppAnimate animation='transition.slideUpIn' delay={200}>
       <AppCard>
         <StyledContactSimpleMap>
           <SimpleMap />

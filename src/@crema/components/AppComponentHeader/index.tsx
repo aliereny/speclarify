@@ -1,19 +1,19 @@
 import React from 'react';
-import {Button} from 'antd';
-import {LinkOutlined} from '@ant-design/icons';
+import { Button } from 'antd';
+import { LinkOutlined } from '@ant-design/icons';
 import AppAnimate from '../AppAnimate';
 import {
   StyledContainerHeader,
   StyledHeaderTitle,
-  StyledTitleH3,
   StyledTextBase,
+  StyledTitleH3,
 } from './index.styled';
 
 type AppComponentHeaderProps = {
   title: string;
   description?: string;
   refUrl?: string;
-}
+};
 
 const AppComponentHeader: React.FC<AppComponentHeaderProps> = ({
   title,
@@ -30,13 +30,15 @@ const AppComponentHeader: React.FC<AppComponentHeaderProps> = ({
           ) : null}
         </StyledHeaderTitle>
         {refUrl ? (
-          <div style={{height: 30}}>
+          <div style={{ height: 30 }}>
             <Button
               type='primary'
               ghost
               href={refUrl}
               icon={<LinkOutlined />}
-              target='_blank'>
+              target='_blank'
+              style={{ display: 'flex', alignItems: 'center' }}
+            >
               Reference
             </Button>
           </div>

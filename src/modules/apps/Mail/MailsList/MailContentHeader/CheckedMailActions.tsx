@@ -1,21 +1,22 @@
-import React from "react";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import { Dropdown } from "antd";
-import { BiArchiveIn } from "react-icons/bi";
-import { HiOutlineFolderRemove } from "react-icons/hi";
-import { MdLabelOutline } from "react-icons/md";
-import { AiOutlineDelete, AiOutlineInfoCircle } from "react-icons/ai";
-import AppIconButton from "@crema/components/AppIconButton";
-import { StyledMailCheckedAction } from "../index.styled";
-import { putDataApi, useGetDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
+'use client';
+import React from 'react';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import { Dropdown } from 'antd';
+import { BiArchiveIn } from 'react-icons/bi';
+import { HiOutlineFolderRemove } from 'react-icons/hi';
+import { MdLabelOutline } from 'react-icons/md';
+import { AiOutlineDelete, AiOutlineInfoCircle } from 'react-icons/ai';
+import AppIconButton from '@crema/components/AppIconButton';
+import { StyledMailCheckedAction } from '../index.styled';
+import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 
 import type {
   FolderObjType,
   LabelObjType,
   MailObjType,
-} from "@crema/types/models/apps/Mail";
-import { useMailActionsContext } from "../../../context/MailContextProvider";
+} from '@crema/types/models/apps/Mail';
+import { useMailActionsContext } from '../../../context/MailContextProvider';
 
 type CheckedMailActionsProps = {
   checkedMails: number[];
@@ -29,26 +30,19 @@ const CheckedMailActions: React.FC<CheckedMailActionsProps> = ({
   const { setMailData } = useMailActionsContext();
   const infoViewActionsContext = useInfoViewActionsContext();
 
-  const [{ apiData: labelList }] = useGetDataApi<LabelObjType[]>(
-    "/api/mailApp/labels/list"
-  );
+  const [{ apiData: labelList }] = useGetDataApi<LabelObjType[]>('mail/labels');
 
-  const [{ apiData: folderList }] = useGetDataApi<FolderObjType[]>(
-    "/api/mailApp/folders/list"
-  );
+  const [{ apiData: folderList }] =
+    useGetDataApi<FolderObjType[]>('mail/folders');
 
   const onChangeMailFolder = (key: number) => {
-    putDataApi<MailObjType[]>(
-      "/api/mailApp/update/folder",
-      infoViewActionsContext,
-      {
-        mailIds: checkedMails,
-        folderId: key,
-      }
-    )
+    putDataApi<MailObjType[]>('mail/folders', infoViewActionsContext, {
+      mailIds: checkedMails,
+      folderId: key,
+    })
       .then((data) => {
         setMailData({ data, count: data.length });
-        infoViewActionsContext.showMessage("Mail moved to folder successfully");
+        infoViewActionsContext.showMessage('Mail moved to folder successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -58,19 +52,15 @@ const CheckedMailActions: React.FC<CheckedMailActionsProps> = ({
 
   const onSelectLabel = (key: number) => {
     const labelType = labelList.find(
-      (label: LabelObjType) => label.id.toString() === key.toString()
+      (label: LabelObjType) => label.id.toString() === key.toString(),
     );
-    putDataApi<MailObjType[]>(
-      "/api/mailApp/update/label",
-      infoViewActionsContext,
-      {
-        mailIds: checkedMails,
-        type: labelType,
-      }
-    )
+    putDataApi<MailObjType[]>('mail/labels', infoViewActionsContext, {
+      mailIds: checkedMails,
+      type: labelType,
+    })
       .then((data) => {
         setMailData({ data, count: data.length });
-        infoViewActionsContext.showMessage("Mail moved to folder successfully");
+        infoViewActionsContext.showMessage('Mail moved to folder successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -97,33 +87,33 @@ const CheckedMailActions: React.FC<CheckedMailActionsProps> = ({
   return (
     <StyledMailCheckedAction>
       <AppIconButton
-        title={<IntlMessages id="common.archive" />}
+        title={<IntlMessages id='common.archive' />}
         onClick={() => onChangeMailFolder(127)}
         icon={<BiArchiveIn />}
       />
 
       <AppIconButton
-        title={<IntlMessages id="common.reportSpam" />}
+        title={<IntlMessages id='common.reportSpam' />}
         onClick={() => onChangeMailFolder(125)}
         icon={<AiOutlineInfoCircle />}
       />
 
       <AppIconButton
-        title={<IntlMessages id="common.trash" />}
+        title={<IntlMessages id='common.trash' />}
         onClick={() => onChangeMailFolder(126)}
         icon={<AiOutlineDelete />}
       />
 
-      <Dropdown menu={{ items: menuLabel }} trigger={["click"]}>
+      <Dropdown menu={{ items: menuLabel }} trigger={['click']}>
         <AppIconButton
-          title={<IntlMessages id="common.label" />}
+          title={<IntlMessages id='common.label' />}
           icon={<MdLabelOutline />}
         />
       </Dropdown>
 
-      <Dropdown menu={{ items: menuMoveTo }} trigger={["click"]}>
+      <Dropdown menu={{ items: menuMoveTo }} trigger={['click']}>
         <AppIconButton
-          title={<IntlMessages id="common.moveTo" />}
+          title={<IntlMessages id='common.moveTo' />}
           icon={<HiOutlineFolderRemove />}
         />
       </Dropdown>

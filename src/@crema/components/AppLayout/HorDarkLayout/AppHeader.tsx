@@ -1,15 +1,15 @@
-import React from "react";
-import { Dropdown } from "antd";
-import { FiMoreVertical } from "react-icons/fi";
-import { useIntl } from "react-intl";
-import AppLanguageSwitcher from "../../AppLanguageSwitcher";
-import AppHeaderMessages from "../../AppHeaderMessages";
-import AppNotifications from "../../AppNotifications";
-import NotificationBar from "./NotificationBar";
-import { AiOutlineMenu } from "react-icons/ai";
-import AppLogo from "../components/AppLogo";
-import UserInfo from "../components/UserInfo";
-import { useSidebarContext } from "@crema/context/AppContextProvider/SidebarContextProvider";
+import React from 'react';
+import { Dropdown } from 'antd';
+import { FiMoreVertical } from 'react-icons/fi';
+import { useIntl } from 'react-intl';
+import AppLanguageSwitcher from '../../AppLanguageSwitcher';
+import AppHeaderMessages from '../../AppHeaderMessages';
+import AppNotifications from '../../AppNotifications';
+import NotificationBar from './NotificationBar';
+import { AiOutlineMenu } from 'react-icons/ai';
+import AppLogo from '../components/AppLogo';
+import UserInfo from '../components/UserInfo';
+import { useSidebarContext } from '@crema/context/AppContextProvider/SidebarContextProvider';
 import {
   StyledAppHeaderHorDark,
   StyledAppMainHorDarkMainMenu,
@@ -20,8 +20,8 @@ import {
   StyledHeaderNavHorDark,
   StyledHeaderSearchHorDark,
   StyledHorDarkMainFlex,
-} from "./index.styled";
-import { StyledDropdownWrapper } from "../index.styled";
+} from './index.styled';
+import { StyledDropdownWrapper } from '../index.styled';
 
 const items = [
   { key: 1, label: <AppHeaderMessages /> },
@@ -31,9 +31,10 @@ const items = [
 
 type AppHeaderProps = {
   showDrawer: () => void;
+  routesConfig?: any;
 };
 
-const AppHeader = ({ showDrawer }: AppHeaderProps) => {
+const AppHeader = ({ showDrawer, routesConfig }: AppHeaderProps) => {
   const { messages } = useIntl();
   const { sidebarColorSet } = useSidebarContext();
 
@@ -54,12 +55,12 @@ const AppHeader = ({ showDrawer }: AppHeaderProps) => {
       >
         <StyledContainer>
           <StyledHorDarkMainFlex>
-            <a className="trigger" onClick={showDrawer}>
+            <a className='trigger' onClick={showDrawer}>
               <AiOutlineMenu />
             </a>
             <AppLogo hasSidebarColor />
             <StyledHeaderSearchHorDark
-              placeholder={messages["common.searchHere"] as string}
+              placeholder={messages['common.searchHere'] as string}
             />
 
             <StyledHeaderHorDarkSecDesktop>
@@ -72,12 +73,12 @@ const AppHeader = ({ showDrawer }: AppHeaderProps) => {
               <StyledDropdownWrapper>
                 <Dropdown
                   menu={{ items }}
-                  overlayClassName="dropdown-wrapper"
+                  overlayClassName='dropdown-wrapper'
                   getPopupContainer={(triggerNode) => triggerNode}
-                  trigger={["click"]}
+                  trigger={['click']}
                 >
                   <a
-                    className="ant-dropdown-link-mobile"
+                    className='ant-dropdown-link-mobile'
                     onClick={(e) => e.preventDefault()}
                   >
                     <FiMoreVertical />
@@ -96,7 +97,7 @@ const AppHeader = ({ showDrawer }: AppHeaderProps) => {
         }}
       >
         <StyledContainer>
-          <StyledAppMainHorDarkMainMenu />
+          <StyledAppMainHorDarkMainMenu routesConfig={routesConfig} />
         </StyledContainer>
       </StyledHeaderNavHorDark>
     </StyledAppHeaderHorDark>

@@ -1,18 +1,18 @@
-import React from "react";
-import { useIntl } from "react-intl";
-import CheckBox from "./CheckBox";
-import ContactCheckedActions from "./ContactCheckedActions";
+import React from 'react';
+import { useIntl } from 'react-intl';
+import CheckBox from './CheckBox';
+import ContactCheckedActions from './ContactCheckedActions';
 import {
   StyledContactContentHeader,
   StyledContactHeaderPagination,
   StyledContactSearch,
-} from "../index.styled";
-import { ViewSelectButtons } from "@crema/modules/apps/Contact";
-import type { ContactObjType } from "@crema/types/models/apps/Contact";
+} from '../index.styled';
+import ViewSelectButtons from './ViewSelectButtons';
+import type { ContactObjType } from '@crema/types/models/apps/Contact';
 import {
   useContactActionsContext,
   useContactContext,
-} from "../../../context/ContactContextProvider";
+} from '../../../context/ContactContextProvider';
 
 type ContactHeaderProps = {
   checkedContacts: number[];
@@ -56,7 +56,7 @@ const ContactHeader: React.FC<ContactHeaderProps> = ({
         <StyledContactSearch
           value={filterText}
           onChange={(event) => onSetFilterText(event.target.value)}
-          placeholder={messages["common.searchHere"] as string}
+          placeholder={messages['common.searchHere'] as string}
         />
 
         <ViewSelectButtons

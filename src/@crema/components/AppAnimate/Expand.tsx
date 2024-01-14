@@ -146,7 +146,7 @@
 //     [PHASE.CLOSE]: PropTypes.object,
 //   }),
 // };
-//
+
 // Expand.defaultProps = {
 //   open: false,
 //   duration: 200,
@@ -160,13 +160,25 @@
 // export default Expand;
 
 import React from 'react';
-type ExpandProps = {
-  children: React.ReactNode;
 
-  [x: string]: any;
+type ExpandProps = {
+    children: React.ReactNode;
+    open: boolean;
+    [x: string]: any;
 };
-const Expand: React.FC<ExpandProps> = ({ children, ...props }) => {
-  return <div {...props}>{children}</div>;
+const Expand: React.FC<ExpandProps> = ({open, children, ...props}) => {
+    return open ? (
+        <div
+            {...props}
+            style={{
+                opacity: 1,
+                height: 'auto',
+                transition: 'height 1s ease-in-out 2s,opacity 1s ease-in-out 2s',
+            }}
+        >
+            {children}
+        </div>
+    ) : null;
 };
 
 export default Expand;

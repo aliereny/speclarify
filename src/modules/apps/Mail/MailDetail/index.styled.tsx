@@ -1,5 +1,5 @@
 import AppIconButton from '@crema/components/AppIconButton';
-import { Form, Input, Button, Avatar } from 'antd';
+import { Avatar, Button, Form, Input } from 'antd';
 import { rgba } from 'polished';
 import ReactQuill from 'react-quill';
 import styled from 'styled-components';
@@ -274,5 +274,5 @@ export const StyledMailDetailBody = styled.div`
   padding: 24px;
 `;
 export const StyledMailDetailBodyContent = styled.div`
-  color: ${({ theme }) => theme.palette.text.secondary};
+  color: ${({theme}) => theme.palette.text.secondary};
 `;

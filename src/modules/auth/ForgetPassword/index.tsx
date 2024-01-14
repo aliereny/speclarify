@@ -1,3 +1,4 @@
-import { ForgetPasswordJwtAuth } from "@crema/modules/auth/ForgotPassword";
+'use client';
+import ForgetPasswordJwtAuth from './ForgetPasswordJwtAuth';
 
 export default ForgetPasswordJwtAuth;

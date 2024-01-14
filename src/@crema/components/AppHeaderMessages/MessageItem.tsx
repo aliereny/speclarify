@@ -7,10 +7,10 @@ import {
 } from './MessageItem.styled';
 
 type MessageItemProps = {
-  item: {image: string; name: string; message: string};
-}
+  item: { image: string; name: string; message: string };
+};
 
-const MessageItem: React.FC<MessageItemProps> = ({item}) => {
+const MessageItem: React.FC<MessageItemProps> = ({ item }) => {
   return (
     <StyledMsgListItem className='item-hover'>
       <StyledMsgAvatar src={item.image} />

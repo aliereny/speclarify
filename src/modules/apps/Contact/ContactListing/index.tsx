@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import ContactHeader from "./ContactHeader";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import CreateContact from "../CreateContact";
-import ContactViewContent from "./ContactViewContent";
-import ContactDetail from "../ContactDetail";
-import AppsPagination from "@crema/components/AppsPagination";
-import AppsHeader from "@crema/components/AppsContainer/AppsHeader";
-import AppsContent from "@crema/components/AppsContainer/AppsContent";
-import ConfirmationModal from "@crema/components/AppConfirmationModal";
-import { StyledAppFooter } from "./index.styled";
-import { postDataApi, putDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import type { ContactObjType } from "@crema/types/models/apps/Contact";
-import { DataType } from "../index";
+import React, { useState } from 'react';
+import ContactHeader from './ContactHeader';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import CreateContact from '../CreateContact';
+import ContactViewContent from './ContactViewContent';
+import ContactDetail from '../ContactDetail';
+import AppsPagination from '@crema/components/AppsPagination';
+import AppsHeader from '@crema/components/AppsContainer/AppsHeader';
+import AppsContent from '@crema/components/AppsContainer/AppsContent';
+import ConfirmationModal from '@crema/components/AppConfirmationModal';
+import { StyledAppFooter } from './index.styled';
+import { postDataApi, putDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import type { ContactObjType } from '@crema/types/models/apps/Contact';
+import { DataType } from '../index';
 import {
-  useContactContext,
   useContactActionsContext,
-} from "../../context/ContactContextProvider";
+  useContactContext,
+} from '../../context/ContactContextProvider';
 
 const ContactListing = () => {
   const { all, page, contactList } = useContactContext();
@@ -24,7 +24,7 @@ const ContactListing = () => {
     useContactActionsContext();
   const infoViewActionsContext = useInfoViewActionsContext();
 
-  const [filterText, onSetFilterText] = useState("");
+  const [filterText, onSetFilterText] = useState('');
 
   const [isDeleteDialogOpen, setDeleteDialogOpen] = useState<boolean>(false);
 
@@ -37,7 +37,7 @@ const ContactListing = () => {
   const [isShowDetail, onShowDetail] = useState<boolean>(false);
 
   const [selectedContact, setSelectedContact] = useState<ContactObjType | null>(
-    null
+    null,
   );
 
   const handleAddContactOpen = () => {
@@ -63,26 +63,22 @@ const ContactListing = () => {
       setCheckedContacts(checkedContacts.concat(id));
     } else {
       setCheckedContacts(
-        checkedContacts.filter((contactId) => contactId !== id)
+        checkedContacts.filter((contactId) => contactId !== id),
       );
     }
   };
 
   const onChangeStarred = (status: boolean, contact: ContactObjType) => {
-    putDataApi<ContactObjType[]>(
-      "/api/contactApp/update/starred",
-      infoViewActionsContext,
-      {
-        contactIds: [contact.id],
-        status: status,
-      }
-    )
+    putDataApi<ContactObjType[]>('contact/starred', infoViewActionsContext, {
+      contactIds: [contact.id],
+      status: status,
+    })
       .then((data) => {
         onUpdateSelectedContact(data[0]);
         infoViewActionsContext.showMessage(
           data[0].isStarred
-            ? "Contact Marked as Starred Successfully"
-            : "Contact Marked as Unstarred Successfully"
+            ? 'Contact Marked as Starred Successfully'
+            : 'Contact Marked as Unstarred Successfully',
         );
       })
       .catch((error) => {
@@ -108,21 +104,10 @@ const ContactListing = () => {
   };
 
   const onUpdateContacts = (contacts: ContactObjType[]) => {
-    console.log(
-      contactList?.data.map((item) => {
-        const contact = contacts.find(
-          (contact: ContactObjType) => contact.id === item.id
-        );
-        if (contact) {
-          return contact;
-        }
-        return item;
-      })
-    );
     setContactData({
       data: contactList?.data.map((item) => {
         const contact = contacts.find(
-          (contact: ContactObjType) => contact.id === item.id
+          (contact: ContactObjType) => contact.id === item.id,
         );
         if (contact) {
           return contact;
@@ -134,29 +119,25 @@ const ContactListing = () => {
   };
 
   const onGetFilteredItems = () => {
-    if (filterText === "") {
+    if (filterText === '') {
       return contactList?.data;
     } else {
       return contactList?.data.filter((contact: ContactObjType) =>
-        contact.name.toUpperCase().includes(filterText.toUpperCase())
+        contact.name.toUpperCase().includes(filterText.toUpperCase()),
       );
     }
   };
 
   const onDeleteSelectedContacts = () => {
-    postDataApi<DataType>(
-      "/api/contactApp/delete/contact",
-      infoViewActionsContext,
-      {
-        type: all?.[0],
-        name: all?.[1],
-        contactIds: toDeleteContacts,
-        page,
-      }
-    )
+    postDataApi<DataType>('contact', infoViewActionsContext, {
+      type: all?.[0],
+      name: all?.[1],
+      contactIds: toDeleteContacts,
+      page,
+    })
       .then((data) => {
         setContactData(data);
-        infoViewActionsContext.showMessage("Contact Deleted Successfully");
+        infoViewActionsContext.showMessage('Contact Deleted Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -234,7 +215,7 @@ const ContactListing = () => {
           open={isDeleteDialogOpen}
           onDeny={setDeleteDialogOpen}
           onConfirm={onDeleteSelectedContacts}
-          modalTitle={<IntlMessages id="common.deleteItem" />}
+          modalTitle={<IntlMessages id='common.deleteItem' />}
         />
       ) : null}
     </>

@@ -1,26 +1,27 @@
-import React from "react";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import AppsSideBarFolderItem from "@crema/components/AppsSideBarFolderItem";
-import AppList from "@crema/components/AppList";
-import ListEmptyResult from "@crema/components/AppList/ListEmptyResult";
-import SidebarPlaceholder from "@crema/components/AppSkeleton/SidebarListSkeleton";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import { useRouter } from "next/router";
-import { Button } from "antd";
+'use client';
+import React from 'react';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import AppsSideBarFolderItem from '@crema/components/AppsSideBarFolderItem';
+import AppList from '@crema/components/AppList';
+import ListEmptyResult from '@crema/components/AppList/ListEmptyResult';
+import SidebarPlaceholder from '@crema/components/AppSkeleton/SidebarListSkeleton';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import { useRouter } from 'next/navigation';
+import { Button } from 'antd';
 import {
-  StyledSidebarHeader,
   StyledPlusOutlined,
-  StyledSidebarScrollbar,
+  StyledSidebarHeader,
   StyledSidebarList,
-} from "./index.styled";
+  StyledSidebarScrollbar,
+} from './index.styled';
 
 const TaskSideBar = () => {
   const router = useRouter();
   const [{ apiData: folderList }] = useGetDataApi(
-    "/api/invoice/folders/list",
+    'invoice/folders',
     [],
     {},
-    true
+    true,
   );
 
   return (
@@ -28,11 +29,11 @@ const TaskSideBar = () => {
       <StyledSidebarHeader>
         <Button
           ghost
-          type="primary"
+          type='primary'
           icon={<StyledPlusOutlined style={{ marginRight: 8 }} />}
-          onClick={() => router.push("/invoice/add-invoice")}
+          onClick={() => router.push('/invoice/add-invoice')}
         >
-          <IntlMessages id="invoice.addNewInvoice" />
+          <IntlMessages id='invoice.addNewInvoice' />
         </Button>
       </StyledSidebarHeader>
 

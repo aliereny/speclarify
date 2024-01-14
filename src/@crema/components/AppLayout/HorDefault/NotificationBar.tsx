@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyledHeaderAlert} from './index.styled';
+import { StyledHeaderAlert } from './index.styled';
 
 export default function NotificationBar() {
   const onClose = () => {

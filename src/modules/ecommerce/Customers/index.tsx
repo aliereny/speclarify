@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from "react";
-import AppsContainer from "@crema/components/AppsContainer";
-import { useIntl } from "react-intl";
-import AppsHeader from "@crema/components/AppsContainer/AppsHeader";
-import AppsContent from "@crema/components/AppsContainer/AppsContent";
-import AppInfoView from "@crema/components/AppInfoView";
-import { Input, Modal } from "antd";
-import AppPageMeta from "@crema/components/AppPageMeta";
+'use client';
+import React, { useEffect, useState } from 'react';
+import AppsContainer from '@crema/components/AppsContainer';
+import { useIntl } from 'react-intl';
+import AppsHeader from '@crema/components/AppsContainer/AppsHeader';
+import AppsContent from '@crema/components/AppsContainer/AppsContent';
+import AppInfoView from '@crema/components/AppInfoView';
+import { Input, Modal } from 'antd';
+import AppPageMeta from '@crema/components/AppPageMeta';
 import {
   StyledCustomerFooterPagination,
   StyledCustomerHeader,
   StyledCustomerHeaderPagination,
   StyledCustomerHeaderRight,
   StyledCustomerInputView,
-} from "./index.styled";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import {
-  CustomerTable,
-  EditCustomer,
-} from "@crema/modules/ecommerce/Customers";
+} from './index.styled';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import CustomerTable from './CustomerTable';
+import EditCustomer from './EditCustomer';
 
-import type { CustomersDataType } from "@crema/types/models/ecommerce/EcommerceApp";
+import type { CustomersDataType } from '@crema/types/models/ecommerce/EcommerceApp';
 
 type OrderProps = {
   customers: CustomersDataType[];
@@ -28,14 +27,14 @@ type OrderProps = {
 const Customers = () => {
   const { messages } = useIntl();
   const [{ apiData, loading }, { setQueryParams }] = useGetDataApi<OrderProps>(
-    "/api/ecommerce/customers",
+    'ecommerce/customers',
     undefined,
     {},
-    false
+    false,
   );
 
   const [page, setPage] = useState<number>(1);
-  const [search, setSearchQuery] = useState("");
+  const [search, setSearchQuery] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const onChange = (page: number) => {
@@ -60,19 +59,19 @@ const Customers = () => {
 
   return (
     <>
-      <AppPageMeta title="Customers" />
+      <AppPageMeta title='Customers' />
       <AppsContainer
-        title={messages["sidebar.ecommerce.customers"] as string}
+        title={messages['sidebar.ecommerce.customers'] as string}
         fullView
-        type="bottom"
+        type='bottom'
       >
-        <AppsHeader key={"wrap"}>
+        <AppsHeader key={'wrap'}>
           <StyledCustomerHeader>
             <StyledCustomerInputView>
               <Input
-                id="user-name"
-                placeholder="Search"
-                type="search"
+                id='user-name'
+                placeholder='Search'
+                type='search'
                 onChange={onSearchOrder}
               />
             </StyledCustomerInputView>
@@ -89,7 +88,7 @@ const Customers = () => {
 
         {apiData?.customers && (
           <AppsContent
-            key={"wrap1"}
+            key={'wrap1'}
             style={{
               paddingTop: 10,
               paddingBottom: 10,
@@ -100,7 +99,7 @@ const Customers = () => {
         )}
 
         <StyledCustomerFooterPagination
-          key={"wrap2"}
+          key={'wrap2'}
           pageSize={10}
           count={apiData?.customerCount || 0}
           page={page}
@@ -109,7 +108,7 @@ const Customers = () => {
       </AppsContainer>
 
       <Modal
-        title={messages["ecommerce.addCustomer"] as string}
+        title={messages['ecommerce.addCustomer'] as string}
         open={isModalVisible}
         onOk={handleOk}
         footer={false}

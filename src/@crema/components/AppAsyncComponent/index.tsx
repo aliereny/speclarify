@@ -4,7 +4,7 @@ import AppLoader from '../AppLoader';
 
 const AppAsyncComponent = (
   importComponent: DynamicOptions | Loader,
-  other?: DynamicOptions
+  other?: DynamicOptions,
 ) => {
   return dynamic(importComponent, {
     loading: () => <AppLoader />,

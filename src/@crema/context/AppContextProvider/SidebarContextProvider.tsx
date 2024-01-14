@@ -1,5 +1,6 @@
-import React, { createContext, ReactNode, useContext, useState } from "react";
-import defaultConfig, { SidebarData } from "@crema/constants/defaultConfig";
+'use client';
+import React, { createContext, ReactNode, useContext, useState } from 'react';
+import defaultConfig, { SidebarData } from '@crema/constants/defaultConfig';
 
 export interface SidebarContextData {
   menuStyle: string;
@@ -7,6 +8,7 @@ export interface SidebarContextData {
   allowSidebarBgImage: boolean;
   sidebarBgImageId: string | number;
 }
+
 export interface SidebarActions {
   updateMenuStyle: (style: string) => void;
   updateSidebarColorSet: (color: SidebarData) => void;
@@ -40,16 +42,16 @@ const SidebarContextProvider: React.FC<SidebarContextProviderProps> = ({
   children,
 }) => {
   const [menuStyle, updateMenuStyle] = useState<string>(
-    defaultConfig.sidebar.menuStyle
+    defaultConfig.sidebar.menuStyle,
   );
   const [sidebarColorSet, updateSidebarColorSet] = useState<SidebarData>(
-    defaultConfig.sidebar.colorSet
+    defaultConfig.sidebar.colorSet,
   );
   const [allowSidebarBgImage, setSidebarBgImage] = useState<boolean>(
-    defaultConfig.sidebar.allowSidebarBgImage
+    defaultConfig.sidebar.allowSidebarBgImage,
   );
   const [sidebarBgImageId, updateSidebarBgImage] = useState<number | string>(
-    defaultConfig.sidebar.sidebarBgImageId
+    defaultConfig.sidebar.sidebarBgImageId,
   );
 
   return (

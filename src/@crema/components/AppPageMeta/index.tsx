@@ -1,5 +1,6 @@
+'use client';
 import React, { ReactNode } from 'react';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import Helmet from 'react-helmet';
 
 const SITE_URL =
@@ -34,7 +35,7 @@ type AppPageMetaProps = {
   [x: string]: any;
 };
 const AppPageMeta: React.FC<AppPageMetaProps> = ({ children, ...rest }) => {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
   const getMetaTags = (
     {
       title,
@@ -48,7 +49,7 @@ const AppPageMeta: React.FC<AppPageMetaProps> = ({ children, ...rest }) => {
       category = 'admin Template, admin Dashboard, ',
       tags = 'admin Template, admin Dashboard, CRA, Antd, Ant Design, Less, Create React App, Firebase, Aws Cognito, Jwt-Auth, Mail App, Todo App, ',
     }: AppPageMetaProps,
-    pathname: string
+    pathname: string,
   ) => {
     const theTitle = title
       ? (title + defaultSep + defaultTitle).substring(0, 60)

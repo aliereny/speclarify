@@ -1,7 +1,7 @@
-import React, {ReactNode} from 'react';
-import {Modal} from 'antd';
+import React, { ReactNode } from 'react';
+import { Modal } from 'antd';
 
-import {StyledParaText} from './index.styled';
+import { StyledParaText } from './index.styled';
 
 type AppConfirmDialogProps = {
   modalTitle: string | ReactNode;
@@ -9,7 +9,7 @@ type AppConfirmDialogProps = {
   onDeny: (isOpen: boolean) => void;
   paragraph?: string | ReactNode;
   onConfirm: () => void;
-}
+};
 
 const AppConfirmationModal: React.FC<AppConfirmDialogProps> = ({
   open,
@@ -23,7 +23,8 @@ const AppConfirmationModal: React.FC<AppConfirmDialogProps> = ({
       title={modalTitle}
       open={open}
       onOk={onConfirm}
-      onCancel={() => onDeny(false)}>
+      onCancel={() => onDeny(false)}
+    >
       <StyledParaText>{paragraph}</StyledParaText>
     </Modal>
   );

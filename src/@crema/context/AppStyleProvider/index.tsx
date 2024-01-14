@@ -6,6 +6,6 @@ interface AppStyleProviderProps {
 }
 
 const AppStyleProvider: React.FC<AppStyleProviderProps> = ({ children }) => {
-  return <StyleProvider hashPriority="high">{children}</StyleProvider>;
+  return <StyleProvider hashPriority='high'>{children}</StyleProvider>;
 };
 export default AppStyleProvider;

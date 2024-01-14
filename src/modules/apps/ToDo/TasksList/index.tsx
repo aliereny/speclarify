@@ -1,26 +1,27 @@
-import React, { useState } from "react";
-import TaskContentHeader from "./TaskContentHeader";
-import AddNewTask from "../AddNewTask";
-import AppsPagination from "@crema/components/AppsPagination";
-import AppsHeader from "@crema/components/AppsContainer/AppsHeader";
-import AppsContent from "@crema/components/AppsContainer/AppsContent";
-import ListEmptyResult from "@crema/components/AppList/ListEmptyResult";
-import TodoListSkeleton from "@crema/components/AppSkeleton/TodoListSkeleton";
-import AppList from "@crema/components/AppList";
+import React, { useState } from 'react';
+import TaskContentHeader from './TaskContentHeader';
+import AddNewTask from '../AddNewTask';
+import AppsPagination from '@crema/components/AppsPagination';
+import AppsHeader from '@crema/components/AppsContainer/AppsHeader';
+import AppsContent from '@crema/components/AppsContainer/AppsContent';
+import ListEmptyResult from '@crema/components/AppList/ListEmptyResult';
+import TodoListSkeleton from '@crema/components/AppSkeleton/TodoListSkeleton';
+import AppList from '@crema/components/AppList';
 import {
   StyledTodoFooter,
   StyledTodoListDesktop,
   StyledTodoListMobile,
-} from "./index.styled";
-import { putDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { TaskListItem, TaskListItemMobile } from "@crema/modules/apps/ToDo";
+} from './index.styled';
+import { putDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import TaskListItem from './TaskListItem';
+import TaskListItemMobile from './TaskListItemMobile';
 
-import { TodoObjType } from "@crema/types/models/apps/Todo";
+import { TodoObjType } from '@crema/types/models/apps/Todo';
 import {
   useTodoActionsContext,
   useTodoContext,
-} from "../../context/TodoContextProvider";
+} from '../../context/TodoContextProvider';
 
 const TasksList = () => {
   const infoViewActionsContext = useInfoViewActionsContext();
@@ -28,7 +29,7 @@ const TasksList = () => {
   const { page, loading, taskLists } = useTodoContext();
   const { onPageChange, setTodoData } = useTodoActionsContext();
 
-  const [filterText, onSetFilterText] = useState<string>("");
+  const [filterText, onSetFilterText] = useState<string>('');
   const [checkedTasks, setCheckedTasks] = useState<number[]>([]);
   const [isAddTaskOpen, setAddTaskOpen] = useState<boolean>(false);
 
@@ -49,20 +50,16 @@ const TasksList = () => {
   };
 
   const onChangeStarred = (checked: boolean, task: TodoObjType) => {
-    putDataApi<TodoObjType[]>(
-      "/api/todo/update/starred",
-      infoViewActionsContext,
-      {
-        taskIds: [task.id],
-        status: checked,
-      }
-    )
+    putDataApi<TodoObjType[]>('todo/starred', infoViewActionsContext, {
+      taskIds: [task.id],
+      status: checked,
+    })
       .then((data) => {
         onUpdateSelectedTask(data[0]);
         infoViewActionsContext.showMessage(
           data[0].isStarred
-            ? "Todo Marked as Starred Successfully"
-            : "Todo Marked as Unstarred Successfully"
+            ? 'Todo Marked as Starred Successfully'
+            : 'Todo Marked as Unstarred Successfully',
         );
       })
       .catch((error) => {
@@ -90,11 +87,11 @@ const TasksList = () => {
   };
 
   const onGetFilteredItems = () => {
-    if (filterText === "") {
+    if (filterText === '') {
       return taskLists?.data;
     } else {
       return taskLists?.data.filter((task) =>
-        task.title.toUpperCase().includes(filterText.toUpperCase())
+        task.title.toUpperCase().includes(filterText.toUpperCase()),
       );
     }
   };
@@ -143,7 +140,7 @@ const TasksList = () => {
               ListEmptyComponent={
                 <ListEmptyResult
                   loading={loading}
-                  actionTitle="Add Task"
+                  actionTitle='Add Task'
                   onClick={onOpenAddTask}
                   placeholder={<TodoListSkeleton />}
                 />
@@ -165,7 +162,7 @@ const TasksList = () => {
               ListEmptyComponent={
                 <ListEmptyResult
                   loading={loading}
-                  actionTitle="Add Task"
+                  actionTitle='Add Task'
                   onClick={onOpenAddTask}
                   placeholder={<TodoListSkeleton />}
                 />

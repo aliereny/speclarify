@@ -1,4 +1,4 @@
-import {Button, Drawer, Switch} from 'antd';
+import { Button, Drawer, Switch } from 'antd';
 import styled from 'styled-components';
 
 export const StyledCustomizerOption = styled.div`
@@ -12,7 +12,7 @@ export const StyledCustomizerOption = styled.div`
     left: 0;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
     top: 125px;
   }
 `;
@@ -20,7 +20,7 @@ export const StyledCustomizerOption = styled.div`
 export const StyledCustomizerButton = styled(Button)`
   display: block;
   border-radius: 30px 0 0 30px !important;
-  background-color: ${({theme}) => theme.palette.orange[5]};
+  background-color: ${({ theme }) => theme.palette.orange[5]};
   color: white;
   box-shadow: none;
   border: 0 none;
@@ -35,7 +35,7 @@ export const StyledCustomizerButton = styled(Button)`
 
   &:hover,
   &:focus {
-    background-color: ${({theme}) => theme.palette.orange[6]};
+    background-color: ${({ theme }) => theme.palette.orange[6]};
     color: white;
     border-radius: 30px 0 0 30px;
 
@@ -53,7 +53,7 @@ export const StyledCustomizeDrawer = styled(Drawer)`
   & .ant-drawer-content-wrapper {
     width: 300px !important;
 
-    @media screen and (min-width: ${({theme}) =>
+    @media screen and (min-width: ${({ theme }) =>
         theme.breakpoints.xxl - 200}px) {
       width: 400px !important;
     }
@@ -66,9 +66,9 @@ export const StyledCustomizeDrawer = styled(Drawer)`
 
 export const StyledCustomizedHeader = styled.div`
   padding: 20px;
-  border-bottom: 1px solid ${({theme}) => theme.palette.borderColor};
+  border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor};
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
     padding: 28px 22px;
   }
 
@@ -79,14 +79,14 @@ export const StyledCustomizedHeader = styled.div`
 
   & p {
     margin-bottom: 0;
-    color: ${({theme}) => theme.palette.text.secondary};
+    color: ${({ theme }) => theme.palette.text.secondary};
   }
 `;
 
 export const StyledCustomizedMain = styled.div`
   padding: 20px;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
     padding: 28px 22px;
   }
 `;
@@ -95,11 +95,11 @@ export const StyledCustomizedItem = styled.div`
   position: relative;
 
   &:not(:last-child) {
-    border-bottom: 1px solid ${({theme}) => theme.palette.borderColor};
+    border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor};
     padding-bottom: 20px;
     margin-bottom: 20px;
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
       padding-bottom: 30px;
       margin-bottom: 30px;
     }
@@ -108,7 +108,7 @@ export const StyledCustomizedItem = styled.div`
   & h4 {
     margin-bottom: 8px;
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
       margin-bottom: 12px;
     }
   }
@@ -161,7 +161,7 @@ export const StyledCustomizeNavOptionRightIcon = styled.span`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: ${({theme}) => theme.palette.primary.main};
+  background-color: ${({ theme }) => theme.palette.primary.main};
   color: white;
 `;
 
@@ -174,7 +174,7 @@ export const StyledCustomColorOption = styled.div`
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid ${({theme}) => theme.palette.borderColor};
+  border: 1px solid ${({ theme }) => theme.palette.borderColor};
   height: 40px;
   width: 50px;
 `;
@@ -191,8 +191,8 @@ export const StyledCustomColorOptionRightIcon = styled.span`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: ${({theme}) => theme.palette.background.paper};
-  color: ${({theme}) => theme.palette.primary.main};
+  background-color: ${({ theme }) => theme.palette.background.paper};
+  color: ${({ theme }) => theme.palette.primary.main};
 `;
 
 export const StyledColorWrapper = styled.div`
@@ -208,7 +208,7 @@ export const StyledColorHeadingWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  color: ${({theme}) => theme.palette.primary.contrastText};
+  color: ${({ theme }) => theme.palette.primary.contrastText};
 `;
 
 export const StyledColorCheckboxWrapper = styled.div`
@@ -221,7 +221,7 @@ export const StyledColorCheckboxWrapper = styled.div`
   justify-content: center;
   overflow: hidden;
   background-color: #fff;
-  color: ${({theme}) => theme.palette.primary.main};
+  color: ${({ theme }) => theme.palette.primary.main};
 `;
 
 export const StyledColorBodyWrapper = styled.div`
@@ -232,7 +232,8 @@ export const StyledColorBody = styled.div`
   height: 80px;
   padding: 6px 10px;
   margin-bottom: 10px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+  box-shadow:
+    rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
     rgba(0, 0, 0, 0.14) 0px 1px 1px 0px;
   border-radius: 4px;
   display: flex;
@@ -244,7 +245,7 @@ export const StyledColorBodyColor = styled.div`
   height: 30px;
   border-radius: 50%;
   padding: 4px;
-  color: ${({theme}) => theme.palette.primary.contrastText};
+  color: ${({ theme }) => theme.palette.primary.contrastText};
   display: flex;
   align-items: center;
   justify-content: center;

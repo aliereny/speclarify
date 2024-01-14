@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import AppSidebar from "./AppSidebar";
-import AppHeader from "./AppHeader";
-import AppContentView from "../../AppContentView";
-import AppThemeSetting from "../../AppThemeSetting";
-import AppFooter from "../components/AppFooter";
-import clsx from "clsx";
-import { FooterType, LayoutType } from "@crema/constants/AppEnums";
-import { useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
+import React, { useEffect, useState } from 'react';
+import AppSidebar from './AppSidebar';
+import AppHeader from './AppHeader';
+import AppContentView from '../../AppContentView';
+import AppThemeSetting from '../../AppThemeSetting';
+import AppFooter from '../components/AppFooter';
+import clsx from 'clsx';
+import { FooterType, LayoutType } from '@crema/constants/AppEnums';
+import { useLayoutContext } from '@crema/context/AppContextProvider/LayoutContextProvider';
 import {
   StyledAppLayoutHeaderFixedMain,
   StyledAppLayoutHorFixed,
   StyledContainer,
-} from "./index.styled";
-import { RouterConfigData } from "@crema/types/models/Apps";
+} from './index.styled';
+import { RouterConfigData } from '@crema/types/models/Apps';
 
 type Props = {
   children: React.ReactNode;
@@ -31,9 +31,9 @@ const HorHeaderFixed: React.FC<Props> = ({ children, routesConfig }) => {
 
   useEffect(() => {
     if (layoutType === LayoutType.FRAMED) {
-      document.body.classList.add("framedHorHeaderFixedLayout");
+      document.body.classList.add('framedHorHeaderFixedLayout');
     } else {
-      document.body.classList.remove("framedHorHeaderFixedLayout");
+      document.body.classList.remove('framedHorHeaderFixedLayout');
     }
   }, [layoutType]);
 
@@ -49,7 +49,7 @@ const HorHeaderFixed: React.FC<Props> = ({ children, routesConfig }) => {
         onClose={onClose}
         routesConfig={routesConfig}
       />
-      <AppHeader showDrawer={showDrawer} />
+      <AppHeader showDrawer={showDrawer} routesConfig={routesConfig} />
       <StyledAppLayoutHeaderFixedMain>
         <StyledContainer>
           <AppContentView>{children}</AppContentView>

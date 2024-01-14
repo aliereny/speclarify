@@ -30,7 +30,7 @@ const AppHeader = ({ showDrawer }: AppHeaderProps) => {
 
   return (
     <StyledDrawerLayoutHeader>
-      <a className="trigger" onClick={showDrawer}>
+      <a className='trigger' onClick={showDrawer}>
         <AiOutlineMenu />
       </a>
       <AppLogo />
@@ -46,12 +46,12 @@ const AppHeader = ({ showDrawer }: AppHeaderProps) => {
         <StyledDropdownWrapper>
           <Dropdown
             menu={{ items }}
-            overlayClassName="dropdown-wrapper"
+            overlayClassName='dropdown-wrapper'
             getPopupContainer={(triggerNode) => triggerNode}
             trigger={['click']}
           >
             <a
-              className="ant-dropdown-link-mobile"
+              className='ant-dropdown-link-mobile'
               onClick={(e) => e.preventDefault()}
             >
               <FiMoreVertical />

@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import {
   useSidebarActionsContext,
   useSidebarContext,
-} from "@crema/context/AppContextProvider/SidebarContextProvider";
-import NavMenuStyle from "./NavMenuStyle";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import { CheckOutlined } from "@ant-design/icons";
-import { StyledSidebarSettings } from "./index.styled";
+} from '@crema/context/AppContextProvider/SidebarContextProvider';
+import NavMenuStyle from './NavMenuStyle';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import { CheckOutlined } from '@ant-design/icons';
+import { StyledSidebarSettings } from './index.styled';
 import {
   StyledCustomizedItem,
   StyledCustomizedSwitch,
@@ -15,8 +15,9 @@ import {
   StyledCustomizeNavOptionContent,
   StyledCustomizeNavOptionItem,
   StyledCustomizeNavOptionRightIcon,
-} from "../index.styled";
-import { sidebarBgImages } from "@crema/mockapi/fakedb/navigationStyle";
+} from '../index.styled';
+import { sidebarBgImages } from '@crema/fakedb/navigationStyle';
+import Image from 'next/image';
 
 const SidebarSettings = () => {
   const { sidebarBgImageId, allowSidebarBgImage } = useSidebarContext();
@@ -37,7 +38,7 @@ const SidebarSettings = () => {
       <StyledCustomizedItem>
         <StyledCustomizedSwitchView>
           <h4>
-            <IntlMessages id="customizer.sidebarImage" />
+            <IntlMessages id='customizer.sidebarImage' />
           </h4>
           <StyledCustomizedSwitch
             checked={allowSidebarBgImage}
@@ -53,7 +54,12 @@ const SidebarSettings = () => {
                   <StyledCustomizeNavOptionContent
                     onClick={() => onUpdateSidebarBgImage(imagesObj.id)}
                   >
-                    <img src={imagesObj.image} alt="nav" />
+                    <Image
+                      src={`${imagesObj.image}`}
+                      alt='nav'
+                      width={40}
+                      height={80}
+                    />
                     {sidebarBgImageId === imagesObj.id ? (
                       <StyledCustomizeNavOptionRightIcon>
                         <CheckOutlined />

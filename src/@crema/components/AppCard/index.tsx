@@ -10,7 +10,7 @@ type AppCardProps = {
   extra?: ReactNode | string;
   cover?: any;
   footer?: any;
-  children: ReactNode;
+  children?: ReactNode;
   heightFull?: boolean;
 
   [x: string]: any;

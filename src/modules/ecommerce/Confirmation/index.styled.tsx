@@ -183,6 +183,6 @@ export const StyledOrderPlacedActionThumb = styled.div`
 
 export const StyledLinkBtn = styled(Button)`
   & a {
-    color: ${({ theme }) => theme.palette.white};
+    color: ${({theme}) => theme.palette.white};
   }
 `;

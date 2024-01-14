@@ -1,5 +1,4 @@
 import AppCard from '@crema/components/AppCard';
-import AppTableContainer from '@crema/components/AppTableContainer';
 import styled from 'styled-components';
 
 export const StyledInvoice = styled.div`

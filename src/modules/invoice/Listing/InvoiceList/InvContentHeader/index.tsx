@@ -1,10 +1,11 @@
-import React from "react";
-import { useIntl } from "react-intl";
-import AppsPagination from "@crema/components/AppsPagination";
-import { StyledCheckbox, StyledFlex } from "./index.style";
-import { Input } from "antd";
-import { InvoiceType } from "@crema/types/models/invoice";
-import { CheckboxChangeEvent } from "antd/es/checkbox";
+'use client';
+import React from 'react';
+import { useIntl } from 'react-intl';
+import AppsPagination from '@crema/components/AppsPagination';
+import { StyledCheckbox, StyledFlex } from './index.style';
+import { Input } from 'antd';
+import { InvoiceType } from '@crema/types/models/invoice';
+import { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 type InvContentHeaderPropsTypes = {
   page: number;
@@ -52,7 +53,7 @@ const InvContentHeader = (props: InvContentHeaderPropsTypes) => {
           <Input.Search
             value={filterText}
             onChange={(event) => onSetFilterText(event.target.value)}
-            placeholder={messages["common.searchHere"] as string}
+            placeholder={messages['common.searchHere'] as string}
           />
         </div>
       </StyledFlex>

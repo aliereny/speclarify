@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import CreateContact from "../CreateContact";
-import AppsSideBarFolderItem from "@crema/components/AppsSideBarFolderItem";
-import AppList from "@crema/components/AppList";
-import ListEmptyResult from "@crema/components/AppList/ListEmptyResult";
-import SidebarPlaceholder from "@crema/components/AppSkeleton/SidebarListSkeleton";
-import { Button } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
+import React, { useState } from 'react';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import CreateContact from '../CreateContact';
+import AppsSideBarFolderItem from '@crema/components/AppsSideBarFolderItem';
+import AppList from '@crema/components/AppList';
+import ListEmptyResult from '@crema/components/AppList/ListEmptyResult';
+import SidebarPlaceholder from '@crema/components/AppSkeleton/SidebarListSkeleton';
+import { Button } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 import {
   StyledContactSidebarContent,
   StyledContactSidebarHeader,
   StyledContactSidebarList,
   StyledContactSidebarScroll,
   StyledContactSidebarTitle,
-} from "./index.styled";
-import { ContactListLabelItem } from "@crema/modules/apps/Contact";
+} from './index.styled';
+import ContactListLabelItem from './LabelItem';
 import {
-  useContactContext,
   useContactActionsContext,
-} from "../../context/ContactContextProvider";
+  useContactContext,
+} from '../../context/ContactContextProvider';
 
 const SideBarContent = () => {
   const { reCallAPI } = useContactActionsContext();
@@ -39,11 +39,11 @@ const SideBarContent = () => {
       <StyledContactSidebarHeader>
         <Button
           ghost
-          type="primary"
+          type='primary'
           icon={<PlusOutlined style={{ marginRight: 8 }} />}
           onClick={handleAddContactOpen}
         >
-          <IntlMessages id="contactApp.createContact" />
+          <IntlMessages id='contactApp.createContact' />
         </Button>
       </StyledContactSidebarHeader>
 
@@ -69,7 +69,7 @@ const SideBarContent = () => {
           </StyledContactSidebarList>
 
           <StyledContactSidebarTitle>
-            <IntlMessages id="common.labels" />
+            <IntlMessages id='common.labels' />
           </StyledContactSidebarTitle>
 
           <AppList

@@ -1,19 +1,19 @@
 import AppScrollbar from '../../AppScrollbar';
-import {Layout, Input} from 'antd';
+import { Input, Layout } from 'antd';
 import styled from 'styled-components';
 import MainSidebar from '../components/MainSidebar';
 
-const {Header} = Layout;
-const {Search} = Input;
+const { Header } = Layout;
+const { Search } = Input;
 
 export const StyledAppHeader = styled(Header)`
   padding-left: 20px;
   padding-right: 20px;
-  color: ${({theme}) => theme.palette.text.primary}!important;
-  background-color: ${({theme}) => theme.palette.background.paper}!important;
+  color: ${({ theme }) => theme.palette.text.primary}!important;
+  background-color: ${({ theme }) => theme.palette.background.paper}!important;
   height: 56px;
   line-height: 1;
-  border-bottom: 1px solid ${({theme}) => theme.palette.borderColor}!important;
+  border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor}!important;
   transition: all 0.1s linear;
   position: sticky;
   right: 0;
@@ -23,7 +23,7 @@ export const StyledAppHeader = styled(Header)`
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     padding-left: 30px;
     padding-right: 30px;
     height: 71px !important;
@@ -33,14 +33,14 @@ export const StyledAppHeader = styled(Header)`
     font-size: 20px;
     margin-right: 10px;
     padding: 5.5px;
-    color: ${({theme}) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
 
     [dir='rtl'] & {
       margin-right: 0;
       margin-left: 10px;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
       margin-right: 20px;
 
       [dir='rtl'] & {
@@ -49,7 +49,7 @@ export const StyledAppHeader = styled(Header)`
       }
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.xl}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl}px) {
       display: none;
     }
 
@@ -71,7 +71,7 @@ export const StyledHeaderSearch = styled(Search)`
     margin-right: auto;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
     margin-right: 20px;
     max-width: 165px;
 
@@ -104,7 +104,7 @@ export const StyledHeaderSearch = styled(Search)`
       width: 135px;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
       width: 129px;
 
       &:focus {
@@ -127,15 +127,15 @@ export const StyledHeaderSearch = styled(Search)`
     > .ant-input-group
     > .ant-input-group-addon:last-child
     .ant-input-search-button {
-    border-radius: ${({theme}) => theme.sizes.borderRadius.base} 0 0
-      ${({theme}) => theme.sizes.borderRadius.base};
+    border-radius: ${({ theme }) => theme.sizes.borderRadius.base} 0 0
+      ${({ theme }) => theme.sizes.borderRadius.base};
   }
 `;
 
 export const StyledAppHeaderSectionDesk = styled.div`
   display: none;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     display: flex;
     align-items: center;
   }
@@ -144,7 +144,7 @@ export const StyledAppHeaderSectionDesk = styled.div`
 export const StyledAppHeaderSectionMobile = styled.div`
   display: block;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     display: none;
   }
 `;
@@ -156,7 +156,7 @@ export const StyledAppMainSidebar = styled(MainSidebar)`
     min-width: 0 !important;
     width: 17.5rem !important;
     transition: all 0.1s linear;
-    border-right: 1px solid ${({theme}) => theme.palette.borderColor};
+    border-right: 1px solid ${({ theme }) => theme.palette.borderColor};
     background-color: inherit;
 
     @media screen and (min-width: 1200px) and (max-width: 1300px) {
@@ -182,7 +182,7 @@ export const StyledAppMainSidebar = styled(MainSidebar)`
     width: 0 !important;
     transition: all 200ms linear;
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
       width: 4rem !important;
     }
 
@@ -190,7 +190,7 @@ export const StyledAppMainSidebar = styled(MainSidebar)`
       width: 100% !important;
       transition: all 200ms linear;
 
-      @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+      @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
         width: calc(100% - 4rem) !important;
       }
     }
@@ -223,7 +223,7 @@ export const StyledAppMainSidebar = styled(MainSidebar)`
   }
 
   & .cr-user-info {
-    border-bottom: 1px solid ${({theme}) => theme.palette.borderColor};
+    border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor};
   }
 
   &.sidebar-img-background {
@@ -274,7 +274,7 @@ export const StyledAppSidebarScrollbar = styled(AppScrollbar)`
     height: calc(100vh - 102px);
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     height: calc(100vh - 71px);
 
     .appMainFixedFooter & {
@@ -286,7 +286,7 @@ export const StyledAppSidebarScrollbar = styled(AppScrollbar)`
 export const StyledAppLayout = styled(Layout)`
   min-height: 100vh;
   position: relative;
-  background: ${({theme}) => theme.palette.background.default};
+  background: ${({ theme }) => theme.palette.background.default};
   overflow-x: hidden;
 
   &.appMainFixedFooter {
@@ -322,7 +322,7 @@ export const StyledMainScrollbar = styled(AppScrollbar)`
     max-height: calc(100vh - 104px);
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     max-height: calc(100vh - 71px);
 
     .appMainFixedFooter & {
@@ -336,9 +336,9 @@ export const StyledAppLayoutMain = styled(Layout)`
   width: 100% !important;
   position: relative;
   flex-shrink: 0;
-  background-color: ${({theme}) => theme.palette.background.paper};
+  background-color: ${({ theme }) => theme.palette.background.paper};
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl}px) {
     flex-shrink: inherit;
     width: calc(100% - 17.5rem) !important;
   }

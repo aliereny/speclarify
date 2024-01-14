@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export const useInterval = (callback, delay) => {
+export const useInterval = (callback: any, delay: any) => {
   const savedCallback = React.useRef<any>();
 
   React.useEffect(() => {
@@ -11,6 +11,7 @@ export const useInterval = (callback, delay) => {
     function tick() {
       savedCallback.current();
     }
+
     if (delay !== null) {
       const id = setInterval(tick, delay);
       return () => clearInterval(id);

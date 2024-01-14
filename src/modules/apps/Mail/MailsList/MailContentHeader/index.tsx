@@ -1,19 +1,17 @@
-import React from "react";
-import CheckedMailActions from "./CheckedMailActions";
-import MoreOptions from "./MoreOptions";
-import { useIntl } from "react-intl";
+import React from 'react';
+import CheckedMailActions from './CheckedMailActions';
+import MoreOptions from './MoreOptions';
+import { useIntl } from 'react-intl';
 import {
   StyledMailContentHeader,
   StyledMailContentHeaderCheckbox,
   StyledMailContentHeaderPagination,
   StyledMailSearch,
-} from "../index.styled";
-
-import type { MailObjType } from "@crema/types/models/apps/Mail";
+} from '../index.styled';
 import {
-  useMailContext,
   useMailActionsContext,
-} from "../../../context/MailContextProvider";
+  useMailContext,
+} from '../../../context/MailContextProvider';
 
 type MailContentHeaderProps = {
   checkedMails: number[];
@@ -29,6 +27,7 @@ const MailContentHeader: React.FC<MailContentHeaderProps> = ({
   onSetFilterText,
 }) => {
   const { mailList, page } = useMailContext();
+
   const { onPageChange } = useMailActionsContext();
 
   const onHandleMasterCheckbox = (event: any) => {
@@ -58,7 +57,7 @@ const MailContentHeader: React.FC<MailContentHeaderProps> = ({
         />
 
         <StyledMailSearch
-          placeholder={messages["common.searchHere"] as string}
+          placeholder={messages['common.searchHere'] as string}
           value={filterText}
           onChange={(event: any) => onSetFilterText(event.target.value)}
         />

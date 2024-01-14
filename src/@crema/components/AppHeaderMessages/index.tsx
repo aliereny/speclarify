@@ -1,9 +1,9 @@
-import React from "react";
-import MessageItem from "./MessageItem";
-import IntlMessages from "@crema/helpers/IntlMessages";
+import React from 'react';
+import MessageItem from './MessageItem';
+import IntlMessages from '@crema/helpers/IntlMessages';
 
-import { Dropdown, List } from "antd";
-import { AiOutlineMail } from "react-icons/ai";
+import { Dropdown, List } from 'antd';
+import { AiOutlineMail } from 'react-icons/ai';
 import {
   DropDownWrapper,
   StyledAppScrollbar,
@@ -11,15 +11,15 @@ import {
   StyledHeaderMsgIcon,
   StyledHeaderMsgLink,
   StyledHeaderMsgLinkText,
-} from "./index.styled";
-import { messages } from "@crema/mockapi/fakedb";
+} from './index.styled';
+import { messages } from '@crema/fakedb';
 
 const items = [
   {
     key: 1,
     label: (
-      <div className="header">
-        <IntlMessages id="dashboard.messages" />({messages.length})
+      <div className='header'>
+        <IntlMessages id='dashboard.messages' />({messages.length})
       </div>
     ),
   },
@@ -39,8 +39,8 @@ const items = [
   {
     key: 3,
     label: (
-      <StyledHeaderMsgBtn type="primary">
-        <IntlMessages id="common.viewAll" />
+      <StyledHeaderMsgBtn type='primary'>
+        <IntlMessages id='common.viewAll' />
       </StyledHeaderMsgBtn>
     ),
   },
@@ -50,16 +50,16 @@ const AppHeaderMessages = () => {
     <DropDownWrapper>
       <Dropdown
         menu={{ items }}
-        overlayClassName="header-messages"
+        overlayClassName='header-messages'
         getPopupContainer={(triggerNode) => triggerNode}
-        trigger={["click"]}
+        trigger={['click']}
       >
         <StyledHeaderMsgLink onClick={(e) => e.preventDefault()}>
           <StyledHeaderMsgIcon>
             <AiOutlineMail />
           </StyledHeaderMsgIcon>
           <StyledHeaderMsgLinkText>
-            <IntlMessages id="dashboard.messages" />
+            <IntlMessages id='dashboard.messages' />
           </StyledHeaderMsgLinkText>
         </StyledHeaderMsgLink>
       </Dropdown>

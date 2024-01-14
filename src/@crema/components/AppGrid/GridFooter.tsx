@@ -1,13 +1,13 @@
 import React from 'react';
-import {Progress} from 'antd';
-import {StyledListFooter, StyledLoaderProgress} from './index.styled';
+import { Progress } from 'antd';
+import { StyledListFooter, StyledLoaderProgress } from './index.styled';
 
 type GridFooterProps = {
   loading: boolean;
   footerText: string;
-}
+};
 
-const GridFooter: React.FC<GridFooterProps> = ({loading, footerText}) => {
+const GridFooter: React.FC<GridFooterProps> = ({ loading, footerText }) => {
   if (loading) {
     return (
       <StyledLoaderProgress>

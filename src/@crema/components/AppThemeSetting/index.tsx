@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   layoutTypes,
   navStyles,
   sidebarColors,
-} from "@crema/mockapi/fakedb/navigationStyle";
-import clsx from "clsx";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import { CheckOutlined } from "@ant-design/icons";
-import { LayoutDirection, LayoutType } from "@crema/constants/AppEnums";
-import AppScrollbar from "../AppScrollbar";
-import { FiSettings } from "react-icons/fi";
-import { MdColorLens } from "react-icons/md";
+} from '@crema/fakedb/navigationStyle';
+import clsx from 'clsx';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import { CheckOutlined } from '@ant-design/icons';
+import { LayoutDirection, LayoutType } from '@crema/constants/AppEnums';
+import AppScrollbar from '../AppScrollbar';
+import { FiSettings } from 'react-icons/fi';
+import { MdColorLens } from 'react-icons/md';
 import {
   useLayoutActionsContext,
   useLayoutContext,
-} from "@crema/context/AppContextProvider/LayoutContextProvider";
-import SidebarSettings from "./SidebarSettings";
-import ThemeColors from "./ThemeColors";
+} from '@crema/context/AppContextProvider/LayoutContextProvider';
+import SidebarSettings from './SidebarSettings';
+import ThemeColors from './ThemeColors';
 import {
   StyledCustomizedHeader,
   StyledCustomizedItem,
@@ -30,9 +30,10 @@ import {
   StyledCustomizeNavOptionRightIcon,
   StyledCustomizerButton,
   StyledCustomizerOption,
-} from "./index.styled";
-import AppGrid from "../AppGrid";
-import MenuColorCell from "./SidebarSettings/MenuColorCell";
+} from './index.styled';
+import AppGrid from '../AppGrid';
+import MenuColorCell from './SidebarSettings/MenuColorCell';
+import Image from 'next/image';
 
 const AppThemeSetting = () => {
   const [open, setCustomizerStatus] = useState(false);
@@ -63,7 +64,7 @@ const AppThemeSetting = () => {
   return (
     <StyledCustomizerOption>
       <StyledCustomizerButton onClick={() => setCustomizerStatus(!open)}>
-        <FiSettings className="ant-spin-dot-spin" style={{ fontSize: 20 }} />
+        <FiSettings className='ant-spin-dot-spin' style={{ fontSize: 20 }} />
       </StyledCustomizerButton>
       <StyledCustomizerButton
         onClick={() => setColorSettingOpen(!isColorSettingOpen)}
@@ -75,14 +76,14 @@ const AppThemeSetting = () => {
         title={
           <StyledCustomizedHeader>
             <h3>
-              <IntlMessages id="customizer.customiseTheme" />
+              <IntlMessages id='customizer.customiseTheme' />
             </h3>
             <p>
-              <IntlMessages id="customizer.customiseText" />
+              <IntlMessages id='customizer.customiseText' />
             </p>
           </StyledCustomizedHeader>
         }
-        placement={direction === "ltr" ? "right" : "left"}
+        placement={direction === 'ltr' ? 'right' : 'left'}
         className={clsx({
           boxedDrawer: layoutType === LayoutType.BOXED,
         })}
@@ -96,7 +97,7 @@ const AppThemeSetting = () => {
             <StyledCustomizedItem>
               <StyledCustomizedSwitchView>
                 <h4>
-                  <IntlMessages id="customizer.rtlSupport" />
+                  <IntlMessages id='customizer.rtlSupport' />
                 </h4>
                 <StyledCustomizedSwitch
                   checked={direction === LayoutDirection.RTL}
@@ -107,7 +108,7 @@ const AppThemeSetting = () => {
 
             <StyledCustomizedItem>
               <h4>
-                <IntlMessages id="customizer.navigationStyles" />
+                <IntlMessages id='customizer.navigationStyles' />
               </h4>
               <StyledCustomizeNavOption>
                 {navStyles.map((navLayout) => {
@@ -116,7 +117,12 @@ const AppThemeSetting = () => {
                       <StyledCustomizeNavOptionContent
                         onClick={() => onNavStyleChange(navLayout.alias)}
                       >
-                        <img src={navLayout.image} alt="nav" />
+                        <Image
+                          src={`${navLayout.image}`}
+                          alt='nav'
+                          width={65}
+                          height={57}
+                        />
                         {navStyle === navLayout.alias ? (
                           <StyledCustomizeNavOptionRightIcon>
                             <CheckOutlined />
@@ -131,7 +137,7 @@ const AppThemeSetting = () => {
 
             <StyledCustomizedItem>
               <h4>
-                <IntlMessages id="customizer.layoutTypes" />
+                <IntlMessages id='customizer.layoutTypes' />
               </h4>
               <StyledCustomizeNavOption>
                 {layoutTypes.map((layout) => {
@@ -140,10 +146,12 @@ const AppThemeSetting = () => {
                       <StyledCustomizeNavOptionContent
                         onClick={() => onLayoutChange(layout.alias)}
                       >
-                        <img
-                          className="layout-img"
-                          src={layout.image}
-                          alt="nav"
+                        <Image
+                          className='layout-img'
+                          src={`${layout.image}`}
+                          alt='nav'
+                          width={84}
+                          height={48}
                         />
                         {layoutType === layout.alias ? (
                           <StyledCustomizeNavOptionRightIcon>
@@ -184,14 +192,14 @@ const AppThemeSetting = () => {
         title={
           <StyledCustomizedHeader>
             <h3>
-              <IntlMessages id="customizer.customiseSidebar" />
+              <IntlMessages id='customizer.customiseSidebar' />
             </h3>
             <p>
-              <IntlMessages id="customizer.customiseSidebarText" />
+              <IntlMessages id='customizer.customiseSidebarText' />
             </p>
           </StyledCustomizedHeader>
         }
-        placement={direction === "ltr" ? "right" : "left"}
+        placement={direction === 'ltr' ? 'right' : 'left'}
         className={clsx({
           boxedDrawer: layoutType === LayoutType.BOXED,
         })}

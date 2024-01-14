@@ -1,17 +1,17 @@
 import styled from 'styled-components';
-import {Drawer, Input, Layout} from 'antd';
+import { Drawer, Input, Layout } from 'antd';
 import MainSidebar from '../components/MainSidebar';
 import AppScrollbar from '../../AppScrollbar';
 
-const {Header} = Layout;
-const {Search} = Input;
+const { Header } = Layout;
+const { Search } = Input;
 
 export const StyledDrawerLayoutHeader = styled(Header)`
   padding-left: 20px;
   padding-right: 20px;
-  color: ${({theme}) => theme.palette.text.primary}!important;
-  background-color: ${({theme}) => theme.palette.background.paper}!important;
-  border-bottom: 1px solid ${({theme}) => theme.palette.borderColor}!important;
+  color: ${({ theme }) => theme.palette.text.primary}!important;
+  background-color: ${({ theme }) => theme.palette.background.paper}!important;
+  border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor}!important;
   height: 56px;
   line-height: 1;
   transition: all 0.1s linear;
@@ -23,7 +23,7 @@ export const StyledDrawerLayoutHeader = styled(Header)`
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     padding-left: 30px;
     padding-right: 30px;
     height: 71px !important;
@@ -33,7 +33,7 @@ export const StyledDrawerLayoutHeader = styled(Header)`
     font-size: 20px;
     margin-right: 20px;
     padding: 5.5px;
-    color: ${({theme}) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
 
     & svg {
       display: block;
@@ -58,7 +58,7 @@ export const StyledDrawerLayoutHeaderSearch = styled(Search)`
     margin-right: auto;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
     margin-right: 20px;
     max-width: 165px;
 
@@ -91,7 +91,7 @@ export const StyledDrawerLayoutHeaderSearch = styled(Search)`
       width: 135px;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
       width: 129px;
 
       &:focus {
@@ -114,15 +114,15 @@ export const StyledDrawerLayoutHeaderSearch = styled(Search)`
     > .ant-input-group
     > .ant-input-group-addon:last-child
     .ant-input-search-button {
-    border-radius: ${({theme}) => theme.sizes.borderRadius.base} 0 0
-      ${({theme}) => theme.sizes.borderRadius.base};
+    border-radius: ${({ theme }) => theme.sizes.borderRadius.base} 0 0
+      ${({ theme }) => theme.sizes.borderRadius.base};
   }
 `;
 
 export const StyledDrawerLayoutHeaderDesk = styled.div`
   display: none;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     display: flex;
     align-items: center;
   }
@@ -130,13 +130,13 @@ export const StyledDrawerLayoutHeaderDesk = styled.div`
 export const StyledDrawerLayoutHeaderMobile = styled.div`
   display: block;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     display: none;
   }
 
   & .ant-dropdown-link-mobile {
     font-size: 24px;
-    color: ${({theme}) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
 
     & svg {
       display: block;
@@ -156,7 +156,7 @@ export const StyledAppDrawer = styled(Drawer)`
   & .cr-user-info {
     padding-top: 4px;
     padding-bottom: 4px;
-    border-bottom: 1px solid ${({theme}) => theme.palette.borderColor};
+    border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor};
   }
 `;
 
@@ -167,7 +167,7 @@ export const StyledAppDrawerLayoutSidebar = styled(MainSidebar)`
     min-width: 0 !important;
     width: 100% !important;
     transition: all 0.1s linear;
-    border-right: 1px solid ${({theme}) => theme.palette.borderColor};
+    border-right: 1px solid ${({ theme }) => theme.palette.borderColor};
   }
 
   & .ant-layout-sider-trigger {
@@ -183,7 +183,7 @@ export const StyledAppDrawerLayoutSidebar = styled(MainSidebar)`
     width: 0 !important;
     transition: all 200ms linear;
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
       width: 4rem !important;
     }
 
@@ -191,7 +191,7 @@ export const StyledAppDrawerLayoutSidebar = styled(MainSidebar)`
       width: 100% !important;
       transition: all 200ms linear;
 
-      @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+      @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
         width: calc(100% - 4rem) !important;
       }
     }
@@ -262,7 +262,7 @@ export const StyledAppDrawerSidebarScrollbar = styled(AppScrollbar)`
     height: calc(100vh - 102px);
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     height: calc(100vh - 71px);
 
     .appMainFixedFooter & {
@@ -295,7 +295,7 @@ export const StyledAppDrawerLayoutMain = styled(Layout)`
   transition: all 0.1s linear;
   width: 100% !important;
   position: relative;
-  background-color: ${({theme}) => theme.palette.background.default};
+  background-color: ${({ theme }) => theme.palette.background.default};
 `;
 
 export const StyledDrawerScrollbar = styled(AppScrollbar)`
@@ -310,7 +310,7 @@ export const StyledDrawerScrollbar = styled(AppScrollbar)`
     max-height: calc(100vh - 104px);
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     max-height: calc(100vh - 71px);
 
     .appMainFixedFooter & {

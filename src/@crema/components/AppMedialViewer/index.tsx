@@ -8,6 +8,7 @@ import {
   StyledMedialCarousel,
   StyledMediaViewer,
 } from './index.styled';
+import Image from 'next/image';
 
 const settings: Settings = {
   dots: false,
@@ -22,10 +23,12 @@ const settings: Settings = {
 const renderItem = (data: any, index: number) => {
   if (data.mime_type.startsWith('image')) {
     return (
-      <img
+      <Image
         key={index}
-        src={data.url}
+        src={`${data.url}`}
         alt={data.name ? data.name : 'detail view'}
+        width={390}
+        height={300}
       />
     );
   } else if (data.mime_type.startsWith('docs')) {
@@ -56,7 +59,7 @@ type AppMedialViewerProps = {
   modalTitle?: string;
   medias: any[];
   onClose: () => void;
-}
+};
 
 const AppMediaViewer: React.FC<AppMedialViewerProps> = ({
   index,
@@ -78,7 +81,8 @@ const AppMediaViewer: React.FC<AppMedialViewerProps> = ({
       title={modalTitle}
       open={isOpen}
       footer={null}
-      onCancel={onClose}>
+      onCancel={onClose}
+    >
       <StyledMediaViewer>
         {index >= 0 ? (
           <StyledMedialCarousel>

@@ -20,7 +20,7 @@ export const ListEmptyResult: React.FC<ListEmptyResultProps> = ({
   loader,
   placeholder,
   loading,
-  title = <IntlMessages id="common.noRecordFound" />,
+  title = <IntlMessages id='common.noRecordFound' />,
   actionTitle,
   content,
   onClick,
@@ -46,7 +46,7 @@ export const ListEmptyResult: React.FC<ListEmptyResultProps> = ({
 
         {actionTitle ? (
           <Button
-            type="primary"
+            type='primary'
             style={{ marginTop: 30, minWidth: 150 }}
             onClick={onClick}
           >

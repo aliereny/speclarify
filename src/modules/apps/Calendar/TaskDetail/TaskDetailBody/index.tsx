@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import dayjs, { Dayjs } from "dayjs";
-import { useAuthUser } from "@crema/hooks/AuthHooks";
-import { useIntl } from "react-intl";
-import ChangeStaff from "./ChangeStaff";
-import TaskStatus from "./TaskStatus";
-import TaskPriority from "./TaskPriority";
-import { Input } from "antd";
-import { FiSend } from "react-icons/fi";
-import { AiOutlineCheckCircle, AiOutlineEdit } from "react-icons/ai";
-import AppIconButton from "@crema/components/AppIconButton";
+import React, { useState } from 'react';
+import dayjs, { Dayjs } from 'dayjs';
+import { useAuthUser } from '@crema/hooks/AuthHooks';
+import { useIntl } from 'react-intl';
+import ChangeStaff from './ChangeStaff';
+import TaskStatus from './TaskStatus';
+import TaskPriority from './TaskPriority';
+import { Input } from 'antd';
+import { FiSend } from 'react-icons/fi';
+import { AiOutlineCheckCircle, AiOutlineEdit } from 'react-icons/ai';
+import AppIconButton from '@crema/components/AppIconButton';
 import {
   StyledDetailContent,
   StyledTodoDetailBtn,
@@ -27,19 +27,17 @@ import {
   StyledTodoDetailStatusPri,
   StyledTodoDetailTextAreaForm,
   StyledTodoDivider,
-} from "../index.styled";
-import { putDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import {
-  CommentsLists,
-  AssignedStaff,
-  TodoDatePicker,
-  TaskCreatedByInfo,
-  TaskLabels,
-} from "@crema/modules/apps/Calendar";
-import { useCalendarContext } from "../../../context/CalendarContextProvider";
-import { TodoObjType } from "@crema/types/models/apps/Todo";
-import { getDateObject, getFormattedDate } from "@crema/helpers/DateHelper";
+} from '../index.styled';
+import { putDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import CommentsLists from './CommentsList';
+import AssignedStaff from './AssignedStaff';
+import TodoDatePicker from './DatePicker';
+import TaskCreatedByInfo from './TaskCreatedByInfo';
+import TaskLabels from '../../TasksList/Labels';
+import { useCalendarContext } from '../../../context/CalendarContextProvider';
+import { TodoObjType } from '@crema/types/models/apps/Todo';
+import { getDateObject, getFormattedDate } from '@crema/helpers/DateHelper';
 
 type Props = {
   selectedTask: TodoObjType;
@@ -57,13 +55,13 @@ const TaskDetailBody = (props: Props) => {
   const [title, setTitle] = useState(selectedTask.title);
   const [content, setContent] = useState(selectedTask.content);
 
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
 
   const [scheduleDate, setScheduleDate] = useState<string | Dayjs>(
-    getDateObject(selectedTask.startDate)
+    getDateObject(selectedTask.startDate),
   );
   const [scheduleEndDate, setScheduleEndDate] = useState<string | Dayjs>(
-    getDateObject(selectedTask.endDate)
+    getDateObject(selectedTask.endDate),
   );
 
   const [selectedStaff, setStaff] = useState(selectedTask.assignedTo);
@@ -80,20 +78,19 @@ const TaskDetailBody = (props: Props) => {
     task.endDate = getFormattedDate(scheduleEndDate);
     task.assignedTo = selectedStaff;
     putDataApi<{ task: TodoObjType }>(
-      "/api/calendar/task/",
+      'calender/detail',
       infoViewActionsContext,
       {
         task,
-      }
+      },
     )
       .then((data) => {
         onUpdateSelectedTask(data.task);
-        infoViewActionsContext.showMessage("Task Updated Successfully");
+        infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
       });
-    console.log("onDoneEditing: ", task);
     setEdit(!isEdit);
   };
 
@@ -101,25 +98,25 @@ const TaskDetailBody = (props: Props) => {
     const task = selectedTask;
     task.comments = task.comments.concat({
       comment: comment,
-      name: user.displayName ? user.displayName : "User",
+      name: user.displayName ? user.displayName : 'User',
       image: user.photoURL,
-      date: dayjs().format("MMM DD"),
+      date: dayjs().format('MMM DD'),
     });
     putDataApi<{ task: TodoObjType }>(
-      "/api/calendar/task/",
+      'calender/detail',
       infoViewActionsContext,
       {
         task,
-      }
+      },
     )
       .then((data) => {
         onUpdateSelectedTask(data.task);
-        infoViewActionsContext.showMessage("Task Updated Successfully");
+        infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
       });
-    setComment("");
+    setComment('');
   };
 
   const handleStaffChange = (value: number) => {
@@ -138,7 +135,7 @@ const TaskDetailBody = (props: Props) => {
           {isEdit ? (
             <Input
               style={{ maxWidth: 200, marginRight: 20 }}
-              placeholder={messages["todo.taskTitle"] as string}
+              placeholder={messages['todo.taskTitle'] as string}
               defaultValue={title}
               onChange={({ target: { value } }) => setTitle(value)}
             />
@@ -146,7 +143,7 @@ const TaskDetailBody = (props: Props) => {
             <h2>{selectedTask.title}</h2>
           )}
 
-          <StyledTodoDetailContentHeaderLabel className="ant-row ant-row-middle">
+          <StyledTodoDetailContentHeaderLabel className='ant-row ant-row-middle'>
             {selectedTask.label ? (
               <TaskLabels labels={selectedTask.label} />
             ) : null}
@@ -156,7 +153,7 @@ const TaskDetailBody = (props: Props) => {
             <StyledTodoDetailContentHeaderTagBtn
               style={{
                 color: selectedTask.priority.color,
-                backgroundColor: selectedTask.priority.color + "10",
+                backgroundColor: selectedTask.priority.color + '10',
               }}
             >
               {selectedTask.priority.name}
@@ -214,7 +211,7 @@ const TaskDetailBody = (props: Props) => {
       ) : (
         <StyledTodoDetailTextAreaForm>
           <Input.TextArea
-            placeholder={messages["common.description"] as string}
+            placeholder={messages['common.description'] as string}
             defaultValue={content}
             onChange={({ target: { value } }) => setContent(value)}
           />
@@ -244,13 +241,13 @@ const TaskDetailBody = (props: Props) => {
       <StyledTodoDetailFooter>
         <Input.TextArea
           autoSize={{ minRows: 1, maxRows: 3 }}
-          placeholder={messages["common.writeComment"] as string}
+          placeholder={messages['common.writeComment'] as string}
           value={comment}
           onChange={({ target: { value } }) => setComment(value)}
         />
         <StyledTodoDetailBtn
-          shape="circle"
-          type="primary"
+          shape='circle'
+          type='primary'
           disabled={!comment}
           onClick={onAddComments}
         >

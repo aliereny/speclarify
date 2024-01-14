@@ -1,29 +1,26 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import AppInfoView from "@crema/components/AppInfoView";
-import { Col } from "antd";
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import AppInfoView from '@crema/components/AppInfoView';
+import { Col } from 'antd';
 import {
   StyledScrumBoardContainer,
   StyledScrumBoardHeader,
   StyledScrumBoardWrap,
-} from "./index.styled";
-import { postDataApi, putDataApi, useGetDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import {
-  AddBoardButton,
-  AddNewBoard,
-  BoardItem,
-} from "@crema/modules/apps/ScrumBoard";
-import type { BoardObjType } from "@crema/types/models/apps/ScrumbBoard";
+} from './index.styled';
+import { postDataApi, putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import AddBoardButton from './AddBoardButton';
+import AddNewBoard from './AddNewBoard';
+import BoardItem from './BoardItem';
+import type { BoardObjType } from '@crema/types/models/apps/ScrumbBoard';
 
 const BoardList = () => {
   const router = useRouter();
   const infoViewActionsContext = useInfoViewActionsContext();
 
-  const [{ apiData: boardList }, { setData }] = useGetDataApi<BoardObjType[]>(
-    "/api/scrumboard/board/list"
-  );
+  const [{ apiData: boardList }, { setData }] =
+    useGetDataApi<BoardObjType[]>('scrumboard/detail');
 
   const [selectedBoard, setSelectedBoard] = useState<BoardObjType | null>(null);
 
@@ -45,26 +42,22 @@ const BoardList = () => {
   const onAddBoard = (name: string) => {
     if (selectedBoard) {
       const board = { ...selectedBoard, name };
-      putDataApi("/api/scrumboard/edit/board", infoViewActionsContext, {
+      putDataApi('scrumboard', infoViewActionsContext, {
         board,
       })
         .then(() => {
-          infoViewActionsContext.showMessage("Board Edited Successfully!");
+          infoViewActionsContext.showMessage('Board Edited Successfully!');
         })
         .catch((error) => {
           infoViewActionsContext.fetchError(error.message);
         });
     } else {
-      postDataApi<BoardObjType>(
-        "/api/scrumboard/add/board",
-        infoViewActionsContext,
-        {
-          board: { name },
-        }
-      )
+      postDataApi<BoardObjType>('scrumboard', infoViewActionsContext, {
+        board: { name },
+      })
         .then((data) => {
           if (setData) setData(boardList.concat(data));
-          infoViewActionsContext.showMessage("Board Added Successfully!");
+          infoViewActionsContext.showMessage('Board Added Successfully!');
         })
         .catch((error) => {
           infoViewActionsContext.fetchError(error.message);
@@ -86,7 +79,7 @@ const BoardList = () => {
       <StyledScrumBoardWrap>
         <StyledScrumBoardHeader>
           <h2>
-            <IntlMessages id="scrumboard.scrumboardApp" />
+            <IntlMessages id='scrumboard.scrumboardApp' />
           </h2>
         </StyledScrumBoardHeader>
         <StyledScrumBoardContainer>

@@ -1,10 +1,10 @@
-import { IdcardOutlined, PhoneOutlined } from "@ant-design/icons";
-import AppFooter from "@crema/components/AppsContainer/AppsFooter";
-import { Avatar, Card, Input } from "antd";
-import styled from "styled-components";
-import { MdLabelOutline } from "react-icons/md";
-import AppsPagination from "@crema/components/AppsPagination";
-import { rgba } from "polished";
+import { IdcardOutlined, PhoneOutlined } from '@ant-design/icons';
+import AppFooter from '@crema/components/AppsContainer/AppsFooter';
+import { Avatar, Card, Input } from 'antd';
+import styled from 'styled-components';
+import { MdLabelOutline } from 'react-icons/md';
+import AppsPagination from '@crema/components/AppsPagination';
+import { rgba } from 'polished';
 
 const { Search } = Input;
 
@@ -28,7 +28,7 @@ export const StyledContactListItemHover = styled.span`
   width: 0;
   overflow: hidden;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     right: auto;
     left: 24px;
   }
@@ -60,7 +60,7 @@ export const StyledContactGridCard = styled(Card)`
       visibility: visible;
       width: 108px;
 
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         right: auto;
         left: 0;
       }
@@ -147,7 +147,7 @@ export const StyledGridCardActionItem = styled.div`
       border-top: 0 none;
       border-left: 1px solid ${({ theme }) => theme.palette.dividerColor};
 
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         border-left: 0 none;
         border-right: 1px solid ${({ theme }) => theme.palette.dividerColor};
       }
@@ -159,7 +159,7 @@ export const StyledIdcardOutlined = styled(IdcardOutlined)`
   font-size: ${({ theme }) => theme.font.size.lg};
   margin-right: 8px;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-right: 0;
     margin-left: 8px;
   }
@@ -169,7 +169,7 @@ export const StyledPhoneOutlined = styled(PhoneOutlined)`
   font-size: ${({ theme }) => theme.font.size.lg};
   margin-right: 8px;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-right: 0;
     margin-left: 8px;
   }
@@ -204,7 +204,7 @@ export const StyledContactListItem = styled.div`
     & .contact-list-item-company {
       transform: translateX(-15px);
 
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         transform: translateX(15px);
       }
     }
@@ -214,7 +214,7 @@ export const StyledContactListItem = styled.div`
 export const StyledContactListItemCheckView = styled.span`
   margin-right: 16px;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-right: 0;
     margin-left: 16px;
   }
@@ -240,7 +240,7 @@ export const StyledContactListItemMail = styled.span`
   margin-right: 16px;
   display: none;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-right: 0;
     margin-left: 16px;
   }
@@ -261,7 +261,7 @@ export const StyledContactListItemCompany = styled.span`
   transition: all 0.4s ease;
   transform: translateX(0);
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-right: 0;
     margin-left: 16px;
   }
@@ -276,7 +276,7 @@ export const StyledContactListItemCol = styled.span`
   margin-right: 16px;
   display: none;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-right: 0;
     margin-left: 16px;
   }
@@ -293,7 +293,7 @@ export const StyledContactListItemAction = styled.span`
   font-size: 20px;
   transition: all 0.5s ease;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-left: 0;
     margin-right: auto;
   }
@@ -303,7 +303,7 @@ export const StyledContactListExportIcon = styled(MdLabelOutline)`
   margin-left: 8px;
   display: none;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-left: 0;
     margin-right: 8px;
   }
@@ -315,7 +315,7 @@ export const StyledContactListExportIcon = styled(MdLabelOutline)`
 export const StyledContactListItemMenuView = styled.span`
   margin-left: 8px;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-left: 0;
     margin-right: 8px;
   }
@@ -342,7 +342,7 @@ export const StyledContactListMainContent = styled.div`
   align-items: center;
   padding-right: 10px;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     padding-right: 0;
     padding-left: 10px;
   }
@@ -352,7 +352,7 @@ export const StyledContactListMobileAvatarView = styled.div`
   margin-right: 14px;
   margin-top: 3px;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-right: 0;
     margin-left: 14px;
   }
@@ -395,7 +395,7 @@ export const StyledContactListExportMobileIcon = styled(MdLabelOutline)`
 export const StyledContactListStarMobile = styled.span`
   margin-left: 6px;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-left: 0;
     margin-right: 6px;
   }
@@ -424,7 +424,7 @@ export const StyledContactGridView = styled.div`
 export const StyledContactHeaderCheckboxView = styled.div`
   margin-right: 20px;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-right: 0;
     margin-left: 20px;
   }
@@ -435,7 +435,7 @@ export const StyledContactCheckedAction = styled.span`
   align-items: center;
   margin-right: 10px;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-right: 0;
     margin-left: 10px;
   }
@@ -446,7 +446,7 @@ export const StyledContactViewSelect = styled.div`
   align-items: center;
   margin-left: auto;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     margin-left: 0;
     margin-right: auto;
   }
@@ -482,7 +482,7 @@ export const StyledContactHeaderPagination = styled(AppsPagination)`
   padding-left: 8px;
   padding-right: 8px;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm - 1}px) {
+  @media screen and (max-width: ${({theme}) => theme.breakpoints.sm - 1}px) {
     display: none;
   }
 `;

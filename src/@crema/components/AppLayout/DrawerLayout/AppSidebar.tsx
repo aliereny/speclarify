@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import UserInfo from "../components/UserInfo";
-import clsx from "clsx";
-import AppVerticalMenu from "../components/AppVerticalNav";
-import { useRouter } from "next/router";
-import { LayoutDirection } from "@crema/constants/AppEnums";
-import { useSidebarContext } from "@crema/context/AppContextProvider/SidebarContextProvider";
-import { useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
+import React, { useEffect } from 'react';
+import UserInfo from '../components/UserInfo';
+import clsx from 'clsx';
+import AppVerticalMenu from '../components/AppVerticalNav';
+import { usePathname } from 'next/navigation';
+import { LayoutDirection } from '@crema/constants/AppEnums';
+import { useSidebarContext } from '@crema/context/AppContextProvider/SidebarContextProvider';
+import { useLayoutContext } from '@crema/context/AppContextProvider/LayoutContextProvider';
 import {
   StyledAppDrawer,
   StyledAppDrawerLayoutSidebar,
   StyledAppDrawerSidebarScrollbar,
-} from "./index.styled";
-import { RouterConfigData } from "@crema/types/models/Apps";
+} from './index.styled';
+import { RouterConfigData } from '@crema/types/models/Apps';
 
 type AppSidebarProps = {
   visible: boolean;
@@ -22,7 +22,7 @@ type AppSidebarProps = {
 const AppSidebar = ({ visible, onClose, routesConfig }: AppSidebarProps) => {
   const { allowSidebarBgImage } = useSidebarContext();
   const { direction } = useLayoutContext();
-  const { pathname } = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     onClose();
@@ -30,14 +30,14 @@ const AppSidebar = ({ visible, onClose, routesConfig }: AppSidebarProps) => {
 
   return (
     <StyledAppDrawer
-      placement={direction === LayoutDirection.LTR ? "left" : "right"}
+      placement={direction === LayoutDirection.LTR ? 'left' : 'right'}
       closable={false}
       onClose={onClose}
       open={visible}
     >
       <StyledAppDrawerLayoutSidebar
         className={clsx({
-          "drawerLayout-sidebar-img-background": allowSidebarBgImage,
+          'drawerLayout-sidebar-img-background': allowSidebarBgImage,
         })}
         collapsible
       >

@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import {StyledAppSelect, StyledOption} from './index.styled';
+import React, { useState } from 'react';
+import { StyledAppSelect, StyledOption } from './index.styled';
 
 type AppSelectProps = {
   menus: any[];
   onChange: (e: any) => void;
   defaultValue: any;
   selectionKey?: string;
-}
+};
 
 const AppSelect: React.FC<AppSelectProps> = ({
   menus = [],
@@ -25,11 +25,13 @@ const AppSelect: React.FC<AppSelectProps> = ({
     <StyledAppSelect
       defaultValue={defaultValue}
       value={selectionType}
-      onChange={handleSelectionType}>
+      onChange={handleSelectionType}
+    >
       {menus.map((menu, index) => (
         <StyledOption
           key={index}
-          value={selectionKey ? menu[selectionKey] : menu}>
+          value={selectionKey ? menu[selectionKey] : menu}
+        >
           {selectionKey ? menu[selectionKey] : menu}
         </StyledOption>
       ))}

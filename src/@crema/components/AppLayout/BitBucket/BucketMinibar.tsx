@@ -1,12 +1,12 @@
-import React from "react";
-import { IoChatboxOutline } from "react-icons/io5";
-import { AiOutlineSearch } from "react-icons/ai";
-import { FiSettings } from "react-icons/fi";
-import { IoIosNotificationsOutline } from "react-icons/io";
-import AppLanguageSwitcher from "../../AppLanguageSwitcher";
-import { useSidebarContext } from "@crema/context/AppContextProvider/SidebarContextProvider";
-import clsx from "clsx";
-import { useThemeContext } from "@crema/context/AppContextProvider/ThemeContextProvider";
+import React from 'react';
+import { IoChatboxOutline } from 'react-icons/io5';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { FiSettings } from 'react-icons/fi';
+import { IoIosNotificationsOutline } from 'react-icons/io';
+import AppLanguageSwitcher from '../../AppLanguageSwitcher';
+import { useSidebarContext } from '@crema/context/AppContextProvider/SidebarContextProvider';
+import clsx from 'clsx';
+import { useThemeContext } from '@crema/context/AppContextProvider/ThemeContextProvider';
 import {
   StyledAppMinibarMain,
   StyledAppMiniScrollbar,
@@ -15,7 +15,8 @@ import {
   StyledBucketMinibarLink,
   StyledBucketMinibarLogo,
   StyledBucketMinibarSetting,
-} from "./index.styled";
+} from './index.styled';
+import Image from 'next/image';
 
 const BucketMinibar = () => {
   const { sidebarColorSet } = useSidebarContext();
@@ -23,7 +24,7 @@ const BucketMinibar = () => {
   return (
     <StyledBucketMinibar
       className={clsx({
-        dark: themeMode === "dark",
+        dark: themeMode === 'dark',
       })}
       style={{
         backgroundColor: sidebarColorSet.sidebarBgColor,
@@ -32,13 +33,15 @@ const BucketMinibar = () => {
     >
       <StyledBucketMinibarInner>
         <StyledBucketMinibarLogo onClick={(e) => e.preventDefault()}>
-          <img
-            src={
-              sidebarColorSet.mode === "dark"
-                ? "/assets/images/logo-white.png"
-                : "/assets/images/logo.png"
-            }
-            alt="crema-logo"
+          <Image
+            src={`${
+              sidebarColorSet.mode === 'dark'
+                ? '/assets/images/logo-white.png'
+                : '/assets/images/logo.png'
+            }`}
+            alt='crema-logo'
+            width={31}
+            height={40}
           />
         </StyledBucketMinibarLogo>
 

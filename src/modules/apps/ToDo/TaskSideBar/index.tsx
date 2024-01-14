@@ -1,11 +1,11 @@
-import React from "react";
-import AddNewTask from "../AddNewTask";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import AppsSideBarFolderItem from "@crema/components/AppsSideBarFolderItem";
-import AppList from "@crema/components/AppList";
-import ListEmptyResult from "@crema/components/AppList/ListEmptyResult";
-import SidebarPlaceholder from "@crema/components/AppSkeleton/SidebarListSkeleton";
-import { Button } from "antd";
+import React from 'react';
+import AddNewTask from '../AddNewTask';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import AppsSideBarFolderItem from '@crema/components/AppsSideBarFolderItem';
+import AppList from '@crema/components/AppList';
+import ListEmptyResult from '@crema/components/AppList/ListEmptyResult';
+import SidebarPlaceholder from '@crema/components/AppSkeleton/SidebarListSkeleton';
+import { Button } from 'antd';
 import {
   StyledPlusOutlined,
   StyledTodoScrollbar,
@@ -13,13 +13,13 @@ import {
   StyledTodoSidebarHeader,
   StyledTodoSidebarList,
   StyledTodoSidebarTitle,
-} from "./index.styled";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import { TaskLabelItem } from "@crema/modules/apps/ToDo";
+} from './index.styled';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import TaskLabelItem from './LabelItem';
 
 const TaskSideBar = () => {
-  const [{ apiData: labelList }] = useGetDataApi("/api/todo/labels/list", []);
-  const [{ apiData: folderList }] = useGetDataApi("/api/todo/folders/list", []);
+  const [{ apiData: labelList }] = useGetDataApi('todo/labels', []);
+  const [{ apiData: folderList }] = useGetDataApi('todo/folders', []);
 
   const [isAddTaskOpen, setAddTaskOpen] = React.useState(false);
 
@@ -36,17 +36,17 @@ const TaskSideBar = () => {
       <StyledTodoSidebarHeader>
         <Button
           ghost
-          type="primary"
+          type='primary'
           icon={<StyledPlusOutlined style={{ marginRight: 8 }} />}
           onClick={onOpenAddTask}
         >
-          <IntlMessages id="todo.addNewTask" />
+          <IntlMessages id='todo.addNewTask' />
         </Button>
       </StyledTodoSidebarHeader>
 
       <StyledTodoScrollbar>
         <StyledTodoSidebarContent>
-          <StyledTodoSidebarList itemLayout="horizontal">
+          <StyledTodoSidebarList itemLayout='horizontal'>
             <AppList
               data={folderList}
               ListEmptyComponent={
@@ -67,7 +67,7 @@ const TaskSideBar = () => {
 
           <StyledTodoSidebarTitle>Labels</StyledTodoSidebarTitle>
 
-          <StyledTodoSidebarList aria-label="main mailbox folders">
+          <StyledTodoSidebarList aria-label='main mailbox folders'>
             <AppList
               data={labelList}
               ListEmptyComponent={

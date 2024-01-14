@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
-import { useDropzone } from "react-dropzone";
+import React, { useEffect } from 'react';
+import { useDropzone } from 'react-dropzone';
 import {
   StyledTextPrimary,
   StyledThumb,
   StyledThumbInner,
   StyledThumbsContainer,
   StyledUploadWrapper,
-} from "./index.styled";
-import { FileType } from "@crema/types/models/ecommerce/EcommerceApp";
+} from './index.styled';
+import { FileType } from '@crema/types/models/ecommerce/EcommerceApp';
+import Image from 'next/image';
 
 type Props = {
   uploadedFiles: FileType[];
@@ -17,15 +18,15 @@ type Props = {
 const ImgUpload = ({ uploadedFiles, setUploadedFiles }: Props) => {
   const dropzone = useDropzone({
     accept: {
-      "image/png": [".png", ".jpeg", ".jpg"],
+      'image/png': ['.png', '.jpeg', '.jpg'],
     },
     onDrop: (acceptedFiles) => {
       setUploadedFiles(
         acceptedFiles.map((file) =>
           Object.assign(file, {
             preview: URL.createObjectURL(file),
-          })
-        )
+          }),
+        ),
       );
     },
   });
@@ -36,21 +37,21 @@ const ImgUpload = ({ uploadedFiles, setUploadedFiles }: Props) => {
   const thumbs = uploadedFiles.map((file) => (
     <StyledThumb key={file.name}>
       <StyledThumbInner>
-        <img alt="preview" src={file.preview} />
+        <Image alt='preview' src={`${file.preview}`} width={90} height={90} />
       </StyledThumbInner>
     </StyledThumb>
   ));
 
   return (
-    <section className="container">
+    <section className='container'>
       <StyledUploadWrapper>
-        <div {...dropzone.getRootProps({ className: "dropzone" })}>
+        <div {...dropzone.getRootProps({ className: 'dropzone' })}>
           <input {...dropzone.getInputProps()} />
-          <img
-            src={"/assets/icon/upload.svg"}
+          <Image
+            src={'/assets/icon/upload.svg'}
             width={40}
             height={40}
-            alt="upload"
+            alt='upload'
           />
 
           <p>

@@ -1,16 +1,16 @@
-import React from "react";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import CustomColorCell from "../ColorCell";
+import React from 'react';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import CustomColorCell from '../ColorCell';
 import {
   useThemeActionsContext,
   useThemeContext,
-} from "@crema/context/AppContextProvider/ThemeContextProvider";
-import AppGrid from "../../AppGrid";
+} from '@crema/context/AppContextProvider/ThemeContextProvider';
+import AppGrid from '../../AppGrid';
 import {
   StyledThemeColorSetting,
   StyledThemeColorSettingTitle,
-} from "./index.styled";
-import themeColorSets, { ThemeColorType } from "@crema/constants/ColorSets";
+} from './index.styled';
+import themeColorSets, { ThemeColorType } from '@crema/constants/ColorSets';
 
 const ThemeColors = () => {
   const { theme } = useThemeContext();
@@ -29,7 +29,7 @@ const ThemeColors = () => {
   return (
     <StyledThemeColorSetting>
       <StyledThemeColorSettingTitle>
-        <IntlMessages id="customizer.themeColors" />
+        <IntlMessages id='customizer.themeColors' />
       </StyledThemeColorSettingTitle>
       <AppGrid
         data={themeColorSets}

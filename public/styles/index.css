@@ -1,3 +1,10 @@
-@import 'country-flag/sprite-flags-24x24.css';
-@import 'ql-editor.css';
 @import "calendar.css";
+@import "maps.css";
+@import "loader.css";
+@import "base.css";
+@import "react-timeline.css";
+
+* {
+    margin: 0;
+    padding: 0;
+}

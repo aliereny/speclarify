@@ -1,19 +1,20 @@
-import React from "react";
-import { InvoiceSettings } from "@crema/modules/invoice";
-import { putDataApi, useGetDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { StyledTypographyWrapper } from "../index.styled";
+'use client';
+import React from 'react';
+import InvoiceSettings from './InvoiceSettings';
+import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import { StyledTypographyWrapper } from '../index.styled';
 import {
-  InvoiceSettingType,
   InvoiceSettingItem,
-} from "@crema/types/models/invoice";
+  InvoiceSettingType,
+} from '@crema/types/models/invoice';
 
 const InvoiceSettingsPage = () => {
   const [{ apiData }, { reCallAPI }] = useGetDataApi<InvoiceSettingType>(
-    "/api/invoice/settings",
+    'invoice/settings',
     {} as InvoiceSettingType,
     {},
-    true
+    true,
   );
   const infoViewActionsContext = useInfoViewActionsContext();
 
@@ -23,10 +24,10 @@ const InvoiceSettingsPage = () => {
       [key]: newSettings,
     };
 
-    putDataApi("/api/invoice/settings/update", infoViewActionsContext, settings)
+    putDataApi('invoice/settings', infoViewActionsContext, settings)
       .then(() => {
         reCallAPI();
-        infoViewActionsContext.showMessage("Settings Updated Successfully");
+        infoViewActionsContext.showMessage('Settings Updated Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);

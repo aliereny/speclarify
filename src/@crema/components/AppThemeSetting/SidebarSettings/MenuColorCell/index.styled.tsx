@@ -18,7 +18,7 @@ export const StyledMenuColorCellHeaderAvatar = styled.div`
   min-width: 30px;
   width: 30px;
   height: 30px;
-  border-radius: ${({theme}) => theme.sizes.borderRadius.circle};
+  border-radius: ${({ theme }) => theme.sizes.borderRadius.circle};
 `;
 export const StyledMenuColorCellHeaderContent = styled.div`
   width: 100%;
@@ -43,25 +43,25 @@ export const StyledMenuColorCellItem = styled.div`
   min-height: 40px;
   padding: 10px 18px;
   white-space: nowrap;
-  font-size: ${({theme}) => theme.font.size.sm};
+  font-size: ${({ theme }) => theme.font.size.sm};
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
-    font-size: ${({theme}) => theme.font.size.base};
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+    font-size: ${({ theme }) => theme.font.size.base};
   }
 `;
 
 export const StyledMenuColorCellItemSelected = styled(StyledMenuColorCellItem)`
   padding: 10px;
-  border-radius: ${({theme}) => theme.sizes.borderRadius.base};
+  border-radius: ${({ theme }) => theme.sizes.borderRadius.base};
   width: calc(100% - 16px);
   position: relative;
   transition: all 0.4s ease;
   margin-left: 8px;
   margin-right: 8px;
-  font-size: ${({theme}) => theme.font.size.sm};
+  font-size: ${({ theme }) => theme.font.size.sm};
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
-    font-size: ${({theme}) => theme.font.size.base};
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+    font-size: ${({ theme }) => theme.font.size.base};
   }
 
   &.rounded-menu {
@@ -161,12 +161,12 @@ export const StyledMenuColorCellItemSelected = styled(StyledMenuColorCellItem)`
     &.menu-color-cell-menu-item-selected {
       &:before {
         box-shadow: 20px 20px 0 10px
-          ${({theme}) => theme.sidebar.light.sidebarMenuSelectedBgColor};
+          ${({ theme }) => theme.sidebar.light.sidebarMenuSelectedBgColor};
         opacity: 1;
       }
 
       &:after {
-        box-shadow: 20px -20px 0 10px ${({theme}) => theme.sidebar.light.sidebarMenuSelectedBgColor};
+        box-shadow: 20px -20px 0 10px ${({ theme }) => theme.sidebar.light.sidebarMenuSelectedBgColor};
         opacity: 1;
       }
     }

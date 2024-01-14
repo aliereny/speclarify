@@ -1,3 +1,4 @@
+'use client';
 import { PlusOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import AppScrollbar from '@crema/components/AppScrollbar';

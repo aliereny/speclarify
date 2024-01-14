@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from "react";
-import AppsHeader from "@crema/components/AppsContainer/AppsHeader";
-import AppsContent from "@crema/components/AppsContainer/AppsContent";
+import React, { useEffect, useState } from 'react';
+import AppsHeader from '@crema/components/AppsContainer/AppsHeader';
+import AppsContent from '@crema/components/AppsContainer/AppsContent';
 import {
   StyledProductListMainContent,
   StyledProductListView,
-} from "./index.styled";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import { VIEW_TYPE } from "../index";
-import {
-  ProductGrid,
-  ProductHeader,
-  ProductList,
-} from "@crema/modules/ecommerce/Products";
+} from './index.styled';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import { VIEW_TYPE } from '../index';
+import ProductHeader from '../ProductHeader';
+import ProductGrid from './ProductGrid';
+import ProductList from './ProductList';
 import type {
   ProductDataFilterType,
   ProductDataType,
-} from "@crema/types/models/ecommerce/EcommerceApp";
+} from '@crema/types/models/ecommerce/EcommerceApp';
 
 type Props = {
   filterData: ProductDataFilterType;
@@ -33,12 +31,11 @@ const ProductListing = ({
   const [page, setPage] = useState(0);
   const [{ apiData: ecommerceList, loading }, { setQueryParams }] =
     useGetDataApi<{ list: ProductDataType[]; total: number }>(
-      "/api/ecommerce/list",
+      'ecommerce/products',
       { list: [] as ProductDataType[], total: 0 },
       {},
-      false
+      false,
     );
-
   const searchProduct = (title: string) => {
     setFilterData({ ...filterData, title });
   };
@@ -48,7 +45,15 @@ const ProductListing = ({
   };
 
   useEffect(() => {
-    setQueryParams({ filterData, page });
+    setQueryParams({
+      page,
+      ...filterData,
+      brand: filterData?.brand?.toString() || '',
+      ideaFor: filterData?.ideaFor?.toString() || '',
+      rating: filterData?.rating?.toString() || '',
+      color: filterData?.color?.toString() || '',
+      discount: filterData?.discount?.toString() || '',
+    });
   }, [filterData]);
 
   return (

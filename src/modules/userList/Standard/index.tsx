@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import { ListItem } from '@crema/modules/userList/Standard';
+import ListItem from './ListItem';
 
 import AppList from '@crema/components/AppList';
 import AppInfoView from '@crema/components/AppInfoView';
@@ -7,7 +8,7 @@ import { StyledUserStandard } from './index.styled';
 import { useGetDataApi } from '@crema/hooks/APIHooks';
 
 const Standard = () => {
-  const [{ apiData: usersList }] = useGetDataApi('/api/user/list', []);
+  const [{ apiData: usersList }] = useGetDataApi('userList', []);
 
   return (
     <StyledUserStandard>

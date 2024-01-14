@@ -1,12 +1,13 @@
+'use client';
 import React, {
   createContext,
   ReactNode,
   useContext,
   useEffect,
   useState,
-} from "react";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import { useRouter } from "next/router";
+} from 'react';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import { useParams, usePathname } from 'next/navigation';
 import {
   FolderObjType,
   LabelObjType,
@@ -14,12 +15,12 @@ import {
   StaffObjType,
   StatusObjType,
   TodoObjType,
-} from "@crema/types/models/apps/Todo";
-import { APIDataProps } from "@crema/types/models/APIDataProps";
+} from '@crema/types/models/apps/Todo';
+import { APIDataProps } from '@crema/types/models/APIDataProps';
 
 export const ViewMode = {
-  List: "list",
-  Calendar: "calendar",
+  List: 'list',
+  Calendar: 'calendar',
 };
 
 export type TodoContextType = {
@@ -55,9 +56,9 @@ const ContextState: TodoContextType = {
 
   loading: false,
   page: 0,
-  viewMode: "list",
-  folder: "",
-  label: "",
+  viewMode: 'list',
+  folder: '',
+  label: '',
 };
 
 const TodoContext = createContext<TodoContextType>(ContextState);
@@ -78,10 +79,11 @@ type Props = {
   children: ReactNode;
 };
 export const TodoContextProvider = ({ children }: Props) => {
-  const router = useRouter();
-  const { all, asPath } = router.query;
-  let folder = "",
-    label = "";
+  const params = useParams();
+  const pathname = usePathname();
+  const { all } = params;
+  let folder = '',
+    label = '';
   if (all?.length === 2) {
     label = all[1];
   } else if (all?.length === 1) {
@@ -89,38 +91,28 @@ export const TodoContextProvider = ({ children }: Props) => {
   }
 
   const [viewMode, setViewMode] = useState(ViewMode.List);
-  const [{ apiData: labelList }] = useGetDataApi<LabelObjType[]>(
-    "/api/todo/labels/list"
-  );
-  const [{ apiData: priorityList }] = useGetDataApi<PriorityObjType[]>(
-    "/api/todo/priority/list"
-  );
-  const [{ apiData: staffList }] = useGetDataApi<StaffObjType[]>(
-    "/api/todo/staff/list"
-  );
+  const [{ apiData: labelList }] = useGetDataApi<LabelObjType[]>('todo/labels');
+  const [{ apiData: priorityList }] =
+    useGetDataApi<PriorityObjType[]>('todo/priority');
+  const [{ apiData: staffList }] = useGetDataApi<StaffObjType[]>('todo/staff');
   const [{ apiData: folderList }] = useGetDataApi<FolderObjType[]>(
-    "/api/todo/folders/list",
-    []
+    'todo/folders',
+    [],
   );
   const [{ apiData: statusList }] = useGetDataApi<StatusObjType[]>(
-    "/api/todo/status/list",
-    []
+    'todo/status',
+    [],
   );
   const [page, setPage] = useState(0);
 
   const [
     { apiData: taskLists, loading },
     { setQueryParams, setData: setTodoData, reCallAPI },
-  ] = useGetDataApi<APIDataProps<TodoObjType[]>>(
-    "/api/todo/task/list",
-    undefined,
-    {},
-    false
-  );
+  ] = useGetDataApi<APIDataProps<TodoObjType[]>>('todo', undefined, {}, false);
 
   useEffect(() => {
     setPage(0);
-  }, [asPath]);
+  }, [pathname]);
 
   useEffect(() => {
     if (folder || label)

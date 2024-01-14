@@ -1,3 +1,4 @@
+'use client';
 import React, {
   createContext,
   ReactNode,
@@ -5,37 +6,37 @@ import React, {
   useEffect,
   useMemo,
   useState,
-} from "react";
-import Auth from "@aws-amplify/auth";
-import { useRouter } from "next/router";
-import { awsConfig } from "./aws-exports";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { AuthUserType } from "@crema/types/models/AuthUser";
+} from 'react';
+import Auth from '@aws-amplify/auth';
+import { useRouter } from 'next/router';
+import { awsConfig } from './aws-exports';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import { AuthUserType } from '@crema/types/models/AuthUser';
 
-interface AwsCognitoContextProps {
+type AwsCognitoContextProps = {
   user: AuthUserType | null | undefined;
   isAuthenticated: boolean;
   isLoading: boolean;
-}
+};
 
-interface SignUpProps {
+type SignUpProps = {
   name: string;
   email: string;
   password: string;
-}
+};
 
-interface SignInProps {
+type SignInProps = {
   email: string;
   password: string;
-}
+};
 
-interface AwsCognitoActionsProps {
+type AwsCognitoActionsProps = {
   signUpCognitoUser: (data: SignUpProps) => void;
   signIn: (data: SignInProps) => void;
   confirmCognitoUserSignup: (username: string, code: string) => void;
   forgotPassword: (username: string, code: string) => void;
   logout: () => void;
-}
+};
 
 const AwsCognitoContext = createContext<AwsCognitoContextProps>({
   user: null,
@@ -80,14 +81,14 @@ const AwsAuthProvider: React.FC<AwsAuthProviderProps> = ({ children }) => {
           user,
           isAuthenticated: true,
           isLoading: false,
-        })
+        }),
       )
       .catch(() =>
         setAwsCognitoData({
           user: undefined,
           isAuthenticated: false,
           isLoading: false,
-        })
+        }),
       );
   }, [auth]);
 
@@ -95,20 +96,20 @@ const AwsAuthProvider: React.FC<AwsAuthProviderProps> = ({ children }) => {
     infoViewActionsContext.fetchStart();
     try {
       const user = await Auth.signIn(email, password);
-      console.log("user: ", user);
+      console.log('user: ', user);
       infoViewActionsContext.fetchSuccess();
       setAwsCognitoData({
         user,
         isLoading: false,
         isAuthenticated: true,
       });
-    } catch ({ message }: any) {
+    } catch (error: any) {
       setAwsCognitoData({
         user: null,
         isLoading: false,
         isAuthenticated: false,
       });
-      infoViewActionsContext.fetchError(message as string);
+      infoViewActionsContext.fetchError(error.message as string);
     }
   };
   const signUpCognitoUser = async ({ email, password, name }: SignUpProps) => {
@@ -122,17 +123,17 @@ const AwsAuthProvider: React.FC<AwsAuthProviderProps> = ({ children }) => {
         },
       });
       infoViewActionsContext.fetchSuccess();
-      router.push("/confirm-signup", { email: email } as any);
+      router.push('/confirm-signup', { email: email } as any);
       infoViewActionsContext.showMessage(
-        "A code has been sent to your registered email address, Enter the code to complete the signup process!"
+        'A code has been sent to your registered email address, Enter the code to complete the signup process!',
       );
-    } catch ({ message }: any) {
+    } catch (error: any) {
       setAwsCognitoData({
         user: null,
         isLoading: false,
         isAuthenticated: false,
       });
-      infoViewActionsContext.fetchError(message as string);
+      infoViewActionsContext.fetchError(error.message as string);
     }
   };
   const confirmCognitoUserSignup = async (username: string, code: string) => {
@@ -141,17 +142,17 @@ const AwsAuthProvider: React.FC<AwsAuthProviderProps> = ({ children }) => {
       await Auth.confirmSignUp(username, code, {
         forceAliasCreation: false,
       });
-      router.push("/signin");
+      router.push('/signin');
       infoViewActionsContext.showMessage(
-        "Congratulations, Signup process is complete, You can now Sign in by entering correct credentials!"
+        'Congratulations, Signup process is complete, You can now Sign in by entering correct credentials!',
       );
-    } catch ({ message }: any) {
+    } catch (error: any) {
       setAwsCognitoData({
         user: null,
         isLoading: false,
         isAuthenticated: false,
       });
-      infoViewActionsContext.fetchError(message as string);
+      infoViewActionsContext.fetchError(error.message as string);
     }
   };
   const forgotPassword = async (username: string, code: string) => {
@@ -160,17 +161,17 @@ const AwsAuthProvider: React.FC<AwsAuthProviderProps> = ({ children }) => {
       await Auth.confirmSignUp(username, code, {
         forceAliasCreation: false,
       });
-      router.push("/signin");
+      router.push('/signin');
       infoViewActionsContext.showMessage(
-        "Congratulations, Signup process is complete, You can now Sign in by entering correct credentials!"
+        'Congratulations, Signup process is complete, You can now Sign in by entering correct credentials!',
       );
-    } catch ({ message }: any) {
+    } catch (error: any) {
       setAwsCognitoData({
         user: null,
         isLoading: false,
         isAuthenticated: false,
       });
-      infoViewActionsContext.fetchError(message as string);
+      infoViewActionsContext.fetchError(error.message as string);
     }
   };
 

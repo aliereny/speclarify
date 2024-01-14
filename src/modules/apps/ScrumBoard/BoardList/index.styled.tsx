@@ -34,8 +34,8 @@ export const StyledScrumBoardContainer = styled(AppRowContainer)`
 
 export const StyledScrumBoardCard = styled(AppCard)`
   border-radius: ${({ theme }) => theme.cardRadius};
-  background-color: ${({ theme }) => theme.palette.primary.main};
-  color: white;
+  background-color: ${({ theme }) => theme.palette.primary.main} !important;
+  color: white !important;
   cursor: pointer;
   display: flex;
   flex-direction: column;

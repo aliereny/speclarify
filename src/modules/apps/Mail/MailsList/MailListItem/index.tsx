@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import dayjs from "dayjs";
-import clsx from "clsx";
-import { Checkbox, Tooltip } from "antd";
-import { PaperClipOutlined } from "@ant-design/icons";
-import AppsStarredIcon from "@crema/components/AppsStarredIcon";
-import AppIconButton from "@crema/components/AppIconButton";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import { BiArchiveIn } from "react-icons/bi";
-import { AiOutlineDelete, AiOutlineInfoCircle } from "react-icons/ai";
-import { FiMail } from "react-icons/fi";
-import { HiOutlineMailOpen } from "react-icons/hi";
-import { MdLabelOutline } from "react-icons/md";
+import dayjs from 'dayjs';
+import clsx from 'clsx';
+import { Checkbox, Tooltip } from 'antd';
+import { PaperClipOutlined } from '@ant-design/icons';
+import AppsStarredIcon from '@crema/components/AppsStarredIcon';
+import AppIconButton from '@crema/components/AppIconButton';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import { BiArchiveIn } from 'react-icons/bi';
+import { AiOutlineDelete, AiOutlineInfoCircle } from 'react-icons/ai';
+import { FiMail } from 'react-icons/fi';
+import { HiOutlineMailOpen } from 'react-icons/hi';
+import { MdLabelOutline } from 'react-icons/md';
 
 import {
   StyledMailDesc,
@@ -29,12 +29,12 @@ import {
   StyledMailListTitle,
   StyledMailTag,
   StyledMailTagView,
-} from "../index.styled";
-import { putDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { getStringFromHtml } from "@crema/helpers/StringHelper";
+} from '../index.styled';
+import { putDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import { getStringFromHtml } from '@crema/helpers/StringHelper';
 
-import type { LabelObjType, MailObjType } from "@crema/types/models/apps/Mail";
+import type { LabelObjType, MailObjType } from '@crema/types/models/apps/Mail';
 
 type MailListItemProps = {
   mail: MailObjType;
@@ -63,12 +63,12 @@ const MailListItem: React.FC<MailListItemProps> = ({
   const onGetMailDate = () => {
     const date = mail!.messages![messages - 1].sentOn;
     if (
-      dayjs(date, "ddd, MMM DD, YYYY").format() ===
-      dayjs("ddd, MMM DD, YYYY").format()
+      dayjs(date, 'ddd, MMM DD, YYYY').format() ===
+      dayjs('ddd, MMM DD, YYYY').format()
     ) {
-      return dayjs(date).format("LT");
+      return dayjs(date).format('LT');
     } else {
-      return date.split(",")[1];
+      return date.split(',')[1];
     }
   };
 
@@ -92,13 +92,13 @@ const MailListItem: React.FC<MailListItemProps> = ({
 
   const onChangeMailFolder = (type: number) => {
     mail.folderValue = type;
-    putDataApi("/api/mailApp/update/folder", infoViewActionsContext, {
+    putDataApi('mail/folders', infoViewActionsContext, {
       mailIds: [mail.id],
       type,
     })
       .then(() => {
         onRemoveItem(mail);
-        infoViewActionsContext.showMessage("Mail Updated Successfully");
+        infoViewActionsContext.showMessage('Mail Updated Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -107,16 +107,15 @@ const MailListItem: React.FC<MailListItemProps> = ({
 
   const onChangeReadStatus = () => {
     mail.isRead = !mail.isRead;
-    putDataApi<MailObjType>("/api/mailApp/mail/", infoViewActionsContext, {
+    putDataApi<MailObjType>('mail', infoViewActionsContext, {
       mail,
     })
       .then((data) => {
         onUpdateItem(data);
-        console.log("onChangeReadStatus: ", data);
         infoViewActionsContext.showMessage(
           data.isRead
-            ? "Mail Marked as Read Successfully"
-            : "Mail Marked as Unread Successfully"
+            ? 'Mail Marked as Read Successfully'
+            : 'Mail Marked as Unread Successfully',
         );
       })
       .catch((error) => {
@@ -137,7 +136,7 @@ const MailListItem: React.FC<MailListItemProps> = ({
   return (
     <StyledMailListItem
       key={mail.id}
-      className={clsx("item-hover", { mailRead: mail.isRead })}
+      className={clsx('item-hover', { mailRead: mail.isRead })}
       onClick={() => onViewMailDetail(mail)}
     >
       <StyledMailListContent>
@@ -157,28 +156,28 @@ const MailListItem: React.FC<MailListItemProps> = ({
           />
         </StyledMailListStarted>
         <StyledMailListAvatar src={getSenderImage()} alt={getSenderImage()} />
-        <StyledMailListTitle className="text-truncate">
+        <StyledMailListTitle className='text-truncate'>
           {getSenderName()}
         </StyledMailListTitle>
-        <StyledMailListTime className="mail-list-time">
+        <StyledMailListTime className='mail-list-time'>
           {mail.hasAttachments ? <PaperClipOutlined /> : null}
-          <StyledMailListDate className="text-truncate">
+          <StyledMailListDate className='text-truncate'>
             {onGetMailDate()}
           </StyledMailListDate>
         </StyledMailListTime>
       </StyledMailListContent>
 
       <StyledMailListAction>
-        <StyledMailListSub className="mail-list-sub">
+        <StyledMailListSub className='mail-list-sub'>
           <StyledMailListSubTitle>{mail.subject}</StyledMailListSubTitle>
-          <StyledMailDesc className="text-truncate">
+          <StyledMailDesc className='text-truncate'>
             {getStringFromHtml(getDescription())}
           </StyledMailDesc>
         </StyledMailListSub>
 
         {mail.label ? (
-          <StyledMailTagView className="mail-tag-view">
-            <Tooltip title={mail.label.name} placement="top">
+          <StyledMailTagView className='mail-tag-view'>
+            <Tooltip title={mail.label.name} placement='top'>
               <StyledMailTag style={{ color: mail.label.color }}>
                 <MdLabelOutline />
               </StyledMailTag>
@@ -186,21 +185,21 @@ const MailListItem: React.FC<MailListItemProps> = ({
           </StyledMailTagView>
         ) : null}
 
-        <StyledMailListTime className="mail-list-time">
+        <StyledMailListTime className='mail-list-time'>
           {/*{mail.hasAttachments ? <PaperClipOutlined /> : null}*/}
-          <StyledMailListDate className="text-truncate">
+          <StyledMailListDate className='text-truncate'>
             {onGetMailDate()}
           </StyledMailListDate>
         </StyledMailListTime>
-        <StyledMailListActionBtn className="mail-list-btn-action">
+        <StyledMailListActionBtn className='mail-list-btn-action'>
           <AppIconButton
-            title={<IntlMessages id="common.archive" />}
+            title={<IntlMessages id='common.archive' />}
             icon={<BiArchiveIn />}
             onClick={() => onChangeMailFolder(127)}
           />
 
           <AppIconButton
-            title={<IntlMessages id="common.trash" />}
+            title={<IntlMessages id='common.trash' />}
             icon={<AiOutlineDelete />}
             onClick={() => onChangeMailFolder(126)}
           />
@@ -208,9 +207,9 @@ const MailListItem: React.FC<MailListItemProps> = ({
           <AppIconButton
             title={
               mail.isRead ? (
-                <IntlMessages id="mailApp.markAsUnread" />
+                <IntlMessages id='mailApp.markAsUnread' />
               ) : (
-                <IntlMessages id="mailApp.markAsRead" />
+                <IntlMessages id='mailApp.markAsRead' />
               )
             }
             icon={mail.isRead ? <FiMail /> : <HiOutlineMailOpen />}
@@ -218,7 +217,7 @@ const MailListItem: React.FC<MailListItemProps> = ({
           />
 
           <AppIconButton
-            title={<IntlMessages id="common.reportSpam" />}
+            title={<IntlMessages id='common.reportSpam' />}
             icon={<AiOutlineInfoCircle />}
             onClick={() => onChangeMailFolder(125)}
           />

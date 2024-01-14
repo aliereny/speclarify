@@ -1,14 +1,12 @@
-import React from "react";
-import AppRowContainer from "@crema/components/AppRowContainer";
-
-import {
-  PackageFour,
-  PackageOne,
-  PackageThree,
-  PackageTwo,
-} from "@crema/modules/extraPages/Pricing";
-import { pricingData } from "@crema/mockapi/fakedb/extraPages";
-import { Col } from "antd";
+'use client';
+import React from 'react';
+import AppRowContainer from '@crema/components/AppRowContainer';
+import PackageOne from './PackageOne';
+import PackageFour from './PackageFour';
+import PackageThree from './PackageThree';
+import PackageTwo from './PackageTwo';
+import { pricingData } from '@crema/fakedb/extraPages';
+import { Col } from 'antd';
 
 const Pricing = () => {
   return (

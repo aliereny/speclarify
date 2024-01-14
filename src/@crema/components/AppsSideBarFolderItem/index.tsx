@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import NavLink from 'next/link';
 import {
@@ -21,6 +22,8 @@ import {
   StyledListItemText,
 } from './index.styled';
 import { MdOutlineCancel, MdOutlinePayment } from 'react-icons/md';
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
 
 const IconByName: any = {
   sent: <AiOutlineSend />,
@@ -49,9 +52,16 @@ const AppsSideBarFolderItem: React.FC<AppsSideBarFolderItemProps> = ({
   item,
   path,
 }) => {
+  const pathname = usePathname();
   return (
     <StyledListItem key={item.id}>
-      <NavLink href={path}>
+      <NavLink
+        href={path}
+        className={clsx({
+          active: path === pathname,
+        })}
+        // activeClassName='active'
+      >
         <StyledListItemIcon>{IconByName[item.icon]}</StyledListItemIcon>
         <StyledListItemText>{item.name}</StyledListItemText>
       </NavLink>

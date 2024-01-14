@@ -1,20 +1,22 @@
-import React, { useState } from "react";
-import AppInfoView from "@crema/components/AppInfoView";
+'use client';
+import React, { useState } from 'react';
+import AppInfoView from '@crema/components/AppInfoView';
 
-import IntlMessages from "@crema/helpers/IntlMessages";
-import AppRowContainer from "@crema/components/AppRowContainer";
-import { Col } from "antd";
-import AppAnimate from "@crema/components/AppAnimate";
-import AppPageMeta from "@crema/components/AppPageMeta";
-import { StyledFaqHeader, StyledFaqSection } from "./index.styled";
+import IntlMessages from '@crema/helpers/IntlMessages';
+import AppRowContainer from '@crema/components/AppRowContainer';
+import { Col } from 'antd';
+import AppAnimate from '@crema/components/AppAnimate';
+import AppPageMeta from '@crema/components/AppPageMeta';
+import { StyledFaqHeader, StyledFaqSection } from './index.styled';
 import {
   generalFaq,
   installationFaq,
   licenseFaq,
   pricingFaq,
   supportFaq,
-} from "@crema/mockapi/fakedb/extraPages";
-import { FaqList, FaqSideBar } from "@crema/modules/extraPages/FAQ";
+} from '@crema/fakedb/extraPages';
+import FaqSideBar from './FaqSideBar/index';
+import FaqList from './FaqList';
 
 const FAQ = () => {
   const [dataValue, setDataValue] = useState(generalFaq);
@@ -50,27 +52,27 @@ const FAQ = () => {
 
   return (
     <>
-      <AppPageMeta title="FAQ" />
-      <AppAnimate animation="transition.slideUpIn" delay={200}>
-        <StyledFaqSection key="a">
+      <AppPageMeta title='FAQ' />
+      <AppAnimate animation='transition.slideUpIn' delay={200}>
+        <StyledFaqSection key='a'>
           <StyledFaqHeader>
             <h2>
-              <IntlMessages id="faq.heading" />
+              <IntlMessages id='faq.heading' />
             </h2>
             <p>
-              <IntlMessages id="faq.content" />
+              <IntlMessages id='faq.content' />
             </p>
           </StyledFaqHeader>
 
-          <AppRowContainer type="bottom">
-            <Col xs={24} md={8} lg={6} key="a">
+          <AppRowContainer type='bottom'>
+            <Col xs={24} md={8} lg={6} key='a'>
               <FaqSideBar
                 onGetFaqData={onGetFaqData}
                 selectionId={selectionId}
               />
             </Col>
 
-            <Col xs={24} md={16} lg={18} key="b">
+            <Col xs={24} md={16} lg={18} key='b'>
               <FaqList faqList={dataValue} />
               <AppInfoView />
             </Col>

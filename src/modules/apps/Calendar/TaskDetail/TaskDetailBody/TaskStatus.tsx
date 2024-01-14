@@ -1,11 +1,11 @@
-import React from "react";
-import { Select } from "antd";
-import { useIntl } from "react-intl";
-import { StyledTodoSelectBox } from "../index.styled";
-import { putDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { useCalendarContext } from "../../../context/CalendarContextProvider";
-import { TodoObjType } from "@crema/types/models/apps/Todo";
+import React from 'react';
+import { Select } from 'antd';
+import { useIntl } from 'react-intl';
+import { StyledTodoSelectBox } from '../index.styled';
+import { putDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import { useCalendarContext } from '../../../context/CalendarContextProvider';
+import { TodoObjType } from '@crema/types/models/apps/Todo';
 
 type Props = {
   selectedTask: TodoObjType;
@@ -19,15 +19,15 @@ const TaskStatus = ({ selectedTask, onUpdateSelectedTask }: Props) => {
   const onChangeStatus = (value: number) => {
     selectedTask.status = value;
     putDataApi<{ task: TodoObjType }>(
-      "/api/calendar/task/",
+      'calender/detail',
       infoViewActionsContext,
       {
         task: selectedTask,
-      }
+      },
     )
       .then((data) => {
         onUpdateSelectedTask(data.task);
-        infoViewActionsContext.showMessage("Task Updated Successfully");
+        infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -40,7 +40,7 @@ const TaskStatus = ({ selectedTask, onUpdateSelectedTask }: Props) => {
     <StyledTodoSelectBox
       onChange={(value) => onChangeStatus(value as number)}
       value={selectedTask?.status}
-      placeholder={messages["common.status"] as string}
+      placeholder={messages['common.status'] as string}
     >
       {statusList.map((status) => {
         return (

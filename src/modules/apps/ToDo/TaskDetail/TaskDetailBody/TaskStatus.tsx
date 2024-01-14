@@ -1,11 +1,11 @@
-import React from "react";
-import { Select } from "antd";
-import { useIntl } from "react-intl";
-import { StyledTodoSelectBox } from "../index.styled";
-import { putDataApi, useGetDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
+import React from 'react';
+import { Select } from 'antd';
+import { useIntl } from 'react-intl';
+import { StyledTodoSelectBox } from '../index.styled';
+import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 
-import { StatusObjType, TodoObjType } from "@crema/types/models/apps/Todo";
+import { StatusObjType, TodoObjType } from '@crema/types/models/apps/Todo';
 
 type TaskDetailHeaderProps = {
   selectedTask: TodoObjType;
@@ -16,21 +16,17 @@ const TaskStatus: React.FC<TaskDetailHeaderProps> = ({
   selectedTask,
   onUpdateSelectedTask,
 }) => {
-  const [{ apiData: statusList }] = useGetDataApi("/api/todo/status/list", []);
+  const [{ apiData: statusList }] = useGetDataApi('todo/status', []);
   const infoViewActionsContext = useInfoViewActionsContext();
 
   const onChangeStatus = (value: number) => {
     selectedTask.status = value;
-    putDataApi<{ task: TodoObjType }>(
-      "/api/todoApp/task/",
-      infoViewActionsContext,
-      {
-        task: selectedTask,
-      }
-    )
+    putDataApi<{ task: TodoObjType }>('todo/task', infoViewActionsContext, {
+      task: selectedTask,
+    })
       .then((data) => {
         onUpdateSelectedTask(data.task);
-        infoViewActionsContext.showMessage("Task Updated Successfully");
+        infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -43,7 +39,7 @@ const TaskStatus: React.FC<TaskDetailHeaderProps> = ({
     <StyledTodoSelectBox
       onChange={(value) => onChangeStatus(value as number)}
       value={selectedTask?.status}
-      placeholder={messages["common.status"] as string}
+      placeholder={messages['common.status'] as string}
     >
       {statusList.map((status: StatusObjType) => {
         return (

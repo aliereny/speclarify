@@ -1,10 +1,10 @@
-import React, { CSSProperties, ReactNode, useState } from "react";
-import AppInfoView from "../AppInfoView";
-import AppSidebar from "./AppSidebar";
-import clsx from "clsx";
-import { MenuOutlined } from "@ant-design/icons";
-import QueueAnim, { IQueueTypeOrArrayOrFunc } from "rc-queue-anim";
-import { useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
+import React, { CSSProperties, ReactNode, useState } from 'react';
+import AppInfoView from '../AppInfoView';
+import AppSidebar from './AppSidebar';
+import clsx from 'clsx';
+import { MenuOutlined } from '@ant-design/icons';
+import QueueAnim, { IQueueTypeOrArrayOrFunc } from 'rc-queue-anim';
+import { useLayoutContext } from '@crema/context/AppContextProvider/LayoutContextProvider';
 import {
   StyledAppContainer,
   StyledAppWrap,
@@ -12,7 +12,7 @@ import {
   StyledMainContent,
   StyledMainContentCard,
   StyledMenuBtn,
-} from "./index.styled";
+} from './index.styled';
 
 interface AppsContainerProps {
   title: string | ReactNode;
@@ -23,8 +23,9 @@ interface AppsContainerProps {
   children: ReactNode;
   cardStyle?: CSSProperties;
 }
+
 const AppsContainer: React.FC<AppsContainerProps> = ({
-  title = "",
+  title = '',
   noContentAnimation = false,
   sidebarContent,
   fullView,
@@ -44,11 +45,11 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
       >
         {fullView ? null : (
           <StyledMenuBtn onClick={() => setAppDrawerOpen(!isAppDrawerOpen)}>
-            <MenuOutlined className="menu-btn-icon" />
+            <MenuOutlined className='menu-btn-icon' />
           </StyledMenuBtn>
         )}
-        <QueueAnim style={{ zIndex: 3, overflow: "hidden" }} type="scale">
-          <h2 className="text-truncate" key="title">
+        <QueueAnim style={{ zIndex: 3, overflow: 'hidden' }} type='scale'>
+          <h2 className='text-truncate' key='title'>
             {title}
           </h2>
         </QueueAnim>
@@ -56,7 +57,7 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
 
       <StyledAppContainer>
         {sidebarContent ? (
-          <QueueAnim style={{ zIndex: 3 }} type={type ? type : "left"}>
+          <QueueAnim style={{ zIndex: 3 }} type={type ? type : 'left'}>
             <AppSidebar
               isAppDrawerOpen={isAppDrawerOpen}
               setAppDrawerOpen={setAppDrawerOpen}
@@ -64,7 +65,7 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
               fullView={fullView}
               navStyle={navStyle}
               sidebarContent={sidebarContent}
-              key="sidebar"
+              key='sidebar'
             />
           </QueueAnim>
         ) : null}
@@ -76,7 +77,7 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
           {noContentAnimation ? (
             <StyledMainContentCard
               bordered={false}
-              key="content"
+              key='content'
               style={{
                 ...cardStyle,
                 borderRadius: 16,
@@ -86,12 +87,12 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
             </StyledMainContentCard>
           ) : (
             <QueueAnim
-              type={type ? type : "right"}
-              style={{ minHeight: "100%" }}
+              type={type ? type : 'right'}
+              style={{ minHeight: '100%' }}
             >
               <StyledMainContentCard
                 bordered={false}
-                key="content"
+                key='content'
                 style={{
                   ...cardStyle,
                   borderRadius: 16,

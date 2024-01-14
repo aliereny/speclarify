@@ -1,26 +1,27 @@
-import React, { useState } from "react";
-import { useIntl } from "react-intl";
-import AppsContainer from "@crema/components/AppsContainer";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import AppPageMeta from "@crema/components/AppPageMeta";
-import { ChatSideBar } from "@crema/modules/apps/Chat";
-import ChatContent from "./ChatContent";
-import { ConnectionObjType } from "@crema/types/models/apps/Chat";
-import ChatContextProvider from "../context/ChatContextProvider";
+'use client';
+import React, { useState } from 'react';
+import { useIntl } from 'react-intl';
+import AppsContainer from '@crema/components/AppsContainer';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import AppPageMeta from '@crema/components/AppPageMeta';
+import ChatSideBar from './ChatSideBar';
+import ChatContent from './ChatContent';
+import { ConnectionObjType } from '@crema/types/models/apps/Chat';
+import ChatContextProvider from '../context/ChatContextProvider';
 
 const Chat = () => {
   const [selectedUser, setSelectedUser] = useState<ConnectionObjType | null>(
-    null
+    null,
   );
 
   const [{ apiData: connectionList, loading }, { setData: setConnectionData }] =
-    useGetDataApi<ConnectionObjType[]>("/api/chatApp/connections");
+    useGetDataApi<ConnectionObjType[]>('chat/connections');
 
   const { messages } = useIntl();
   return (
     <ChatContextProvider>
       <AppsContainer
-        title={messages["chatApp.chat"] as string}
+        title={messages['chatApp.chat'] as string}
         sidebarContent={
           <ChatSideBar
             selectedUser={selectedUser}
@@ -30,7 +31,7 @@ const Chat = () => {
           />
         }
       >
-        <AppPageMeta title="Chat App" />
+        <AppPageMeta title='Chat App' />
         <ChatContent
           selectedUser={selectedUser}
           setSelectedUser={setSelectedUser}

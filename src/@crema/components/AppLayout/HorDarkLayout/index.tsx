@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import AppHeader from "./AppHeader";
-import AppContentView from "../../AppContentView";
-import AppThemeSetting from "../../AppThemeSetting";
-import AppFooter from "../components/AppFooter";
-import clsx from "clsx";
-import { FooterType, LayoutType } from "@crema/constants/AppEnums";
-import AppSidebar from "./AppSidebar";
-import { useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
+import React, { useEffect, useState } from 'react';
+import AppHeader from './AppHeader';
+import AppContentView from '../../AppContentView';
+import AppThemeSetting from '../../AppThemeSetting';
+import AppFooter from '../components/AppFooter';
+import clsx from 'clsx';
+import { FooterType, LayoutType } from '@crema/constants/AppEnums';
+import AppSidebar from './AppSidebar';
+import { useLayoutContext } from '@crema/context/AppContextProvider/LayoutContextProvider';
 import {
   StyledAppLayoutHorDark,
   StyledAppLayoutHorDarkMain,
   StyledContainer,
-} from "./index.styled";
-import { RouterConfigData } from "@crema/types/models/Apps";
+} from './index.styled';
+import { RouterConfigData } from '@crema/types/models/Apps';
 
 type Props = {
   children: React.ReactNode;
@@ -24,6 +24,7 @@ const HorDarkLayout: React.FC<Props> = ({ children, routesConfig }) => {
   const { footer, footerType, layoutType } = useLayoutContext();
 
   const showDrawer = () => {
+    console.log('showDrawer');
     setVisible(true);
   };
   const onClose = () => {
@@ -32,9 +33,9 @@ const HorDarkLayout: React.FC<Props> = ({ children, routesConfig }) => {
 
   useEffect(() => {
     if (layoutType === LayoutType.FRAMED) {
-      document.body.classList.add("framedHorDarkLayout");
+      document.body.classList.add('framedHorDarkLayout');
     } else {
-      document.body.classList.remove("framedHorDarkLayout");
+      document.body.classList.remove('framedHorDarkLayout');
     }
   }, [layoutType]);
 
@@ -50,7 +51,7 @@ const HorDarkLayout: React.FC<Props> = ({ children, routesConfig }) => {
         onClose={onClose}
         routesConfig={routesConfig}
       />
-      <AppHeader showDrawer={showDrawer} />
+      <AppHeader showDrawer={showDrawer} routesConfig={routesConfig} />
       <StyledAppLayoutHorDarkMain>
         <StyledContainer>
           <AppContentView>{children}</AppContentView>

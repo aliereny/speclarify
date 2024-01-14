@@ -1,9 +1,10 @@
-import React from "react";
-import { Form, Select } from "antd";
-import { useIntl } from "react-intl";
-import { StyledTodoChStaffAvatar } from "../index.styled";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import { StaffObjType } from "@crema/types/models/apps/Todo";
+import React from 'react';
+import { Form, Select } from 'antd';
+import { useIntl } from 'react-intl';
+import { StyledTodoChStaffAvatar } from '../index.styled';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import { StaffObjType } from '@crema/types/models/apps/Todo';
+
 const { Option } = Select;
 
 type ChangeStaffProps = {
@@ -17,21 +18,21 @@ const ChangeStaff: React.FC<ChangeStaffProps> = ({
   selectedStaff,
   handleStaffChange,
 }) => {
-  const [{ apiData: staffList }] = useGetDataApi("/api/todo/staff/list", []);
+  const [{ apiData: staffList }] = useGetDataApi('todo/staff', []);
 
   const { messages } = useIntl();
   return (
-    <Form.Item className="form-field">
+    <Form.Item className='form-field'>
       <Select
         defaultValue={selectedStaff?.id}
-        placeholder={messages["common.staff"] as string}
+        placeholder={messages['common.staff'] as string}
         onSelect={handleStaffChange}
         style={{ minWidth: 150 }}
       >
         {staffList.map((staff: StaffObjType) => {
           return (
             <Option value={staff.id} key={staff.id}>
-              <div className="ant-row ant-row-middle">
+              <div className='ant-row ant-row-middle'>
                 {staff.image ? (
                   <StyledTodoChStaffAvatar src={staff.image} />
                 ) : (

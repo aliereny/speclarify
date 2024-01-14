@@ -1,14 +1,14 @@
-import {Button, Card, Drawer} from 'antd';
+import { Button, Card, Drawer } from 'antd';
 import styled from 'styled-components';
 import AppScrollbar from '../AppScrollbar';
-import {rgba} from 'polished';
+import { rgba } from 'polished';
 
 export const StyledAppContentContainer = styled(AppScrollbar)`
   display: flex;
   flex-direction: column;
   height: calc(100% - 56px) !important;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     height: calc(100% - 64px) !important;
   }
 
@@ -30,7 +30,8 @@ export const StyledAppContentContainer = styled(AppScrollbar)`
 
   & .react-trello-board {
     height: 100%;
-    background-color: ${({theme}) => theme.palette.background.paper} !important;
+    background-color: ${({ theme }) =>
+      theme.palette.background.paper} !important;
     & > div {
       height: 100%;
     }
@@ -51,12 +52,12 @@ export const StyledAppContentContainer = styled(AppScrollbar)`
     max-width: 280px;
     margin-left: 10px;
     margin-right: 10px;
-    border-radius: ${({theme}) => theme.cardRadius};
+    border-radius: ${({ theme }) => theme.cardRadius};
     background-color: ${() => rgba('white', 0.45)};
     height: 100% !important;
     min-height: 100%;
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
       min-width: 354px;
       max-width: 354px;
     }
@@ -84,7 +85,7 @@ export const StyledAppContentContainer = styled(AppScrollbar)`
 
 export const StyledAppFooter = styled.div`
   padding: 8px 24px;
-  border-top: 1px solid ${({theme}) => theme.palette.borderColor};
+  border-top: 1px solid ${({ theme }) => theme.palette.borderColor};
 `;
 
 export const StyledAppsHeader = styled.div`
@@ -92,9 +93,9 @@ export const StyledAppsHeader = styled.div`
   min-height: 56px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid ${({theme}) => theme.palette.borderColor};
+  border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor};
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     min-height: 64px;
   }
 `;
@@ -103,13 +104,13 @@ export const StyledAppSidebar = styled.div`
   height: 100%;
   display: none;
   flex-direction: column;
-  border: 1px solid ${({theme}) => theme.palette.background.paper};
+  border: 1px solid ${({ theme }) => theme.palette.background.paper};
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
     width: 17.5rem;
     display: flex;
   }
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
     width: 17.5rem;
   }
 `;
@@ -128,7 +129,7 @@ export const StyledAppSidebarCard = styled(Card)`
   display: none;
   height: 100%;
   border: 0;
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -155,14 +156,14 @@ export const StyledAppWrapHeader = styled.div`
   align-items: center;
   margin-bottom: 16px;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
     margin-bottom: 20px;
   }
 
   & h2 {
-    color: ${({theme}) => theme.palette.text.primary};
-    font-weight: ${({theme}) => theme.font.weight.bold};
-    font-size: ${({theme}) => theme.font.size.lg};
+    color: ${({ theme }) => theme.palette.text.primary};
+    font-weight: ${({ theme }) => theme.font.weight.bold};
+    font-size: ${({ theme }) => theme.font.size.lg};
     margin-bottom: 0;
   }
 `;
@@ -185,10 +186,10 @@ export const StyledMenuBtn = styled(Button)`
   &:hover,
   &:focus {
     background-color: transparent;
-    color: ${({theme}) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
     display: none;
   }
 
@@ -205,7 +206,7 @@ export const StyledAppContainer = styled.div`
     height: calc(100vh - 184px) !important;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     height: calc(100vh - 161px);
 
     .appMainFixedFooter & {
@@ -213,7 +214,7 @@ export const StyledAppContainer = styled.div`
     }
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
     height: calc(100vh - 165px);
 
     .appMainFixedFooter & {
@@ -221,7 +222,7 @@ export const StyledAppContainer = styled.div`
     }
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl}px) {
     height: calc(100vh - 153px);
 
     .appMainFixedFooter &,
@@ -236,7 +237,7 @@ export const StyledMainContent = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
     width: calc(100% - 17.5rem);
     padding-left: 32px;
 
@@ -247,7 +248,7 @@ export const StyledMainContent = styled.div`
   }
 
   &.appsMainContentFull {
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
       width: 100%;
       padding-left: 0;
 

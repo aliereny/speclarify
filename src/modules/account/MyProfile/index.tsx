@@ -1,83 +1,82 @@
-import React from "react";
+'use client';
+import React from 'react';
 
-import { HiUser } from "react-icons/hi";
-import { AiFillLock } from "react-icons/ai";
-import { FaBandcamp, FaNetworkWired } from "react-icons/fa";
-import { IoMdNotifications } from "react-icons/io";
-import IntlMessages from "@crema/helpers/IntlMessages";
+import { HiUser } from 'react-icons/hi';
+import { AiFillLock } from 'react-icons/ai';
+import { FaBandcamp, FaNetworkWired } from 'react-icons/fa';
+import { IoMdNotifications } from 'react-icons/io';
+import IntlMessages from '@crema/helpers/IntlMessages';
 import {
   StyledUserProfileContainer,
   StyledUserProfileTabs,
-} from "./index.styled";
-import AppAnimate from "@crema/components/AppAnimate";
-import { accountData } from "@crema/mockapi/fakedb";
-import {
-  ChangePassword,
-  Information,
-  PersonalInfo,
-  SocialLink,
-  Notification,
-} from "@crema/modules/profile/UserProfile";
+} from './index.styled';
+import AppAnimate from '@crema/components/AppAnimate';
+import { accountData } from '@crema/fakedb';
+import PersonalInfo from '../../profile/UserProfile/PersonalInfo';
+import ChangePassword from '../../profile/UserProfile/ChangePassword';
+import Information from '../../profile/UserProfile/Information';
+import Notification from '../../profile/UserProfile/Notification';
+import SocialLink from '../../profile/UserProfile/SocialLink';
 
 const items = [
   {
     label: (
-      <span className="user-profile-icon">
-        <HiUser className="icon" />
+      <span className='user-profile-icon'>
+        <HiUser className='icon' />
         <span>
-          <IntlMessages id="userProfile.personalInfo" />
+          <IntlMessages id='userProfile.personalInfo' />
         </span>
       </span>
     ),
-    key: "01",
+    key: '01',
     children: <PersonalInfo />,
   }, // remember to pass the key prop
   {
     label: (
-      <span className="user-profile-icon">
-        <AiFillLock className="icon" />
+      <span className='user-profile-icon'>
+        <AiFillLock className='icon' />
         <span>
-          <IntlMessages id="userProfile.changePassword" />
+          <IntlMessages id='userProfile.changePassword' />
         </span>
       </span>
     ),
-    key: "02",
+    key: '02',
     children: <ChangePassword />,
   },
   {
     label: (
-      <span className="user-profile-icon">
-        <FaBandcamp className="icon" />
+      <span className='user-profile-icon'>
+        <FaBandcamp className='icon' />
         <span>
-          <IntlMessages id="userProfile.information" />
+          <IntlMessages id='userProfile.information' />
         </span>
       </span>
     ),
-    key: "03",
+    key: '03',
     children: <Information />,
   },
   {
     label: (
-      <span className="user-profile-icon">
-        <FaNetworkWired className="icon" />
+      <span className='user-profile-icon'>
+        <FaNetworkWired className='icon' />
         <span>
-          <IntlMessages id="userProfile.social" />
+          <IntlMessages id='userProfile.social' />
         </span>
       </span>
     ),
-    key: "04",
+    key: '04',
     children: <SocialLink socialLink={accountData.member} />,
   },
   {
     label: (
-      <span className="user-profile-icon">
-        <IoMdNotifications className="icon" />
+      <span className='user-profile-icon'>
+        <IoMdNotifications className='icon' />
         <span>
-          <IntlMessages id="userProfile.notification" />
+          <IntlMessages id='userProfile.notification' />
         </span>
       </span>
     ),
-    key: "05",
+    key: '05',
     children: <Notification notification={accountData.notification} />,
   },
 ];
@@ -85,11 +84,11 @@ const items = [
 const UserProfile = () => {
   return (
     <StyledUserProfileContainer>
-      <AppAnimate animation="transition.slideUpIn" delay={200}>
+      <AppAnimate animation='transition.slideUpIn' delay={200}>
         <StyledUserProfileTabs
-          key="1"
-          defaultActiveKey="01"
-          tabPosition="left"
+          key='1'
+          defaultActiveKey='01'
+          tabPosition='left'
           items={items}
         />
       </AppAnimate>

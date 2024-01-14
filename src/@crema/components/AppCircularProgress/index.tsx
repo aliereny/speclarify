@@ -1,8 +1,9 @@
 import React from 'react';
-import {Progress} from 'antd';
+import { Progress } from 'antd';
 
 interface AppCircularProgressProps {
   percent?: number;
+
   [x: string]: any;
 }
 

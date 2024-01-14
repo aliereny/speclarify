@@ -1,11 +1,11 @@
-import React from "react";
-import { CheckOutlined } from "@ant-design/icons";
+import React from 'react';
+import { CheckOutlined } from '@ant-design/icons';
 import {
   StyledColorOptionListItem,
   StyledCustomColorOption,
   StyledCustomColorOptionRightIcon,
-} from "./index.styled";
-import { ThemeColorType } from "@crema/constants/ColorSets";
+} from './index.styled';
+import { ThemeColorType } from '@crema/constants/ColorSets';
 
 type ColorCellProps = {
   themeColorSet: any;

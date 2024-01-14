@@ -1,10 +1,10 @@
-import React from "react";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import { CheckOutlined } from "@ant-design/icons";
-import { StyledTodoDetailStatusBtn } from "../index.styled";
-import { putDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { TodoObjType } from "@crema/types/models/apps/Todo";
+import React from 'react';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import { CheckOutlined } from '@ant-design/icons';
+import { StyledTodoDetailStatusBtn } from '../index.styled';
+import { putDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import { TodoObjType } from '@crema/types/models/apps/Todo';
 
 type StatusToggleButtonProps = {
   selectedTask: TodoObjType;
@@ -21,16 +21,12 @@ const StatusToggleButton: React.FC<StatusToggleButtonProps> = ({
     const task = selectedTask;
     task.status = status;
 
-    putDataApi<{ task: TodoObjType }>(
-      "/api/todoApp/task/",
-      infoViewActionsContext,
-      {
-        task,
-      }
-    )
+    putDataApi<{ task: TodoObjType }>('todo/task', infoViewActionsContext, {
+      task,
+    })
       .then((data) => {
         onUpdateSelectedTask(data.task);
-        infoViewActionsContext.showMessage("Task Updated Successfully");
+        infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -39,16 +35,16 @@ const StatusToggleButton: React.FC<StatusToggleButtonProps> = ({
 
   return selectedTask.status === 3 ? (
     <StyledTodoDetailStatusBtn
-      className="bg-color"
+      className='bg-color'
       onClick={() => onChangeTaskStatus(1)}
     >
-      <CheckOutlined className="check-icon" />
-      <IntlMessages id="todo.completed" />
+      <CheckOutlined className='check-icon' />
+      <IntlMessages id='todo.completed' />
     </StyledTodoDetailStatusBtn>
   ) : (
     <StyledTodoDetailStatusBtn onClick={() => onChangeTaskStatus(3)}>
-      <CheckOutlined className="check-icon" />
-      <IntlMessages id="todo.markAsCompleted" />
+      <CheckOutlined className='check-icon' />
+      <IntlMessages id='todo.markAsCompleted' />
     </StyledTodoDetailStatusBtn>
   );
 };

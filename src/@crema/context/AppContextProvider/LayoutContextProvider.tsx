@@ -1,5 +1,6 @@
-import React, { createContext, ReactNode, useContext, useState } from "react";
-import defaultConfig from "@crema/constants/defaultConfig";
+'use client';
+import React, { createContext, ReactNode, useContext, useState } from 'react';
+import defaultConfig from '@crema/constants/defaultConfig';
 
 export type LayoutData = {
   layoutType: string;
@@ -45,14 +46,14 @@ const LayoutContextProvider: React.FC<LayoutContextProviderProps> = ({
   children,
 }) => {
   const [layoutType, updateLayoutType] = useState<string>(
-    defaultConfig.layoutType
+    defaultConfig.layoutType,
   );
   const [navStyle, updateNavStyle] = useState<string>(defaultConfig.navStyle);
   const [direction, updateDirection] = useState<string>(
-    defaultConfig.direction
+    defaultConfig.direction,
   );
   const [footerType, setFooterType] = useState<string>(
-    defaultConfig.footerType
+    defaultConfig.footerType,
   );
   const [footer, setFooter] = useState<boolean>(defaultConfig.footer);
 

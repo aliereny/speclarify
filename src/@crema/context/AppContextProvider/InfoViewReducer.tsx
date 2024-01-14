@@ -1,3 +1,4 @@
+'use client';
 import { InfoViewData } from './InfoViewContextProvider';
 
 export const InFoViewActions = {

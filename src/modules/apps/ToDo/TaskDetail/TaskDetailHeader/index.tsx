@@ -1,18 +1,18 @@
-import React from "react";
-import { useRouter } from "next/router";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import AppsStarredIcon from "@crema/components/AppsStarredIcon";
-import StatusToggleButton from "./StatusToggleButton";
-import { BiArrowBack } from "react-icons/bi";
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import AppsStarredIcon from '@crema/components/AppsStarredIcon';
+import StatusToggleButton from './StatusToggleButton';
+import { BiArrowBack } from 'react-icons/bi';
 import {
   StyledTodoDetailArrow,
   StyledTodoDetailDeleteIcon,
   StyledTodoStarIconView,
-} from "../index.styled";
-import { putDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
+} from '../index.styled';
+import { putDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 
-import { TodoObjType } from "@crema/types/models/apps/Todo";
+import { TodoObjType } from '@crema/types/models/apps/Todo';
 
 type TaskDetailHeaderProps = {
   selectedTask: TodoObjType;
@@ -31,20 +31,16 @@ const TaskDetailHeader: React.FC<TaskDetailHeaderProps> = ({
   };
 
   const onChangeStarred = (checked: boolean) => {
-    putDataApi<TodoObjType[]>(
-      "/api/todo/update/starred",
-      infoViewActionsContext,
-      {
-        taskIds: [selectedTask.id],
-        status: checked,
-      }
-    )
+    putDataApi<TodoObjType[]>('todo/starred', infoViewActionsContext, {
+      taskIds: [selectedTask.id],
+      status: checked,
+    })
       .then((data) => {
         onUpdateSelectedTask(data[0]);
         infoViewActionsContext.showMessage(
           data[0].isStarred
-            ? "Task Marked as Starred Successfully"
-            : "Task Marked as Unstarred Successfully"
+            ? 'Task Marked as Starred Successfully'
+            : 'Task Marked as Unstarred Successfully',
         );
       })
       .catch((error) => {
@@ -56,16 +52,12 @@ const TaskDetailHeader: React.FC<TaskDetailHeaderProps> = ({
     const task = selectedTask;
     task.folderValue = 126;
 
-    putDataApi<{ task: TodoObjType }>(
-      "/api/todoApp/task/",
-      infoViewActionsContext,
-      {
-        task,
-      }
-    )
+    putDataApi<{ task: TodoObjType }>('todo/task', infoViewActionsContext, {
+      task,
+    })
       .then((data) => {
         onUpdateSelectedTask(data.task);
-        infoViewActionsContext.showMessage("Task Deleted Successfully");
+        infoViewActionsContext.showMessage('Task Deleted Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -77,7 +69,7 @@ const TaskDetailHeader: React.FC<TaskDetailHeaderProps> = ({
   return (
     <>
       <StyledTodoDetailArrow
-        title={<IntlMessages id="common.back" />}
+        title={<IntlMessages id='common.back' />}
         onClick={onClickBackButton}
         icon={<BiArrowBack />}
       />
@@ -93,7 +85,7 @@ const TaskDetailHeader: React.FC<TaskDetailHeaderProps> = ({
 
       <StyledTodoDetailDeleteIcon
         deleteAction={onDeleteTask}
-        deleteTitle={<IntlMessages id="todo.deleteMessage" />}
+        deleteTitle={<IntlMessages id='todo.deleteMessage' />}
       />
     </>
   );

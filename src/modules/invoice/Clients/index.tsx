@@ -1,30 +1,31 @@
-import AppGrid from "@crema/components/AppGrid";
-import AppLoader from "@crema/components/AppLoader";
-import { isEmptyObject } from "@crema/helpers/ApiHelper";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import { ClientItem } from "@crema/modules/invoice";
-import { Button } from "antd";
-import React from "react";
-import { useRouter } from "next/router";
-import { StyledTypographyWrapper } from "../index.styled";
-import { ClientType } from "@crema/types/models/invoice";
+'use client';
+import AppGrid from '@crema/components/AppGrid';
+import AppLoader from '@crema/components/AppLoader';
+import { isEmptyObject } from '@crema/helpers/ApiHelper';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import ClientItem from './ClientItem';
+import { Button } from 'antd';
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import { StyledTypographyWrapper } from '../index.styled';
+import { ClientType } from '@crema/types/models/invoice';
 
 const Clients = () => {
   const router = useRouter();
   const [{ apiData: clientsList, loading }] = useGetDataApi<ClientType[]>(
-    "/api/invoice/clients",
+    'invoice/clients',
     [],
     {},
-    true
+    true,
   );
 
   return !isEmptyObject(clientsList) ? (
     <StyledTypographyWrapper>
       <div>
         <Button
-          type="primary"
-          style={{ display: "block", marginLeft: "auto", marginBottom: 12 }}
-          onClick={() => router.push("/invoice/clients/add")}
+          type='primary'
+          style={{ display: 'block', marginLeft: 'auto', marginBottom: 12 }}
+          onClick={() => router.push('/invoice/clients/add')}
         >
           Add Clients
         </Button>

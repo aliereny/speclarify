@@ -1,17 +1,18 @@
+'use client';
 import React, {
   createContext,
   ReactNode,
   useContext,
   useEffect,
   useState,
-} from "react";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import { useRouter } from "next/router";
+} from 'react';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import { useParams } from 'next/navigation';
 import type {
   ContactObjType,
   FolderObjType,
   LabelObjType,
-} from "@crema/types/models/apps/Contact";
+} from '@crema/types/models/apps/Contact';
 
 export type ContactContextType = {
   labelList: LabelObjType[];
@@ -37,8 +38,8 @@ const ContextState: ContactContextType = {
   contactList: { data: [], count: 0 },
   loading: false,
   page: 0,
-  pageView: "list",
-  all: "",
+  pageView: 'list',
+  all: '',
 };
 
 const ContactContext = createContext<ContactContextType>(ContextState);
@@ -60,18 +61,18 @@ type Props = {
 
 export const ContactContextProvider = ({ children }: Props) => {
   const [{ apiData: labelList }] = useGetDataApi<LabelObjType[]>(
-    "/api/contactApp/labels/list",
-    []
+    'contact/labels',
+    [],
   );
 
   const [{ apiData: folderList }] = useGetDataApi<FolderObjType[]>(
-    "/api/contactApp/folders/list",
-    []
+    'contact/folders',
+    [],
   );
 
-  const [pageView, setPageView] = useState("list");
-  const router = useRouter();
-  const { all } = router.query;
+  const [pageView, setPageView] = useState('list');
+  const params = useParams();
+  const { all } = params;
 
   const [page, setPage] = useState(0);
 
@@ -79,10 +80,10 @@ export const ContactContextProvider = ({ children }: Props) => {
     { apiData: contactList, loading },
     { setQueryParams, setData: setContactData, reCallAPI },
   ] = useGetDataApi<{ data: ContactObjType[]; count: number }>(
-    "/api/contactApp/contact/List",
+    'contact',
     { data: [], count: 0 },
     {},
-    false
+    false,
   );
 
   useEffect(() => {

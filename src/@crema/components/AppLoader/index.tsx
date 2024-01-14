@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import {Spin} from 'antd';
+import { Spin } from 'antd';
 import styled from 'styled-components';
 
 const StyledAppLoader = styled.div`

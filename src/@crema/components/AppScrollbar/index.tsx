@@ -37,9 +37,9 @@
 //   scrollToTop: PropTypes.bool,
 //   className: PropTypes.string,
 // };
-import React, { ReactNode } from 'react';
+import React, {ReactNode} from 'react';
 import SimpleBarReact from 'simplebar-react';
-import 'simplebar/src/simplebar.css';
+// import 'simplebar/src/simplebar.css';
 import styled from 'styled-components';
 
 export const StyledScrollbar = styled(SimpleBarReact)`
@@ -57,25 +57,24 @@ export const StyledScrollbar = styled(SimpleBarReact)`
   }
 `;
 
-// eslint-disable-next-line no-unused-vars
 type AppScrollbarProps = {
-  children: ReactNode;
-  className?: string;
-  scrollToTop?: boolean;
+    children: ReactNode;
+    className?: string;
+    scrollToTop?: boolean;
 
-  [x: string]: any;
+    [x: string]: any;
 };
 
 const AppScrollbar: React.FC<AppScrollbarProps> = ({
-  children,
-  className,
-  ...others
-}) => {
-  return (
-    <StyledScrollbar {...others} className={className}>
-      {children}
-    </StyledScrollbar>
-  );
+                                                       children,
+                                                       className,
+                                                       ...others
+                                                   }) => {
+    return (
+        <StyledScrollbar {...others} className={className}>
+            {children}
+        </StyledScrollbar>
+    );
 };
 
 export default AppScrollbar;

@@ -1,30 +1,32 @@
-import React, { useState } from "react";
+'use client';
+import React, { useState } from 'react';
 
-import IntlMessages from "@crema/helpers/IntlMessages";
-import { useIntl } from "react-intl";
-import { Installation, Sales } from "@crema/modules/extraPages/KnowledgeBase";
-import AppAnimate from "@crema/components/AppAnimate";
-import AppPageMeta from "@crema/components/AppPageMeta";
+import IntlMessages from '@crema/helpers/IntlMessages';
+import { useIntl } from 'react-intl';
+import Sales from './Sales';
+import Installation from './Installation';
+import AppAnimate from '@crema/components/AppAnimate';
+import AppPageMeta from '@crema/components/AppPageMeta';
 import {
   StyledKnowBase,
   StyledKnowBaseHeader,
   StyledKnowDivider,
   StyledKnowSearch,
-} from "./index.styled";
-import { installationData, salesData } from "@crema/mockapi/fakedb/extraPages";
+} from './index.styled';
+import { installationData, salesData } from '@crema/fakedb/extraPages';
 
 const KnowledgeBase = () => {
   const { messages } = useIntl();
 
-  const [filterText, setFilterText] = useState("");
+  const [filterText, setFilterText] = useState('');
 
   const saleQueries =
-    filterText !== ""
+    filterText !== ''
       ? salesData.filter((data) => data.ques.includes(filterText))
       : salesData;
 
   const installationQueries =
-    filterText !== ""
+    filterText !== ''
       ? installationData.filter((data) => data.ques.includes(filterText))
       : installationData;
 
@@ -32,20 +34,20 @@ const KnowledgeBase = () => {
 
   return (
     <StyledKnowBase>
-      <AppPageMeta title="Knowledge Base" />
+      <AppPageMeta title='Knowledge Base' />
 
       <AppAnimate
-        animation="transition.slideUpIn"
+        animation='transition.slideUpIn'
         delay={200}
         // style={{ height: 'auto' }}
       >
-        <StyledKnowBaseHeader key="a">
+        <StyledKnowBaseHeader key='a'>
           <h2>
-            <IntlMessages id="knowledge.howHelp" />
+            <IntlMessages id='knowledge.howHelp' />
           </h2>
 
           <StyledKnowSearch
-            placeholder={messages["knowledge.AppSkeleton"] as string}
+            placeholder={messages['knowledge.AppSkeleton'] as string}
             onSearch={onSearch}
             value={filterText}
             onChange={(event) => setFilterText(event.target.value)}

@@ -1,18 +1,19 @@
-import React, { useEffect, useId, useState } from "react";
-import AppRowContainer from "@crema/components/AppRowContainer";
-import BlogSidebar from "./Sidebar";
-import BlogContent from "./Content";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { postDataApi, putDataApi } from "@crema/hooks/APIHooks";
-import { CreateNewBlog } from "./NewBlogTemplete";
-import { useRouter } from "next/router";
-import { StyledTitle } from "./index.styled";
-import { Form } from "antd";
+'use client';
+import React, { useEffect, useId, useState } from 'react';
+import AppRowContainer from '@crema/components/AppRowContainer';
+import BlogSidebar from './Sidebar';
+import BlogContent from './Content';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import { postDataApi, putDataApi } from '@crema/hooks/APIHooks';
+import { CreateNewBlog } from './NewBlogTemplete';
+import { useRouter } from 'next/navigation';
+import { StyledTitle } from './index.styled';
+import { Form } from 'antd';
 import type {
   BlogContentType,
+  FileType,
   TagType,
-} from "@crema/types/models/extrapages/Blog";
-import type { FileType } from "@crema/types/models/extrapages/Blog";
+} from '@crema/types/models/extrapages/Blog';
 
 type Props = {
   selectedBlog?: BlogContentType;
@@ -36,21 +37,21 @@ export const CreateBlog = ({ selectedBlog }: Props) => {
   return (
     <>
       <StyledTitle>
-        {selectedBlog ? "Edit Blog" : "Create a new blog"}
+        {selectedBlog ? 'Edit Blog' : 'Create a new blog'}
       </StyledTitle>
 
       <Form
         initialValues={{
-          title: selectedBlog?.blogDetailContent?.title || "",
-          description: selectedBlog?.blogDetailContent?.description || "",
-          content: selectedBlog?.blogDetailContent?.content || "",
+          title: selectedBlog?.blogDetailContent?.title || '',
+          description: selectedBlog?.blogDetailContent?.description || '',
+          content: selectedBlog?.blogDetailContent?.content || '',
           tag: selectedBlog?.blogDetailContent?.tag || [],
-          cardMedia: selectedBlog?.blogDetailContent?.cardMedia || "",
-          metatitle: selectedBlog?.blogDetailContent?.meta?.metatitle || "",
-          metadesc: selectedBlog?.blogDetailContent?.meta?.metadesc || "",
-          keywords: selectedBlog?.blogDetailContent?.meta?.keywords || "",
+          cardMedia: selectedBlog?.blogDetailContent?.cardMedia || '',
+          metatitle: selectedBlog?.blogDetailContent?.meta?.metatitle || '',
+          metadesc: selectedBlog?.blogDetailContent?.meta?.metadesc || '',
+          keywords: selectedBlog?.blogDetailContent?.meta?.keywords || '',
         }}
-        layout="vertical"
+        layout='vertical'
         onFinish={(data) => {
           if (selectedBlog) {
             const newBlog = {
@@ -70,27 +71,27 @@ export const CreateBlog = ({ selectedBlog }: Props) => {
                   metatitle: data.metatitle,
                 },
                 post: {
-                  user: "/assets/images/avatar/A12.jpg",
-                  userName: "John Deuo",
-                  userPosition: "Co-founder",
+                  user: '/assets/images/avatar/A12.jpg',
+                  userName: 'John Deuo',
+                  userPosition: 'Co-founder',
                   description: selectedBlog.blogDetailContent.post.description,
                 },
               },
             };
-            putDataApi("/pages/blogs", infoViewActionsContext, {
+            putDataApi('blogs', infoViewActionsContext, {
               blog: newBlog,
             })
               .then(() => {
-                router.push("/extra-pages/blog");
+                router.push('/extra-pages/blog');
                 infoViewActionsContext.showMessage(
-                  "Blog updated successfully!"
+                  'Blog updated successfully!',
                 );
               })
               .catch((error) => {
                 infoViewActionsContext.fetchError(error.message);
               });
           } else {
-            postDataApi("/pages/blogs", infoViewActionsContext, {
+            postDataApi('blogs', infoViewActionsContext, {
               blog: CreateNewBlog({
                 ...data,
                 id,
@@ -101,9 +102,9 @@ export const CreateBlog = ({ selectedBlog }: Props) => {
             })
               .then(() => {
                 infoViewActionsContext.showMessage(
-                  "Blog created successfully!"
+                  'Blog created successfully!',
                 );
-                router.push("/extra-pages/blog");
+                router.push('/extra-pages/blog');
               })
               .catch((error) => {
                 infoViewActionsContext.fetchError(error.message);

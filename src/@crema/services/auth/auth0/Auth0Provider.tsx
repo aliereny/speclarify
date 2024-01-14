@@ -8,9 +8,11 @@ interface Auth0ProviderProps {
 const Auth0Provider: React.FC<Auth0ProviderProps> = ({ children }) => {
   return (
     <Auth0
-      domain="yogi0823.us.auth0.com"
-      clientId="tS3esCQdie5yKbr6FTl7416nLdCzlSgr"
-      redirectUri={window.location.origin}
+      domain='yogi0823.us.auth0.com'
+      clientId='tS3esCQdie5yKbr6FTl7416nLdCzlSgr'
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
     >
       {children}
     </Auth0>

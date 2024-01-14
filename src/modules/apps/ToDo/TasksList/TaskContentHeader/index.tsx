@@ -1,23 +1,20 @@
-import React from "react";
-import { useIntl } from "react-intl";
-import CheckedTasksActions from "./CheckedTasksActions";
-import { Checkbox } from "antd";
+import React from 'react';
+import { useIntl } from 'react-intl';
+import CheckedTasksActions from './CheckedTasksActions';
+import { Checkbox } from 'antd';
 import {
   StyledContentHeader,
   StyledTodoHeaderCheckboxView,
   StyledTodoHeaderPagination,
   StyledTodoSearch,
-} from "../index.styled";
-import {
-  SelectTasksDropdown,
-  ViewSelectButtons,
-} from "@crema/modules/apps/ToDo";
-
-import { TodoObjType } from "@crema/types/models/apps/Todo";
+} from '../index.styled';
+import SelectTasksDropdown from './SelectTasksDropdown';
+import ViewSelectButtons from './ViewSelectButtons';
+import { TodoObjType } from '@crema/types/models/apps/Todo';
 import {
   useTodoActionsContext,
   useTodoContext,
-} from "../../../context/TodoContextProvider";
+} from '../../../context/TodoContextProvider';
 
 type TaskContentHeaderProps = {
   taskLists: TodoObjType[];
@@ -60,7 +57,7 @@ const TaskContentHeader: React.FC<TaskContentHeaderProps> = ({
 
       case 2:
         setCheckedTasks(
-          taskLists?.filter((task) => task.isStarred).map((task) => task.id)
+          taskLists?.filter((task) => task.isStarred).map((task) => task.id),
         );
         break;
 
@@ -68,7 +65,7 @@ const TaskContentHeader: React.FC<TaskContentHeaderProps> = ({
         setCheckedTasks(
           taskLists
             ?.filter((task) => task.hasAttachments)
-            .map((task) => task.id)
+            .map((task) => task.id),
         );
         break;
 
@@ -108,13 +105,13 @@ const TaskContentHeader: React.FC<TaskContentHeaderProps> = ({
         </StyledTodoHeaderCheckboxView>
 
         <StyledTodoSearch
-          placeholder={messages["common.searchHere"] as string}
+          placeholder={messages['common.searchHere'] as string}
           value={filterText}
           onChange={(event) => onSetFilterText(event.target.value)}
         />
         <ViewSelectButtons pageView={viewMode} onChangePageView={setViewMode} />
       </StyledContentHeader>
-      {viewMode === "list" && taskLists?.length > 0 ? (
+      {viewMode === 'list' && taskLists?.length > 0 ? (
         <StyledTodoHeaderPagination
           count={taskLists?.length}
           page={page}

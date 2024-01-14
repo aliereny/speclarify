@@ -1,11 +1,11 @@
-import React from "react";
-import { Select } from "antd";
-import { useIntl } from "react-intl";
-import { StyledTodoSelectBox } from "../index.styled";
-import { putDataApi, useGetDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
+import React from 'react';
+import { Select } from 'antd';
+import { useIntl } from 'react-intl';
+import { StyledTodoSelectBox } from '../index.styled';
+import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 
-import { PriorityObjType, TodoObjType } from "@crema/types/models/apps/Todo";
+import { PriorityObjType, TodoObjType } from '@crema/types/models/apps/Todo';
 
 type TaskPriorityProps = {
   selectedTask: TodoObjType;
@@ -18,24 +18,20 @@ const TaskPriority: React.FC<TaskPriorityProps> = ({
 }) => {
   const infoViewActionsContext = useInfoViewActionsContext();
   const [{ apiData: priorityList }] = useGetDataApi<PriorityObjType[]>(
-    "/api/todo/priority/list",
-    []
+    'todo/priority',
+    [],
   );
 
   const onChangePriority = (value: number) => {
     selectedTask.priority = priorityList.find(
-      (priority: PriorityObjType) => priority.type === value
+      (priority: PriorityObjType) => priority.type === value,
     ) as PriorityObjType;
-    putDataApi<{ task: TodoObjType }>(
-      "/api/todoApp/task/",
-      infoViewActionsContext,
-      {
-        task: selectedTask,
-      }
-    )
+    putDataApi<{ task: TodoObjType }>('todo/task', infoViewActionsContext, {
+      task: selectedTask,
+    })
       .then((data) => {
         onUpdateSelectedTask(data.task);
-        infoViewActionsContext.showMessage("Task Updated Successfully");
+        infoViewActionsContext.showMessage('Task Updated Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -46,7 +42,7 @@ const TaskPriority: React.FC<TaskPriorityProps> = ({
   return (
     <StyledTodoSelectBox
       defaultValue={selectedTask?.priority?.type}
-      placeholder={messages["common.priority"] as string}
+      placeholder={messages['common.priority'] as string}
       onChange={(value) => onChangePriority(value as number)}
     >
       {priorityList.map((priority: PriorityObjType) => {

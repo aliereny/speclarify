@@ -1,6 +1,7 @@
-import React from "react";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import FirebaseAuthProvider from "@crema/services/auth/firebase/FirebaseAuthProvider";
+'use client';
+import React from 'react';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import FirebaseAuthProvider from '@crema/services/auth/firebase/FirebaseAuthProvider';
 
 type Props = {
   children: React.ReactNode;

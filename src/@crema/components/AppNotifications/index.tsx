@@ -1,9 +1,9 @@
-import React from "react";
-import { Dropdown } from "antd";
+import React from 'react';
+import { Dropdown } from 'antd';
 
-import IntlMessages from "@crema/helpers/IntlMessages";
-import NotificationItem from "./NotificationItem";
-import { IoIosNotificationsOutline } from "react-icons/io";
+import IntlMessages from '@crema/helpers/IntlMessages';
+import NotificationItem from './NotificationItem';
+import { IoIosNotificationsOutline } from 'react-icons/io';
 import {
   StyledDrowdownWrapper,
   StyledNotifyButtonAll,
@@ -12,15 +12,15 @@ import {
   StyledNotifyList,
   StyledNotifyScrollSubmenu,
   StyledNotifyText,
-} from "./index.styled";
-import { notification } from "@crema/mockapi/fakedb";
+} from './index.styled';
+import { notification } from '@crema/fakedb';
 
 const items = [
   {
     key: 1,
     label: (
-      <span className="header">
-        <IntlMessages id="common.notifications" />({notification.length})
+      <span className='header'>
+        <IntlMessages id='common.notifications' />({notification.length})
       </span>
     ),
   },
@@ -40,8 +40,8 @@ const items = [
   {
     key: 3,
     label: (
-      <StyledNotifyButtonAll type="primary">
-        <IntlMessages id="common.viewAll" />
+      <StyledNotifyButtonAll type='primary'>
+        <IntlMessages id='common.viewAll' />
       </StyledNotifyButtonAll>
     ),
   },
@@ -51,17 +51,17 @@ const AppNotifications = () => {
     <StyledDrowdownWrapper>
       <Dropdown
         menu={{ items }}
-        className="dropdown"
-        overlayClassName="header-notify-messages"
+        className='dropdown'
+        overlayClassName='header-notify-messages'
         getPopupContainer={(triggerNode) => triggerNode}
-        trigger={["click"]}
+        trigger={['click']}
       >
         <StyledNotifyLink onClick={(e) => e.preventDefault()}>
           <StyledNotifyIcon>
             <IoIosNotificationsOutline />
           </StyledNotifyIcon>
           <StyledNotifyText>
-            <IntlMessages id="common.notifications" />
+            <IntlMessages id='common.notifications' />
           </StyledNotifyText>
         </StyledNotifyLink>
       </Dropdown>

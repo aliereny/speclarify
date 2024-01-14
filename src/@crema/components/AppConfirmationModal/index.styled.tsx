@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
 export const StyledParaText = styled.p`
-  color: ${({theme}) => theme.palette.gray[600]};
+  color: ${({ theme }) => theme.palette.gray[600]};
 `;

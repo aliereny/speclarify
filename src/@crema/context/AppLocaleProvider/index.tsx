@@ -1,8 +1,9 @@
-import React, { ReactNode } from "react";
-import { IntlProvider } from "react-intl";
-import { IntlGlobalProvider } from "@crema/helpers/Common";
-import AppLocale from "@crema/services/localization";
-import { useLocaleContext } from "../AppContextProvider/LocaleContextProvider";
+'use client';
+import React, { ReactNode } from 'react';
+import { IntlProvider } from 'react-intl';
+import { IntlGlobalProvider } from '@crema/helpers/Common';
+import AppLocale from '@crema/services/localization';
+import { useLocaleContext } from '../AppContextProvider/LocaleContextProvider';
 
 interface AppLocaleProviderProps {
   children: ReactNode;

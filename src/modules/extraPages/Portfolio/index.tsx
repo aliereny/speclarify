@@ -1,6 +1,7 @@
-import React from "react";
-import { PortfolioTabs } from "@crema/modules/extraPages/Portfolio";
-import { portfolioData } from "@crema/mockapi/fakedb/extraPages";
+'use client';
+import React from 'react';
+import PortfolioTabs from './PortfolioTabs';
+import { portfolioData } from '@crema/fakedb/extraPages';
 
 const PortFolioPage = () => {
   return <PortfolioTabs portfolio={portfolioData.portfolio} />;

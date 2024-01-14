@@ -1,55 +1,53 @@
-import React from "react";
-import AppRowContainer from "@crema/components/AppRowContainer";
-import { Col } from "antd";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import {
-  ComparisonCard,
-  EarningInMonth,
-  FloatingGraphs,
-  MetricTitleLineGraphCard,
-  ProfileViews,
-  Sales,
-  SocialVisitors,
-  Stats,
-  StatsCardWithGraph,
-  Subscriptions,
-  Visits,
-  WorkViews,
-  YourAccount,
-} from "@crema/modules/dashboards/Metrics";
-import AppPageMeta from "@crema/components/AppPageMeta";
-import { blue, geekblue, grey, red } from "@ant-design/colors";
-import { StyledMetricTitleLineView } from "./index.styled";
-import AppInfoView from "@crema/components/AppInfoView";
-import type { MetricsType } from "@crema/types/models/dashboards/Metrics";
-import AppLoader from "@crema/components/AppLoader";
-import {
-  StatsDirCard,
-  StatsItemCard,
-} from "@crema/modules/dashboards/CommonComponents";
-import { ReportCard } from "@crema/modules/dashboards/ECommerce";
-import { VisitorPageView } from "@crema/modules/dashboards/Analytics";
-import { HeartRate, YourActivity } from "@crema/modules/dashboards/HealthCare";
-import { useIntl } from "react-intl";
+'use client';
+import React from 'react';
+import AppRowContainer from '@crema/components/AppRowContainer';
+import { Col } from 'antd';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import StatsCardWithGraph from './StatsCardWithGraph';
+import ComparisonCard from './ComparisonCard';
+import Sales from './Sales';
+import YourAccount from './YourAccount';
+import EarningInMonth from './EarningInMonth';
+import MetricTitleLineGraphCard from './MetricTitleLineGraphCard';
+import FloatingGraphs from './FloatingGraphs';
+import Visits from './Visits';
+import ProfileViews from './ProfileViews';
+import WorkViews from './WorkViews';
+import Stats from './Stats';
+import SocialVisitors from './SocialVisitors';
+import Subscriptions from './Subscriptions';
+import AppPageMeta from '@crema/components/AppPageMeta';
+import { blue, geekblue, grey, red } from '@ant-design/colors';
+import { StyledMetricTitleLineView } from './index.styled';
+import AppInfoView from '@crema/components/AppInfoView';
+import type { MetricsType } from '@crema/types/models/dashboards/Metrics';
+import AppLoader from '@crema/components/AppLoader';
+import StatsDirCard from '../CommonComponents/StatsDirCard';
+import StatsItemCard from '../CommonComponents/StatsItemCard';
+import ReportCard from '../ECommerce/ReportCard';
+import VisitorPageView from '../Analytics/VisitorPageView';
+import HeartRate from '../HealthCare/HeartRate';
+import YourActivity from '../HealthCare/YourActivity';
+import { useIntl } from 'react-intl';
 
 const Metrics = () => {
   const [{ apiData: metricsData, loading }] =
-    useGetDataApi<MetricsType>("/dashboard/metrics");
+    useGetDataApi<MetricsType>('/dashboard/metrics');
 
   const { messages } = useIntl();
   return (
     <>
-      <AppPageMeta title="Metrics" />
+      <AppPageMeta title='Metrics' />
       {loading ? (
         <AppLoader />
       ) : (
         <div>
-          <h2 className="card-outer-title">
-            <IntlMessages id="dashboard.metrics" />
+          <h2 className='card-outer-title'>
+            <IntlMessages id='dashboard.metrics' />
           </h2>
 
-          <AppRowContainer ease={"easeInSine"}>
+          <AppRowContainer ease={'easeInSine'}>
             {metricsData.metricsStats.map((item, index) => (
               <Col xs={12} sm={12} lg={6} key={index}>
                 <StatsItemCard stats={item} />
@@ -68,168 +66,168 @@ const Metrics = () => {
             ))}
             <Col xs={24} md={6}>
               <FloatingGraphs
-                title={messages["dashboard.sales"] as string}
+                title={messages['dashboard.sales'] as string}
                 data={metricsData.metricsFloatingGraphData.salesData}
               />
             </Col>
 
             <Col xs={24} md={6}>
               <FloatingGraphs
-                title={messages["dashboard.clients"]}
+                title={messages['dashboard.clients'] as string}
                 data={metricsData.metricsFloatingGraphData.clientsData}
               />
             </Col>
 
             <Col xs={24} md={6}>
               <FloatingGraphs
-                title={messages["dashboard.revenue"]}
+                title={messages['dashboard.revenue'] as string}
                 data={metricsData.metricsFloatingGraphData.revenueData}
               />
             </Col>
 
             <Col xs={24} md={6}>
               <FloatingGraphs
-                title={messages["dashboard.newUser"]}
+                title={messages['dashboard.newUser'] as string}
                 data={metricsData.metricsFloatingGraphData.newUserData}
               />
             </Col>
 
-            <Col xs={24} lg={8} key={"e"}>
+            <Col xs={24} lg={8} key={'e'}>
               <StatsCardWithGraph
-                text={<IntlMessages id="dashboard.incomeLastYear" />}
+                text={<IntlMessages id='dashboard.incomeLastYear' />}
                 data={metricsData.incomeLastYear}
-                type="incomeGraph"
-                valueColor="#FFA940"
+                type='incomeGraph'
+                valueColor='#FFA940'
               />
             </Col>
 
-            <Col xs={24} lg={8} key={"f"}>
+            <Col xs={24} lg={8} key={'f'}>
               <StatsCardWithGraph
-                text={<IntlMessages id="dashboard.webTraffic" />}
+                text={<IntlMessages id='dashboard.webTraffic' />}
                 data={metricsData.websiteTrafficData}
-                bgColor="background.paper"
-                type="trafficGraph"
+                bgColor='background.paper'
+                type='trafficGraph'
                 valueColor={red[6]}
               />
             </Col>
 
-            <Col xs={24} lg={8} key={"g"}>
+            <Col xs={24} lg={8} key={'g'}>
               <StatsCardWithGraph
-                text={<IntlMessages id="dashboard.growthInRevenue" />}
+                text={<IntlMessages id='dashboard.growthInRevenue' />}
                 data={metricsData.revenueGrowthData}
-                bgColor="background.paper"
-                type="revenueGrowth"
+                bgColor='background.paper'
+                type='revenueGrowth'
                 valueColor={blue[5]}
               />
             </Col>
 
-            <Col xs={24} lg={6} key={"h"}>
+            <Col xs={24} lg={6} key={'h'}>
               <ComparisonCard
-                text={<IntlMessages id="dashboard.incrementInUsers" />}
+                text={<IntlMessages id='dashboard.incrementInUsers' />}
                 data={metricsData.incrementActiveUsers}
-                type="activeUsers"
-                valueColor="#4299E1"
+                type='activeUsers'
+                valueColor='#4299E1'
               />
             </Col>
 
-            <Col xs={24} lg={6} key={"i"}>
+            <Col xs={24} lg={6} key={'i'}>
               <ComparisonCard
-                text={<IntlMessages id="dashboard.extraRevenue" />}
+                text={<IntlMessages id='dashboard.extraRevenue' />}
                 data={metricsData.extraRevenue}
-                type="extraRevenue"
-                valueColor="#4C51BF"
+                type='extraRevenue'
+                valueColor='#4C51BF'
               />
             </Col>
 
-            <Col xs={24} lg={6} key={"j"}>
+            <Col xs={24} lg={6} key={'j'}>
               <ComparisonCard
-                text={<IntlMessages id="dashboard.trafficRaise" />}
+                text={<IntlMessages id='dashboard.trafficRaise' />}
                 data={metricsData.trafficRaise}
-                type="trafficRaise"
+                type='trafficRaise'
                 valueColor={blue[5]}
               />
             </Col>
 
-            <Col xs={24} lg={6} key={"k"}>
+            <Col xs={24} lg={6} key={'k'}>
               <ComparisonCard
-                text={<IntlMessages id="dashboard.lessOrders" />}
+                text={<IntlMessages id='dashboard.lessOrders' />}
                 data={metricsData.lessOrders}
-                type="lessOrders"
+                type='lessOrders'
                 valueColor={red[5]}
               />
             </Col>
 
-            <Col xs={24} lg={8} key={"l"}>
+            <Col xs={24} lg={8} key={'l'}>
               <Sales data={metricsData.salesData} />
             </Col>
 
-            <Col xs={24} lg={8} key={"m"}>
+            <Col xs={24} lg={8} key={'m'}>
               <YourAccount data={metricsData.accountData} />
             </Col>
 
-            <Col xs={24} lg={8} key={"n"}>
+            <Col xs={24} lg={8} key={'n'}>
               <EarningInMonth data={metricsData.earningInMonth} />
             </Col>
 
-            <Col xs={24} lg={14} key={"o"}>
+            <Col xs={24} lg={14} key={'o'}>
               <Subscriptions data={metricsData.subscriptionData} />
             </Col>
 
-            <Col xs={24} lg={10} key={"p"}>
+            <Col xs={24} lg={10} key={'p'}>
               <StyledMetricTitleLineView>
                 <MetricTitleLineGraphCard
                   data={metricsData.metricsLineGraphData}
-                  title={<IntlMessages id="dashboard.rides" />}
-                  titleColor="rgb(73, 80, 87)"
+                  title={<IntlMessages id='dashboard.rides' />}
+                  titleColor='rgb(73, 80, 87)'
                   valueColor={grey[5]}
                   differenceColor={red[5]}
-                  bgColor="white"
-                  graphColor="#4299E1"
+                  bgColor='white'
+                  graphColor='#4299E1'
                 />
               </StyledMetricTitleLineView>
 
               <div>
                 <MetricTitleLineGraphCard
                   data={metricsData.metricsLineGraphData}
-                  title={<IntlMessages id="dashboard.visits" />}
-                  titleColor="white"
+                  title={<IntlMessages id='dashboard.visits' />}
+                  titleColor='white'
                   valueColor={geekblue[3]}
-                  differenceColor="white"
+                  differenceColor='white'
                   bgColor={geekblue[5]}
-                  graphColor="#FFFFFF"
+                  graphColor='#FFFFFF'
                 />
               </div>
             </Col>
 
-            <Col xs={24} lg={12} key={"z"}>
+            <Col xs={24} lg={12} key={'z'}>
               <Visits data={metricsData.visitsData} />
             </Col>
 
-            <Col xs={24} lg={12} key={"aa"}>
+            <Col xs={24} lg={12} key={'aa'}>
               <VisitorPageView data={metricsData.visitorsPageView} />
             </Col>
 
-            <Col xs={24} lg={12} xl={6} key={"ab"}>
+            <Col xs={24} lg={12} xl={6} key={'ab'}>
               <ProfileViews data={metricsData.profileViewsData} />
             </Col>
 
-            <Col xs={24} lg={12} xl={6} key={"ac"}>
+            <Col xs={24} lg={12} xl={6} key={'ac'}>
               <WorkViews data={metricsData.workViewsData} />
             </Col>
 
-            <Col xs={24} lg={12} xl={6} key={"ad"}>
+            <Col xs={24} lg={12} xl={6} key={'ad'}>
               <HeartRate data={metricsData.heartCard} />
             </Col>
 
-            <Col xs={24} lg={12} xl={6} key={"ae"}>
+            <Col xs={24} lg={12} xl={6} key={'ae'}>
               <YourActivity data={metricsData.yourActivity} />
             </Col>
 
-            <Col xs={24} lg={12} key={"af"}>
+            <Col xs={24} lg={12} key={'af'}>
               <Stats data={metricsData.statsGraph} />
             </Col>
 
-            <Col xs={24} lg={12} key={"ag"}>
+            <Col xs={24} lg={12} key={'ag'}>
               <SocialVisitors data={metricsData.socialVisitorsData} />
             </Col>
           </AppRowContainer>

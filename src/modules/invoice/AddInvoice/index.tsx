@@ -1,50 +1,53 @@
-import React from "react";
-import { AddInvoice } from "@crema/modules/invoice";
-import { postDataApi, useGetDataApi } from "@crema/hooks/APIHooks";
-import { useRouter } from "next/router";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { StyledTypographyWrapper } from "../index.styled";
+'use client';
+import React from 'react';
+import AddInvoice from './AddInvoice';
+import { postDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
+import { useRouter } from 'next/navigation';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import { StyledTypographyWrapper } from '../index.styled';
 import {
   ClientType,
   InvoiceSettingType,
   InvoiceType,
-} from "@crema/types/models/invoice";
+} from '@crema/types/models/invoice';
 
 const AddInvoicePage = () => {
   const router = useRouter();
   const infoViewActionsContext = useInfoViewActionsContext();
 
   const [{ apiData: clientsList }] = useGetDataApi<ClientType[]>(
-    "/api/invoice/clients",
+    'invoice/clients',
     [],
     {},
-    true
+    true,
   );
+
   const [{ apiData: invoiceSettings }] = useGetDataApi<InvoiceSettingType>(
-    "/api/invoice/settings",
+    'invoice/settings',
     {} as InvoiceSettingType,
     {},
-    true
+    true,
   );
 
   const [{ apiData: invoiceList }] = useGetDataApi<InvoiceType[]>(
-    "/api/invoice/list",
+    'invoice',
     [],
     {},
-    true
+    true,
   );
+
   const onSave = (invoice: InvoiceType) => {
-    postDataApi("/api/invoice/list/add", infoViewActionsContext, { invoice })
+    postDataApi('invoice', infoViewActionsContext, { invoice })
       .then(() => {
         infoViewActionsContext.showMessage(
-          "New Invoice has been created successfully!"
+          'New Invoice has been created successfully!',
         );
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
       });
 
-    router.push("/invoice");
+    router.push('/invoice');
   };
 
   return clientsList && invoiceList?.length ? (

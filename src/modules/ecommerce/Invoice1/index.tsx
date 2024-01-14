@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import IntlMessages from '@crema/helpers/IntlMessages';
 import AppPageMeta from '@crema/components/AppPageMeta';
@@ -8,7 +9,8 @@ import {
   StyledInvoiceFooterTitle,
 } from './index.styled';
 import AppAnimate from '@crema/components/AppAnimate';
-import { Header, InvoiceTable } from '@crema/modules/ecommerce/Invoice1';
+import Header from './Header';
+import InvoiceTable from './InvoiceTable';
 
 const Invoice1 = () => {
   return (

@@ -1,24 +1,26 @@
-import AppsHeader from "@crema/components/AppsContainer/AppsHeader";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import React, { useEffect, useState } from "react";
-import { useIntl } from "react-intl";
-import { FilterItem, ListingTable } from "@crema/modules/ecommerce/Admin";
-import AppRowContainer from "@crema/components/AppRowContainer";
-import AppCard from "@crema/components/AppCard";
-import { Col, Input } from "antd";
+'use client';
+import AppsHeader from '@crema/components/AppsContainer/AppsHeader';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import React, { useEffect, useState } from 'react';
+import { useIntl } from 'react-intl';
+import ListingTable from '../ListingTable';
+import FilterItem from '../FilterItem';
+import AppRowContainer from '@crema/components/AppRowContainer';
+import AppCard from '@crema/components/AppCard';
+import { Col, Input } from 'antd';
 import {
   StyledOrderFooterPagination,
   StyledOrderHeader,
   StyledOrderHeaderInputView,
   StyledOrderHeaderPagination,
-} from "../../Orders/index.styled";
-import { StyledTitle5 } from "../index.styled";
-import { ProductDataType } from "@crema/types/models/ecommerce/EcommerceApp";
+} from '../../Orders/index.styled';
+import { StyledTitle5 } from '../index.styled';
+import { ProductDataType } from '@crema/types/models/ecommerce/EcommerceApp';
 
 const ProductListing = () => {
   const { messages } = useIntl();
   const [filterData, setFilterData] = useState({
-    title: "",
+    title: '',
     inStock: [true, false],
     mrp: { start: 0, end: 30000 },
   });
@@ -28,13 +30,13 @@ const ProductListing = () => {
     list: ProductDataType[];
     total: number;
   }>(
-    "/api/ecommerce/list",
+    'ecommerce/admin',
     {
       list: [],
       total: 0,
     },
     {},
-    false
+    false,
   );
 
   const { list, total } = apiData;
@@ -54,7 +56,7 @@ const ProductListing = () => {
   return (
     <>
       <StyledTitle5>
-        {messages["sidebar.ecommerceAdmin.productListing"] as string}
+        {messages['sidebar.ecommerceAdmin.productListing'] as string}
       </StyledTitle5>
       <AppRowContainer>
         <Col xs={24} lg={18}>
@@ -64,9 +66,9 @@ const ProductListing = () => {
                 <StyledOrderHeader>
                   <StyledOrderHeaderInputView>
                     <Input
-                      id="user-name"
-                      placeholder="Search"
-                      type="search"
+                      id='user-name'
+                      placeholder='Search'
+                      type='search'
                       onChange={(event) => searchProduct(event.target.value)}
                     />
                   </StyledOrderHeaderInputView>

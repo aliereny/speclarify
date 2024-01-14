@@ -1,5 +1,5 @@
-import {Button, List} from 'antd';
-import {darken, lighten} from 'polished';
+import { Button, List } from 'antd';
+import { darken, lighten } from 'polished';
 import styled from 'styled-components';
 import AppScrollbar from '../AppScrollbar';
 
@@ -12,11 +12,11 @@ export const StyledDrowdownWrapper = styled.div`
       padding: 0;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
       width: 300px;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
       width: 380px;
     }
 
@@ -30,7 +30,7 @@ export const StyledDrowdownWrapper = styled.div`
 
       &:first-child {
         padding: 12px 20px;
-        font-weight: ${({theme}) => theme.font.weight.medium};
+        font-weight: ${({ theme }) => theme.font.weight.medium};
         cursor: inherit;
 
         &:hover,
@@ -45,7 +45,7 @@ export const StyledDrowdownWrapper = styled.div`
 export const StyledNotifyScrollSubmenu = styled(AppScrollbar)`
   height: 200px;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
     height: 380px;
   }
 `;
@@ -66,20 +66,20 @@ export const StyledNotifyLink = styled.a`
   display: flex;
   align-items: center;
   width: 100%;
-  font-size: ${({theme}) => theme.font.size.lg};
+  font-size: ${({ theme }) => theme.font.size.lg};
   border-radius: 0;
   padding: 18px 12px;
   margin-top: -10px;
-  color: ${({theme}) => theme.palette.text.primary};
+  color: ${({ theme }) => theme.palette.text.primary};
 
   &:hover,
   &:focus {
-    color: ${({theme}) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
     background-color: transparent;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
-    font-weight: ${({theme}) => theme.font.weight.medium};
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+    font-weight: ${({ theme }) => theme.font.weight.medium};
     text-transform: uppercase;
     margin-top: 0;
     width: 40px;
@@ -88,11 +88,11 @@ export const StyledNotifyLink = styled.a`
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    background-color: ${({theme}) =>
+    background-color: ${({ theme }) =>
       theme.palette.background.default}!important;
-    color: ${({theme}) => theme.palette.text.secondary} !important;
+    color: ${({ theme }) => theme.palette.text.secondary} !important;
     padding: 9px;
-    border-radius: ${({theme}) => theme.sizes.borderRadius.circle};
+    border-radius: ${({ theme }) => theme.sizes.borderRadius.circle};
     border: 1px solid transparent;
     margin-left: 7.4px;
     margin-right: 7.4px;
@@ -100,10 +100,10 @@ export const StyledNotifyLink = styled.a`
 
     &:hover,
     &:focus {
-      color: ${({theme}) => theme.palette.text.primary};
-      background-color: ${({theme}) =>
+      color: ${({ theme }) => theme.palette.text.primary};
+      background-color: ${({ theme }) =>
         lighten(0.005, theme.palette.background.default)};
-      border-color: ${({theme}) =>
+      border-color: ${({ theme }) =>
         darken(0.1, theme.palette.background.default)};
     }
   }
@@ -113,16 +113,16 @@ export const StyledNotifyIcon = styled.span`
   position: relative;
   display: none;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     display: block;
   }
 `;
 
 export const StyledNotifyText = styled.span`
-  font-size: ${({theme}) => theme.font.size.lg};
-  font-weight: ${({theme}) => theme.font.weight.regular};
+  font-size: ${({ theme }) => theme.font.size.lg};
+  font-weight: ${({ theme }) => theme.font.weight.regular};
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     display: none;
   }
 `;

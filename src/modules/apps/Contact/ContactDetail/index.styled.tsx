@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FiFacebook, FiTwitter, FiMail, FiPhone } from 'react-icons/fi';
+import { FiFacebook, FiMail, FiPhone, FiTwitter } from 'react-icons/fi';
 import { AiOutlineGlobal, AiOutlineShopping } from 'react-icons/ai';
 import { Avatar, Modal } from 'antd';
 import AppScrollbar from '@crema/components/AppScrollbar';

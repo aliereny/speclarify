@@ -1,12 +1,13 @@
+'use client';
 import React from 'react';
 import AppInfoView from '@crema/components/AppInfoView';
 import { StyledUserFlat } from './index.styled';
 import { useGetDataApi } from '@crema/hooks/APIHooks';
 import AppList from '@crema/components/AppList';
-import { ListItem } from '@crema/modules/userList/Flat';
+import ListItem from './ListItem';
 
 const Flat = () => {
-  const [{ apiData: usersList }] = useGetDataApi('/api/user/list', []);
+  const [{ apiData: usersList }] = useGetDataApi('userList', []);
 
   return (
     <StyledUserFlat>

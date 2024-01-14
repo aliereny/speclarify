@@ -5,7 +5,7 @@ import itLang from './entries/it_IT';
 import esLang from './entries/es_ES';
 import frLang from './entries/fr_FR';
 
-const AppLocale:any = {
+const AppLocale: any = {
   en: enLang,
   zh: zhLang,
   ar: arLang,

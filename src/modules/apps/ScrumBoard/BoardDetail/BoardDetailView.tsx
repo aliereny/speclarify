@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from "react";
-import AddCard from "./List/AddCard";
-import AppsContent from "@crema/components/AppsContainer/AppsContent";
+import React, { useEffect, useState } from 'react';
+import AddCard from './List/AddCard';
+import AppsContent from '@crema/components/AppsContainer/AppsContent';
 // import './react-trello';
-import Board from "react-trello";
-import { postDataApi, putDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { useThemeContext } from "@crema/context/AppContextProvider/ThemeContextProvider";
-import {
-  AddCardButton,
-  AddNewList,
-  BoardCard,
-  ListHeader,
-  NewListButton,
-} from "@crema/modules/apps/ScrumBoard";
+import Board from 'react-trello';
+import { postDataApi, putDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import { useThemeContext } from '@crema/context/AppContextProvider/ThemeContextProvider';
+import NewListButton from './NewListButton';
+import AddNewList from './AddNewList';
+import AddCardButton from './List/AddCardButton';
+import BoardCard from './List/BoardCard';
+import ListHeader from './List/ListHeader';
 
 import type {
   BoardObjType,
   CardListObjType,
   CardObjType,
-} from "@crema/types/models/apps/ScrumbBoard";
+} from '@crema/types/models/apps/ScrumbBoard';
 
 type BoardDetailViewProps = {
   boardDetail: BoardObjType;
@@ -64,7 +62,7 @@ const BoardDetailView: React.FC<BoardDetailViewProps> = ({
   };
 
   const onAddList = (name: string) => {
-    postDataApi("/api/scrumboard/add/list", infoViewActionsContext, {
+    postDataApi('scrumboard/scrumboardList', infoViewActionsContext, {
       boardId: boardDetail?.id,
       list: {
         name: name,
@@ -72,7 +70,7 @@ const BoardDetailView: React.FC<BoardDetailViewProps> = ({
     })
       .then((data) => {
         if (setData) setData(data as BoardObjType);
-        infoViewActionsContext.showMessage("List Added Successfully!");
+        infoViewActionsContext.showMessage('List Added Successfully!');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -98,12 +96,12 @@ const BoardDetailView: React.FC<BoardDetailViewProps> = ({
     sourceLaneId: number,
     targetLaneId: number,
     position: number,
-    cardDetails: CardObjType
+    cardDetails: CardObjType,
   ) => {
     if (sourceLaneId !== targetLaneId) {
       const boardId = boardDetail?.id;
       putDataApi<BoardObjType>(
-        "/api/cards/update/category",
+        'scrumboard/cardsCategory',
         infoViewActionsContext,
         {
           cardId: cardDetails.id,
@@ -111,11 +109,11 @@ const BoardDetailView: React.FC<BoardDetailViewProps> = ({
           categoryId: targetLaneId,
           position: position,
           boardId: boardId,
-        }
+        },
       )
         .then((data) => {
           setData(data);
-          infoViewActionsContext.showMessage("Card Updated Successfully!");
+          infoViewActionsContext.showMessage('Card Updated Successfully!');
         })
         .catch((error) => {
           infoViewActionsContext.fetchError(error.message);
@@ -125,16 +123,16 @@ const BoardDetailView: React.FC<BoardDetailViewProps> = ({
 
   const onEditBoardList = (lane: CardListObjType, data: CardObjType) => {
     putDataApi<BoardObjType>(
-      "/api/scrumboard/edit/list",
+      'scrumboard/scrumboardList',
       infoViewActionsContext,
       {
         boardId: boardDetail?.id,
         list: { ...lane, name: data.title },
-      }
+      },
     )
       .then((data) => {
         setData(data);
-        infoViewActionsContext.showMessage("List Edited Successfully!");
+        infoViewActionsContext.showMessage('List Edited Successfully!');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -143,16 +141,16 @@ const BoardDetailView: React.FC<BoardDetailViewProps> = ({
 
   const onDeleteSelectedList = (laneId: number) => {
     postDataApi<BoardObjType>(
-      "/api/scrumboard/delete/list",
+      'scrumboard/scrumboardList/deleteList',
       infoViewActionsContext,
       {
         boardId: boardDetail?.id,
         listId: laneId,
-      }
+      },
     )
       .then((data) => {
         setData(data);
-        infoViewActionsContext.showMessage("List Deleted Successfully!");
+        infoViewActionsContext.showMessage('List Deleted Successfully!');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);

@@ -1,12 +1,13 @@
+'use client';
 import React, {
-  ReactNode,
   createContext,
+  ReactNode,
   useContext,
   useEffect,
   useState,
-} from "react";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import { useRouter } from "next/router";
+} from 'react';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 
 import {
   FolderObjType,
@@ -15,8 +16,8 @@ import {
   StaffObjType,
   StatusObjType,
   TodoObjType,
-} from "@crema/types/models/apps/Todo";
-import { APIDataProps } from "@crema/types/models/APIDataProps";
+} from '@crema/types/models/apps/Todo';
+import { APIDataProps } from '@crema/types/models/APIDataProps';
 
 type FilterDataType = {
   status: number[];
@@ -40,7 +41,7 @@ export type CalendarActionContextType = {
   setQueryParams: (data: object) => void;
   onPageChange: (
     event: React.MouseEvent<HTMLButtonElement> | null,
-    data: number
+    data: number,
   ) => void;
   reCallAPI: () => void;
   setPage: (data: number) => void;
@@ -68,7 +69,7 @@ const CalendarActionsContext = createContext<CalendarActionContextType>({
   setQueryParams: (data: object) => {},
   onPageChange: (
     event: React.MouseEvent<HTMLButtonElement> | null,
-    data: number
+    data: number,
   ) => {},
   reCallAPI: () => {},
   setPage: (data: number) => {},
@@ -90,7 +91,9 @@ export const CalendarContextProvider = ({ children }: Props) => {
     priority: [],
   });
   const router = useRouter();
-  const { all, asPath } = router.query;
+  const pathname = usePathname();
+  const params = useParams();
+  const { all } = params;
   let folder;
   let label;
 
@@ -100,22 +103,19 @@ export const CalendarContextProvider = ({ children }: Props) => {
     folder = all[0];
   }
 
-  const [{ apiData: labelList }] = useGetDataApi<LabelObjType[]>(
-    "/api/calendar/labels/list"
-  );
-  const [{ apiData: priorityList }] = useGetDataApi<PriorityObjType[]>(
-    "/api/calendar/priority/list"
-  );
-  const [{ apiData: staffList }] = useGetDataApi<StaffObjType[]>(
-    "/api/calendar/staff/list"
-  );
+  const [{ apiData: labelList }] =
+    useGetDataApi<LabelObjType[]>('calender/labels');
+  const [{ apiData: priorityList }] =
+    useGetDataApi<PriorityObjType[]>('calender/priority');
+  const [{ apiData: staffList }] =
+    useGetDataApi<StaffObjType[]>('calender/staff');
   const [{ apiData: folderList }] = useGetDataApi<FolderObjType[]>(
-    "/api/calendar/folders/list",
-    []
+    'calender/folders',
+    [],
   );
   const [{ apiData: statusList }] = useGetDataApi<StatusObjType[]>(
-    "/api/calendar/status/list",
-    []
+    'calender/status',
+    [],
   );
   const [page, setPage] = useState(0);
 
@@ -123,15 +123,15 @@ export const CalendarContextProvider = ({ children }: Props) => {
     { apiData: taskLists, loading },
     { setQueryParams, setData: setCalenderData, reCallAPI },
   ] = useGetDataApi<APIDataProps<TodoObjType[]>>(
-    "/api/calendar/task/list",
+    'calender',
     undefined,
     {},
-    false
+    false,
   );
 
   useEffect(() => {
     setPage(0);
-  }, [asPath]);
+  }, [pathname]);
 
   useEffect(() => {
     setQueryParams({
@@ -143,7 +143,7 @@ export const CalendarContextProvider = ({ children }: Props) => {
 
   const onPageChange = (
     event: React.MouseEvent<HTMLButtonElement> | null,
-    value: number
+    value: number,
   ) => {
     setPage(value);
   };

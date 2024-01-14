@@ -1,24 +1,26 @@
-import React, { useEffect, useRef, useState } from "react";
-import dayjs from "dayjs";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import { useAuthUser } from "@crema/hooks/AuthHooks";
+import React, { useEffect, useRef, useState } from 'react';
+import dayjs from 'dayjs';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import { useAuthUser } from '@crema/hooks/AuthHooks';
 import {
   StyledMessageScreen,
   StyledMsgAppsFooter,
   StyledMsgScreenScrollbar,
   StyledNoMsg,
   StyledScrollChatNoMain,
-} from "../index.styled";
-import { postDataApi, putDataApi, useGetDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import AppsHeader from "@crema/components/AppsContainer/AppsHeader";
+} from '../index.styled';
+import { postDataApi, putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import AppsHeader from '@crema/components/AppsContainer/AppsHeader';
 import {
   ConnectionObjType,
   MessageDataObjType,
   MessageObjType,
   MessageType,
-} from "@crema/types/models/apps/Chat";
-import { AddNewMessage, Header, MessagesList } from "@crema/modules/apps/Chat";
+} from '@crema/types/models/apps/Chat';
+import AddNewMessage from '../MessagesScreen/AddNewMessage';
+import MessagesList from '../MessagesScreen/MessagesList';
+import Header from '../MessagesScreen/Header';
 
 type MessagesScreenProps = {
   selectedUser: ConnectionObjType | null;
@@ -42,7 +44,7 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
   setConnectionData,
   setSelectedUser,
 }) => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
   const [isEdit, setIsEdit] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const infoViewActionsContext = useInfoViewActionsContext();
@@ -51,7 +53,7 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
     useState<MessageDataObjType | null>(null);
 
   const [{ apiData: userMessages }, { setQueryParams, setData }] =
-    useGetDataApi<MessageObjType>("/api/chatApp/connection/messages");
+    useGetDataApi<MessageObjType>('chat');
 
   const { user } = useAuthUser();
 
@@ -73,16 +75,16 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
     const data = {
       ...fileMessage,
       sender: user.id,
-      time: dayjs().format("llll"),
+      time: dayjs().format('llll'),
     };
-    postDataApi<ChatProps>("/api/chatApp/message", infoViewActionsContext, {
+    postDataApi<ChatProps>('chat', infoViewActionsContext, {
       channelId: selectedUser?.channelId,
       message: data,
     })
       .then((data) => {
         setData(data?.userMessages);
         setConnectionData(data?.connectionData);
-        infoViewActionsContext.showMessage("Message Added Successfully!");
+        infoViewActionsContext.showMessage('Message Added Successfully!');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -95,41 +97,41 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
       message,
       message_type: MessageType.TEXT,
       sender: user.id,
-      time: dayjs().format("llll"),
+      time: dayjs().format('llll'),
     };
 
     if (isEdit) {
       data.edited = true;
-      putDataApi<ChatProps>("/api/chatApp/message", infoViewActionsContext, {
+      putDataApi<ChatProps>('chat', infoViewActionsContext, {
         channelId: selectedUser?.channelId,
         message: data,
       })
         .then((data) => {
           setData(data?.userMessages);
           setConnectionData(data?.connectionData);
-          infoViewActionsContext.showMessage("Message Edited Successfully!");
+          infoViewActionsContext.showMessage('Message Edited Successfully!');
         })
         .catch((error) => {
           infoViewActionsContext.fetchError(error.message);
         });
 
-      setMessage("");
+      setMessage('');
       setIsEdit(false);
       setSelectedMessage(null);
     } else {
-      postDataApi<ChatProps>("/api/chatApp/message", infoViewActionsContext, {
+      postDataApi<ChatProps>('chat', infoViewActionsContext, {
         channelId: selectedUser?.channelId,
         message: data,
       })
         .then((data) => {
           setData(data?.userMessages);
           setConnectionData(data?.connectionData);
-          infoViewActionsContext.showMessage("Message Added Successfully!");
+          infoViewActionsContext.showMessage('Message Added Successfully!');
         })
         .catch((error) => {
           infoViewActionsContext.fetchError(error.message);
         });
-      setMessage("");
+      setMessage('');
     }
   };
 
@@ -146,18 +148,14 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
   };
 
   const deleteMessage = (messageId: number) => {
-    postDataApi<ChatProps>(
-      "/api/chatApp/delete/message",
-      infoViewActionsContext,
-      {
-        channelId: selectedUser?.channelId,
-        messageId,
-      }
-    )
+    postDataApi<ChatProps>('chat/deleteMessage', infoViewActionsContext, {
+      channelId: selectedUser?.channelId,
+      messageId,
+    })
       .then((data) => {
         setData(data?.userMessages);
         setConnectionData(data?.connectionData);
-        infoViewActionsContext.showMessage("Message Deleted Successfully!");
+        infoViewActionsContext.showMessage('Message Deleted Successfully!');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -166,29 +164,29 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
 
   const deleteConversation = () => {
     postDataApi<ConnectionObjType[]>(
-      "/api/chatApp/delete/user/messages",
+      'chat/deleteUserMessages',
       infoViewActionsContext,
       {
         channelId: selectedUser?.channelId,
-      }
+      },
     )
       .then((data) => {
         setSelectedUser(null);
         setConnectionData(data);
-        infoViewActionsContext.showMessage("Chat Deleted Successfully!");
+        infoViewActionsContext.showMessage('Chat Deleted Successfully!');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
       });
   };
   const clearChatHistory = () => {
-    postDataApi<ChatProps>("/api/chatApp/clearChat", infoViewActionsContext, {
+    postDataApi<ChatProps>('chat/clearChat', infoViewActionsContext, {
       channelId: selectedUser?.channelId,
     })
       .then((data) => {
         setData(data?.userMessages);
         setConnectionData(data?.connectionData);
-        infoViewActionsContext.showMessage("Chat Cleared Successfully!");
+        infoViewActionsContext.showMessage('Chat Cleared Successfully!');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -220,7 +218,7 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
       ) : (
         <StyledScrollChatNoMain>
           <StyledNoMsg>
-            <IntlMessages id="chatApp.sayHi" /> {selectedUser?.name}
+            <IntlMessages id='chatApp.sayHi' /> {selectedUser?.name}
           </StyledNoMsg>
         </StyledScrollChatNoMain>
       )}

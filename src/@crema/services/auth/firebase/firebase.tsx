@@ -1,20 +1,20 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import {initializeApp} from 'firebase/app';
+import {getFirestore} from 'firebase/firestore';
 import {
-  createUserWithEmailAndPassword,
-  FacebookAuthProvider,
-  getAuth,
-  GithubAuthProvider,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  sendEmailVerification,
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-  TwitterAuthProvider,
-  updateProfile
-} from "firebase/auth";
+    createUserWithEmailAndPassword,
+    FacebookAuthProvider,
+    getAuth,
+    GithubAuthProvider,
+    GoogleAuthProvider,
+    onAuthStateChanged,
+    sendEmailVerification,
+    sendPasswordResetEmail,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    TwitterAuthProvider,
+    updateProfile,
+} from 'firebase/auth';
 
 // Initialize Firebase
 const firebaseConfig = {

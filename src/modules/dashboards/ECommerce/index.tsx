@@ -1,30 +1,29 @@
-import React from "react";
-import { Col } from "antd";
-import AppLoader from "@crema/components/AppLoader";
-import AppAnimate from "@crema/components/AppAnimate";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
-import AppRowContainer from "@crema/components/AppRowContainer";
-import {
-  AgeOfAudience,
-  Browser,
-  BudgetStatistic,
-  MarketingCampaign,
-  NewCustomers,
-  PopularProducts,
-  RecentOrders,
-  ReportCard,
-  Revenue,
-  RevenueGraph,
-  SalesReport,
-  StateCard,
-  TopInquiries,
-  WeeklyBestSellers,
-} from "@crema/modules/dashboards/ECommerce";
-import type { EcommerceType } from "@crema/types/models/dashboards/Ecommerce";
+'use client';
+import React from 'react';
+import { Col } from 'antd';
+import AppLoader from '@crema/components/AppLoader';
+import AppAnimate from '@crema/components/AppAnimate';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
+import AppRowContainer from '@crema/components/AppRowContainer';
+import StateCard from './StateCard';
+import SalesReport from './SalesReport';
+import BudgetStatistic from './BudgetStatistic';
+import TopInquiries from './TopInquiries';
+import WeeklyBestSellers from './WeeklyBestSellers';
+import AgeOfAudience from './AgeOfAudience';
+import ReportCard from './ReportCard';
+import RecentOrders from './RecentOrders';
+import Revenue from './Revenue';
+import RevenueGraph from './RevenueGraph';
+import MarketingCampaign from './MarketingCampaign';
+import NewCustomers from './NewCustomers';
+import PopularProducts from './PopularProducts';
+import Browser from './Browser';
+import type { EcommerceType } from '@crema/types/models/dashboards/Ecommerce';
 
 const ECommerce = () => {
   const [{ apiData: ecommerceData, loading }] = useGetDataApi<EcommerceType>(
-    "/dashboard/ecommerce"
+    '/dashboard/ecommerce',
   );
 
   return (
@@ -32,7 +31,7 @@ const ECommerce = () => {
       {loading ? (
         <AppLoader />
       ) : (
-        <AppAnimate animation="transition.slideUpIn" delay={200}>
+        <AppAnimate animation='transition.slideUpIn' delay={200}>
           <AppRowContainer>
             {ecommerceData.stateData.map((state, index) => (
               <Col key={state.id} xs={24} sm={12} lg={6}>

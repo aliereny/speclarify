@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { message } from "antd";
+import React, { useEffect } from 'react';
+import { message } from 'antd';
 
-import AppLoader from "../AppLoader";
+import AppLoader from '../AppLoader';
 
 import {
   useInfoViewActionsContext,
   useInfoViewContext,
-} from "@crema/context/AppContextProvider/InfoViewContextProvider";
+} from '@crema/context/AppContextProvider/InfoViewContextProvider';
 
 const AppInfoView = () => {
   const { loading, error, displayMessage } = useInfoViewContext();

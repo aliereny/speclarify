@@ -1,44 +1,43 @@
-import React from "react";
-import AppCard from "@crema/components/AppCard";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import AppAnimate from "@crema/components/AppAnimate";
-import AppRowContainer from "@crema/components/AppRowContainer";
-import { Col } from "antd";
-import Link from "next/link";
-import AppPageMeta from "@crema/components/AppPageMeta";
-import QueueAnim from "rc-queue-anim";
-import {
-  DeliveryAddress,
-  OrderSummary,
-  PaymentInfo,
-} from "@crema/modules/ecommerce/Checkout";
-import { useGetDataApi } from "@crema/hooks/APIHooks";
+'use client';
+import React from 'react';
+import AppCard from '@crema/components/AppCard';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import AppAnimate from '@crema/components/AppAnimate';
+import AppRowContainer from '@crema/components/AppRowContainer';
+import { Col } from 'antd';
+import Link from 'next/link';
+import AppPageMeta from '@crema/components/AppPageMeta';
+import QueueAnim from 'rc-queue-anim';
+import OrderSummary from '../OrderSummary';
+import DeliveryAddress from './DeliveryAddress';
+import PaymentInfo from './PaymentInfo';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
 import {
   StyledCheckoutCardTitle,
   StyledCheckoutOrderSummary,
-} from "./index.styled";
-import { StyledLinkBtn } from "../Confirmation/index.styled";
-import type { CartItemsType } from "@crema/types/models/ecommerce/EcommerceApp";
+} from './index.styled';
+import { StyledLinkBtn } from '../Confirmation/index.styled';
+import type { CartItemsType } from '@crema/types/models/ecommerce/EcommerceApp';
 
 const Checkout = () => {
   const [{ apiData: cartItems }] = useGetDataApi<CartItemsType[]>(
-    "/api/cart/get",
-    []
+    'ecommerce/cart',
+    [],
   );
 
   return (
     <>
-      <AppPageMeta title="Checkout" />
-      <QueueAnim style={{ zIndex: 3 }} type="scale">
-        <h2 className="page-title" key="title">
-          <IntlMessages id="sidebar.ecommerce.checkout" />
+      <AppPageMeta title='Checkout' />
+      <QueueAnim style={{ zIndex: 3 }} type='scale'>
+        <h2 className='page-title' key='title'>
+          <IntlMessages id='sidebar.ecommerce.checkout' />
         </h2>
       </QueueAnim>
       <AppRowContainer>
         <Col xs={24} lg={16}>
-          <AppAnimate animation="transition.slideLeftIn" delay={200}>
+          <AppAnimate animation='transition.slideLeftIn' delay={200}>
             <AppCard
-              key="cardLeft"
+              key='cardLeft'
               title={
                 <StyledCheckoutCardTitle>
                   Delivery Address
@@ -50,14 +49,14 @@ const Checkout = () => {
           </AppAnimate>
         </Col>
         <Col xs={24} lg={8}>
-          <AppAnimate animation="transition.slideRightIn" delay={200}>
-            <div key="checkoutRight">
+          <AppAnimate animation='transition.slideRightIn' delay={200}>
+            <div key='checkoutRight'>
               <StyledCheckoutOrderSummary>
                 <OrderSummary cartItems={cartItems} />
               </StyledCheckoutOrderSummary>
               <PaymentInfo />
-              <StyledLinkBtn type="primary" style={{ marginTop: 16 }}>
-                <Link href="/ecommerce/confirmation">CheckOut</Link>
+              <StyledLinkBtn type='primary' style={{ marginTop: 16 }}>
+                <Link href='/ecommerce/confirmation'>CheckOut</Link>
               </StyledLinkBtn>
             </div>
           </AppAnimate>

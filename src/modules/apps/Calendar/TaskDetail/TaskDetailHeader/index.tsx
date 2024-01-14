@@ -1,17 +1,17 @@
-import React from "react";
-import { useRouter } from "next/router";
-import IntlMessages from "@crema/helpers/IntlMessages";
-import AppsStarredIcon from "@crema/components/AppsStarredIcon";
-import StatusToggleButton from "./StatusToggleButton";
-import { BiArrowBack } from "react-icons/bi";
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import AppsStarredIcon from '@crema/components/AppsStarredIcon';
+import StatusToggleButton from './StatusToggleButton';
+import { BiArrowBack } from 'react-icons/bi';
 import {
   StyledTodoDetailArrow,
   StyledTodoDetailDeleteIcon,
   StyledTodoStarIconView,
-} from "../index.styled";
-import { putDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { TodoObjType } from "@crema/types/models/apps/Todo";
+} from '../index.styled';
+import { putDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import { TodoObjType } from '@crema/types/models/apps/Todo';
 
 type Props = {
   selectedTask: TodoObjType;
@@ -28,20 +28,16 @@ const TaskDetailHeader = (props: Props) => {
   };
 
   const onChangeStarred = (checked: boolean) => {
-    putDataApi<TodoObjType[]>(
-      "/api/calendar/update/starred",
-      infoViewActionsContext,
-      {
-        taskIds: [selectedTask.id],
-        status: checked,
-      }
-    )
+    putDataApi<TodoObjType[]>('calender/starred', infoViewActionsContext, {
+      taskIds: [selectedTask.id],
+      status: checked,
+    })
       .then((data) => {
         onUpdateSelectedTask(data[0]);
         infoViewActionsContext.showMessage(
           data[0].isStarred
-            ? "Task Marked as Starred Successfully"
-            : "Task Marked as Unstarred Successfully"
+            ? 'Task Marked as Starred Successfully'
+            : 'Task Marked as Unstarred Successfully',
         );
       })
       .catch((error) => {
@@ -54,15 +50,15 @@ const TaskDetailHeader = (props: Props) => {
     task.folderValue = 126;
 
     putDataApi<{ task: TodoObjType }>(
-      "/api/calendar/task/",
+      'calender/detail',
       infoViewActionsContext,
       {
         task,
-      }
+      },
     )
       .then((data) => {
         onUpdateSelectedTask(data.task);
-        infoViewActionsContext.showMessage("Task Deleted Successfully");
+        infoViewActionsContext.showMessage('Task Deleted Successfully');
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
@@ -74,7 +70,7 @@ const TaskDetailHeader = (props: Props) => {
   return (
     <>
       <StyledTodoDetailArrow
-        title={<IntlMessages id="common.back" />}
+        title={<IntlMessages id='common.back' />}
         onClick={onClickBackButton}
         icon={<BiArrowBack />}
       />
@@ -90,7 +86,7 @@ const TaskDetailHeader = (props: Props) => {
 
       <StyledTodoDetailDeleteIcon
         deleteAction={onDeleteTask}
-        deleteTitle={<IntlMessages id="todo.deleteMessage" />}
+        deleteTitle={<IntlMessages id='todo.deleteMessage' />}
       />
     </>
   );

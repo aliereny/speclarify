@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import MailsList from './MailsList';
 import MailDetail from './MailDetail';
@@ -5,14 +6,13 @@ import AppsContainer from '@crema/components/AppsContainer';
 import MailSidebar from './MailSideBar';
 import { useIntl } from 'react-intl';
 import AppPageMeta from '@crema/components/AppPageMeta';
-import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
 import MailContextProvider from '../context/MailContextProvider';
 
 const Mail = () => {
-  const { query } = useRouter();
-
+  const params = useParams();
   const onGetMainComponent = () => {
-    if (query?.all?.[2]) {
+    if (params?.all?.[2]) {
       return <MailDetail />;
     } else {
       return <MailsList />;
@@ -26,7 +26,7 @@ const Mail = () => {
         title={messages['mailApp.mail'] as string}
         sidebarContent={<MailSidebar />}
       >
-        <AppPageMeta title="Mail App" />
+        <AppPageMeta title='Mail App' />
         {onGetMainComponent()}
       </AppsContainer>
     </MailContextProvider>

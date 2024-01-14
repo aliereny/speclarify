@@ -1,3 +1,4 @@
+'use client';
 import React, {
   createContext,
   ReactNode,
@@ -5,9 +6,9 @@ import React, {
   useContext,
   useEffect,
   useState,
-} from "react";
-import defaultConfig, { defaultTheme } from "@crema/constants/defaultConfig";
-import { LayoutDirection } from "@crema/constants/AppEnums";
+} from 'react';
+import defaultConfig, { defaultTheme } from '@crema/constants/defaultConfig';
+import { LayoutDirection } from '@crema/constants/AppEnums';
 
 export interface ThemeData {
   theme: any;
@@ -45,10 +46,10 @@ const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
 }) => {
   const [theme, setTheme] = useState<any>(defaultTheme.theme);
   const [themeMode, updateThemeMode] = useState<string>(
-    defaultConfig.themeMode
+    defaultConfig.themeMode,
   );
   const [themeStyle, updateThemeStyle] = useState<string>(
-    defaultConfig.themeStyle
+    defaultConfig.themeStyle,
   );
 
   const updateTheme = useCallback((theme: any) => {
@@ -69,9 +70,9 @@ const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
 
   useEffect(() => {
     if (theme.direction === LayoutDirection.RTL) {
-      document.body.setAttribute("dir", LayoutDirection.RTL);
+      document.body.setAttribute('dir', LayoutDirection.RTL);
     } else {
-      document.body.setAttribute("dir", LayoutDirection.LTR);
+      document.body.setAttribute('dir', LayoutDirection.LTR);
     }
   }, [theme]);
 

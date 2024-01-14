@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Col } from "antd";
+import React, { useEffect, useState } from 'react';
+import { Col } from 'antd';
 
-import AppRowContainer from "@crema/components/AppRowContainer";
-import IntlMessages from "@crema/helpers/IntlMessages";
+import AppRowContainer from '@crema/components/AppRowContainer';
+import IntlMessages from '@crema/helpers/IntlMessages';
 import {
   StyledContactDetailContent,
   StyledContactDetailModal,
@@ -10,18 +10,15 @@ import {
   StyledContactModalHeader,
   StyledContactModalUser,
   StyledContactModalUserAvatar,
-} from "./index.styled";
+} from './index.styled';
 import {
   StyledContactFormBtn,
   StyledContactFormFooter,
-} from "../CreateContact/index.styled";
-import {
-  ContactActions,
-  OtherDetails,
-  PersonalDetails,
-} from "@crema/modules/apps/Contact";
-
-import type { ContactObjType } from "@crema/types/models/apps/Contact";
+} from '../CreateContact/index.styled';
+import ContactActions from './ContactActions';
+import PersonalDetails from './PersonalDetails';
+import OtherDetails from './OtherDetails';
+import type { ContactObjType } from '@crema/types/models/apps/Contact';
 
 type ContactDetailProps = {
   isShowDetail: boolean;
@@ -41,7 +38,7 @@ const ContactDetail: React.FC<ContactDetailProps> = ({
   onChangeStarred,
 }) => {
   const [contact, setContact] = useState<ContactObjType | null>(
-    selectedContact
+    selectedContact,
   );
 
   useEffect(() => {
@@ -97,11 +94,11 @@ const ContactDetail: React.FC<ContactDetailProps> = ({
 
         <StyledContactFormFooter>
           <StyledContactFormBtn
-            type="primary"
+            type='primary'
             ghost
             onClick={onContactDetailClose}
           >
-            <IntlMessages id="common.cancel" />
+            <IntlMessages id='common.cancel' />
           </StyledContactFormBtn>
         </StyledContactFormFooter>
       </StyledContactDetailScrollbar>

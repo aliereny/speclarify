@@ -1,57 +1,59 @@
-import React from "react";
-import { AddInvoice } from "@crema/modules/invoice";
-import { putDataApi, useGetDataApi } from "@crema/hooks/APIHooks";
-import { useRouter } from "next/router";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { isEmptyObject } from "@crema/helpers/ApiHelper";
+'use client';
+import React from 'react';
+import AddInvoice from '../AddInvoice/AddInvoice';
+import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
+import { useParams, useRouter } from 'next/navigation';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import { isEmptyObject } from '@crema/helpers/ApiHelper';
 import {
   ClientType,
   InvoiceSettingType,
   InvoiceType,
-} from "@crema/types/models/invoice";
+} from '@crema/types/models/invoice';
 
 const EditInvoicePage = () => {
   const router = useRouter();
+  const params = useParams();
   const infoViewActionsContext = useInfoViewActionsContext();
 
   const [{ apiData: clientsList }] = useGetDataApi<ClientType[]>(
-    "/api/invoice/clients",
+    'invoice/clients',
     [],
     {},
-    true
+    true,
   );
   const [{ apiData: invoiceSettings }] = useGetDataApi<InvoiceSettingType>(
-    "/api/invoice/settings",
+    'invoice/settings',
     {} as InvoiceSettingType,
     {},
-    true
+    true,
   );
 
   const [{ apiData: invoiceList }] = useGetDataApi<InvoiceType[]>(
-    "/api/invoice/list",
+    'invoice',
     [],
     {},
-    true
+    true,
   );
   const [{ apiData: selectedInv }] = useGetDataApi<InvoiceType>(
-    "/api/invoice/detail",
+    'invoice/detail',
     {} as InvoiceType,
-    { id: router.query?.all?.[0] },
-    true
+    { id: params?.all?.[0] },
+    true,
   );
 
   const onSave = (invoice: InvoiceType) => {
-    putDataApi("/api/invoice/list/update", infoViewActionsContext, { invoice })
+    putDataApi('invoice/clients', infoViewActionsContext, { invoice })
       .then(() => {
         infoViewActionsContext.showMessage(
-          "New Invoice has been udpated successfully!"
+          'New Invoice has been udpated successfully!',
         );
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);
       });
 
-    router.push("/invoice");
+    router.push('/invoice');
   };
 
   return clientsList && invoiceList?.length && !isEmptyObject(selectedInv) ? (

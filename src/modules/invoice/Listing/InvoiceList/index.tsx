@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from "react";
-import InvContentHeader from "./InvContentHeader";
-import AppsHeader from "@crema/components/AppsContainer/AppsHeader";
-import AppsContent from "@crema/components/AppsContainer/AppsContent";
-import { putDataApi, useGetDataApi } from "@crema/hooks/APIHooks";
-import { InvoiceTable } from "@crema/modules/invoice";
-import { useRouter } from "next/router";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { isEmptyObject } from "@crema/helpers/ApiHelper";
-import AppLoader from "@crema/components/AppLoader";
-import { InvoiceType } from "@crema/types/models/invoice";
+'use client';
+import React, { useEffect, useState } from 'react';
+import InvContentHeader from './InvContentHeader';
+import AppsHeader from '@crema/components/AppsContainer/AppsHeader';
+import AppsContent from '@crema/components/AppsContainer/AppsContent';
+import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
+import InvoiceTable from '../../InvoiceTable';
+import { useParams, usePathname } from 'next/navigation';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import { isEmptyObject } from '@crema/helpers/ApiHelper';
+import AppLoader from '@crema/components/AppLoader';
+import { InvoiceType } from '@crema/types/models/invoice';
 
 const InvoiceList = () => {
-  const { asPath, query } = useRouter();
-  const { all } = query;
+  const params = useParams();
+  const pathname = usePathname();
+  const { all } = params;
   const infoViewActionsContext = useInfoViewActionsContext();
 
-  let folder = "";
+  let folder = '';
 
   if (all && all.length === 1) {
     folder = all?.[0];
@@ -23,10 +25,10 @@ const InvoiceList = () => {
 
   const [{ apiData: invoiceList, loading }, { setQueryParams, reCallAPI }] =
     useGetDataApi<InvoiceType[]>(
-      "/api/invoice/list",
+      'invoice',
       [],
-      { folder: folder || "all" },
-      true
+      { folder: folder || 'all' },
+      true,
     );
 
   const [page, setPage] = useState(0);
@@ -34,7 +36,7 @@ const InvoiceList = () => {
   const onPageChange = (value: number) => {
     setPage(value);
   };
-  const [filterText, onSetFilterText] = useState("");
+  const [filterText, onSetFilterText] = useState('');
 
   const [checkedInvs, setCheckedInvs] = useState<number[]>([]);
 
@@ -43,16 +45,16 @@ const InvoiceList = () => {
       folder: folder,
       page: page,
     });
-  }, [page, folder, asPath]);
+  }, [page, folder, pathname]);
 
   const onChangeStatus = (invoice: InvoiceType, status: number) => {
     invoice.folderValue = status;
 
-    putDataApi("/api/invoice/list/update", infoViewActionsContext, { invoice })
+    putDataApi('invoice', infoViewActionsContext, { invoice })
       .then(() => {
         reCallAPI();
         infoViewActionsContext.showMessage(
-          "Invoice status udpated successfully!"
+          'Invoice status udpated successfully!',
         );
       })
       .catch((error) => {

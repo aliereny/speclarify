@@ -1,12 +1,13 @@
+'use client';
 import React from 'react';
-import { ListItem } from '@crema/modules/userList/Modern';
+import ListItem from './ListItem';
 import AppList from '@crema/components/AppList';
 import AppInfoView from '@crema/components/AppInfoView';
 import { StyledUserModern } from './index.styled';
 import { useGetDataApi } from '@crema/hooks/APIHooks';
 
 const Modern = () => {
-  const [{ apiData: usersList }] = useGetDataApi('/api/user/list', []);
+  const [{ apiData: usersList }] = useGetDataApi('userList', []);
 
   return (
     <StyledUserModern>

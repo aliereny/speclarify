@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
-import MailContentHeader from "./MailContentHeader";
-import MailListItem from "./MailListItem";
-import AppsPagination from "@crema/components/AppsPagination";
-import AppsContent from "@crema/components/AppsContainer/AppsContent";
-import AppsHeader from "@crema/components/AppsContainer/AppsHeader";
-import AppsFooter from "@crema/components/AppsContainer/AppsFooter";
-import AppList from "@crema/components/AppList";
-import ListEmptyResult from "@crema/components/AppList/ListEmptyResult";
-import EmailListSkeleton from "@crema/components/AppSkeleton/EmailListSkeleton";
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import MailContentHeader from './MailContentHeader';
+import MailListItem from './MailListItem';
+import AppsPagination from '@crema/components/AppsPagination';
+import AppsContent from '@crema/components/AppsContainer/AppsContent';
+import AppsHeader from '@crema/components/AppsContainer/AppsHeader';
+import AppsFooter from '@crema/components/AppsContainer/AppsFooter';
+import AppList from '@crema/components/AppList';
+import ListEmptyResult from '@crema/components/AppList/ListEmptyResult';
+import EmailListSkeleton from '@crema/components/AppSkeleton/EmailListSkeleton';
 import {
   StyledAppsMailFooter,
   StyledMailListDesktop,
   StyledMailListMobile,
-} from "./index.styled";
-import { putDataApi, useGetDataApi } from "@crema/hooks/APIHooks";
-import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
-import { MailListItemMobile } from "@crema/modules/apps/Mail";
-import type { LabelObjType, MailObjType } from "@crema/types/models/apps/Mail";
+} from './index.styled';
+import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
+import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
+import MailListItemMobile from './MailListItemMobile';
+import type { LabelObjType, MailObjType } from '@crema/types/models/apps/Mail';
 import {
   useMailActionsContext,
   useMailContext,
-} from "../../context/MailContextProvider";
+} from '../../context/MailContextProvider';
 
 type Props = {
   data: MailObjType[];
@@ -31,14 +31,12 @@ const MailsList = () => {
   const router = useRouter();
   const { page, mailList, loading, all, folder, label } = useMailContext();
   const { setMailData, onPageChange } = useMailActionsContext();
-  const [filterText, onSetFilterText] = useState("");
+  const [filterText, onSetFilterText] = useState('');
   const infoViewActionsContext = useInfoViewActionsContext();
 
   const [checkedMails, setCheckedMails] = useState<number[]>([]);
 
-  const [{ apiData: labelList }] = useGetDataApi<LabelObjType[]>(
-    "/api/mailApp/labels/list"
-  );
+  const [{ apiData: labelList }] = useGetDataApi<LabelObjType[]>('mail/labels');
 
   const onChangeCheckedMails = (checked: boolean, id: number) => {
     if (checked) {
@@ -50,18 +48,18 @@ const MailsList = () => {
 
   const onViewMailDetail = (mail: MailObjType) => {
     if (mail.isRead) {
-      router.push(`/apps/mail/${(all as string[])?.join("/")}/${mail.id}`);
+      router.push(`/apps/mail/${(all as string[])?.join('/')}/${mail.id}`);
     } else {
       mail.isRead = true;
-      putDataApi("/api/mailApp/mail/", infoViewActionsContext, { mail })
+      putDataApi('mail', infoViewActionsContext, { mail })
         .then((data) => {
           onUpdateItem(data as MailObjType);
           if (label) router.push(`/apps/mail/label/${label}/${mail.id}`);
           if (folder) router.push(`/apps/mail/${folder}/${mail.id}`);
           infoViewActionsContext.showMessage(
             mail.isRead
-              ? "Mail Marked as Read Successfully"
-              : "Mail Marked as Unread Successfully"
+              ? 'Mail Marked as Read Successfully'
+              : 'Mail Marked as Unread Successfully',
           );
         })
         .catch((error) => {
@@ -71,20 +69,16 @@ const MailsList = () => {
   };
 
   const onChangeStarred = (checked: boolean, mail: MailObjType) => {
-    putDataApi<MailObjType[]>(
-      "/api/mailApp/update/starred",
-      infoViewActionsContext,
-      {
-        mailIds: [mail.id],
-        status: checked,
-      }
-    )
+    putDataApi<MailObjType[]>('/mail/starred', infoViewActionsContext, {
+      mailIds: [mail.id],
+      status: checked,
+    })
       .then((data) => {
         onUpdateItem(data[0]);
         infoViewActionsContext.showMessage(
           checked
-            ? "Mail Marked as Starred Successfully"
-            : "Mail Marked as Unstarred Successfully"
+            ? 'Mail Marked as Starred Successfully'
+            : 'Mail Marked as Unstarred Successfully',
         );
       })
       .catch((error) => {
@@ -125,7 +119,7 @@ const MailsList = () => {
         <StyledMailListDesktop>
           <AppList
             data={mailList?.data?.filter((item: MailObjType) =>
-              item.subject.toLowerCase().includes(filterText.toLowerCase())
+              item.subject.toLowerCase().includes(filterText.toLowerCase()),
             )}
             ListEmptyComponent={
               <ListEmptyResult
@@ -151,7 +145,7 @@ const MailsList = () => {
         <StyledMailListMobile>
           <AppList
             data={mailList?.data?.filter((item: MailObjType) =>
-              item.subject.toLowerCase().includes(filterText.toLowerCase())
+              item.subject.toLowerCase().includes(filterText.toLowerCase()),
             )}
             ListEmptyComponent={
               <ListEmptyResult

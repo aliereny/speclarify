@@ -1,9 +1,9 @@
-import React from "react";
-import AppCard from "@crema/components/AppCard";
-import { productCategory } from "@crema/mockapi/fakedb/ecommerce/ecommerceData";
-import { useRouter } from "next/router";
-import AppRowContainer from "@crema/components/AppRowContainer";
-import AppScrollbar from "@crema/components/AppScrollbar";
+import React from 'react';
+import AppCard from '@crema/components/AppCard';
+import { productCategory } from '@crema/fakedb/ecommerce/ecommerceData';
+import { useRouter } from 'next/navigation';
+import AppRowContainer from '@crema/components/AppRowContainer';
+import AppScrollbar from '@crema/components/AppScrollbar';
 import {
   Button,
   Col,
@@ -14,26 +14,26 @@ import {
   Select,
   Space,
   Switch,
-} from "antd";
-import { useIntl } from "react-intl";
-import { StyledFormWrapper } from "./index.styled";
+} from 'antd';
+import { useIntl } from 'react-intl';
+import { StyledFormWrapper } from './index.styled';
 import {
   ProductInfoType,
   TagType,
-} from "@crema/types/models/ecommerce/EcommerceApp";
+} from '@crema/types/models/ecommerce/EcommerceApp';
 
 const TagList = [
   {
     value: 1,
-    label: "Fashion",
+    label: 'Fashion',
   },
   {
     value: 2,
-    label: "Hotel",
+    label: 'Hotel',
   },
   {
     value: 3,
-    label: "Event",
+    label: 'Event',
   },
 ];
 
@@ -65,26 +65,26 @@ const BlogSidebar = ({
 
   return (
     <Col xs={24} lg={8}>
-      <AppScrollbar style={{ height: "700px" }}>
+      <AppScrollbar style={{ height: '700px' }}>
         <StyledFormWrapper>
-          <AppCard title="Product Details">
-            <Form.Item name="inStock" valuePropName="checked">
-              <span className="mr-10">In Stock</span>
+          <AppCard title='Product Details'>
+            <Form.Item name='inStock' valuePropName='checked'>
+              <span className='mr-10'>In Stock</span>
               <Switch
-                defaultChecked={form.getFieldValue("inStock")}
-                onChange={(checked) => form.setFieldValue("inStock", checked)}
+                defaultChecked={form.getFieldValue('inStock')}
+                onChange={(checked) => form.setFieldValue('inStock', checked)}
               />
             </Form.Item>
 
-            <Form.Item label="Product SKU" name="SKU">
-              <Input placeholder="Product SKU" />
+            <Form.Item label='Product SKU' name='SKU'>
+              <Input placeholder='Product SKU' />
             </Form.Item>
 
             <Form.Item
-              label={messages["common.category"] as string}
-              name="category"
+              label={messages['common.category'] as string}
+              name='category'
             >
-              <Select placeholder={messages["common.category"] as string}>
+              <Select placeholder={messages['common.category'] as string}>
                 {productCategory.map((category) => {
                   return (
                     <Option value={category.id} key={category.id}>
@@ -95,11 +95,11 @@ const BlogSidebar = ({
               </Select>
             </Form.Item>
 
-            <Form.Item label="Tags" name="tag">
+            <Form.Item label='Tags' name='tag'>
               <Select
-                mode="multiple"
+                mode='multiple'
                 allowClear
-                placeholder="Tags"
+                placeholder='Tags'
                 value={selectedTags}
                 onChange={(value) => setSelectedTags(value)}
                 options={TagList}
@@ -107,33 +107,33 @@ const BlogSidebar = ({
             </Form.Item>
           </AppCard>
 
-          <AppCard title="Product Pricing">
-            <Form.Item label="Regular Price" name="mrp">
-              <InputNumber placeholder="Regular Price" addonAfter="$" />
+          <AppCard title='Product Pricing'>
+            <Form.Item label='Regular Price' name='mrp'>
+              <InputNumber placeholder='Regular Price' addonAfter='$' />
             </Form.Item>
-            <Form.Item label="Sale Price" name="salemrp">
-              <InputNumber placeholder="Sale Price" addonAfter="$" />
+            <Form.Item label='Sale Price' name='salemrp'>
+              <InputNumber placeholder='Sale Price' addonAfter='$' />
             </Form.Item>
 
-            <Form.Item name="includeTax" valuePropName="checked">
-              <span className="mr-10">Tax Inclusive</span>
+            <Form.Item name='includeTax' valuePropName='checked'>
+              <span className='mr-10'>Tax Inclusive</span>
               <Switch />
             </Form.Item>
 
-            <Form.Item label="Discount %" name="discount">
-              <InputNumber placeholder="Discount %" />
+            <Form.Item label='Discount %' name='discount'>
+              <InputNumber placeholder='Discount %' />
             </Form.Item>
           </AppCard>
 
           <AppCard
-            title="Product Specification"
+            title='Product Specification'
             extra={
               <Button
-                type="primary"
+                type='primary'
                 onClick={() => {
                   setProductSpec([
                     ...productSpec,
-                    { id: productSpec.length + 1, title: "", desc: "" },
+                    { id: productSpec.length + 1, title: '', desc: '' },
                   ]);
                 }}
               >
@@ -147,8 +147,8 @@ const BlogSidebar = ({
                   <React.Fragment key={index}>
                     <Col xs={24} sm={12}>
                       <Input
-                        className="mb-20"
-                        placeholder="Product Label"
+                        className='mb-20'
+                        placeholder='Product Label'
                         value={productItem.title}
                         onChange={(event) => {
                           const { value } = event.target;
@@ -160,8 +160,8 @@ const BlogSidebar = ({
                     </Col>
                     <Col xs={24} sm={12}>
                       <Input
-                        className="mb-20"
-                        placeholder="Product Value"
+                        className='mb-20'
+                        placeholder='Product Value'
                         value={productItem.desc}
                         onChange={(event) => {
                           const { value } = event.target;
@@ -178,14 +178,14 @@ const BlogSidebar = ({
           </AppCard>
 
           <AppCard
-            title="Product Details"
+            title='Product Details'
             extra={
               <Button
-                type="primary"
+                type='primary'
                 onClick={() => {
                   setProductInfo([
                     ...productInfo,
-                    { id: productInfo.length + 1, title: "", desc: "" },
+                    { id: productInfo.length + 1, title: '', desc: '' },
                   ]);
                 }}
               >
@@ -199,8 +199,8 @@ const BlogSidebar = ({
                   <React.Fragment key={index}>
                     <Col xs={24} sm={12}>
                       <Input
-                        className="mb-20"
-                        placeholder="Product Label"
+                        className='mb-20'
+                        placeholder='Product Label'
                         value={productItem.title}
                         onChange={(event) => {
                           const { value } = event.target;
@@ -212,8 +212,8 @@ const BlogSidebar = ({
                     </Col>
                     <Col xs={24} sm={12}>
                       <Input
-                        className="mb-20"
-                        placeholder="Product Value"
+                        className='mb-20'
+                        placeholder='Product Value'
                         value={productItem.desc}
                         onChange={(event) => {
                           const { value } = event.target;
@@ -231,13 +231,13 @@ const BlogSidebar = ({
         </StyledFormWrapper>
       </AppScrollbar>
       <Space
-        style={{ display: "flex", justifyContent: "flex-end", marginTop: 16 }}
+        style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 16 }}
       >
         <Button
           style={{
             minWidth: 100,
           }}
-          type="text"
+          type='text'
           onClick={() => router.back()}
           ghost
         >
@@ -246,13 +246,13 @@ const BlogSidebar = ({
 
         <Button
           style={{
-            display: "block",
+            display: 'block',
             minWidth: 100,
           }}
-          type="primary"
-          htmlType="submit"
+          type='primary'
+          htmlType='submit'
         >
-          {isEdit ? "Edit" : "Add"} Product
+          {isEdit ? 'Edit' : 'Add'} Product
         </Button>
       </Space>
     </Col>
