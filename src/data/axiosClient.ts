@@ -2,7 +2,7 @@ import axios from 'axios';
 import {useAuthStore} from "@/stores/authStore";
 
 export const axiosClient = axios.create({
-    baseURL: process.env.API_URL || 'http://127.0.0.1:5000/api/v1',
+    baseURL: process.env.API_URL || 'https://speclarify.dipsapp.com/api/v1',
     headers: {
         'Content-Type': 'application/json',
     },

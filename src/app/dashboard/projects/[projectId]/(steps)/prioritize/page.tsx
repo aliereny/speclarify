@@ -37,9 +37,9 @@ export default function PrioritizePage({
 
   return (
     <Flex vertical className={styles.wrapper} gap={16}>
-      <Typography.Title level={3}>Classify</Typography.Title>
+      <Typography.Title level={3}>Prioritize</Typography.Title>
       <Typography.Text>
-          Assign classes to your requirements, shaping the focus of your project development.
+        Prioritize each requirement into a priority level.
       </Typography.Text>
       {error && <Alert message={error} type={"error"} showIcon />}
       {!loading && requirements.length === 0 && (

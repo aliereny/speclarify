@@ -48,10 +48,9 @@ export const PrioritizeRequirementCard: React.FC<
         onChange={handlePriorityChange}
         disabled={loading}
       >
-        <Option value="M">Must</Option>
-        <Option value="S">Should</Option>
-        <Option value="C">Could</Option>
-        <Option value="W">{"Won't"}</Option>
+        <Option value="High">High</Option>
+        <Option value="Medium">Medium</Option>
+        <Option value="Low">Low</Option>
       </Select>
       <Button
         type="primary"

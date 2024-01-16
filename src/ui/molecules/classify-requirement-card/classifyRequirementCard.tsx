@@ -92,7 +92,7 @@ export const ClassifyRequirementCard: React.FC<ClassifyRequirementCardProps> = (
             reqSubclass === requirement.req_subclass)
         }
         loading={loading}
-        style={{ marginLeft: 8 }}
+        style={{ marginTop: 8 }}
       >
         Save Class
       </Button>

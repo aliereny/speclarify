@@ -9,10 +9,6 @@ const items: MenuProps["items"] = [
     key: "dashboard",
     label: "Projects",
   },
-  {
-    key: "dashboard/settings",
-    label: "Settings",
-  },
 ];
 
 export default function DashboardLayout({

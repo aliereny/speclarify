@@ -1,23 +1,21 @@
 "use client";
-import {ProjectFormData, ProjectForm} from "@/ui/molecules/project-form/projectForm";
-import {useProjectStore} from "@/stores/projectStore";
-import {useRouter} from "next/navigation";
-import {message} from "antd";
+import {
+  ProjectForm,
+  ProjectFormData,
+} from "@/ui/molecules/project-form/projectForm";
+import { useProjectStore } from "@/stores/projectStore";
+import { useRouter } from "next/navigation";
+import { message } from "antd";
 
 export default function NewProjectPage() {
   const { error, loading, addProject } = useProjectStore();
   const router = useRouter();
 
   const onSubmit = async (values: ProjectFormData) => {
-    const project = await addProject(values.name, values.description);
-    if (!project) {
-      return;
-    }
+    await addProject(values.name, values.description);
     router.push("/dashboard");
     message.success("Project added successfully");
   };
 
-  return (
-      <ProjectForm onSubmit={onSubmit} error={error} loading={loading}/>
-  )
+  return <ProjectForm onSubmit={onSubmit} error={error} loading={loading} />;
 }

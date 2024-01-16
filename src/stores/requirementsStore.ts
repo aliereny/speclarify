@@ -37,6 +37,7 @@ export interface RequirementsState {
     projectId: number,
     title: string,
     text: string,
+    priority: string,
   ) => Promise<void>;
   updateRequirement: (
     projectId: number,
@@ -169,12 +170,12 @@ export const useRequirementsStore = create(
           set({ loading: false });
         }
       },
-      addRequirement: async (projectId, title, text) => {
+      addRequirement: async (projectId, title, text, priority) => {
         set({ loading: true, error: null });
         try {
           const response = await axiosClient.post(
             `/projects/${projectId}/requirements`,
-            { title, text },
+            { title, text, priority },
           );
           set({
             requirements: [...get().requirements, response.data].sort(

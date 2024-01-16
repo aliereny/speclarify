@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Button, Form, Input, message, Modal } from "antd";
+import { Button, Form, Input, message, Modal, Select } from "antd";
 import { useRequirementsStore } from "@/stores/requirementsStore";
 import { PlusOutlined } from "@ant-design/icons";
+import {Option} from "rc-select";
 
 interface CreateRequirementProps {
   projectId: number;
@@ -26,7 +27,7 @@ export const CreateRequirement: React.FC<CreateRequirementProps> = ({
   const handleOk = async () => {
     try {
       const values = await form.validateFields();
-      await addRequirement(projectId, values.title, values.text);
+      await addRequirement(projectId, values.title, values.text, values.priority);
       message.success("Requirement added successfully");
       form.resetFields();
       setIsModalVisible(false);
@@ -71,6 +72,22 @@ export const CreateRequirement: React.FC<CreateRequirementProps> = ({
             ]}
           >
             <Input.TextArea placeholder="Enter detailed description for the requirement" />
+          </Form.Item>
+          <Form.Item
+            name={"priority"}
+            label={"Priority"}
+            rules={[
+              {
+                required: true,
+                message: "Please input the requirement priority!",
+              },
+            ]}
+          >
+            <Select style={{ width: 120 }}>
+              <Option value="High">High</Option>
+              <Option value="Medium">Medium</Option>
+              <Option value="Low">Low</Option>
+            </Select>
           </Form.Item>
         </Form>
       </Modal>
