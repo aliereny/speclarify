@@ -9,13 +9,14 @@ import {
   Typography,
 } from "antd";
 import React, { useEffect, useState } from "react";
-import styles from "./PrioritizePage.module.scss";
+import styles from "./ClassifyPage.module.scss";
 import { useIsClient } from "@/hooks/useIsClient";
 import { useRequirementsStore } from "@/stores/requirementsStore";
 import { CheckOutlined } from "@ant-design/icons";
 import { PrioritizeRequirementCard } from "@/ui/molecules/prioritize-requirement-card/prioritizeRequirementCard";
+import {ClassifyRequirementCard} from "@/ui/molecules/classify-requirement-card/classifyRequirementCard";
 
-export default function PrioritizePage({
+export default function ClassifyPage({
   params,
 }: {
   params: { projectId: string };
@@ -37,9 +38,9 @@ export default function PrioritizePage({
 
   return (
     <Flex vertical className={styles.wrapper} gap={16}>
-      <Typography.Title level={3}>Prioritize</Typography.Title>
+      <Typography.Title level={3}>Classify</Typography.Title>
       <Typography.Text>
-        Prioritize each requirement into a priority level.
+        Classify each requirement into a class and a subclass.
       </Typography.Text>
       {error && <Alert message={error} type={"error"} showIcon />}
       {!loading && requirements.length === 0 && (
@@ -50,7 +51,7 @@ export default function PrioritizePage({
         requirements
           .slice((page - 1) * 5, page * 5)
           .map((item) => (
-            <PrioritizeRequirementCard
+            <ClassifyRequirementCard
               key={item.id}
               projectId={parseInt(projectId)}
               requirement={item}
@@ -65,7 +66,7 @@ export default function PrioritizePage({
       />
       <Button
         type="primary"
-        href={`/dashboard/projects/${projectId}/classify`}
+        href={`/projects/${projectId}/classify`}
         icon={<CheckOutlined />}
       >
         Confirm

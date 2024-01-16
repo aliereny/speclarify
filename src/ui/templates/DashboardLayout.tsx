@@ -7,23 +7,15 @@ import { useRouter } from "next/navigation";
 
 const items: MenuProps["items"] = [
   {
-    key: "dashboard",
+    key: "projects",
     label: "Projects",
-  },
-  {
-    key: "dashboard/settings",
-    label: "Settings",
   },
 ];
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const { token } = theme.useToken();
 
-  const [current, setCurrent] = useState("dashboard");
+  const [current, setCurrent] = useState("projects");
   const router = useRouter();
   const onClick: MenuProps["onClick"] = (e) => {
     router.push(`/${e.key}`);
@@ -37,10 +29,13 @@ export default function DashboardLayout({
           background: token.colorBgContainer,
           display: "flex",
           alignItems: "center",
-            padding: "0",
+          padding: "0",
         }}
       >
-        <Flex className={"container"} style={{paddingLeft: "1rem", paddingRight: "1rem"}}>
+        <Flex
+          className={"container"}
+          style={{ paddingLeft: "1rem", paddingRight: "1rem" }}
+        >
           <Link
             href="/"
             style={{

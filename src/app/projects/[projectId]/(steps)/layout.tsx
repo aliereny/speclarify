@@ -32,13 +32,13 @@ export default function DashboardLayout({
   }, [pathname]);
 
   const routes = [
-    `/dashboard/projects/${params.projectId}/upload`,
-    `/dashboard/projects/${params.projectId}/review`,
-    `/dashboard/projects/${params.projectId}/remove-duplicates`,
-    `/dashboard/projects/${params.projectId}/fix-ambiguities`,
-    `/dashboard/projects/${params.projectId}/prioritize`,
-    `/dashboard/projects/${params.projectId}/classify`,
-    `/dashboard/projects/${params.projectId}/export`,
+    `/projects/${params.projectId}/upload`,
+    `/projects/${params.projectId}/review`,
+    `/projects/${params.projectId}/remove-duplicates`,
+    `/projects/${params.projectId}/fix-ambiguities`,
+    `/projects/${params.projectId}/prioritize`,
+    `/projects/${params.projectId}/classify`,
+    `/projects/${params.projectId}/export`,
   ];
 
   const onChange = (value: number) => {

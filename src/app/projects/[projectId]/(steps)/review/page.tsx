@@ -85,7 +85,7 @@ export default function UploadPage({
       />
       <Button
         type="primary"
-        href={`/dashboard/projects/${projectId}/remove-duplicates`}
+        href={`/projects/${projectId}/remove-duplicates`}
         icon={<CheckOutlined />}
       >
         Confirm

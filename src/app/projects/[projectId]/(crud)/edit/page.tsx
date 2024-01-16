@@ -29,15 +29,19 @@ export default function EditProjectPage({
     );
   }
 
-
   const onSubmit = async (values: ProjectFormData) => {
-    const result = await updateProject(project.id, values.name, values.description);
-    if (!result) {
-      return;
-    }
-    router.push("/dashboard");
-    message.success("Project updated successfully");
+    await updateProject(project.id, values.name, values.description, () => {
+      router.push("/");
+      message.success("Project updated successfully");
+    });
   };
 
-  return <ProjectForm onSubmit={onSubmit} error={error} loading={loading} project={project}/>;
+  return (
+    <ProjectForm
+      onSubmit={onSubmit}
+      error={error}
+      loading={loading}
+      project={project}
+    />
+  );
 }

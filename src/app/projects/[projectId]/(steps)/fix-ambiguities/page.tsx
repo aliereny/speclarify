@@ -9,27 +9,26 @@ import {
   Typography,
 } from "antd";
 import React, { useEffect, useState } from "react";
-import styles from "./RemoveDuplicatesPage.module.scss";
+import styles from "./AmbiguityPage.module.scss";
 import { useIsClient } from "@/hooks/useIsClient";
-import { Requirement, useRequirementsStore } from "@/stores/requirementsStore";
+import { useRequirementsStore } from "@/stores/requirementsStore";
 import { CheckOutlined } from "@ant-design/icons";
-import { CreateRequirement } from "@/ui/organisms/create-requirement/createRequirement";
-import { DuplicateRequirementCard } from "@/ui/molecules/duplicate-requirement-card/duplicateRequirementCard";
+import { AmbiguousRequirementCard } from "@/ui/molecules/ambiguous-requirement-card/ambiguousRequirementCard";
 
-export default function UploadPage({
+export default function AmbiguityPage({
   params,
 }: {
   params: { projectId: string };
 }) {
   const { projectId } = params;
-  const { error, loading, duplicates, findDuplicates } =
+  const { error, loading, ambiguities, findAmbiguities } =
     useRequirementsStore();
   const isClient = useIsClient();
 
   const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
-    findDuplicates(parseInt(projectId));
+    findAmbiguities(parseInt(projectId));
   }, []);
 
   if (!isClient) {
@@ -38,37 +37,36 @@ export default function UploadPage({
 
   return (
     <Flex vertical className={styles.wrapper} gap={16}>
-      <Typography.Title level={3}>Remove duplicates</Typography.Title>
+      <Typography.Title level={3}>Fix ambiguities</Typography.Title>
       <Typography.Text>
-        Identify and remove any duplicate requirements to maintain a concise
-        specification.
+        Clarify any ambiguous requirements to ensure clear understanding.
       </Typography.Text>
       {error && <Alert message={error} type={"error"} showIcon />}
-      {!loading && duplicates.length === 0 && (
-        <Empty description={"No duplicates found."} />
+      {!loading && ambiguities.length === 0 && (
+        <Empty description={"No ambiguities found."} />
       )}
       {loading && <Skeleton active />}
       {!loading &&
-        duplicates
+        ambiguities
           .slice((page - 1) * 5, page * 5)
-          .map(({ either, other }) => (
-            <DuplicateRequirementCard
-              key={`${either.id}-${other.id}`}
+          .map((item) => (
+            <AmbiguousRequirementCard
+              key={item.requirement.id}
+              requirement={item.requirement}
+              suggestions={item.suggestions}
               projectId={parseInt(projectId)}
-              requirementA={either}
-              requirementB={other}
             />
           ))}
       <Pagination
         style={{ alignSelf: "center", width: "auto" }}
         current={page}
         onChange={setPage}
-        total={duplicates.length}
+        total={ambiguities.length}
         pageSize={5}
       />
       <Button
         type="primary"
-        href={`/dashboard/projects/${projectId}/remove-duplicates`}
+        href={`/projects/${projectId}/remove-duplicates`}
         icon={<CheckOutlined />}
       >
         Confirm

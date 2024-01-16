@@ -2,6 +2,7 @@ import "./globals.scss";
 import "../../public/antd.min.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { DashboardLayout } from "@/ui/templates/DashboardLayout";
 
 const questrial = Poppins({
   subsets: ["latin"],
@@ -20,7 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={questrial.className}>{children}</body>
+      <body className={questrial.className}>
+        <DashboardLayout>{children}</DashboardLayout>
+      </body>
     </html>
   );
 }

@@ -19,13 +19,13 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const router = useRouter();
 
-  const onCardClick = () => router.push(`/dashboard/projects/${project.id}`);
+  const onCardClick = () => router.push(`/projects/${project.id}`);
   const { deleteProject } = useProjectStore();
   const menuItems: MenuProps["items"] = [
     {
       key: "1",
       label: "Edit",
-      onClick: () => router.push(`/dashboard/projects/${project.id}/edit`),
+      onClick: () => router.push(`/projects/${project.id}/edit`),
     },
     {
       key: "2",

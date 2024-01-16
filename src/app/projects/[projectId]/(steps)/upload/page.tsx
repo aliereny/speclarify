@@ -53,7 +53,7 @@ export default function UploadPage({
     const success = await parsePdf(project.id, values.file);
     if (success) {
       message.success("File uploaded successfully");
-      router.push(`/dashboard/projects/${project.id}/review`);
+      router.push(`/projects/${project.id}/review`);
     }
   };
 

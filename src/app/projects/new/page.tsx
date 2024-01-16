@@ -13,7 +13,7 @@ export default function NewProjectPage() {
 
   const onSubmit = async (values: ProjectFormData) => {
     await addProject(values.name, values.description);
-    router.push("/dashboard");
+    router.push("/");
     message.success("Project added successfully");
   };
 

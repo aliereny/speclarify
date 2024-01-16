@@ -54,7 +54,7 @@ export default function ProjectPage({
       </Space>
       <Button
         type="primary"
-        href={`/dashboard/projects/${project.id}/upload`}
+        href={`/projects/${project.id}/upload`}
         icon={<SendOutlined />}
       >
         Start
