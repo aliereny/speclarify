@@ -14,8 +14,7 @@ export const StyledShadowWrapper = styled.div`
   border: 1px solid #eaecf0;
   padding: 24px;
   border-radius: 12px;
-  box-shadow:
-    0px 1px 3px rgba(16, 24, 40, 0.1),
+  box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.1),
     0px 1px 2px rgba(16, 24, 40, 0.06);
 `;
 

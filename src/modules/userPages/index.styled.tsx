@@ -1,6 +1,6 @@
-import { Button, Card, Col, Form } from 'antd';
-import { rgba } from 'polished';
-import styled from 'styled-components';
+import { Button, Card, Col, Form } from "antd";
+import { rgba } from "polished";
+import styled from "styled-components";
 
 export const StyledUserPages = styled.div`
   display: flex;
@@ -31,8 +31,7 @@ export const StyledUserCard = styled(Card)`
   width: 100%;
   text-align: center;
   overflow: hidden;
-  box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
   & .ant-card-body {
@@ -86,7 +85,7 @@ export const StyledUserCardHeader = styled.div`
 export const StyledUserCardLogo = styled.div`
   margin-right: 8px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: 0;
     margin-left: 8px;
   }
@@ -108,7 +107,7 @@ export const StyledUserForm = styled(Form)`
   text-align: left;
   margin-bottom: 12px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     text-align: right;
   }
 
@@ -178,7 +177,7 @@ export const StyledUserFieldActionLink = styled.span`
       margin-left: auto;
       margin-top: 0;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         margin-left: 0;
         margin-right: auto;
       }
@@ -197,7 +196,7 @@ export const StyledUserCardFooterLink = styled.span`
   cursor: pointer;
   display: inline-block;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-left: 0;
     margin-right: 8px;
   }
@@ -218,7 +217,7 @@ export const StyledUserCardFooterAction = styled.div`
     font-size: ${({ theme }) => theme.font.size.base};
     margin-right: 16px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: 0;
       margin-left: 16px;
     }
@@ -293,7 +292,7 @@ export const StyledUserCardForPass = styled(StyledUserCard)`
     height: 100%;
     object-fit: cover;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       padding-left: 0;
     }
   }
@@ -311,7 +310,7 @@ export const StyledUserStyledImg = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
     padding-right: 40px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       padding-right: 0;
       padding-left: 40px;
     }
@@ -320,7 +319,7 @@ export const StyledUserStyledImg = styled.div`
   &.mln {
     margin-left: -32px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-left: 0;
       margin-right: -32px;
     }
@@ -365,7 +364,7 @@ export const StyledUserCardUnlock = styled(StyledUserCardLg)`
       padding-left: 32px;
       padding-right: 64px;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         padding-left: 64px;
         padding-right: 32px;
       }
@@ -384,7 +383,7 @@ export const StyledUserCardUnlock = styled(StyledUserCardLg)`
       fill: ${({ theme }) => theme.palette.primary.main};
     }
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       padding-left: 0;
     }
   }

@@ -7,9 +7,6 @@ import AppComponentHeader from '@crema/components/AppComponentHeader';
 
 import Custom from './Custom';
 import CustomSource from 'raw-loader!./Custom';
-
-import ReactImageTimeline from './ReactImageTimeline';
-import ReactImageTimelineSource from 'raw-loader!./ReactImageTimeline';
 import AppRowContainer from '@crema/components/AppRowContainer/AppRowSimpleContainer';
 
 const Timeline = () => {
@@ -28,14 +25,6 @@ const Timeline = () => {
             maxHeight={700}
             component={Custom}
             source={CustomSource}
-          />
-        </Col>
-        <Col span={24}>
-          <AppComponentCard
-            title='React Image Timeline'
-            maxHeight={700}
-            component={ReactImageTimeline}
-            source={ReactImageTimelineSource}
           />
         </Col>
       </AppRowContainer>

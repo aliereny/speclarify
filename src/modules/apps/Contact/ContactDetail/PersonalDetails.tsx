@@ -1,5 +1,5 @@
-import React from 'react';
-import IntlMessages from '@crema/helpers/IntlMessages';
+import React from "react";
+import IntlMessages from "@crema/helpers/IntlMessages";
 import {
   StyleAiOutlineGlobalIcon,
   StyleAiOutlineShoppingIcon,
@@ -10,8 +10,8 @@ import {
   StyledOtherDetailItemContent,
   StyleFiMailIcon,
   StyleFiPhoneIcon,
-} from './index.styled';
-import { ContactObjType } from '@crema/types/models/apps/Contact';
+} from "./index.styled";
+import { ContactObjType } from "@crema/types/models/apps/Contact";
 
 type PersonalDetailsProps = {
   contact: ContactObjType | null;
@@ -21,7 +21,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ contact }) => {
   return (
     <StyledContactDetailModalItem>
       <StyledContactDetailModalItemTitle>
-        <IntlMessages id='contactApp.personalDetails' />
+        <IntlMessages id="contactApp.personalDetails" />
       </StyledContactDetailModalItemTitle>
 
       <StyledContactDetailModalItemContent>
@@ -45,7 +45,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ contact }) => {
             {contact!.website ? (
               contact!.website
             ) : (
-              <IntlMessages id='common.na' />
+              <IntlMessages id="common.na" />
             )}
           </StyledOtherDetailItemContent>
         </StyledOtherDetailItem>
@@ -56,7 +56,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ contact }) => {
             {contact!.birthday ? (
               contact!.birthday
             ) : (
-              <IntlMessages id='common.na' />
+              <IntlMessages id="common.na" />
             )}
           </StyledOtherDetailItemContent>
         </StyledOtherDetailItem>

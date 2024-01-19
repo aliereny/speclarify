@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Avatar, Button } from 'antd';
+import React, { useState } from "react";
+import { Avatar, Button } from "antd";
 import {
   StyledDisconnectBtn,
   StyledMemberCard,
@@ -7,8 +7,8 @@ import {
   StyledMemberInfo,
   StyledMemberInfoContent,
   StyledMemberThumb,
-} from './index.styled';
-import { MemberDataType } from '@crema/types/models/account';
+} from "./index.styled";
+import { MemberDataType } from "@crema/types/models/account";
 
 type MemberProps = {
   member: MemberDataType;
@@ -31,7 +31,7 @@ const Member: React.FC<MemberProps> = ({ member }) => {
       {connect ? (
         <StyledMemberInfo>
           <StyledMemberInfoContent>
-            <Button type='primary' ghost onClick={onConnect}>
+            <Button type="primary" ghost onClick={onConnect}>
               Connect
             </Button>
           </StyledMemberInfoContent>

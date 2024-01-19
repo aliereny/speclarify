@@ -17,25 +17,25 @@ export type FaqFolderData = {
 };
 
 const faqFolderList: FaqFolderData[] = [
-  { id: 101, name: <IntlMessages id='faq.general' />, icon: <SyncOutlined /> },
+  { id: 101, name: <IntlMessages id="faq.general" />, icon: <SyncOutlined /> },
   {
     id: 102,
-    name: <IntlMessages id='knowledge.installation' />,
+    name: <IntlMessages id="knowledge.installation" />,
     icon: <SettingOutlined />,
   },
   {
     id: 103,
-    name: <IntlMessages id='faq.pricing' />,
+    name: <IntlMessages id="faq.pricing" />,
     icon: <DollarOutlined />,
   },
   {
     id: 104,
-    name: <IntlMessages id='faq.licenseTypes' />,
+    name: <IntlMessages id="faq.licenseTypes" />,
     icon: <FileTextOutlined />,
   },
   {
     id: 105,
-    name: <IntlMessages id='faq.support' />,
+    name: <IntlMessages id="faq.support" />,
     icon: <FrownOutlined />,
   },
 ];
@@ -52,9 +52,9 @@ const FaqSideBar: React.FC<FaqSideBarProps> = ({
   return (
     <StyledFaqSidebarCard>
       <h3>
-        <IntlMessages id='faq.queries' />
+        <IntlMessages id="faq.queries" />
       </h3>
-      <StyledFaqSidebarList aria-label='main mailbox folders'>
+      <StyledFaqSidebarList aria-label="main mailbox folders">
         {faqFolderList.map((item) => {
           return (
             <SideBarItem

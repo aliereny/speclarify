@@ -19,7 +19,7 @@ export default class ContainerExample extends React.Component {
         message: getMessage(type),
         container,
         type,
-      }),
+      })
     );
   };
 
@@ -27,32 +27,32 @@ export default class ContainerExample extends React.Component {
     return (
       <StyledReactNotification>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={() => this.add('top-left')}>
+          <Button type="primary" onClick={() => this.add('top-left')}>
             Top Left
           </Button>
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={() => this.add('top-right')}>
+          <Button type="primary" onClick={() => this.add('top-right')}>
             Top Right
           </Button>
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={() => this.add('top-center')}>
+          <Button type="primary" onClick={() => this.add('top-center')}>
             Top Center
           </Button>
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={() => this.add('bottom-left')}>
+          <Button type="primary" onClick={() => this.add('bottom-left')}>
             Bottom Left
           </Button>
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={() => this.add('bottom-right')}>
+          <Button type="primary" onClick={() => this.add('bottom-right')}>
             Bottom Right
           </Button>
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={() => this.add('bottom-center')}>
+          <Button type="primary" onClick={() => this.add('bottom-center')}>
             Bottom Center
           </Button>
         </StyledReactNotificationItem>

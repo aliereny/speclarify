@@ -1,7 +1,6 @@
 import folderList from '@crema/fakedb/apps/mail/folderList';
 import mailData from '@crema/fakedb/apps/mail/mailList';
 import { NextRequest } from 'next/server';
-
 let mailList = mailData;
 export const GET = async () => {
   try {

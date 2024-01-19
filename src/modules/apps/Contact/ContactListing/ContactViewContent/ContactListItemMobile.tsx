@@ -1,21 +1,21 @@
-import React from 'react';
-import clsx from 'clsx';
-import AppsStarredIcon from '@crema/components/AppsStarredIcon';
-import { Avatar } from 'antd';
-import { CheckOutlined } from '@ant-design/icons';
+import React from "react";
+import clsx from "clsx";
+import AppsStarredIcon from "@crema/components/AppsStarredIcon";
+import { Avatar } from "antd";
+import { CheckOutlined } from "@ant-design/icons";
 import {
-  StyledContactListContentMobileItem,
-  StyledContactListExportMobileIcon,
-  StyledContactListItemActionMobile,
-  StyledContactListItemAvatar,
-  StyledContactListItemAvatarView,
-  StyledContactListItemContentMobile,
+  StyledContactListMobileAvatarView,
   StyledContactListItemMobile,
   StyledContactListMainContent,
-  StyledContactListMobileAvatarView,
+  StyledContactListItemAvatarView,
+  StyledContactListItemAvatar,
+  StyledContactListItemContentMobile,
+  StyledContactListContentMobileItem,
+  StyledContactListItemActionMobile,
+  StyledContactListExportMobileIcon,
   StyledContactListStarMobile,
-} from '../index.styled';
-import { ContactObjType, LabelObjType } from '@crema/types/models/apps/Contact';
+} from "../index.styled";
+import { ContactObjType, LabelObjType } from "@crema/types/models/apps/Contact";
 
 type ContactListItemProps = {
   contact: ContactObjType;
@@ -42,14 +42,14 @@ const ContactListItemMobile: React.FC<ContactListItemProps> = ({
     if (labelId) {
       return labelList.find((label) => label.id === labelId)!.color;
     }
-    return '';
+    return "";
   };
 
   return (
     <>
       <StyledContactListItemMobile
         key={contact.id}
-        className={clsx('item-hover', {
+        className={clsx("item-hover", {
           rootCheck: checkedContacts.includes(contact.id),
         })}
         onClick={() => onViewContactDetail(contact)}
@@ -63,7 +63,7 @@ const ContactListItemMobile: React.FC<ContactListItemProps> = ({
               event.stopPropagation();
               onChangeCheckedContacts(
                 !checkedContacts.includes(contact.id),
-                contact.id,
+                contact.id
               );
             }}
           >
@@ -83,11 +83,11 @@ const ContactListItemMobile: React.FC<ContactListItemProps> = ({
           </StyledContactListMobileAvatarView>
 
           <StyledContactListItemContentMobile>
-            <StyledContactListContentMobileItem className='text-truncate'>
+            <StyledContactListContentMobileItem className="text-truncate">
               {contact.name}
             </StyledContactListContentMobileItem>
 
-            <span className='text-truncate'>{contact.contact}</span>
+            <span className="text-truncate">{contact.contact}</span>
           </StyledContactListItemContentMobile>
         </StyledContactListMainContent>
         <StyledContactListItemActionMobile>

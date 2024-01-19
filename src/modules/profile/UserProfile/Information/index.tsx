@@ -16,6 +16,7 @@ const Information = () => {
 
   const { Option } = Select;
 
+
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
@@ -29,35 +30,35 @@ const Information = () => {
       onFinishFailed={onFinishFailed}
     >
       <StyledUserProfileFormTitle>
-        <IntlMessages id='userProfile.information' />
+        <IntlMessages id="userProfile.information" />
       </StyledUserProfileFormTitle>
       <AppRowContainer gutter={16}>
         <Col xs={24} md={24}>
           <Form.Item
-            name='bio'
+            name="bio"
             rules={[{ required: true, message: 'Please input your Bio Data' }]}
           >
-            <TextArea rows={4} placeholder='Your Bio data here...' />
+            <TextArea rows={4} placeholder="Your Bio data here..." />
           </Form.Item>
         </Col>
         <Col xs={24} md={12}>
           <Form.Item
-            name='birthdate'
+            name="birthdate"
             rules={[{ required: true, message: 'Please input Date!' }]}
           >
-            <DatePicker style={{ width: '100%' }} format='DD M YYYY' />
+            <DatePicker style={{ width: '100%' }} format="DD M YYYY" />
           </Form.Item>
         </Col>
         <Col xs={24} md={12}>
           <Form.Item
-            name='country'
+            name="country"
             rules={[{ required: true, message: 'Please input Your Country!' }]}
           >
             <Select
               showSearch
               style={{ width: '100%' }}
-              placeholder='Select a country'
-              optionFilterProp='children'
+              placeholder="Select a country"
+              optionFilterProp="children"
               filterOption={(input: string, option: any) =>
                 option.children.toLowerCase().includes(input.toLowerCase())
               }
@@ -75,28 +76,28 @@ const Information = () => {
 
         <Col xs={24} md={12}>
           <Form.Item
-            name='website'
+            name="website"
             rules={[{ required: true, message: 'Please input your Website!' }]}
           >
-            <Input placeholder='Website' />
+            <Input placeholder="Website" />
           </Form.Item>
         </Col>
         <Col xs={24} md={12}>
           <Form.Item
-            name='phone'
+            name="phone"
             rules={[
               { required: true, message: 'Please input your Phone number!' },
             ]}
           >
-            <Input placeholder='Phone Number' />
+            <Input placeholder="Phone Number" />
           </Form.Item>
         </Col>
         <Col xs={24} md={24}>
           <StyledUserProfileGroupBtn
             shouldUpdate
-            className='user-profile-group-btn'
+            className="user-profile-group-btn"
           >
-            <Button type='primary' htmlType='submit'>
+            <Button type="primary" htmlType="submit">
               Save Changes
             </Button>
             <Button>Cancel</Button>

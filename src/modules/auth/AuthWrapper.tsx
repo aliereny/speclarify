@@ -1,7 +1,7 @@
-import React from 'react';
-import AppAnimateGroup from '@crema/components/AppAnimateGroup';
-import AppInfoView from '@crema/components/AppInfoView';
-import AppLogo from '@crema/components/AppLayout/components/AppLogo';
+import React from "react";
+import AppAnimateGroup from "@crema/components/AppAnimateGroup";
+import AppInfoView from "@crema/components/AppInfoView";
+import AppLogo from "@crema/components/AppLayout/components/AppLogo";
 import {
   StyledAuthCard,
   StyledAuthCardHeader,
@@ -9,7 +9,7 @@ import {
   StyledAuthWelContent,
   StyledAuthWellAction,
   StyledAuthWrap,
-} from './AuthWrapper.styled';
+} from "./AuthWrapper.styled";
 
 type Props = {
   children: React.ReactNode;
@@ -17,13 +17,13 @@ type Props = {
 const AuthWrapper: React.FC<Props> = ({ children }) => {
   return (
     <AppAnimateGroup
-      type='scale'
+      type="scale"
       animateStyle={{ flex: 1 }}
       delay={0}
       interval={10}
       duration={200}
     >
-      <StyledAuthWrap key={'wrap'}>
+      <StyledAuthWrap key={"wrap"}>
         <StyledAuthCard>
           <StyledAuthMainContent>
             <StyledAuthCardHeader>

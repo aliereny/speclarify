@@ -1,7 +1,7 @@
-import React from 'react';
-import AppRowContainer from '@crema/components/AppRowContainer';
-import IntlMessages from '@crema/helpers/IntlMessages';
-import { Col } from 'antd';
+import React from "react";
+import AppRowContainer from "@crema/components/AppRowContainer";
+import IntlMessages from "@crema/helpers/IntlMessages";
+import { Col } from "antd";
 import {
   StyledButton,
   StyledFlex,
@@ -13,8 +13,8 @@ import {
   StyledServiceWrapper,
   StyledTitle4,
   StyledTitleWrapper2,
-} from './index.styled';
-import { ProjectDescriptionType } from '@crema/types/models/extrapages/Portfolio';
+} from "./index.styled";
+import { ProjectDescriptionType } from "@crema/types/models/extrapages/Portfolio";
 
 type Props = {
   projectDescription: ProjectDescriptionType;
@@ -27,7 +27,7 @@ const ProjectDescription = ({ projectDescription }: Props) => {
         <AppRowContainer>
           <Col xs={24} md={8}>
             <StyledTitleWrapper2>
-              <IntlMessages id='extraPages.projectDescription' />
+              <IntlMessages id="extraPages.projectDescription" />
             </StyledTitleWrapper2>
             <div>
               {projectDescription.service.map((service, index) => (
@@ -40,7 +40,7 @@ const ProjectDescription = ({ projectDescription }: Props) => {
           </Col>
           <Col xs={24} md={16}>
             <StyledTitle4>
-              <IntlMessages id='extraPages.sbonTimelessStaplesIdentity' />
+              <IntlMessages id="extraPages.sbonTimelessStaplesIdentity" />
             </StyledTitle4>
             <StyledFlex>
               {projectDescription.content.map((data, index) => (

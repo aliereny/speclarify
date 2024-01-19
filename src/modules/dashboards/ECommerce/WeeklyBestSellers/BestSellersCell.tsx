@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   StyledBadgeRoot,
   StyledFlex,
@@ -6,9 +6,9 @@ import {
   StyledFlexContainer2,
   StyledFlexWrapper,
   StyledSecondary,
-} from './index.styled';
-import { Avatar, Rate, Typography } from 'antd';
-import type { BestSellerType } from '@crema/types/models/dashboards/Ecommerce';
+} from "./index.styled";
+import { Avatar, Typography, Rate } from "antd";
+import type { BestSellerType } from "@crema/types/models/dashboards/Ecommerce";
 
 type Props = {
   bestSeller: BestSellerType;
@@ -16,7 +16,7 @@ type Props = {
 
 const BestSellersCell = ({ bestSeller }: Props) => {
   return (
-    <StyledFlex className='item-hover'>
+    <StyledFlex className="item-hover">
       <Avatar
         size={44}
         style={{

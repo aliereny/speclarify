@@ -1,5 +1,5 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from "react";
+import clsx from "clsx";
 import {
   StyledCommentOutlined,
   StyledLikeOutlined,
@@ -7,10 +7,10 @@ import {
   StyledPostStatsItem,
   StyledPostStatsItemInfo,
   StyledShareAltOutlined,
-} from '../index.styled';
-import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
-import { putDataApi } from '@crema/hooks/APIHooks';
-import { PostObjType } from '@crema/types/models/apps/Wall';
+} from "../index.styled";
+import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
+import { putDataApi } from "@crema/hooks/APIHooks";
+import { PostObjType } from "@crema/types/models/apps/Wall";
 
 type PostStatsProps = {
   post: PostObjType;
@@ -21,13 +21,13 @@ const PostStats: React.FC<PostStatsProps> = ({ post, setPostList }) => {
   const infoViewActionsContext = useInfoViewActionsContext();
 
   const toggleLikeStatus = () => {
-    putDataApi('/wall/posts', infoViewActionsContext, {
+    putDataApi("/wall/posts", infoViewActionsContext, {
       postId: post.id,
       status: !post.liked,
     })
       .then((data) => {
         setPostList(data);
-        infoViewActionsContext.showMessage('Post Updated Successfully!');
+        infoViewActionsContext.showMessage("Post Updated Successfully!");
       })
       .catch((error) => {
         infoViewActionsContext.fetchError(error.message);

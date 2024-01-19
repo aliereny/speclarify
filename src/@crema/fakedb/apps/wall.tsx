@@ -1,4 +1,5 @@
 import { PostObjType, WallDataType } from '@crema/types/models/apps/Wall';
+import { generateUniqueID } from '@crema/helpers/StringHelper';
 import { getFormattedDateTime } from '@crema/helpers/DateHelper';
 import { MessageType } from '@crema/constants/AppEnums';
 

@@ -3,7 +3,6 @@ import { MailObjType } from '@crema/types/models/apps/Mail';
 import folderList from '@crema/fakedb/apps/mail/folderList';
 import labelList from '@crema/fakedb/apps/mail/labelList';
 import mailData from '@crema/fakedb/apps/mail/mailList';
-
 let mailList = mailData;
 export const GET = async (request: NextRequest) => {
   try {
@@ -21,9 +20,8 @@ export const GET = async (request: NextRequest) => {
         );
       }
     } else if (params.type === 'label') {
-      const labelType = labelList.find(
-        (label) => label.alias === params.name,
-      )?.id;
+      const labelType = labelList.find((label) => label.alias === params.name)
+        ?.id;
       folderMailList = mailList.filter(
         (mail: MailObjType) => mail.label.id === labelType,
       );

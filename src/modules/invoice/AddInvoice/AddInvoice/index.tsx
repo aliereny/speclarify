@@ -28,10 +28,10 @@ import {
 } from './index.styled';
 import { AiOutlinePlus } from 'react-icons/ai';
 import {
-  ClientType,
-  InvoiceItemType,
   InvoiceSettingType,
   InvoiceType,
+  ClientType,
+  InvoiceItemType,
 } from '@crema/types/models/invoice';
 import Image from 'next/image';
 

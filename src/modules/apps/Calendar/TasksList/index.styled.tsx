@@ -1,8 +1,8 @@
-import AppsFooter from '@crema/components/AppsContainer/AppsFooter';
-import AppsPagination from '@crema/components/AppsPagination';
-import { Input, Select } from 'antd';
-import { rgba } from 'polished';
-import styled from 'styled-components';
+import AppsFooter from "@crema/components/AppsContainer/AppsFooter";
+import AppsPagination from "@crema/components/AppsPagination";
+import { Input, Select } from "antd";
+import { rgba } from "polished";
+import styled from "styled-components";
 
 const { Search } = Input;
 
@@ -38,7 +38,7 @@ export const StyledTodoHeaderCheckedAction = styled.span`
   position: relative;
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 50%;
@@ -47,13 +47,13 @@ export const StyledTodoHeaderCheckedAction = styled.span`
     background-color: ${({ theme }) => theme.palette.borderColor};
     transform: translateY(-50%);
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       left: auto;
       right: 0;
     }
   }
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     padding-left: 0;
     padding-right: 8px;
   }
@@ -62,7 +62,7 @@ export const StyledTodoHeaderCheckedAction = styled.span`
     margin-right: 8px;
     padding-left: 16px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: 0;
       margin-left: 8px;
       padding-left: 0;
@@ -81,7 +81,7 @@ export const StyledContentHeader = styled.div`
 export const StyledTodoHeaderCheckboxView = styled.span`
   margin-right: 4px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: 0;
     margin-left: 4px;
   }
@@ -89,7 +89,7 @@ export const StyledTodoHeaderCheckboxView = styled.span`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
     margin-right: 8px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: 0;
       margin-left: 8px;
     }
@@ -147,7 +147,7 @@ export const StyledTodoTaskDropdown = styled(Select)`
 export const StyledTodoTaskDropdownView = styled.span`
   margin-right: 8px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: 0;
     margin-left: 8px;
   }
@@ -155,7 +155,7 @@ export const StyledTodoTaskDropdownView = styled.span`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
     margin-right: 0;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: 0;
       margin-left: 16px;
     }
@@ -167,7 +167,7 @@ export const StyledTodoViewSelect = styled.div`
   align-items: center;
   margin-left: auto;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-left: 0;
     margin-right: auto;
   }
@@ -199,7 +199,7 @@ export const StyledTodoListItem = styled.div`
       opacity: 0;
       visibility: hidden;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         transform: translateX(60px);
       }
     }
@@ -207,7 +207,7 @@ export const StyledTodoListItem = styled.div`
     & .todo-list-item-right-content {
       transform: translateX(-55px);
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         transform: translateX(55px);
       }
     }
@@ -231,7 +231,7 @@ export const StyledTodoListItemLeft = styled.div`
 export const StyledTodoListCheckboxView = styled.span`
   margin-right: 12px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: 0;
     margin-left: 12px;
   }
@@ -245,7 +245,7 @@ export const StyledTodoListImgView = styled.div`
 export const StyledTodoListStarView = styled.span`
   margin-right: 12px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: 0;
     margin-left: 12px;
   }
@@ -254,7 +254,7 @@ export const StyledTodoListStarView = styled.span`
 export const StyledTodoListImg = styled.span`
   margin-right: 14px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: 0;
     margin-left: 14px;
   }
@@ -270,7 +270,7 @@ export const StyledTodoListTitle = styled.span`
   margin-right: 12px;
   position: relative;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: 0;
     margin-left: 12px;
   }
@@ -295,7 +295,7 @@ export const StyledTodoListItemRight = styled.div`
     justify-content: flex-end;
     padding-left: 12px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       padding-left: 0;
       padding-right: 12px;
     }
@@ -317,7 +317,7 @@ export const StyledTodoListStartDate = styled(StyledTodoListItemHide)`
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-left: 0;
     margin-right: 6px;
   }
@@ -337,7 +337,7 @@ export const StyledTodoListItemAction = styled.div`
   overflow: hidden;
   width: 0;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     right: auto;
     left: -20px;
   }
@@ -351,7 +351,7 @@ export const StyledTodoLabelGroup = styled.div`
   transition: all 0.4s ease;
   transform: translateX(0);
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: 0;
     margin-left: 14px;
   }

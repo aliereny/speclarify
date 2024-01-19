@@ -141,6 +141,6 @@ export const StyledMailLabelItem = styled.div`
 `;
 
 export const StyledPlusOutlined = styled(PlusOutlined)`
-  color: ${({theme}) => theme.palette.primary.main};
+  color: ${({ theme }) => theme.palette.primary.main};
   font-size: 16px;
 `;

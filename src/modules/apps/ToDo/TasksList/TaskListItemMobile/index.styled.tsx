@@ -105,7 +105,7 @@ export const StyledTodoListMobileAction = styled.div`
 
 export const StyledTodoListMobileDate = styled.span`
   font-size: ${({ theme }) => theme.font.size.sm};
-  color: ${({ theme }) => theme.palette.text.secondary};
+  color: ${({ theme }) => theme.palette.text.secondary}; ;
 `;
 
 export const StyledTodoListStarMobile = styled.span`

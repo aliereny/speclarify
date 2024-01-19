@@ -5,15 +5,15 @@ import { AiOutlineDelete } from 'react-icons/ai';
 import { BiCloudDownload } from 'react-icons/bi';
 import AppIconButton from '@crema/components/AppIconButton';
 import {
+  StyledScrumBoardAttachmenTitle,
   StyledScrumBoardAttachment,
-  StyledScrumBoardAttachmentAction,
+  StyledScrumBoardAttachmentItems,
   StyledScrumBoardAttachmentCard,
+  StyledScrumBoardAttachmentImg,
+  StyledScrumBoardAttachmentAction,
   StyledScrumBoardAttachmentContent,
   StyledScrumBoardAttachmentFileName,
   StyledScrumBoardAttachmentFileTime,
-  StyledScrumBoardAttachmentImg,
-  StyledScrumBoardAttachmentItems,
-  StyledScrumBoardAttachmenTitle,
 } from './index.styled';
 import { AttachmentObjType } from '@crema/types/models/apps/ScrumbBoard';
 import Image from 'next/image';

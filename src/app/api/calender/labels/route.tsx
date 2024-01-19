@@ -1,13 +1,13 @@
-import { labelList } from '@crema/fakedb/apps/todo/labelList';
+import { labelList, onGetLabel } from '@crema/fakedb/apps/todo/labelList';
 import todoList from '@crema/fakedb/apps/todo/todoList';
 
 let todoData = todoList;
 export const GET = async () => {
-    try {
-        return new Response(JSON.stringify(labelList), {status: 200});
-    } catch (error) {
-        return new Response('Internal Server Error', {status: 500});
-    }
+  try {
+    return new Response(JSON.stringify(labelList), { status: 200 });
+  } catch (error) {
+    return new Response('Internal Server Error', { status: 500 });
+  }
 };
 
 // export const PUT = async (request) => {

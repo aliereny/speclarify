@@ -1,16 +1,16 @@
-import React from 'react';
-import BlogSidebarCard from '../BlogSidebarCard';
-import BlogDetailHeader from './BlogDetailHeader';
-import BlogDetailContent from './BlogDetailContent';
-import BlogComment from './BlogComment';
-import AppAnimate from '@crema/components/AppAnimate';
-import AppRowContainer from '@crema/components/AppRowContainer';
-import { Col } from 'antd';
-import { StyledCol1, StyledCol2 } from './index.styled';
+import React from "react";
+import BlogSidebarCard from "../BlogSidebarCard";
+import BlogDetailHeader from "./BlogDetailHeader";
+import BlogDetailContent from "./BlogDetailContent";
+import BlogComment from "./BlogComment";
+import AppAnimate from "@crema/components/AppAnimate";
+import AppRowContainer from "@crema/components/AppRowContainer";
+import { Col } from "antd";
+import { StyledCol1, StyledCol2 } from "./index.styled";
 import {
   BlogDetailType,
   BlogSidebarType,
-} from '@crema/types/models/extrapages/Blog';
+} from "@crema/types/models/extrapages/Blog";
 
 type Props = {
   blogDetail: BlogDetailType;
@@ -19,7 +19,7 @@ type Props = {
 
 const BlogDetail = ({ blogDetail, blogSidebar }: Props) => {
   return (
-    <AppAnimate animation='transition.slideUpIn' delay={200}>
+    <AppAnimate animation="transition.slideUpIn" delay={200}>
       <AppRowContainer>
         <Col xs={24}>
           <BlogDetailHeader

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import AppRowContainer from '@crema/components/AppRowContainer';
-import { Button, Col, Divider, Form, Input, Space, Typography } from 'antd';
+import React, { useState } from "react";
+import AppRowContainer from "@crema/components/AppRowContainer";
+import { Button, Col, Divider, Form, Input, Space, Typography } from "antd";
 import {
   StyledSecondaryText,
   StyledSecondaryText1,
   StyledShadowWrapper,
-} from '../index.styled';
-import { MdEdit } from 'react-icons/md';
-import { InvoiceSettingItem } from '@crema/types/models/invoice';
+} from "../index.styled";
+import { MdEdit } from "react-icons/md";
+import { InvoiceSettingItem } from "@crema/types/models/invoice";
 
 type Props = {
   settings: { [key: string]: string };
@@ -20,13 +20,13 @@ const Accounting = ({ settings, onUpdateSettings }: Props) => {
   return (
     <Form
       initialValues={settings}
-      layout='vertical'
+      layout="vertical"
       onFinish={(data) => {
-        onUpdateSettings('accounting', data);
+        onUpdateSettings("accounting", data);
         setIsEdit(false);
       }}
     >
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
           <Typography.Title level={4}>Accounting Settings</Typography.Title>
           <StyledSecondaryText>
@@ -37,7 +37,7 @@ const Accounting = ({ settings, onUpdateSettings }: Props) => {
           {!isEdit && (
             <MdEdit
               size={25}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
               onClick={() => setIsEdit(true)}
             />
           )}
@@ -56,36 +56,36 @@ const Accounting = ({ settings, onUpdateSettings }: Props) => {
           <StyledShadowWrapper>
             <AppRowContainer>
               <Col xs={24} md={12}>
-                <Form.Item label='Account Holder' name='accountHolder'>
-                  <Input placeholder='Account Holder' readOnly={!isEdit} />
+                <Form.Item label="Account Holder" name="accountHolder">
+                  <Input placeholder="Account Holder" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='Bank Name' name='bankName'>
-                  <Input placeholder='Bank Name' readOnly={!isEdit} />
+                <Form.Item label="Bank Name" name="bankName">
+                  <Input placeholder="Bank Name" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='Country of bank' name='countryOfBank'>
-                  <Input placeholder='Country of bank' readOnly={!isEdit} />
+                <Form.Item label="Country of bank" name="countryOfBank">
+                  <Input placeholder="Country of bank" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='Account Number' name='accountNumber'>
+                <Form.Item label="Account Number" name="accountNumber">
                   <Input.Password
-                    placeholder='Account Number'
+                    placeholder="Account Number"
                     readOnly={!isEdit}
                   />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='Swift Bic' name='swiftBic'>
-                  <Input.Password placeholder='Swift Bic' readOnly={!isEdit} />
+                <Form.Item label="Swift Bic" name="swiftBic">
+                  <Input.Password placeholder="Swift Bic" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='IFSC' name='ifsc'>
-                  <Input placeholder='IFSC' readOnly={!isEdit} />
+                <Form.Item label="IFSC" name="ifsc">
+                  <Input placeholder="IFSC" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
             </AppRowContainer>
@@ -103,13 +103,13 @@ const Accounting = ({ settings, onUpdateSettings }: Props) => {
           <StyledShadowWrapper>
             <AppRowContainer>
               <Col xs={24} md={12}>
-                <Form.Item label='Tax ID' name='taxId'>
-                  <Input placeholder='Tax ID' readOnly={!isEdit} />
+                <Form.Item label="Tax ID" name="taxId">
+                  <Input placeholder="Tax ID" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='VAT ID' name='vatId'>
-                  <Input placeholder='VAT ID' readOnly={!isEdit} />
+                <Form.Item label="VAT ID" name="vatId">
+                  <Input placeholder="VAT ID" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
             </AppRowContainer>
@@ -119,10 +119,10 @@ const Accounting = ({ settings, onUpdateSettings }: Props) => {
       {isEdit && (
         <Space
           size={15}
-          style={{ display: 'flex', marginTop: 12, justifyContent: 'flex-end' }}
+          style={{ display: "flex", marginTop: 12, justifyContent: "flex-end" }}
         >
           <Button onClick={() => setIsEdit(false)}>Cancel</Button>
-          <Button type='primary' htmlType='submit'>
+          <Button type="primary" htmlType="submit">
             Save
           </Button>
         </Space>

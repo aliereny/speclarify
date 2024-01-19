@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Col, Form, Input } from 'antd';
+import { Form, Col, Input, Button } from 'antd';
 import AppRowContainer from '@crema/components/AppRowContainer';
 import { useDropzone } from 'react-dropzone';
 import { useAuthUser } from '@crema/hooks/AuthHooks';
@@ -51,8 +51,8 @@ const PersonalInfo = () => {
           <StyledInfoUploadBtnView>
             <div {...getRootProps({ className: 'dropzone' })}>
               <input {...getInputProps()} />
-              <label htmlFor='icon-button-file'>
-                <Button type='primary'>Upload</Button>
+              <label htmlFor="icon-button-file">
+                <Button type="primary">Upload</Button>
               </label>
             </div>
             <Button onClick={onReset}>Reset</Button>
@@ -63,48 +63,48 @@ const PersonalInfo = () => {
       <AppRowContainer gutter={16}>
         <Col xs={24} md={12}>
           <Form.Item
-            name='displayName'
+            name="displayName"
             rules={[
               { required: true, message: 'Please input your Full Name!' },
             ]}
           >
-            <Input placeholder='Full Name' />
+            <Input placeholder="Full Name" />
           </Form.Item>
         </Col>
         <Col xs={24} md={12}>
           <Form.Item
-            name='username'
+            name="username"
             rules={[
               { required: true, message: 'Please input your User Name!' },
             ]}
           >
-            <Input placeholder='User Name' />
+            <Input placeholder="User Name" />
           </Form.Item>
         </Col>
         <Col xs={24} md={12}>
           <Form.Item
-            name='email'
+            name="email"
             rules={[
               { required: true, message: 'Please input your e-mail address!' },
             ]}
           >
-            <Input type='text' placeholder='E-mail' />
+            <Input type="text" placeholder="E-mail" />
           </Form.Item>
         </Col>
         <Col xs={24} md={12}>
           <Form.Item
-            name='company'
+            name="company"
             rules={[{ required: true, message: 'Please input your company!' }]}
           >
-            <Input type='text' placeholder='Company' />
+            <Input type="text" placeholder="Company" />
           </Form.Item>
         </Col>
         <Col xs={24} md={24}>
           <StyledUserProfileGroupBtn
             shouldUpdate
-            className='user-profile-group-btn'
+            className="user-profile-group-btn"
           >
-            <Button type='primary' htmlType='submit'>
+            <Button type="primary" htmlType="submit">
               Save Changes
             </Button>
             <Button>Cancel</Button>

@@ -8,7 +8,7 @@ import { StyledTodoViewSelect } from '../index.styled';
 type ViewSelectButtonsProps = {
   onChangePageView: (str: string) => void;
   pageView: string;
-};
+}
 
 const ViewSelectButtons: React.FC<ViewSelectButtonsProps> = ({
   pageView,

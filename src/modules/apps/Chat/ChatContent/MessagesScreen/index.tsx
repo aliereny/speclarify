@@ -19,6 +19,7 @@ import {
   ChatApiResponseType,
   ConnectionObjType,
   MessageDataObjType,
+  MessageObjType,
   MessageType,
 } from '@crema/types/models/apps/Chat';
 
@@ -120,6 +121,7 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
         message: data,
       })
         .then((data) => {
+
           setData(data?.userMessages);
           setConnectionData(data?.connectionData);
           infoViewActionsContext.showMessage('Message Added Successfully!');
@@ -153,6 +155,7 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
       },
     )
       .then((data) => {
+
         setData(data?.userMessages);
         setConnectionData(data?.connectionData);
         infoViewActionsContext.showMessage('Message Deleted Successfully!');

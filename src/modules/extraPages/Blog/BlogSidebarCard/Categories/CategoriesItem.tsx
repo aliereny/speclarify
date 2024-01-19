@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyledSecondaryText2, StyledText } from '../RecentPost/index.styled';
+import React from "react";
+import { StyledSecondaryText2, StyledText } from "../RecentPost/index.styled";
 
-import { CategoriesType } from '@crema/types/models/extrapages/Blog';
+import { CategoriesType } from "@crema/types/models/extrapages/Blog";
 
 type Props = {
   categories: CategoriesType;

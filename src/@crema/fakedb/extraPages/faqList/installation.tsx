@@ -1,5 +1,4 @@
 import { GeneralFaq } from './general';
-
 export const installationFaq: GeneralFaq[] = [
   {
     id: 2001,

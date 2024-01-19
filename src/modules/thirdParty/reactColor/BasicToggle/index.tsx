@@ -13,12 +13,12 @@ class BasicToggle extends React.Component {
       this.setState({ pickerVisible: !this.state.pickerVisible });
 
     return (
-      <div className='z-index-20'>
+      <div className="z-index-20">
         <button onClick={onTogglePicker}>Toggle Picker</button>
 
         {this.state.pickerVisible && (
           <div style={{ position: 'absolute' }}>
-            <CompactPicker color='#333' onChangeComplete={handleColorChange} />
+            <CompactPicker color="#333" onChangeComplete={handleColorChange} />
           </div>
         )}
       </div>

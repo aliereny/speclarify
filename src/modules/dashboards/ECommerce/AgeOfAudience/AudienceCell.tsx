@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import {
   StyledDot,
   StyledFlexWrapper,
   StyledTitle4,
   StyledTitle5,
-} from './index.styled';
-import { AgeOfAudienceType } from '@crema/types/models/dashboards/Ecommerce';
+} from "./index.styled";
+import { AgeOfAudienceType } from "@crema/types/models/dashboards/Ecommerce";
 
 type Props = {
   audience: AgeOfAudienceType;
@@ -13,7 +13,7 @@ type Props = {
 
 const AudienceCell = ({ audience }: Props) => {
   return (
-    <StyledFlexWrapper className='item-hover'>
+    <StyledFlexWrapper className="item-hover">
       <StyledDot
         style={{
           backgroundColor: audience.color,

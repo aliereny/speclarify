@@ -1,16 +1,16 @@
 import React from 'react';
 import StatGraphs from './StatGraphs';
-import {Button} from 'antd';
+import { Button } from 'antd';
 /*import {green, red} from '@ant-design/colors';*/
 import {
-    StyledAnaStateCard,
-    StyledAnaStateContent,
-    StyledAnaStateGraphs,
-    StyledAnaStateHeader,
-    StyledAnaStateItem,
-    StyledAnaStateRow,
+  StyledAnaStateCard,
+  StyledAnaStateContent,
+  StyledAnaStateGraphs,
+  StyledAnaStateHeader,
+  StyledAnaStateItem,
+  StyledAnaStateRow,
 } from './index.styled';
-import type {RevenueCardsType} from '@crema/types/models/dashboards/Analytics';
+import type { RevenueCardsType } from '@crema/types/models/dashboards/Analytics';
 import Image from 'next/image';
 /*import {LineChart, Line} from 'recharts';
 

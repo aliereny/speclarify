@@ -1,5 +1,4 @@
 import React from 'react';
-import MapView from './MapView';
 import AppRowContainer from '@crema/components/AppRowContainer';
 import { Col, List } from 'antd';
 import { useIntl } from 'react-intl';
@@ -45,9 +44,9 @@ const SiteVisitors: React.FC<SiteVisitorsProps> = ({ siteVisitorsData }) => {
             renderItem={(data) => <CountryCell key={data.id} data={data} />}
           />
         </Col>
-        <Col xs={24} md={10} xl={10} xxl={12}>
-          <MapView />
-        </Col>
+        {/*<Col xs={24} md={10} xl={10} xxl={12}>*/}
+        {/*  <MapView />*/}
+        {/*</Col>*/}
         <Col xs={24} md={7} xl={7} xxl={6}>
           <StyledSiteVisitorTitle>
             {messages['eCommerce.countries'] as string}

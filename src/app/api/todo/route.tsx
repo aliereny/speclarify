@@ -6,7 +6,7 @@ import { TodoObjType } from '@crema/types/models/apps/Todo';
 
 let todoData = todoList;
 
-export const onGetTaskList = (name: string, data: TodoObjType[]) => {
+const onGetTaskList = (name: string, data: TodoObjType[]) => {
   switch (name) {
     case 'all': {
       return data.filter((task) => task.folderValue !== 126);

@@ -46,8 +46,8 @@ const TimelineItem = (props: Props) => {
           {data.link && (
             <StyledTimelineLink
               href={data.link.url}
-              target='_blank'
-              rel='noopener noreferrer'
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {data.link.text}
             </StyledTimelineLink>

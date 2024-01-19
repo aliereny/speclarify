@@ -1,14 +1,14 @@
-import React from 'react';
-import { green, red } from '@ant-design/colors';
+import React from "react";
+import { green, red } from "@ant-design/colors";
 import {
   StyledCoinStatsAvatar,
   StyledCoinStatsCard,
   StyledCoinStatsContent,
   StyledCoinStatsContentAvatar,
   StyledCoinStatsRow,
-} from './index.styled';
+} from "./index.styled";
 
-import type { CoinDataType } from '@crema/types/models/dashboards/Crypto';
+import type { CoinDataType } from "@crema/types/models/dashboards/Crypto";
 
 type CoinStatsProps = {
   icon: string;
@@ -24,7 +24,7 @@ const CoinStats: React.FC<CoinStatsProps> = ({
   heading,
 }) => {
   return (
-    <StyledCoinStatsCard className='card-hover'>
+    <StyledCoinStatsCard className="card-hover">
       <StyledCoinStatsRow>
         <StyledCoinStatsAvatar
           src={icon}

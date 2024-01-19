@@ -88,7 +88,7 @@ const data = [
 
 const SalesChart = () => {
   return (
-    <ResponsiveContainer width='100%' height={250}>
+    <ResponsiveContainer width="100%" height={250}>
       <BarChart
         data={data}
         margin={{
@@ -99,11 +99,11 @@ const SalesChart = () => {
         }}
       >
         <CartesianGrid
-          strokeDasharray='3 1'
+          strokeDasharray="3 1"
           horizontal={true}
           vertical={false}
         />
-        <XAxis dataKey='days' />
+        <XAxis dataKey="days" />
         {/*<YAxis />*/}
         <Tooltip
           labelStyle={{ color: 'black' }}
@@ -113,11 +113,11 @@ const SalesChart = () => {
             background: '#FFFFFFCA',
           }}
         />
-        <Bar stackId='a' dataKey='return' fill='#F04F47' barSize={8} />
+        <Bar stackId="a" dataKey="return" fill="#F04F47" barSize={8} />
         <Bar
-          stackId='a'
-          dataKey='order'
-          fill='#0A8FDC'
+          stackId="a"
+          dataKey="order"
+          fill="#0A8FDC"
           // margin={{ bottom: -15 }}
           barSize={8}
           radius={[20, 20, 0, 0]}

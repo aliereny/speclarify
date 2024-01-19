@@ -23,7 +23,7 @@ const BudgetStatistic = () => {
     >
       <StyledFlex>
         <StyledAppCircularProgress
-          strokeColor='#0A8FDC'
+          strokeColor="#0A8FDC"
           percent={70}
           strokeWidth={5}
           width={170}
@@ -33,12 +33,12 @@ const BudgetStatistic = () => {
                 <FormattedNumber
                   value={1000}
                   maximumFractionDigits={0}
-                  style='currency'
-                  currency='USD'
+                  style="currency"
+                  currency="USD"
                 />
               </StyledTitle>
               <StyledSecondary>
-                <IntlMessages id='dashboard.eCommerce.totalBudget' />
+                <IntlMessages id="dashboard.eCommerce.totalBudget" />
               </StyledSecondary>
             </StyledSecondaryText>
           )}
@@ -47,20 +47,20 @@ const BudgetStatistic = () => {
       <div style={{ paddingBottom: 12, paddingTop: 24, margin: 'auto' }}>
         <StyledFooterWrapper>
           <StyledFooterAction>
-            <StyledSuccess className='footer-dot' />
-            <span className='footer-title'>
-              <IntlMessages id='dashboard.eCommerce.completed' />
+            <StyledSuccess className="footer-dot" />
+            <span className="footer-title">
+              <IntlMessages id="dashboard.eCommerce.completed" />
             </span>
           </StyledFooterAction>
           <StyledFooterAction>
             <div
-              className='footer-dot'
+              className="footer-dot"
               style={{
                 backgroundColor: grey[3],
               }}
             />
-            <span className='footer-title'>
-              <IntlMessages id='dashboard.eCommerce.remaining' />
+            <span className="footer-title">
+              <IntlMessages id="dashboard.eCommerce.remaining" />
             </span>
           </StyledFooterAction>
         </StyledFooterWrapper>

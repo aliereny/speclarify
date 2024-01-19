@@ -18,9 +18,10 @@ import {
 type AddNewListProps = {
   onAdd: (listName: string) => void;
   onCancel: () => void;
-};
+}
 
 const AddNewList: React.FC<AddNewListProps> = ({ onAdd, onCancel }) => {
+
   const [listName, setListName] = useState('');
 
   const onClickAddButton = () => {

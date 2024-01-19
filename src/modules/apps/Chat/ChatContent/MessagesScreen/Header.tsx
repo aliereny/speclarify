@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import IntlMessages from '@crema/helpers/IntlMessages';
-import ConfirmationModal from '@crema/components/AppConfirmationModal';
-import { MoreOutlined } from '@ant-design/icons';
-import AppsStarredIcon from '@crema/components/AppsStarredIcon';
-import { Dropdown } from 'antd';
-import UserInfo from '../../ChatSideBar/UserInfo';
-import AppIconButton from '@crema/components/AppIconButton';
-import { MdOutlinePhone } from 'react-icons/md';
-import { BiVideo } from 'react-icons/bi';
-import { StyledChatHeader, StyledChatHeaderAction } from '../index.styled';
-import { ConnectionObjType } from '@crema/types/models/apps/Chat';
+import React, { useState } from "react";
+import IntlMessages from "@crema/helpers/IntlMessages";
+import ConfirmationModal from "@crema/components/AppConfirmationModal";
+import { MoreOutlined } from "@ant-design/icons";
+import AppsStarredIcon from "@crema/components/AppsStarredIcon";
+import { Dropdown } from "antd";
+import UserInfo from "../../ChatSideBar/UserInfo";
+import AppIconButton from "@crema/components/AppIconButton";
+import { MdOutlinePhone } from "react-icons/md";
+import { BiVideo } from "react-icons/bi";
+import { StyledChatHeader, StyledChatHeaderAction } from "../index.styled";
+import { ConnectionObjType } from "@crema/types/models/apps/Chat";
 
 type HeaderProps = {
   selectedUser: ConnectionObjType;
@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({
       key: 1,
       label: (
         <span onClick={toggleDeleteModal}>
-          <IntlMessages id='chatApp.deleteConversation' />
+          <IntlMessages id="chatApp.deleteConversation" />
         </span>
       ),
     },
@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({
       key: 2,
       label: (
         <span onClick={clearChatHistory}>
-          <IntlMessages id='chatApp.clearChat' />
+          <IntlMessages id="chatApp.clearChat" />
         </span>
       ),
     },
@@ -58,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({
       key: 3,
       label: (
         <span>
-          <IntlMessages id='chatApp.hide' />
+          <IntlMessages id="chatApp.hide" />
         </span>
       ),
     },
@@ -69,12 +69,12 @@ const Header: React.FC<HeaderProps> = ({
       <UserInfo user={selectedUser} showStatus={true} />
       <StyledChatHeaderAction>
         <AppIconButton
-          title={<IntlMessages id='common.call' />}
+          title={<IntlMessages id="common.call" />}
           icon={<MdOutlinePhone />}
         />
 
         <AppIconButton
-          title={<IntlMessages id='common.videoCall' />}
+          title={<IntlMessages id="common.videoCall" />}
           icon={<BiVideo />}
         />
 
@@ -83,9 +83,9 @@ const Header: React.FC<HeaderProps> = ({
           onChange={onChangeStarred}
         />
 
-        <Dropdown menu={{ items }} trigger={['click']}>
+        <Dropdown menu={{ items }} trigger={["click"]}>
           <AppIconButton
-            title={<IntlMessages id='common.more' />}
+            title={<IntlMessages id="common.more" />}
             icon={<MoreOutlined />}
           />
         </Dropdown>
@@ -96,7 +96,7 @@ const Header: React.FC<HeaderProps> = ({
           open={isDeleteModalOpen}
           onDeny={setDeleteModalOpen}
           onConfirm={onDeleteConversation}
-          modalTitle={<IntlMessages id='chatApp.deleteContent' />}
+          modalTitle={<IntlMessages id="chatApp.deleteContent" />}
         />
       ) : null}
     </StyledChatHeader>

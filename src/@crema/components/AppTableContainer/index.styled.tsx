@@ -1,6 +1,6 @@
-import { rgba } from 'polished';
+import {rgba} from 'polished';
 import styled from 'styled-components';
-import { Table } from 'antd';
+import {Table} from 'antd';
 
 export const StyledQueueAnim = styled(Table)`
   min-height: 0.01%;
@@ -20,7 +20,7 @@ export const StyledQueueAnim = styled(Table)`
       width: 100%;
       overflow-y: hidden;
       -ms-overflow-style: -ms-autohiding-scrollbar;
-      border: 1px solid ${({ theme }) => theme.palette.borderColor};
+      border: 1px solid ${({theme}) => theme.palette.borderColor};
     }
   }
 
@@ -32,8 +32,7 @@ export const StyledQueueAnim = styled(Table)`
       &:hover {
         transform: translateY(-2px);
         box-shadow: 0 3px 10px 0 ${() => rgba('black', 0.2)};
-        background-color: ${({ theme }) =>
-          rgba(theme.palette.primary.main, 0.1)};
+        background-color: ${({theme}) => rgba(theme.palette.primary.main, 0.1)};
       }
     }
 

@@ -9,19 +9,19 @@ import { GithubOutlined, TwitterOutlined } from '@ant-design/icons';
 import Image from 'next/image';
 import AppPageMeta from '@crema/components/AppPageMeta';
 import {
-  StyledUserCard,
-  StyledUserCardFooter,
-  StyledUserCardFooterAction,
-  StyledUserCardFooterLink,
-  StyledUserCardHeader,
-  StyledUserCardLogo,
-  StyledUserContainer,
-  StyledUserFieldAction,
-  StyledUserFieldActionLink,
   StyledUserForm,
   StyledUserFormBtn,
   StyledUserPages,
+  StyledUserContainer,
+  StyledUserCard,
+  StyledUserCardHeader,
+  StyledUserCardLogo,
+  StyledUserFieldAction,
+  StyledUserFieldActionLink,
+  StyledUserCardFooterAction,
   StyledUserSocialLink,
+  StyledUserCardFooter,
+  StyledUserCardFooterLink,
 } from '../index.styled';
 
 const onFinish = (values: any) => {

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Fonts } from '@crema/constants/AppEnums';
-import { StyledCurrencyWrapper, StyledInput } from './index.styled';
+import React from "react";
+import { Fonts } from "@crema/constants/AppEnums";
+import { StyledCurrencyWrapper, StyledInput } from "./index.styled";
 
 type Props = {
   value: number;
@@ -19,8 +19,8 @@ const CurrencyField = ({
   const [active, setActive] = React.useState(false);
 
   return (
-    <StyledCurrencyWrapper className={active ? 'active' : ''}>
-      <p className='label'>Amount ({shortName})</p>
+    <StyledCurrencyWrapper className={active ? "active" : ""}>
+      <p className="label">Amount ({shortName})</p>
       <StyledInput
         value={value}
         bordered={false}
@@ -29,7 +29,7 @@ const CurrencyField = ({
         onBlur={() => setActive(false)}
         addonBefore={
           hideUSD ? (
-            ''
+            ""
           ) : (
             <span
               style={{

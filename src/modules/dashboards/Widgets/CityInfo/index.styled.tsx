@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Slider from 'react-slick';
-import { rgba } from 'polished';
+import {rgba} from 'polished';
 
 export const StyledCityInfoSlider = styled(Slider)`
   position: relative;
@@ -29,7 +29,7 @@ export const StyledCityInfoSlider = styled(Slider)`
     width: 10px;
     height: 10px;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
       width: 14px;
       height: 14px;
     }
@@ -37,22 +37,22 @@ export const StyledCityInfoSlider = styled(Slider)`
 
   & .slick-dots li button:before {
     color: transparent;
-    border: ${({ theme }) => theme.sizes.borderRadius.base} 2px white;
+    border: ${({theme}) => theme.sizes.borderRadius.base} 2px white;
     opacity: 1;
-    border-radius: ${({ theme }) => theme.sizes.borderRadius.circle};
+    border-radius: ${({theme}) => theme.sizes.borderRadius.circle};
     width: 10px;
     height: 10px;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
       width: 14px;
       height: 14px;
     }
   }
 
   & .slick-dots li.slick-active button:before {
-    background-color: ${({ theme }) => theme.palette.primary.main};
-    border-color: ${({ theme }) => theme.palette.primary.main};
-    color: ${({ theme }) => theme.palette.primary.main};
+    background-color: ${({theme}) => theme.palette.primary.main};
+    border-color: ${({theme}) => theme.palette.primary.main};
+    color: ${({theme}) => theme.palette.primary.main};
     font-size: 0;
   }
 
@@ -93,7 +93,7 @@ export const StyledCityInfoImg = styled.img`
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  border-radius: ${({ theme }) => theme.cardRadius};
+  border-radius: ${({theme}) => theme.cardRadius};
 
   [dir='rtl'] & {
     left: auto;
@@ -103,12 +103,12 @@ export const StyledCityInfoImg = styled.img`
 export const StyledCityInfoImgContent = styled.div`
   width: 100%;
   height: 100%;
-  color: ${({ theme }) => theme.palette.primary.contrastText};
+  color: ${({theme}) => theme.palette.primary.contrastText};
   padding: 20px 20px 60px;
   display: flex;
   flex-direction: column;
   position: relative;
-  border-radius: ${({ theme }) => theme.cardRadius};
+  border-radius: ${({theme}) => theme.cardRadius};
 
   &:before {
     content: '';
@@ -119,7 +119,7 @@ export const StyledCityInfoImgContent = styled.div`
     width: 100%;
     height: 100%;
     display: block;
-    background-color: ${({ theme }) => rgba(theme.palette.tooltipBg, 0.45)};
+    background-color: ${({theme}) => rgba(theme.palette.tooltipBg, 0.45)};
     border-radius: inherit;
   }
 
@@ -130,9 +130,9 @@ export const StyledCityInfoImgContent = styled.div`
 
   & h3 {
     margin-bottom: 16px;
-    font-size: ${({ theme }) => theme.font.size.lg};
-    font-weight: ${({ theme }) => theme.font.weight.bold};
-    color: ${({ theme }) => theme.palette.primary.contrastText};
+    font-size: ${({theme}) => theme.font.size.lg};
+    font-weight: ${({theme}) => theme.font.weight.bold};
+    color: ${({theme}) => theme.palette.primary.contrastText};
   }
 `;
 

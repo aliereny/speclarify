@@ -23,7 +23,6 @@ interface AppsContainerProps {
   children: ReactNode;
   cardStyle?: CSSProperties;
 }
-
 const AppsContainer: React.FC<AppsContainerProps> = ({
   title = '',
   noContentAnimation = false,

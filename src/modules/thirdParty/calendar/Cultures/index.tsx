@@ -38,11 +38,11 @@ const Cultures = () => {
   const rtl = culture === 'ar-AE';
 
   return (
-    <AppCalendarWrapper className='cr-app-cul-calendar'>
+    <AppCalendarWrapper className="cr-app-cul-calendar">
       <h3>
         <label>Select a Culture</label>
         <select
-          className='cr-app-calendar-select'
+          className="cr-app-calendar-select"
           style={{ width: 200, display: 'inline-block' }}
           defaultValue={'fr'}
           onChange={(e) => setCulture(e.target.value)}

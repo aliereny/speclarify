@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import AddNewTag from './AddNewTag';
-import AppCard from '@crema/components/AppCard';
-import { useIntl } from 'react-intl';
-import { CloseOutlined } from '@ant-design/icons';
-import { blue, cyan, green, orange, red } from '@ant-design/colors';
+import React, { useState } from "react";
+import AddNewTag from "./AddNewTag";
+import AppCard from "@crema/components/AppCard";
+import { useIntl } from "react-intl";
+import { CloseOutlined } from "@ant-design/icons";
+import { blue, cyan, green, orange, red } from "@ant-design/colors";
 import {
   StyledAddTagsContent,
   StyledAddTagsRow,
   StyledTagBadge,
   StyledTagBadgeButton,
-} from './index.styled';
-import type { TagsListType } from '@crema/types/models/dashboards/Widgets';
-import { generateRandomUniqueNumber } from '@crema/helpers/Common';
+} from "./index.styled";
+import type { TagsListType } from "@crema/types/models/dashboards/Widgets";
+import { generateRandomUniqueNumber } from "@crema/helpers/Common";
 
 const colorList = [
   { id: 9001, color: blue[6] },
@@ -31,7 +31,7 @@ const AddTags: React.FC<AddTagsPorps> = ({ data }) => {
 
   const handleDelete = (tagToDelete: TagsListType) => () => {
     setTags((tags) => tags.filter((tag) => tag.id !== tagToDelete.id));
-    console.log('Deleted');
+    console.log("Deleted");
   };
 
   const onAddNewTag = (newTag: string) => {
@@ -46,7 +46,7 @@ const AddTags: React.FC<AddTagsPorps> = ({ data }) => {
   const { messages } = useIntl();
 
   return (
-    <AppCard heightFull title={messages['dashboard.addTags'] as string}>
+    <AppCard heightFull title={messages["dashboard.addTags"] as string}>
       <StyledAddTagsContent>
         <StyledAddTagsRow>
           {tags.map((item) => {

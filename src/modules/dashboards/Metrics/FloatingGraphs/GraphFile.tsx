@@ -1,11 +1,11 @@
 import React from 'react';
-import { Area, AreaChart, ResponsiveContainer, Tooltip } from 'recharts';
+import {Area, AreaChart, ResponsiveContainer, Tooltip} from 'recharts';
 
 type GraphFileProps = {
-  data: { number: string; value: number }[];
+  data: {number: string; value: number}[];
   strokeColor: string;
   areaColor: string;
-};
+}
 
 const GraphFile: React.FC<GraphFileProps> = ({
   data,
@@ -14,8 +14,8 @@ const GraphFile: React.FC<GraphFileProps> = ({
 }) => {
   return (
     <ResponsiveContainer width='100%' height={140}>
-      <AreaChart data={data} margin={{ top: 20, right: 0, left: 0, bottom: 0 }}>
-        <Tooltip labelStyle={{ color: 'black' }} />
+      <AreaChart data={data} margin={{top: 20, right: 0, left: 0, bottom: 0}}>
+        <Tooltip labelStyle={{color: 'black'}} />
         <defs>
           <linearGradient id='color15' x1='0' y1='0' x2='0' y2='1'>
             <stop offset='5%' stopColor={areaColor} stopOpacity={0.8} />

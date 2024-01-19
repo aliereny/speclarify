@@ -1,6 +1,6 @@
-import { Col } from 'antd';
-import { rgba } from 'polished';
-import styled from 'styled-components';
+import { Col } from "antd";
+import { rgba } from "polished";
+import styled from "styled-components";
 
 export const StyledCol1 = styled(Col)`
   z-index: 2;
@@ -108,7 +108,7 @@ export const StyledBlogDetailHeaderWrapper = styled.div`
   padding: 20px;
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;

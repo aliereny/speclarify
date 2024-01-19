@@ -1,15 +1,16 @@
-import React from 'react';
-import SenderMessageItem from './SenderMessageItem';
-import ReceiverMessageItem from './ReceiverMessageItem';
-import AppList from '@crema/components/AppList';
-import { StyledChatMsgList } from './MessageItem.style';
+import React from "react";
+import SenderMessageItem from "./SenderMessageItem";
+import ReceiverMessageItem from "./ReceiverMessageItem";
+import AppList from "@crema/components/AppList";
+import { AppAnimates } from "@crema/constants/AppEnums";
+import { StyledChatMsgList } from "./MessageItem.style";
 import {
   ConnectionObjType,
   MessageDataObjType,
   MessageObjType,
-} from '@crema/types/models/apps/Chat';
-import { AuthUserType } from '@crema/types/models/AuthUser';
-import ListEmptyResult from '@crema/components/AppList/ListEmptyResult';
+} from "@crema/types/models/apps/Chat";
+import { AuthUserType } from "@crema/types/models/AuthUser";
+import ListEmptyResult from "@crema/components/AppList/ListEmptyResult";
 
 type MessagesListProps = {
   userMessages: MessageObjType;
@@ -31,7 +32,7 @@ const MessagesList: React.FC<MessagesListProps> = ({
     <StyledChatMsgList>
       <AppList
         data={userMessages.messageData}
-        ListEmptyComponent={<ListEmptyResult title='test' />}
+        ListEmptyComponent={<ListEmptyResult title="test" />}
         renderItem={(item, index) => {
           if (item.sender === authUser.id) {
             return (

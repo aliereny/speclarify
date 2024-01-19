@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyledTaskListItem } from './index.styled';
-import type { TaskListDataType } from '@crema/types/models/dashboards/Widgets';
+import React from "react";
+import { StyledTaskListItem } from "./index.styled";
+import type { TaskListDataType } from "@crema/types/models/dashboards/Widgets";
 
 type TaskItemPorps = {
   item: TaskListDataType;
@@ -8,7 +8,7 @@ type TaskItemPorps = {
 
 const TaskItem: React.FC<TaskItemPorps> = ({ item }) => {
   return (
-    <StyledTaskListItem key={item.id} className='item-hover'>
+    <StyledTaskListItem key={item.id} className="item-hover">
       <h3>{item.title}</h3>
       <p>{item.desc}</p>
     </StyledTaskListItem>

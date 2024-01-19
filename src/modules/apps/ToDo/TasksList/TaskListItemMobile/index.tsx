@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import Priority from './Priority';
 import AppsStarredIcon from '@crema/components/AppsStarredIcon';
 import dayjs from 'dayjs';
 import { CheckOutlined } from '@ant-design/icons';
@@ -7,9 +8,12 @@ import { useParams, useRouter } from 'next/navigation';
 import {
   StyledTodoListMobileAction,
   StyledTodoListMobileAvatar,
+  StyledTodoListMobileContent,
   StyledTodoListMobileDate,
   StyledTodoListMobileItem,
   StyledTodoListMobileMain,
+  StyledTodoListMobilePriority,
+  StyledTodoListMobileTitle,
   StyledTodoListMobileView,
   StyledTodoListStarMobile,
 } from './index.styled';

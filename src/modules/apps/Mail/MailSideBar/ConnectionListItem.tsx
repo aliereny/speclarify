@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import {
   StyledMailConnectionAvatar,
   StyledMailConnectionContent,
   StyledMailConnectionListItem,
   StyledMailConnectionTitle,
-} from './index.styled';
-import { ConnectionObjType } from '@crema/types/models/apps/Mail';
+} from "./index.styled";
+import { ConnectionObjType } from "@crema/types/models/apps/Mail";
 
 type ConnectionListItemProps = {
   connection: ConnectionObjType;
@@ -17,7 +17,7 @@ const ConnectionListItem: React.FC<ConnectionListItemProps> = ({
   return (
     <>
       <StyledMailConnectionListItem key={connection.id}>
-        <StyledMailConnectionAvatar alt='Remy Sharp' src={connection.image} />
+        <StyledMailConnectionAvatar alt="Remy Sharp" src={connection.image} />
         <StyledMailConnectionContent>
           <StyledMailConnectionTitle>
             {connection.name}

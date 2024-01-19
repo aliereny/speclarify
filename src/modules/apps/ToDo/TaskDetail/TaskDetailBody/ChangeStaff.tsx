@@ -4,7 +4,6 @@ import { useIntl } from 'react-intl';
 import { StyledTodoChStaffAvatar } from '../index.styled';
 import { useGetDataApi } from '@crema/hooks/APIHooks';
 import { StaffObjType } from '@crema/types/models/apps/Todo';
-
 const { Option } = Select;
 
 type ChangeStaffProps = {

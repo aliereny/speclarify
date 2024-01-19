@@ -29,7 +29,7 @@ import {
   StyledTodoDetailTextAreaForm,
   StyledTodoDivider,
 } from '../index.styled';
-import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
+import { useGetDataApi, putDataApi } from '@crema/hooks/APIHooks';
 import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 import CommentsLists from './CommentsList';
 import AssignedStaff from './AssignedStaff';

@@ -1,4 +1,4 @@
-import { Modal } from 'antd';
+import {Modal} from 'antd';
 import styled from 'styled-components';
 
 export const StyledEmbedResponsive = styled.div`
@@ -101,7 +101,7 @@ export const StyledMedialCarousel = styled.div`
 
   & .slick-dots li button:before,
   & .slick-dots li.slick-active button:before {
-    background-color: ${({ theme }) => theme.palette.background.paper};
+    background-color: ${({theme}) => theme.palette.background.paper};
   }
 
   & .slick-next {

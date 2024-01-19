@@ -1,8 +1,8 @@
-import React from 'react';
-import { AiFillHeart } from 'react-icons/ai';
-import Tag from '../Tag';
-import AppCard from '@crema/components/AppCard';
-import { Avatar, Dropdown } from 'antd';
+import React from "react";
+import { AiFillHeart } from "react-icons/ai";
+import Tag from "../Tag";
+import AppCard from "@crema/components/AppCard";
+import { Avatar, Dropdown } from "antd";
 import {
   StyledButton,
   StyledDuration,
@@ -11,10 +11,10 @@ import {
   StyledSecondary,
   StyledTag,
   StyledTitle3,
-} from './index.styled';
-import { FiMoreVertical } from 'react-icons/fi';
-import type { BlogContentType } from '@crema/types/models/extrapages/Blog';
-import Image from 'next/image';
+} from "./index.styled";
+import { FiMoreVertical } from "react-icons/fi";
+import type { BlogContentType } from "@crema/types/models/extrapages/Blog";
+import Image from "next/image";
 
 type Props = {
   blog: BlogContentType;
@@ -25,20 +25,20 @@ const BlogCard = ({ blog, onViewBlogDetail }: Props) => {
   const items = [
     {
       key: 311,
-      label: 'View Blog',
+      label: "View Blog",
     },
     {
       key: 312,
-      label: 'Edit Blog',
+      label: "Edit Blog",
     },
   ];
 
   const onMenuClick = ({ item, key }: { item: any; key: string }) => {
     switch (key) {
-      case '311':
+      case "311":
         onViewBlogDetail(blog);
         break;
-      case '312':
+      case "312":
         onViewBlogDetail(blog, true);
         break;
       default:
@@ -48,21 +48,14 @@ const BlogCard = ({ blog, onViewBlogDetail }: Props) => {
 
   return (
     <AppCard
-      style={{ height: '100%', position: 'relative' }}
-      cover={
-        <Image
-          src={blog.blogDetailContent.cardMedia}
-          alt='Blog'
-          width={375}
-          height={259}
-        />
-      }
+      style={{ height: "100%", position: "relative" }}
+      cover={<Image src={blog.blogDetailContent.cardMedia} alt="Blog" width={375} height={259} />}
     >
       <div
         style={{
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         <StyledDuration>{blog.duration}</StyledDuration>
@@ -76,8 +69,8 @@ const BlogCard = ({ blog, onViewBlogDetail }: Props) => {
         <StyledFlex>
           <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
+              display: "flex",
+              alignItems: "center",
             }}
           >
             <div style={{ marginRight: 8 }}>
@@ -96,10 +89,10 @@ const BlogCard = ({ blog, onViewBlogDetail }: Props) => {
           </StyledFlexIconWrapper>
         </StyledFlex>
       </div>
-      <div style={{ position: 'absolute', top: 10, right: 0, display: 'flex' }}>
+      <div style={{ position: "absolute", top: 10, right: 0, display: "flex" }}>
         <StyledTag>{blog.cardMediaAction}</StyledTag>
-        <Dropdown trigger={['click']} menu={{ items, onClick: onMenuClick }}>
-          <StyledButton shape='circle'>
+        <Dropdown trigger={["click"]} menu={{ items, onClick: onMenuClick }}>
+          <StyledButton shape="circle">
             <FiMoreVertical size={22} />
           </StyledButton>
         </Dropdown>

@@ -1,7 +1,7 @@
-import React from 'react';
-import { Col, Row } from 'antd';
-import PeopleCard from './PeopleCard';
-import type { GitPackageType } from '@crema/types/models/extrapages/Pricing';
+import React from "react";
+import { Col, Row } from "antd";
+import PeopleCard from "./PeopleCard";
+import type { GitPackageType } from "@crema/types/models/extrapages/Pricing";
 
 type Props = {
   data: GitPackageType[];

@@ -38,7 +38,7 @@ export const StyledCalendar = styled(Calendar)`
     background-color: transparent;
   }
   & .rbc-toolbar button {
-    cursor: 'pointer';
+    cursor: pointer;
     color: ${({ theme }) => theme.palette.text.secondary};
     font-size: 100%;
     &:hover,
@@ -71,7 +71,8 @@ export const StyledCalendar = styled(Calendar)`
     color: ${({ theme }) => theme.palette.primary.main};
   }
   & .cr-calendar table {
-    color: #a8aaad & th {
+    color: #a8aaad;
+    & th {
       color: #b1b5b8;
     }
   }

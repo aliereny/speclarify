@@ -1,8 +1,8 @@
-import { Collapse } from 'antd';
-import { darken } from 'polished';
+import {Collapse} from 'antd';
+import {darken} from 'polished';
 import styled from 'styled-components';
 
-const { Panel } = Collapse;
+const {Panel} = Collapse;
 
 export const StyledTrafficCollapse = styled(Collapse)`
   position: relative;
@@ -21,7 +21,7 @@ export const StyledTrafficCollapse = styled(Collapse)`
 
   &.ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content {
     border-top: 1px solid
-      ${({ theme }) => darken(0.02, theme.palette.borderColor)};
+      ${({theme}) => darken(0.02, theme.palette.borderColor)};
   }
 `;
 
@@ -43,11 +43,11 @@ export const StyledTrafficCollapseHeader = styled.div`
 
   & h3 {
     margin-bottom: 0;
-    font-size: ${({ theme }) => theme.font.size.base};
+    font-size: ${({theme}) => theme.font.size.base};
   }
 
   & span {
-    color: ${({ theme }) => theme.palette.text.secondary};
+    color: ${({theme}) => theme.palette.text.secondary};
   }
 `;
 
@@ -56,7 +56,7 @@ export const StyledTrafficCollapsePanel = styled(Panel)`
   border-bottom: 0 none !important;
 
   &.ant-collapse-item-active {
-    background-color: ${({ theme }) =>
+    background-color: ${({theme}) =>
       darken(0.03, theme.palette.background.paper)};
   }
 
@@ -69,13 +69,13 @@ export const StyledTrafficCollapseContent = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  color: ${({ theme }) => theme.palette.text.secondary};
+  color: ${({theme}) => theme.palette.text.secondary};
 `;
 
 export const StyledTrafficCollapseData = styled.span`
-  font-weight: ${({ theme }) => theme.font.weight.light};
+  font-weight: ${({theme}) => theme.font.weight.light};
   margin-right: 8px;
-  color: ${({ theme }) => theme.palette.text.primary};
+  color: ${({theme}) => theme.palette.text.primary};
 
   [dir='rtl'] & {
     margin-right: 0;

@@ -15,6 +15,7 @@ import GainerLooser from './GainerLooser';
 import ATCStatics from './ATCStatics';
 import CardDetails from './CardDetails';
 import QuickTransfer from './QuickTransfer';
+import type { CryptoType } from '@crema/types/models/dashboards/Crypto';
 
 const Crypto = () => {
   const [{ apiData: cryptoData, loading }] =

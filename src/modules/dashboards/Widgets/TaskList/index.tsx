@@ -1,11 +1,11 @@
-import React from 'react';
-import TaskItem from './TaskItem';
-import AppCard from '@crema/components/AppCard';
-import { useIntl } from 'react-intl';
-import { Button, List } from 'antd';
-import { CloseOutlined } from '@ant-design/icons';
-import { StyledTaskListScrollbar } from './index.styled';
-import type { TaskListDataType } from '@crema/types/models/dashboards/Widgets';
+import React from "react";
+import TaskItem from "./TaskItem";
+import AppCard from "@crema/components/AppCard";
+import { useIntl } from "react-intl";
+import { List, Button } from "antd";
+import { CloseOutlined } from "@ant-design/icons";
+import { StyledTaskListScrollbar } from "./index.styled";
+import type { TaskListDataType } from "@crema/types/models/dashboards/Widgets";
 
 type TaskListProps = {
   data: TaskListDataType[];
@@ -16,10 +16,10 @@ const TaskList: React.FC<TaskListProps> = ({ data }) => {
   return (
     <AppCard
       heightFull
-      className='no-card-space-ltr-rtl'
-      title={messages['dashboard.taskList'] as string}
+      className="no-card-space-ltr-rtl"
+      title={messages["dashboard.taskList"] as string}
       extra={
-        <Button className='close-btn'>
+        <Button className="close-btn">
           <CloseOutlined />
         </Button>
       }

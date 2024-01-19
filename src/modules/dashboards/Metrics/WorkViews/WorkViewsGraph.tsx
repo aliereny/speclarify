@@ -1,12 +1,12 @@
 import React from 'react';
-import { Line, LineChart, ResponsiveContainer } from 'recharts';
-import { StyledWorkViewsGraph } from './index.styled';
+import {Line, LineChart, ResponsiveContainer} from 'recharts';
+import {StyledWorkViewsGraph} from './index.styled';
 
 type WorkViewsGraphPorps = {
-  data: { name: string; value: number }[];
-};
+  data: {name: string; value: number}[];
+}
 
-const WorkViewsGraph: React.FC<WorkViewsGraphPorps> = ({ data }) => {
+const WorkViewsGraph: React.FC<WorkViewsGraphPorps> = ({data}) => {
   return (
     <StyledWorkViewsGraph>
       <ResponsiveContainer height={100} width='100%'>

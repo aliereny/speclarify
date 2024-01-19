@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { Grid } from 'antd';
-import AppSidebar from './AppSidebar';
-import AppHeader from './AppHeader';
-import AppContentView from '../../AppContentView';
-import AppThemeSetting from '../../AppThemeSetting';
-import AppFooter from '../components/AppFooter';
-import clsx from 'clsx';
-import { FooterType } from '@crema/constants/AppEnums';
-import { useLayoutContext } from '@crema/context/AppContextProvider/LayoutContextProvider';
+import React, { useEffect, useState } from "react";
+import { Grid } from "antd";
+import AppSidebar from "./AppSidebar";
+import AppHeader from "./AppHeader";
+import AppContentView from "../../AppContentView";
+import AppThemeSetting from "../../AppThemeSetting";
+import AppFooter from "../components/AppFooter";
+import clsx from "clsx";
+import { FooterType } from "@crema/constants/AppEnums";
+import { useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
 import {
   StyledAppLayoutUserHeader,
   StyledAppLayoutUserHeaderMain,
   StyledUserHeaderMainScrollbar,
-} from './index.styled';
-import { RouterConfigData } from '@crema/types/models/Apps';
-import { isEmpty } from '@crema/helpers/Common';
+} from "./index.styled";
+import { RouterConfigData } from "@crema/types/models/Apps";
+import { isEmpty } from "@crema/helpers/Common";
 
 const { useBreakpoint } = Grid;
 
@@ -49,7 +49,7 @@ const UserHeader: React.FC<Props> = ({ children, routesConfig }) => {
       })}
     >
       <AppSidebar isCollapsed={isCollapsed} routesConfig={routesConfig} />
-      <StyledAppLayoutUserHeaderMain className='app-layout-userHeader-main'>
+      <StyledAppLayoutUserHeaderMain className="app-layout-userHeader-main">
         <AppHeader
           isCollapsed={isCollapsed}
           onToggleSidebar={onToggleSidebar}

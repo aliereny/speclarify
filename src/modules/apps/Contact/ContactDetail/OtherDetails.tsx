@@ -1,7 +1,6 @@
-import React from 'react';
-import IntlMessages from '@crema/helpers/IntlMessages';
+import React from "react";
+import IntlMessages from "@crema/helpers/IntlMessages";
 import {
-  StyleAiOutlineHomeIcon,
   StyledContactDetailModalItem,
   StyledContactDetailModalItemContent,
   StyledContactDetailModalItemTitle,
@@ -9,9 +8,10 @@ import {
   StyledOtherDetailItem,
   StyledOtherDetailItemContent,
   StyleFiTwitterIcon,
+  StyleAiOutlineHomeIcon,
   StyleRiFoldersLineIcon,
-} from './index.styled';
-import { ContactObjType } from '@crema/types/models/apps/Contact';
+} from "./index.styled";
+import { ContactObjType } from "@crema/types/models/apps/Contact";
 
 type OtherDetailsProps = {
   contact: ContactObjType | null;
@@ -21,7 +21,7 @@ const OtherDetails: React.FC<OtherDetailsProps> = ({ contact }) => {
   return (
     <StyledContactDetailModalItem>
       <StyledContactDetailModalItemTitle>
-        <IntlMessages id='common.otherDetails' />
+        <IntlMessages id="common.otherDetails" />
       </StyledContactDetailModalItemTitle>
 
       <StyledContactDetailModalItemContent>
@@ -31,7 +31,7 @@ const OtherDetails: React.FC<OtherDetailsProps> = ({ contact }) => {
             {contact!.company ? (
               contact!.company
             ) : (
-              <IntlMessages id='common.na' />
+              <IntlMessages id="common.na" />
             )}
           </StyledOtherDetailItemContent>
         </StyledOtherDetailItem>
@@ -42,7 +42,7 @@ const OtherDetails: React.FC<OtherDetailsProps> = ({ contact }) => {
             {contact!.address ? (
               contact!.address
             ) : (
-              <IntlMessages id='common.na' />
+              <IntlMessages id="common.na" />
             )}
           </StyledOtherDetailItemContent>
         </StyledOtherDetailItem>
@@ -52,7 +52,7 @@ const OtherDetails: React.FC<OtherDetailsProps> = ({ contact }) => {
             {contact!.facebookId ? (
               contact!.facebookId
             ) : (
-              <IntlMessages id='common.na' />
+              <IntlMessages id="common.na" />
             )}
           </StyledOtherDetailItemContent>
         </StyledOtherDetailItem>
@@ -63,7 +63,7 @@ const OtherDetails: React.FC<OtherDetailsProps> = ({ contact }) => {
             {contact!.twitterId ? (
               contact!.twitterId
             ) : (
-              <IntlMessages id='common.na' />
+              <IntlMessages id="common.na" />
             )}
           </StyledOtherDetailItemContent>
         </StyledOtherDetailItem>

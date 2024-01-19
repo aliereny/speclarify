@@ -30,7 +30,7 @@ const AddNewTag: React.FC<AddNewTagProps> = ({ onAddNewTag }) => {
     <>
       {isAddNewTag ? (
         <StyledAddNewTagRow>
-          <div className='tag-form-field'>
+          <div className="tag-form-field">
             <Input
               placeholder={messages['common.tag'] as string}
               value={newTag}
@@ -38,18 +38,18 @@ const AddNewTag: React.FC<AddNewTagProps> = ({ onAddNewTag }) => {
             />
           </div>
           <StyledTagCheck>
-            <CheckOutlined onClick={onAddTag} className='pointer' />
+            <CheckOutlined onClick={onAddTag} className="pointer" />
           </StyledTagCheck>
           <StyledTagClose>
             <CloseOutlined
               onClick={() => setAddNewTag(false)}
-              className='pointer'
+              className="pointer"
             />
           </StyledTagClose>
         </StyledAddNewTagRow>
       ) : (
         <StyledAddNewTagLink onClick={() => setAddNewTag(true)}>
-          <IntlMessages id='dashboard.addNewTag' />
+          <IntlMessages id="dashboard.addNewTag" />
         </StyledAddNewTagLink>
       )}
     </>

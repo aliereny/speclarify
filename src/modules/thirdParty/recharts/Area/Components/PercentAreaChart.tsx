@@ -46,36 +46,36 @@ const toPercent = (decimal: number, fixed = 0) => {
 //   );
 // };
 const PercentAreaChart = () => (
-  <ResponsiveContainer width='100%' height={200}>
+  <ResponsiveContainer width="100%" height={200}>
     <AreaChart
       data={data}
-      stackOffset='expand'
+      stackOffset="expand"
       margin={{ top: 10, right: 0, left: -25, bottom: 0 }}
     >
-      <XAxis dataKey='month' />
+      <XAxis dataKey="month" />
       <YAxis tickFormatter={toPercent} />
-      <CartesianGrid strokeDasharray='3 3' />
+      <CartesianGrid strokeDasharray="3 3" />
       <Tooltip />
       <Area
-        type='monotone'
-        dataKey='a'
-        stackId='1'
-        stroke='#4299E1'
-        fill='#4299E1'
+        type="monotone"
+        dataKey="a"
+        stackId="1"
+        stroke="#4299E1"
+        fill="#4299E1"
       />
       <Area
-        type='monotone'
-        dataKey='b'
-        stackId='1'
-        stroke='#59AA2B'
-        fill='#59AA2B'
+        type="monotone"
+        dataKey="b"
+        stackId="1"
+        stroke="#59AA2B"
+        fill="#59AA2B"
       />
       <Area
-        type='monotone'
-        dataKey='c'
-        stackId='1'
-        stroke='#F04F47'
-        fill='#F04F47'
+        type="monotone"
+        dataKey="c"
+        stackId="1"
+        stroke="#F04F47"
+        fill="#F04F47"
       />
     </AreaChart>
   </ResponsiveContainer>

@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import AppSidebar from './AppSidebar';
-import AppHeader from './AppHeader';
-import AppContentView from '../../AppContentView';
-import AppThemeSetting from '../../AppThemeSetting';
-import AppFooter from '../components/AppFooter';
-import clsx from 'clsx';
-import { FooterType } from '@crema/constants/AppEnums';
-import { useLayoutContext } from '@crema/context/AppContextProvider/LayoutContextProvider';
+import React, { useState } from "react";
+import AppSidebar from "./AppSidebar";
+import AppHeader from "./AppHeader";
+import AppContentView from "../../AppContentView";
+import AppThemeSetting from "../../AppThemeSetting";
+import AppFooter from "../components/AppFooter";
+import clsx from "clsx";
+import { FooterType } from "@crema/constants/AppEnums";
+import { useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
 import {
   StyledAppLayoutMiniSidebar,
   StyledAppLayoutMiniSidebarMain,
   StyledMainMiniScrollbar,
-} from './index.styled';
-import { RouterConfigData } from '@crema/types/models/Apps';
+} from "./index.styled";
+import { RouterConfigData } from "@crema/types/models/Apps";
 
 type Props = {
   children: React.ReactNode;
@@ -33,7 +33,7 @@ const MiniSidebarToggle: React.FC<Props> = ({ children, routesConfig }) => {
       })}
     >
       <AppSidebar isCollapsed={isCollapsed} routesConfig={routesConfig} />
-      <StyledAppLayoutMiniSidebarMain className='app-layout-mini-sidebar-main'>
+      <StyledAppLayoutMiniSidebarMain className="app-layout-mini-sidebar-main">
         <AppHeader
           isCollapsed={isCollapsed}
           onToggleSidebar={onToggleSidebar}

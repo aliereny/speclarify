@@ -1,11 +1,11 @@
-import React from 'react';
-import AppList from '@crema/components/AppList';
-import CommentItem from './CommentItem';
+import React from "react";
+import AppList from "@crema/components/AppList";
+import CommentItem from "./CommentItem";
 import {
   StyledPostCommentList,
   StyledPostCommentListTitle,
-} from '../../index.styled';
-import { CommentObjType } from '@crema/types/models/apps/Wall';
+} from "../../index.styled";
+import { CommentObjType } from "@crema/types/models/apps/Wall";
 
 type CommentsListProps = {
   comments: CommentObjType[];

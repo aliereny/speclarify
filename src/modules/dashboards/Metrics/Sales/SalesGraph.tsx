@@ -1,11 +1,11 @@
 import React from 'react';
-import { Bar, BarChart, ResponsiveContainer } from 'recharts';
+import {Bar, BarChart, ResponsiveContainer} from 'recharts';
 
 type SalesGraphProps = {
-  data: { day: number; number: number }[];
-};
+  data: {day: number; number: number}[];
+}
 
-const SalesGraph: React.FC<SalesGraphProps> = ({ data }) => {
+const SalesGraph: React.FC<SalesGraphProps> = ({data}) => {
   return (
     <ResponsiveContainer width='100%' height={220}>
       <BarChart barSize={13} data={data}>

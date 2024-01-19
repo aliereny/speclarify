@@ -9,10 +9,10 @@ import { useGetDataApi } from '@crema/hooks/APIHooks';
 import { useRouter } from 'next/navigation';
 import { Button } from 'antd';
 import {
-  StyledPlusOutlined,
   StyledSidebarHeader,
-  StyledSidebarList,
+  StyledPlusOutlined,
   StyledSidebarScrollbar,
+  StyledSidebarList,
 } from './index.styled';
 
 const TaskSideBar = () => {

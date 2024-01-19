@@ -1,4 +1,4 @@
-import { Button, Card, Form } from 'antd';
+import {Button, Card, Form} from 'antd';
 import styled from 'styled-components';
 
 export const StyledAuthWrap = styled.div`
@@ -20,7 +20,7 @@ export const StyledAuthCard = styled(Card)`
   display: flex;
   flex-direction: column;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
     min-height: 450px;
   }
 
@@ -37,12 +37,12 @@ export const StyledAuthMainContent = styled.div`
   flex-direction: column;
   width: 100%;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
     padding: 20px;
     width: 50%;
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
     width: 40%;
     padding: 40px;
   }
@@ -54,7 +54,7 @@ export const StyledAuthCardHeader = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
     margin-bottom: 36px;
   }
 
@@ -74,12 +74,12 @@ export const StyledAuthWellAction = styled.div`
   position: relative;
   padding: 24px;
   display: none;
-  background-color: ${({ theme }) => theme.palette.gray[900]};
+  background-color: ${({theme}) => theme.palette.gray[900]};
   color: white;
-  font-size: ${({ theme }) => theme.font.size.base};
+  font-size: ${({theme}) => theme.font.size.base};
   width: 100%;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
     padding: 20px;
     display: flex;
     align-items: center;
@@ -88,7 +88,7 @@ export const StyledAuthWellAction = styled.div`
     width: 50%;
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
     width: 60%;
     padding: 40px;
   }
@@ -96,7 +96,7 @@ export const StyledAuthWellAction = styled.div`
   & h2 {
     color: white;
     font-size: 30px;
-    font-weight: ${({ theme }) => theme.font.weight.bold};
+    font-weight: ${({theme}) => theme.font.weight.bold};
   }
 
   & p {
@@ -119,10 +119,10 @@ export const StyledAuthReconContent = styled.div`
 
   & .ant-card-body {
     padding-top: 10px;
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
       padding-top: 28px;
     }
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
       padding-top: 40px;
     }
   }
@@ -130,17 +130,17 @@ export const StyledAuthReconContent = styled.div`
 
 export const StyledConfirmContent = styled.div`
   margin-bottom: 20px;
-  font-size: ${({ theme }) => theme.font.size.base};
+  font-size: ${({theme}) => theme.font.size.base};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
-    font-size: ${({ theme }) => theme.font.size.lg};
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+    font-size: ${({theme}) => theme.font.size.lg};
     margin-bottom: 40px;
   }
 `;
 
 export const StyledConfirmCodeInput = styled.div`
   margin-bottom: 24px;
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
     margin-bottom: 40px;
   }
 
@@ -152,10 +152,10 @@ export const StyledConfirmCodeInput = styled.div`
 `;
 
 export const StyledConfirmBtn = styled(Button)`
-  border-radius: ${({ theme }) => theme.sizes.borderRadius.base};
+  border-radius: ${({theme}) => theme.sizes.borderRadius.base};
   width: 100%;
-  font-weight: ${({ theme }) => theme.font.weight.regular};
-  font-size: ${({ theme }) => theme.font.size.base};
+  font-weight: ${({theme}) => theme.font.weight.regular};
+  font-size: ${({theme}) => theme.font.size.base};
 `;
 
 export const StyledResetForm = styled(Form)`
@@ -166,9 +166,9 @@ export const StyledResetForm = styled(Form)`
 
     & p {
       margin-bottom: 24px;
-      font-size: ${({ theme }) => theme.font.size.base};
-      @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
-        font-size: ${({ theme }) => theme.font.size.lg};
+      font-size: ${({theme}) => theme.font.size.base};
+      @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+        font-size: ${({theme}) => theme.font.size.lg};
       }
     }
   }

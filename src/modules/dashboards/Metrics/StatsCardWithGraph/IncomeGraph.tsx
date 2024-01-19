@@ -1,12 +1,12 @@
 import React from 'react';
-import { Area, AreaChart, ResponsiveContainer, Tooltip } from 'recharts';
-import { StyledStatsGraphPara } from './index.styled';
+import {Area, AreaChart, ResponsiveContainer, Tooltip} from 'recharts';
+import {StyledStatsGraphPara} from './index.styled';
 
 type IncomeGraphProps = {
   data: any[];
-};
+}
 
-const IncomeGraph: React.FC<IncomeGraphProps> = ({ data }) => {
+const IncomeGraph: React.FC<IncomeGraphProps> = ({data}) => {
   return (
     <ResponsiveContainer height={200} width='100%'>
       <AreaChart data={data}>
@@ -23,12 +23,12 @@ const IncomeGraph: React.FC<IncomeGraphProps> = ({ data }) => {
           stroke='#FFA940'
           strokeWidth={3}
           fill='url(#color15)'
-          dot={{ r: 0 }}
+          dot={{r: 0}}
         />
         <Tooltip
-          labelStyle={{ color: 'black' }}
+          labelStyle={{color: 'black'}}
           cursor={false}
-          content={(data: any) => {
+          content={(data:any) => {
             return data.payload[0] ? (
               <StyledStatsGraphPara>
                 {data.payload[0].payload.revenue}

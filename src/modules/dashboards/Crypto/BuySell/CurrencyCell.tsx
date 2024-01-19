@@ -1,7 +1,7 @@
-import React from 'react';
-import { Avatar, Select } from 'antd';
-import { StyledFlex, StyledSecondaryText } from './index.styled';
-import { CoinListType } from '@crema/types/models/dashboards/Crypto';
+import React from "react";
+import { Select, Avatar } from "antd";
+import { StyledFlex, StyledSecondaryText } from "./index.styled";
+import { CoinListType } from "@crema/types/models/dashboards/Crypto";
 
 const CurrencyCell = (coin: CoinListType) => {
   return (

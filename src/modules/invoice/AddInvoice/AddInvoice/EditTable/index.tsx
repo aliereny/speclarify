@@ -1,27 +1,27 @@
-import React from 'react';
-import AppRowContainer from '@crema/components/AppRowContainer';
-import { getFormattedDate } from '@crema/helpers/DateHelper';
-import { formatCurrency } from '@crema/helpers/StringHelper';
-import { currencyList, quantityType, taxRates, taxType } from '../data';
+import React from "react";
+import AppRowContainer from "@crema/components/AppRowContainer";
+import { getFormattedDate } from "@crema/helpers/DateHelper";
+import { formatCurrency } from "@crema/helpers/StringHelper";
+import { currencyList, quantityType, taxRates, taxType } from "../data";
 import {
   StyledAddItem,
   StyledCloseBtn,
   StyledFlexWrapper,
   StyledSecondary,
   StyledSecondaryText,
-} from './index.styled';
-import { Col, DatePicker, Input, InputNumber, Select, Table } from 'antd';
-import { GrClose } from 'react-icons/gr';
-import dayjs from 'dayjs';
-import { AiOutlinePlus } from 'react-icons/ai';
+} from "./index.styled";
+import { Col, DatePicker, Input, InputNumber, Select, Table } from "antd";
+import { GrClose } from "react-icons/gr";
+import dayjs from "dayjs";
+import { AiOutlinePlus } from "react-icons/ai";
 import {
-  InvoiceCurrencyType,
   InvoiceItemType,
-} from '@crema/types/models/invoice';
+  InvoiceCurrencyType,
+} from "@crema/types/models/invoice";
 
 const { Column, ColumnGroup } = Table;
 
-const today = dayjs().format('DD MMM YYYY');
+const today = dayjs().format("DD MMM YYYY");
 
 type Props = {
   items: InvoiceItemType[];
@@ -47,16 +47,16 @@ const EditInvoiceTable = ({
     index: number,
     key: string,
     value: any,
-    nestedKey?: string,
+    nestedKey?: string
   ) => {
     const newItems = [...items];
     if (nestedKey) {
-      if (nestedKey === 'duration')
-        value = getFormattedDate(value, 'DD MMM YYYY');
+      if (nestedKey === "duration")
+        value = getFormattedDate(value, "DD MMM YYYY");
       newItems[index] = {
         ...newItems[index],
         [nestedKey]: {
-          ...newItems[index][nestedKey as 'duration' | 'quantity'],
+          ...newItems[index][nestedKey as "duration" | "quantity"],
           [key]: value,
         },
       };
@@ -84,62 +84,62 @@ const EditInvoiceTable = ({
     <>
       <Table dataSource={items} pagination={false}>
         <ColumnGroup>
-          <Column title='Pos' dataIndex='id' key='id' />
+          <Column title="Pos" dataIndex="id" key="id" />
           <Column
-            title='Task Name'
-            dataIndex='name'
-            key='name'
+            title="Task Name"
+            dataIndex="name"
+            key="name"
             render={(name, record, index) => (
               <Input
                 autoFocus
-                value={name || ''}
-                placeholder='Name'
+                value={name || ""}
+                placeholder="Name"
                 onChange={(e) =>
-                  onChangeLineItems(index, 'name', e.target.value)
+                  onChangeLineItems(index, "name", e.target.value)
                 }
               />
             )}
           />
           <Column
-            title='Duration'
-            dataIndex='duration'
-            key='duration'
+            title="Duration"
+            dataIndex="duration"
+            key="duration"
             render={(duration, record: InvoiceItemType, index) => (
-              <div style={{ display: 'flex', whiteSpace: 'inherit' }}>
+              <div style={{ display: "flex", whiteSpace: "inherit" }}>
                 <DatePicker.RangePicker
                   value={[
                     dayjs(record?.duration?.from),
                     dayjs(record?.duration?.to),
                   ]}
-                  placeholder={['From', 'To']}
+                  placeholder={["From", "To"]}
                   onChange={(value) => {
                     if (value) {
-                      onChangeLineItems(index, 'from', value[0], 'duration');
-                      onChangeLineItems(index, 'to', value[1], 'duration');
+                      onChangeLineItems(index, "from", value[0], "duration");
+                      onChangeLineItems(index, "to", value[1], "duration");
                     }
                   }}
-                  format='DD MMM YYYY'
+                  format="DD MMM YYYY"
                   clearIcon={false}
                 />
               </div>
             )}
           />
           <Column
-            title='Quantity'
-            dataIndex='quantity'
-            key='quantity'
+            title="Quantity"
+            dataIndex="quantity"
+            key="quantity"
             render={(quantity, record: InvoiceItemType, index) => (
-              <div style={{ display: 'flex' }}>
+              <div style={{ display: "flex" }}>
                 <InputNumber
                   style={{ minWidth: 50 }}
                   value={record?.quantity?.value}
-                  placeholder='Value'
+                  placeholder="Value"
                   onChange={(value) => {
-                    onChangeLineItems(index, 'value', value, 'quantity');
+                    onChangeLineItems(index, "value", value, "quantity");
                     onChangeLineItems(
                       index,
-                      'total',
-                      value || 0 * record?.unitPrice || 0,
+                      "total",
+                      value || 0 * record?.unitPrice || 0
                     );
                   }}
                 />
@@ -147,7 +147,7 @@ const EditInvoiceTable = ({
                   style={{ marginLeft: 10 }}
                   value={record?.quantity?.type}
                   onChange={(value) => {
-                    onChangeLineItems(index, 'type', value, 'quantity');
+                    onChangeLineItems(index, "type", value, "quantity");
                   }}
                 >
                   {quantityType.map((quantity) => {
@@ -165,31 +165,31 @@ const EditInvoiceTable = ({
             )}
           />
           <Column
-            title='Price Per Unit'
-            dataIndex='unitPrice'
-            key='unitPrice'
+            title="Price Per Unit"
+            dataIndex="unitPrice"
+            key="unitPrice"
             render={(unitPrice, record: InvoiceItemType, index) => (
               <InputNumber
                 value={record?.unitPrice || 0}
-                placeholder='Unit Price'
+                placeholder="Unit Price"
                 onChange={(value) => {
-                  onChangeLineItems(index, 'unitPrice', value);
+                  onChangeLineItems(index, "unitPrice", value);
                   onChangeLineItems(
                     index,
-                    'total',
-                    value || 0 * record?.quantity?.value || 0,
+                    "total",
+                    value || 0 * record?.quantity?.value || 0
                   );
                 }}
               />
             )}
           />
           <Column
-            title='Sub Total'
-            dataIndex='total'
-            key='total'
+            title="Sub Total"
+            dataIndex="total"
+            key="total"
             render={(total, record: InvoiceItemType, index) => (
               <div
-                style={{ width: '100%', display: 'flex', alignItems: 'center' }}
+                style={{ width: "100%", display: "flex", alignItems: "center" }}
               >
                 {formatCurrency(
                   record?.total || 0,
@@ -197,7 +197,7 @@ const EditInvoiceTable = ({
                     language: currencyData.language,
                     currency: currencyData.currency,
                   },
-                  2,
+                  2
                 )}
                 <StyledCloseBtn onClick={() => onDeleteLineItem(index)}>
                   <GrClose size={15} />
@@ -218,7 +218,7 @@ const EditInvoiceTable = ({
                   id: items.length + 1,
                   duration: { from: today, to: today },
                   quantity: {
-                    type: 'fixed',
+                    type: "fixed",
                     value: 1,
                   },
                 } as InvoiceItemType,
@@ -229,9 +229,9 @@ const EditInvoiceTable = ({
             <div style={{ marginLeft: 6, fontSize: 16 }}>Add Item</div>
           </StyledAddItem>
         </Col>
-        <Col xs={24} md={10} style={{ marginLeft: 'auto', marginRight: 40 }}>
+        <Col xs={24} md={10} style={{ marginLeft: "auto", marginRight: 40 }}>
           <StyledSecondary>
-            <div style={{ marginRight: 28, width: '100%' }}>Subtotal:</div>
+            <div style={{ marginRight: 28, width: "100%" }}>Subtotal:</div>
             <div>
               {formatCurrency(
                 getTotal(),
@@ -239,13 +239,13 @@ const EditInvoiceTable = ({
                   language: currencyData.language,
                   currency: currencyData.currency,
                 },
-                2,
+                2
               )}
             </div>
           </StyledSecondary>
           <StyledFlexWrapper>
             <Select
-              style={{ marginRight: 24, width: '100%' }}
+              style={{ marginRight: 24, width: "100%" }}
               value={taxTypeData}
               onChange={(value) => setTaxTypeData(value)}
             >
@@ -258,7 +258,7 @@ const EditInvoiceTable = ({
               })}
             </Select>
             <Select
-              style={{ marginRight: 24, width: '100%' }}
+              style={{ marginRight: 24, width: "100%" }}
               value={taxRateData}
               onChange={(value) => setTaxRateData(value)}
             >
@@ -277,15 +277,15 @@ const EditInvoiceTable = ({
                   language: currencyData.language,
                   currency: currencyData.currency,
                 },
-                2,
+                2
               )}
             </StyledSecondaryText>
           </StyledFlexWrapper>
-          {taxTypeData === 'cgst_sgst' && (
+          {taxTypeData === "cgst_sgst" && (
             <>
               <StyledSecondary>
-                <div style={{ width: '50%' }} />
-                <div style={{ marginLeft: 16, width: '50%' }}> CGST:</div>
+                <div style={{ width: "50%" }} />
+                <div style={{ marginLeft: 16, width: "50%" }}> CGST:</div>
                 <div>
                   {formatCurrency(
                     (getTotal() * (taxRateData * 0.01)) / 2,
@@ -293,13 +293,13 @@ const EditInvoiceTable = ({
                       language: currencyData.language,
                       currency: currencyData.currency,
                     },
-                    2,
+                    2
                   )}
                 </div>
               </StyledSecondary>
               <StyledSecondary>
-                <div style={{ width: '50%' }} />
-                <div style={{ marginLeft: 16, width: '50%' }}> SGST:</div>
+                <div style={{ width: "50%" }} />
+                <div style={{ marginLeft: 16, width: "50%" }}> SGST:</div>
                 <div>
                   {formatCurrency(
                     (getTotal() * (taxRateData * 0.01)) / 2,
@@ -307,20 +307,20 @@ const EditInvoiceTable = ({
                       language: currencyData.language,
                       currency: currencyData.currency,
                     },
-                    2,
+                    2
                   )}
                 </div>
               </StyledSecondary>
             </>
           )}
           <StyledSecondary>
-            <div style={{ marginRight: 24, width: '50%' }}>Total:</div>
+            <div style={{ marginRight: 24, width: "50%" }}>Total:</div>
             <Select
-              style={{ marginRight: 24, width: '50%' }}
+              style={{ marginRight: 24, width: "50%" }}
               value={currencyData.currency}
               onChange={(value) => {
                 const type = currencyList.find(
-                  (item) => item.currency === value,
+                  (item) => item.currency === value
                 );
                 if (type) setCurrencyData(type);
               }}
@@ -343,7 +343,7 @@ const EditInvoiceTable = ({
                   language: currencyData.language,
                   currency: currencyData.currency,
                 },
-                2,
+                2
               )}
             </div>
           </StyledSecondary>

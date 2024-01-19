@@ -1,11 +1,11 @@
 import React from 'react';
-import { Area, AreaChart, ResponsiveContainer } from 'recharts';
+import {Area, AreaChart, ResponsiveContainer} from 'recharts';
 
 type WebTrafficGraphProps = {
   data: any[];
-};
+}
 
-const WebTrafficGraph: React.FC<WebTrafficGraphProps> = ({ data }) => {
+const WebTrafficGraph: React.FC<WebTrafficGraphProps> = ({data}) => {
   return (
     <ResponsiveContainer height={200} width='100%'>
       <AreaChart
@@ -17,8 +17,7 @@ const WebTrafficGraph: React.FC<WebTrafficGraphProps> = ({ data }) => {
           right: 0,
           left: 0,
           bottom: 0,
-        }}
-      >
+        }}>
         <defs>
           <linearGradient id='colorg14' x1='0' y1='0' x2='0' y2='1'>
             <stop offset='5%' stopColor='#E53E3E' stopOpacity={0.8} />

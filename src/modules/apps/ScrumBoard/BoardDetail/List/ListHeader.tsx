@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import IntlMessages from '@crema/helpers/IntlMessages';
-import { HiCheck } from 'react-icons/hi';
-import { CgClose } from 'react-icons/cg';
-import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
-import { Input } from 'antd';
-import AppIconButton from '@crema/components/AppIconButton';
+import React, { useState } from "react";
+import IntlMessages from "@crema/helpers/IntlMessages";
+import { HiCheck } from "react-icons/hi";
+import { CgClose } from "react-icons/cg";
+import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
+import { Input } from "antd";
+import AppIconButton from "@crema/components/AppIconButton";
 import {
   StyledScrumBoardListHeaderCard,
   StyledScrumBoardListHeaderFlex,
   StyledScrumBoardListHeaderFlexAuto,
   StyledScrumListHeaderList,
-} from './index.styled';
-import AppConfirmationModal from '@crema/components/AppConfirmationModal';
-import { CardListObjType } from '@crema/types/models/apps/ScrumbBoard';
+} from "./index.styled";
+import AppConfirmationModal from "@crema/components/AppConfirmationModal";
+import { CardListObjType } from "@crema/types/models/apps/ScrumbBoard";
 
 type ListHeaderProps = {
   id: string;
@@ -31,7 +31,7 @@ const ListHeader: React.FC<ListHeaderProps> = ({
 }) => {
   const [isEditListName, setEditListName] = useState(false);
 
-  const [editedListName, setEditedListName] = useState('');
+  const [editedListName, setEditedListName] = useState("");
 
   const [isDeleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
@@ -46,7 +46,7 @@ const ListHeader: React.FC<ListHeaderProps> = ({
   };
 
   const onEditListName = () => {
-    if (editedListName !== '') {
+    if (editedListName !== "") {
       updateTitle(editedListName);
       setEditListName(false);
     }
@@ -94,8 +94,8 @@ const ListHeader: React.FC<ListHeaderProps> = ({
           open={isDeleteDialogOpen}
           onDeny={setDeleteDialogOpen}
           onConfirm={onDeleteBoardList}
-          paragraph={<IntlMessages id='scrumboard.deleteMessage' />}
-          modalTitle={<IntlMessages id='common.deleteItem' />}
+          paragraph={<IntlMessages id="scrumboard.deleteMessage" />}
+          modalTitle={<IntlMessages id="common.deleteItem" />}
         />
       ) : null}
     </StyledScrumBoardListHeaderCard>

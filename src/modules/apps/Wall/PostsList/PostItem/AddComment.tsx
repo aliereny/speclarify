@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { SmileOutlined } from '@ant-design/icons';
-import AppIconButton from '@crema/components/AppIconButton';
-import { MdOutlineAttachFile } from 'react-icons/md';
+import React, { useState } from "react";
+import { SmileOutlined } from "@ant-design/icons";
+import AppIconButton from "@crema/components/AppIconButton";
+import { MdOutlineAttachFile } from "react-icons/md";
 import {
   StyledAddComment,
   StyledAddCommentInput,
@@ -9,10 +9,10 @@ import {
   StyledAddCommentUserInfo,
   StyledAddSuffixAction,
   StyledPostItemAvatar,
-} from '../index.styled';
-import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
-import { postDataApi } from '@crema/hooks/APIHooks';
-import { WallDataType } from '@crema/types/models/apps/Wall';
+} from "../index.styled";
+import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
+import { postDataApi } from "@crema/hooks/APIHooks";
+import { WallDataType } from "@crema/types/models/apps/Wall";
 
 type AddCommentProps = {
   postId: number;
@@ -26,10 +26,10 @@ const AddComment: React.FC<AddCommentProps> = ({
   setPostList,
 }) => {
   const infoViewActionsContext = useInfoViewActionsContext();
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
 
   const submitComment = (event: any) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       const newComment = {
         author: {
           name: wallData!.name,
@@ -38,18 +38,18 @@ const AddComment: React.FC<AddCommentProps> = ({
         },
         comment,
       };
-      postDataApi('/wall/posts/comments', infoViewActionsContext, {
+      postDataApi("/wall/posts/comments", infoViewActionsContext, {
         postId,
         comment: newComment,
       })
         .then((data) => {
           setPostList(data);
-          infoViewActionsContext.showMessage('Comment Added Successfully!');
+          infoViewActionsContext.showMessage("Comment Added Successfully!");
         })
         .catch((error) => {
           infoViewActionsContext.fetchError(error.message);
         });
-      setComment('');
+      setComment("");
     }
   };
 
@@ -59,7 +59,7 @@ const AddComment: React.FC<AddCommentProps> = ({
       <StyledAddCommentUser>
         <StyledAddCommentUserInfo>
           <StyledAddCommentInput
-            placeholder='Write a comment'
+            placeholder="Write a comment"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             onKeyPress={submitComment}

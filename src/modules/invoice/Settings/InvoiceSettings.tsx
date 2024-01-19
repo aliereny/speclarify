@@ -7,8 +7,8 @@ import AppCard from '@crema/components/AppCard';
 import { Tabs, TabsProps } from 'antd';
 import { StyledFormWrapper } from './index.styled';
 import {
-  InvoiceSettingItem,
   InvoiceSettingType,
+  InvoiceSettingItem,
 } from '@crema/types/models/invoice';
 
 type Props = {

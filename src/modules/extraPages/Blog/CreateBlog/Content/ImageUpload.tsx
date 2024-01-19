@@ -37,7 +37,7 @@ const ImgUpload = ({ uploadedFiles, setUploadedFiles }: Props) => {
   const thumbs = uploadedFiles.map((file) => (
     <StyledThumb key={file.name}>
       <StyledThumbInner>
-        <Image alt='preview' src={`${file.preview}`} width={90} height={90} />
+        <Image alt='preview' src={`${file.preview}`} width={90} height={90}/>
       </StyledThumbInner>
     </StyledThumb>
   ));

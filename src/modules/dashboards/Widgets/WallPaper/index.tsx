@@ -22,14 +22,14 @@ const WallPaper = () => {
   return (
     <StyledWallPaperCard
       heightFull
-      className='background-image'
+      className="background-image"
       style={{
         backgroundImage: 'url(/assets/images/widgets/latestpost.png)',
       }}
     >
       <StyledWallpaperHeader>
-        <h3 className='text-uppercase'>
-          <IntlMessages id='dashboard.latestPost' />
+        <h3 className="text-uppercase">
+          <IntlMessages id="dashboard.latestPost" />
         </h3>
         <StyledWallpaperHeaderAction>
           <HeartOutlined />
@@ -40,25 +40,25 @@ const WallPaper = () => {
         <StyledWallpaperAvatar src={'/assets/images/avatar/A1.jpg'} />
 
         <StyledWallpaperTitle>
-          <IntlMessages id='dashboard.hdColorful' />
+          <IntlMessages id="dashboard.hdColorful" />
         </StyledWallpaperTitle>
         <StyledWallpaperTitle>
-          <IntlMessages id='dashboard.wallpaperFree' />
+          <IntlMessages id="dashboard.wallpaperFree" />
         </StyledWallpaperTitle>
 
         <StyledWallpaperContentFooter>
           <StyledWallpaperTitle>
-            <IntlMessages id='common.download' />
+            <IntlMessages id="common.download" />
           </StyledWallpaperTitle>
           <StyledWallpaperContentAction>
             <StyledWallpaperContentActionItem>
-              <EyeFilled className='middle-icon' /> 11.7 K
+              <EyeFilled className="middle-icon" /> 11.7 K
             </StyledWallpaperContentActionItem>
             <StyledWallpaperContentActionItem>
-              <HeartFilled className='middle-icon' /> 2.6 K
+              <HeartFilled className="middle-icon" /> 2.6 K
             </StyledWallpaperContentActionItem>
             <StyledWallpaperContentActionItem>
-              <MessageFilled className='middle-icon' /> 345
+              <MessageFilled className="middle-icon" /> 345
             </StyledWallpaperContentActionItem>
           </StyledWallpaperContentAction>
         </StyledWallpaperContentFooter>

@@ -28,8 +28,8 @@ export const AppCalendarWrapper = styled.div`
 
 const Popup = () => {
   return (
-    <AppCalendarWrapper className='cr-app-cul-calendar'>
-      <h3 className='cr-app-calendar-title'>
+    <AppCalendarWrapper className="cr-app-cul-calendar">
+      <h3 className="cr-app-calendar-title">
         Click the +x more link on any calendar day that cannot fit all the days
         events to see an inline popup of all the events.
       </h3>

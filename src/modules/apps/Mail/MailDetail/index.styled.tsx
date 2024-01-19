@@ -1,7 +1,6 @@
 import AppIconButton from '@crema/components/AppIconButton';
 import { Avatar, Button, Form, Input } from 'antd';
 import { rgba } from 'polished';
-import ReactQuill from 'react-quill';
 import styled from 'styled-components';
 
 export const StyledMailDetail = styled.div`
@@ -58,21 +57,6 @@ export const StyledMailDetailInput = styled(Input)`
     }
   }
 `;
-export const StyledMailDetailTextarea = styled(ReactQuill)`
-  width: 100%;
-
-  & .ql-toolbar.ql-snow {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
-
-  & .ql-container {
-    height: 110px !important;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-  }
-`;
-
 export const StyledMailFormFooter = styled.div`
   display: flex;
   align-items: center;
@@ -274,5 +258,5 @@ export const StyledMailDetailBody = styled.div`
   padding: 24px;
 `;
 export const StyledMailDetailBodyContent = styled.div`
-  color: ${({theme}) => theme.palette.text.secondary};
+  color: ${({ theme }) => theme.palette.text.secondary};
 `;

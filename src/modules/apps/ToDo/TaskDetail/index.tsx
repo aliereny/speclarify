@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import TaskDetailHeader from './TaskDetailHeader';
 import TaskDetailBody from './TaskDetailBody';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import AppsHeader from '@crema/components/AppsContainer/AppsHeader';
 import AppsContent from '@crema/components/AppsContainer/AppsContent';
 import { useGetDataApi } from '@crema/hooks/APIHooks';

@@ -1,18 +1,18 @@
-import React from 'react';
-import IncomeGraph from './IncomeGraph';
-import WebTrafficGraph from './WebTrafficGraph';
-import RevenueGrowthGraph from './RevenueGrowthGraph';
+import React from "react";
+import IncomeGraph from "./IncomeGraph";
+import WebTrafficGraph from "./WebTrafficGraph";
+import RevenueGrowthGraph from "./RevenueGrowthGraph";
 import {
   StyledStatsCardGraph,
   StyledStatsCardwithGraph,
   StyledStatsCardwithGraphContent,
   StyledStatsGraphCard,
-} from './index.styled';
+} from "./index.styled";
 import type {
   IncomeLastYearType,
   RevenueGrowthDataType,
   WebsiteTrafficDataType,
-} from '@crema/types/models/dashboards/Metrics';
+} from "@crema/types/models/dashboards/Metrics";
 
 type StatsCardWithGraphProps = {
   data: IncomeLastYearType | WebsiteTrafficDataType | RevenueGrowthDataType;
@@ -33,13 +33,13 @@ const StatsCardWithGraph: React.FC<StatsCardWithGraphProps> = ({
 }) => {
   const onGetGraph = () => {
     switch (type) {
-      case 'incomeGraph':
+      case "incomeGraph":
         return <IncomeGraph data={data.graphData} />;
 
-      case 'trafficGraph':
+      case "trafficGraph":
         return <WebTrafficGraph data={data.graphData} />;
 
-      case 'revenueGrowth':
+      case "revenueGrowth":
         return <RevenueGrowthGraph data={data.graphData} />;
 
       default:

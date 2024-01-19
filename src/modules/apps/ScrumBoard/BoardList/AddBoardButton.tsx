@@ -9,11 +9,9 @@ import {
 
 type AddBoardButtonProps = {
   onAddButtonClick: () => void;
-};
+}
 
-const AddBoardButton: React.FC<AddBoardButtonProps> = ({
-  onAddButtonClick,
-}) => {
+const AddBoardButton: React.FC<AddBoardButtonProps> = ({ onAddButtonClick }) => {
   return (
     <StyledScrumBoardAddcard onClick={() => onAddButtonClick()}>
       <StyledScrumBoardAddCardIcon>

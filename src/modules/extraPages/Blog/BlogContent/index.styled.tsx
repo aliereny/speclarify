@@ -1,5 +1,5 @@
-import { Col } from 'antd';
-import styled from 'styled-components';
+import { Col } from "antd";
+import styled from "styled-components";
 
 export const StyledCol1 = styled(Col)`
   z-index: 2;

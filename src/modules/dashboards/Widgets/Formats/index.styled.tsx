@@ -1,4 +1,4 @@
-import { Radio } from 'antd';
+import {Radio} from 'antd';
 import styled from 'styled-components';
 
 export const StyledFormatRadioGroup = styled(Radio.Group)`

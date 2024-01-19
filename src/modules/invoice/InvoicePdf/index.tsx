@@ -15,8 +15,8 @@ import {
 import { DownloadOutlined } from '@ant-design/icons';
 import {
   ClientType,
-  InvoiceSettingType,
   InvoiceType,
+  InvoiceSettingType,
 } from '@crema/types/models/invoice';
 import Image from 'next/image';
 

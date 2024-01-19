@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyledAvatar, StyledAvatarWrapper } from './index.styled';
-import type { RecentContactType } from '@crema/types/models/dashboards/Crypto';
+import React from "react";
+import { StyledAvatar, StyledAvatarWrapper } from "./index.styled";
+import type { RecentContactType } from "@crema/types/models/dashboards/Crypto";
 
 type Props = {
   recentContact: RecentContactType;
@@ -10,7 +10,7 @@ const RecentContact = ({ recentContact }: Props) => {
   return (
     <div
       style={{
-        position: 'relative',
+        position: "relative",
       }}
     >
       <StyledAvatarWrapper>
@@ -18,7 +18,7 @@ const RecentContact = ({ recentContact }: Props) => {
       </StyledAvatarWrapper>
       <div
         style={{
-          whiteSpace: 'nowrap',
+          whiteSpace: "nowrap",
         }}
       >
         {recentContact.name}

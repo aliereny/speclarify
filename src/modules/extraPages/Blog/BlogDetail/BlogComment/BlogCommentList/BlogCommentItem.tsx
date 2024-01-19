@@ -1,14 +1,14 @@
-import React from 'react';
-import IntlMessages from '@crema/helpers/IntlMessages';
+import React from "react";
+import IntlMessages from "@crema/helpers/IntlMessages";
 import {
   StyledAvatar,
   StyledFlex,
   StyledSecondaryText,
   StyledSecondaryText2,
   StyledTitle5,
-} from '../index.styled';
-import { Button } from 'antd';
-import type { BlogCommentType } from '@crema/types/models/extrapages/Blog';
+} from "../index.styled";
+import { Button } from "antd";
+import type { BlogCommentType } from "@crema/types/models/extrapages/Blog";
 
 type Props = {
   comment: BlogCommentType;
@@ -18,7 +18,7 @@ const BlogCommentItem = ({ comment }: Props) => {
   return (
     <div
       style={{
-        display: 'flex',
+        display: "flex",
       }}
     >
       <div style={{ marginRight: 16 }}>
@@ -32,13 +32,13 @@ const BlogCommentItem = ({ comment }: Props) => {
           </div>
           <div style={{ marginLeft: 8 }}>
             <Button
-              type='primary'
+              type="primary"
               style={{
-                textTransform: 'uppercase',
+                textTransform: "uppercase",
               }}
               ghost
             >
-              <IntlMessages id='common.reply' />
+              <IntlMessages id="common.reply" />
             </Button>
           </div>
         </StyledFlex>

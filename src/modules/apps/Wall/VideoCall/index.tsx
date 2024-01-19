@@ -24,6 +24,7 @@ type VideoCallProps = {
 };
 
 const VideoCall: React.FC<VideoCallProps> = ({ data }) => {
+
   const { users, title } = data;
 
   return (

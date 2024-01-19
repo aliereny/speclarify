@@ -14,7 +14,7 @@ const AppsDeleteIcon: React.FC<AppsDeleteIconProps> = ({ deleteAction }) => {
   return (
     <>
       <AppIconButton
-        title='Trash'
+        title="Trash"
         icon={<AiOutlineDelete />}
         onClick={() => {
           setDeleteModalOpen(true);
@@ -26,7 +26,7 @@ const AppsDeleteIcon: React.FC<AppsDeleteIconProps> = ({ deleteAction }) => {
           paragraph={'Are you sure you want to delete this?'}
           onDeny={setDeleteModalOpen}
           onConfirm={deleteAction}
-          modalTitle={<IntlMessages id='common.deleteItem' />}
+          modalTitle={<IntlMessages id="common.deleteItem" />}
         />
       ) : null}
     </>

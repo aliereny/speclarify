@@ -1,10 +1,10 @@
-import React from 'react';
-import { MdLabelOutline } from 'react-icons/md';
+import React from "react";
+import { MdLabelOutline } from "react-icons/md";
 import {
   StyledContactLabelItem,
   StyledContactSidebarLabelItem,
-} from './index.styled';
-import { LabelObjType } from '@crema/types/models/apps/Contact';
+} from "./index.styled";
+import { LabelObjType } from "@crema/types/models/apps/Contact";
 
 type LabelItemProps = {
   label: LabelObjType;

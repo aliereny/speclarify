@@ -1,11 +1,11 @@
 import React from 'react';
-import { Area, AreaChart, ResponsiveContainer } from 'recharts';
+import {Area, AreaChart, ResponsiveContainer} from 'recharts';
 
 type LessOrdersGraphProps = {
   data: any[];
-};
+}
 
-const LessOrdersGraph: React.FC<LessOrdersGraphProps> = ({ data }) => {
+const LessOrdersGraph: React.FC<LessOrdersGraphProps> = ({data}) => {
   return (
     <ResponsiveContainer height={200} width='100%'>
       <AreaChart
@@ -17,8 +17,7 @@ const LessOrdersGraph: React.FC<LessOrdersGraphProps> = ({ data }) => {
           right: 0,
           left: 0,
           bottom: 0,
-        }}
-      >
+        }}>
         <Area
           type='monotone'
           dataKey='orders'

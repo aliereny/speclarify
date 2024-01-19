@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyledTable } from './index.styled';
-import { getColumns } from './columns';
-import { TableDataType } from '@crema/types/models/extrapages/Pricing';
+import React from "react";
+import { StyledTable } from "./index.styled";
+import { getColumns } from "./columns";
+import { TableDataType } from "@crema/types/models/extrapages/Pricing";
 
 type Props = {
   billingFormat: string;

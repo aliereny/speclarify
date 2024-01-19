@@ -1,13 +1,13 @@
-import React from 'react';
-import AppCard from '@crema/components/AppCard';
-import ViewGraph from './ViewGraph';
+import React from "react";
+import AppCard from "@crema/components/AppCard";
+import ViewGraph from "./ViewGraph";
 import {
   StyledHeartGraphItem,
   StyledHeartGraphView,
   StyledHeartRate,
   StyledUnitTitle,
-} from './index.styled';
-import type { HeartCardType } from '@crema/types/models/dashboards/HealthCare';
+} from "./index.styled";
+import type { HeartCardType } from "@crema/types/models/dashboards/HealthCare";
 
 type HeartRateProps = {
   data: HeartCardType;
@@ -18,9 +18,9 @@ const HeartRate: React.FC<HeartRateProps> = ({ data }) => {
     <AppCard
       heightFull
       style={{
-        overflow: 'hidden',
+        overflow: "hidden",
         backgroundColor: data.color,
-        color: 'white',
+        color: "white",
       }}
     >
       <StyledHeartRate>

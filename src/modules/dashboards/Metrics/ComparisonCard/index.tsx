@@ -17,7 +17,7 @@ type ComparisonCardProps = {
   headingColor?: string;
   valueColor: string;
   type: string;
-};
+}
 
 const ComparisonCard: React.FC<ComparisonCardProps> = ({
   data,
@@ -51,7 +51,7 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({
       <StyledComparisionCardInfo>
         <StyledComparisionCardContent>
           <p>{text}</p>
-          <h3 style={{ color: valueColor }}>{data.value}</h3>
+          <h3 style={{color: valueColor}}>{data.value}</h3>
         </StyledComparisionCardContent>
         <StyledComparisionCardGraphView>
           {onGetGraph()}

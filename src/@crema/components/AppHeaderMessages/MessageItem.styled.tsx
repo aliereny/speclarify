@@ -1,4 +1,4 @@
-import { Avatar, List } from 'antd';
+import { List, Avatar } from 'antd';
 import styled from 'styled-components';
 
 export const StyledMsgListItem = styled(List.Item)`

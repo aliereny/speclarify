@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Button } from 'antd';
-import CoinDropdown from './CoinDropdown';
-import CurrencyField from './CurrencyField';
-import { StyledTabWrapper } from './index.styled';
-import { CoinListType } from '@crema/types/models/dashboards/Crypto';
+import React, { useEffect, useState } from "react";
+import { Button } from "antd";
+import CoinDropdown from "./CoinDropdown";
+import CurrencyField from "./CurrencyField";
+import { StyledTabWrapper } from "./index.styled";
+import { CoinListType } from "@crema/types/models/dashboards/Crypto";
 
 type Props = {
   coinList: CoinListType[];
@@ -49,9 +49,9 @@ const TabForm = (props: Props) => {
         }}
       >
         <CurrencyField
-          shortName='USD'
+          shortName="USD"
           value={usdValue}
-          coinColor='#16C784'
+          coinColor="#16C784"
           onChange={(value) => {
             setUsdValue(value);
             setCoinValue(value / (coin ? coin.usdPrice : 0));
@@ -66,7 +66,7 @@ const TabForm = (props: Props) => {
         <CurrencyField
           value={coinValue}
           hideUSD
-          shortName={coin?.shortName || ''}
+          shortName={coin?.shortName || ""}
           onChange={(value) => {
             setCoinValue(value);
             setUsdValue(value * coin.usdPrice);
@@ -77,11 +77,11 @@ const TabForm = (props: Props) => {
       <Button
         style={{
           minHeight: 46,
-          width: '100%',
+          width: "100%",
         }}
-        type='primary'
+        type="primary"
       >
-        {type === 'buy' ? 'Buy' : 'Sell'} {coin.shortName}
+        {type === "buy" ? "Buy" : "Sell"} {coin.shortName}
       </Button>
     </StyledTabWrapper>
   );

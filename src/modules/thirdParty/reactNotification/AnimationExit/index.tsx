@@ -19,34 +19,34 @@ const AnimationExit = () => {
         container: getContainer(),
         message: getMessage(type),
         type,
-      }),
+      })
     );
   };
 
   return (
     <StyledReactNotification>
       <StyledReactNotificationItem>
-        <Button type='primary' onClick={() => add(['animated bounceOut'])}>
+        <Button type="primary" onClick={() => add(['animated bounceOut'])}>
           Bounce Out
         </Button>
       </StyledReactNotificationItem>
       <StyledReactNotificationItem>
-        <Button type='primary' onClick={() => add(['animated fadeOut'])}>
+        <Button type="primary" onClick={() => add(['animated fadeOut'])}>
           Fade Out
         </Button>
       </StyledReactNotificationItem>
       <StyledReactNotificationItem>
-        <Button type='primary' onClick={() => add(['animated flipOutX'])}>
+        <Button type="primary" onClick={() => add(['animated flipOutX'])}>
           Flip Out X
         </Button>
       </StyledReactNotificationItem>
       <StyledReactNotificationItem>
-        <Button type='primary' onClick={() => add(['animated flipOutY'])}>
+        <Button type="primary" onClick={() => add(['animated flipOutY'])}>
           Flip Out Y
         </Button>
       </StyledReactNotificationItem>
       <StyledReactNotificationItem>
-        <Button type='primary' onClick={() => add(['animated zoomOut'])}>
+        <Button type="primary" onClick={() => add(['animated zoomOut'])}>
           Zoom Out
         </Button>
       </StyledReactNotificationItem>

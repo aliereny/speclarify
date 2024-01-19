@@ -1,5 +1,6 @@
 'use client';
 import * as React from 'react';
+import { Inter } from 'next/font/google';
 import AppContextProvider from '@crema/context/AppContextProvider';
 import AppThemeProvider from '@crema/context/AppThemeProvider';
 import AppLocaleProvider from '@crema/context/AppLocaleProvider';
@@ -8,11 +9,12 @@ import AuthRoutes from '@crema/components/AuthRoutes';
 import AppPageMeta from '@crema/components/AppPageMeta';
 import InfoViewContextProvider from '@crema/context/AppContextProvider/InfoViewContextProvider';
 import 'antd/dist/reset.css';
-import 'react-quill/dist/quill.snow.css';
 import 'simplebar-react/dist/simplebar.min.css';
 import '../../public/styles/index.css';
 import { GlobalStyles } from '@crema/core/theme/GlobalStyle';
 import { Normalize } from 'styled-normalize';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({ children }: any) {
   return (

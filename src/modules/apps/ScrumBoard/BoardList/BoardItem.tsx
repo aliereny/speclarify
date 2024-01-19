@@ -1,12 +1,12 @@
-import React from 'react';
-import { BsCardList } from 'react-icons/bs';
-import { MdEdit } from 'react-icons/md';
+import React from "react";
+import { BsCardList } from "react-icons/bs";
+import { MdEdit } from "react-icons/md";
 import {
   StyledScrumBoardCard,
   StyledScrumBoardCardText,
   StyledScrumListIcon,
-} from './index.styled';
-import { BoardObjType } from '@crema/types/models/apps/ScrumbBoard';
+} from "./index.styled";
+import { BoardObjType } from "@crema/types/models/apps/ScrumbBoard";
 
 type BoardItemProps = {
   board: BoardObjType;

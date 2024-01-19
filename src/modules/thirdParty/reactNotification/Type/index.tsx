@@ -1,5 +1,5 @@
 import React from 'react';
-import { Store } from 'react-notifications-component';
+import { NOTIFICATION_TYPE, Store } from 'react-notifications-component';
 import { Button } from 'antd';
 
 import notification from '../helpers/notification';
@@ -17,7 +17,7 @@ export default class TypeExample extends React.Component {
         title: getTitle(type),
         message: getMessage(type),
         container: getContainer(),
-      }),
+      })
     );
   };
 
@@ -25,32 +25,32 @@ export default class TypeExample extends React.Component {
     return (
       <StyledReactNotification>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={() => this.add('success')}>
+          <Button type="primary" onClick={() => this.add('success')}>
             Success
           </Button>
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={() => this.add('default')}>
+          <Button type="primary" onClick={() => this.add('default')}>
             Default
           </Button>
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={() => this.add('warning')}>
+          <Button type="primary" onClick={() => this.add('warning')}>
             Warning
           </Button>
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={() => this.add('info')}>
+          <Button type="primary" onClick={() => this.add('info')}>
             Info
           </Button>
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={() => this.add('danger')}>
+          <Button type="primary" onClick={() => this.add('danger')}>
             Danger
           </Button>
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={() => this.add('awesome')}>
+          <Button type="primary" onClick={() => this.add('awesome')}>
             Custom
           </Button>
         </StyledReactNotificationItem>

@@ -17,44 +17,44 @@ const AnimationEntrance = () => {
         container: getContainer(),
         message: getMessage(type),
         type,
-      }),
+      })
     );
   };
 
   return (
     <StyledReactNotification>
       <StyledReactNotificationItem>
-        <Button type='primary' onClick={() => add(['animated bounceIn'])}>
+        <Button type="primary" onClick={() => add(['animated bounceIn'])}>
           Bounce In
         </Button>
       </StyledReactNotificationItem>
       <StyledReactNotificationItem>
-        <Button type='primary' onClick={() => add(['animated fadeIn'])}>
+        <Button type="primary" onClick={() => add(['animated fadeIn'])}>
           Fade In
         </Button>
       </StyledReactNotificationItem>
       <StyledReactNotificationItem>
-        <Button type='primary' onClick={() => add(['animated flipInX'])}>
+        <Button type="primary" onClick={() => add(['animated flipInX'])}>
           Flip In X
         </Button>
       </StyledReactNotificationItem>
       <StyledReactNotificationItem>
-        <Button type='primary' onClick={() => add(['animated flipInY'])}>
+        <Button type="primary" onClick={() => add(['animated flipInY'])}>
           Flip In Y
         </Button>
       </StyledReactNotificationItem>
       <StyledReactNotificationItem>
-        <Button type='primary' onClick={() => add(['animated zoomIn'])}>
+        <Button type="primary" onClick={() => add(['animated zoomIn'])}>
           Zoom In
         </Button>
       </StyledReactNotificationItem>
       <StyledReactNotificationItem>
-        <Button type='primary' onClick={() => add(['animated flash'])}>
+        <Button type="primary" onClick={() => add(['animated flash'])}>
           Flash
         </Button>
       </StyledReactNotificationItem>
       <StyledReactNotificationItem>
-        <Button type='primary' onClick={() => add(['animated jackInTheBox'])}>
+        <Button type="primary" onClick={() => add(['animated jackInTheBox'])}>
           Jack In The Box
         </Button>
       </StyledReactNotificationItem>

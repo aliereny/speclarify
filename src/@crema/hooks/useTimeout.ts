@@ -11,7 +11,6 @@ export const useTimeout = (callback: any, delay: any) => {
     function tick() {
       savedCallback.current();
     }
-
     if (delay !== null) {
       const id = setTimeout(tick, delay);
       return () => clearTimeout(id);

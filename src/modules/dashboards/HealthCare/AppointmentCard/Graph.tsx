@@ -1,14 +1,14 @@
 import React from 'react';
-import { Bar, BarChart, ResponsiveContainer } from 'recharts';
+import {Bar, BarChart, ResponsiveContainer} from 'recharts';
 
 type GraphProps = {
   data: {
     month: string;
     users: number;
   }[];
-};
+}
 
-const Graph: React.FC<GraphProps> = ({ data }) => {
+const Graph: React.FC<GraphProps> = ({data}) => {
   return (
     <ResponsiveContainer width='100%' height={70}>
       <BarChart barSize={4} data={data}>

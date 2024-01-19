@@ -2,8 +2,8 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import AppList from '@crema/components/AppList';
 import IntlMessages from '@crema/helpers/IntlMessages';
-import { AiOutlineEdit, AiOutlineMail, AiOutlineUser } from 'react-icons/ai';
-import { BiErrorCircle, BiPhone } from 'react-icons/bi';
+import { AiOutlineUser, AiOutlineEdit, AiOutlineMail } from 'react-icons/ai';
+import { BiPhone, BiErrorCircle } from 'react-icons/bi';
 import { FiThumbsUp } from 'react-icons/fi';
 import { MdPublic } from 'react-icons/md';
 import {

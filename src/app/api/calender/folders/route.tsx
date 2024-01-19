@@ -2,7 +2,48 @@ import folderList from '@crema/fakedb/apps/todo/folderList';
 import todoList from '@crema/fakedb/apps/todo/todoList';
 import { labelList } from '@crema/fakedb/apps/todo/labelList';
 import { NextRequest } from 'next/server';
-import { onGetTaskList } from '../route';
+import { TodoObjType } from '@crema/types/models/apps/Todo';
+
+const onGetTaskList = (name: string, data: TodoObjType[]) => {
+  switch (name) {
+    case 'all': {
+      return data.filter((task) => task.folderValue !== 126);
+    }
+
+    case 'starred': {
+      return data.filter((task) => task.folderValue !== 126 && task.isStarred);
+    }
+
+    case 'priority': {
+      return data.filter(
+        (task) => task.folderValue !== 126 && task.priority.type === 1,
+      );
+    }
+
+    case 'scheduled': {
+      const folderId = folderList.find((folder) => folder.alias === name)?.id;
+      return data.filter((task) => task.folderValue === folderId);
+    }
+
+    case 'today': {
+      const folderId = folderList.find((folder) => folder.alias === name)?.id;
+      return data.filter((task) => task.folderValue === folderId);
+    }
+
+    case 'completed': {
+      return data.filter(
+        (task) => task.folderValue !== 126 && task.status === 3,
+      );
+    }
+
+    case 'deleted': {
+      return data.filter((task) => task.folderValue === 126);
+    }
+    default: {
+      return data;
+    }
+  }
+};
 
 let todoData = todoList;
 export const GET = async () => {

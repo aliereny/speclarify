@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyledFlexTag, StyledTag, StyledTagWrapper } from '../index.styled';
-import type { TagType } from '@crema/types/models/extrapages/Blog';
+import React from "react";
+import { StyledFlexTag, StyledTag, StyledTagWrapper } from "../index.styled";
+import type { TagType } from "@crema/types/models/extrapages/Blog";
 
 type Props = {
   tag: TagType[];

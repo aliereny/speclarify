@@ -14,14 +14,14 @@ import {
   StyledTodoListImg,
   StyledTodoListImgView,
   StyledTodoListItem,
-  StyledTodoListItemAction,
   StyledTodoListItemHide,
   StyledTodoListItemLeft,
+  StyledTodoListStarView,
+  StyledTodoListTitle,
   StyledTodoListItemRight,
   StyledTodoListRightContent,
   StyledTodoListStartDate,
-  StyledTodoListStarView,
-  StyledTodoListTitle,
+  StyledTodoListItemAction,
 } from '../index.styled';
 import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 import { putDataApi } from '@crema/hooks/APIHooks';

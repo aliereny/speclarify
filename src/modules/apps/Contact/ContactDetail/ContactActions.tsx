@@ -1,9 +1,9 @@
-import React from 'react';
-import AppsStarredIcon from '@crema/components/AppsStarredIcon';
-import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
-import AppIconButton from '@crema/components/AppIconButton';
-import { StyledContactAction, StyledContactActionHover } from './index.styled';
-import { ContactObjType } from '@crema/types/models/apps/Contact';
+import React from "react";
+import AppsStarredIcon from "@crema/components/AppsStarredIcon";
+import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
+import AppIconButton from "@crema/components/AppIconButton";
+import { StyledContactAction, StyledContactActionHover } from "./index.styled";
+import { ContactObjType } from "@crema/types/models/apps/Contact";
 
 type ContactActionsProps = {
   contact: ContactObjType | null;
@@ -20,7 +20,7 @@ const ContactActions: React.FC<ContactActionsProps> = ({
 }) => {
   return (
     <StyledContactAction>
-      <StyledContactActionHover className='contact-action-hover'>
+      <StyledContactActionHover className="contact-action-hover">
         <AppIconButton
           icon={<AiOutlineEdit />}
           onClick={() => onOpenEditContact(contact)}

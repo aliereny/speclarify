@@ -21,7 +21,7 @@ const DialogProgrammatically = () => {
       <StyledDialogDropzone {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
         <p>Drag n drop some files here</p>
-        <Button type='primary' onClick={open}>
+        <Button type="primary" onClick={open}>
           Open File Dialog
         </Button>
       </StyledDialogDropzone>

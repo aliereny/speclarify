@@ -1,4 +1,4 @@
-import { rgba } from 'polished';
+import {rgba} from 'polished';
 import styled from 'styled-components';
 
 export const StyledHeartRate = styled.div`
@@ -7,9 +7,9 @@ export const StyledHeartRate = styled.div`
   justify-content: space-between;
 
   & h3 {
-    font-size: ${({ theme }) => theme.font.size.lg};
-    font-weight: ${({ theme }) => theme.font.weight.bold};
-    color: ${({ theme }) => theme.palette.primary.contrastText};
+    font-size: ${({theme}) => theme.font.size.lg};
+    font-weight: ${({theme}) => theme.font.weight.bold};
+    color: ${({theme}) => theme.palette.primary.contrastText};
   }
 `;
 
@@ -22,7 +22,7 @@ export const StyledHeartGraphView = styled.div`
 
 export const StyledHeartGraphItem = styled.div`
   width: 75%;
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
     width: 50%;
   }
 `;
@@ -32,14 +32,14 @@ export const StyledUnitTitle = styled.div`
   margin: 0 -20px -16px;
   padding: 12px 20px;
   font-size: 20px;
-  font-weight: ${({ theme }) => theme.font.weight.bold};
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+  font-weight: ${({theme}) => theme.font.weight.bold};
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
     font-size: 24px;
     padding: 8px 20px;
   }
 
   & span {
-    font-size: ${({ theme }) => theme.font.size.lg};
+    font-size: ${({theme}) => theme.font.size.lg};
     margin-left: 8px;
 
     [dir='rtl'] & {

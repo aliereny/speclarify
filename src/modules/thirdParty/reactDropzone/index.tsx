@@ -42,13 +42,7 @@ const ReactDropzone = () => {
             source={EventPropagationSource}
           />
         </Col>
-        <Col xs={24} xl={12} key='dropzone-c'>
-          <AppComponentCard
-            title='Specific`File Types'
-            component={SpecificFileTypes}
-            source={SpecificFileTypesSource}
-          />
-        </Col>
+
         <Col xs={24} xl={12} key='dropzone-d'>
           <AppComponentCard
             title='Dialog Programmatically'
@@ -68,6 +62,13 @@ const ReactDropzone = () => {
             title='Previews'
             component={Previews}
             source={PreviewsSource}
+          />
+        </Col>
+        <Col xs={24} xl={12} key='dropzone-c'>
+          <AppComponentCard
+            title='Specific`File Types'
+            component={SpecificFileTypes}
+            source={SpecificFileTypesSource}
           />
         </Col>
       </AppRowSimpleContainer>

@@ -11,8 +11,9 @@ import AppAnimate from '@crema/components/AppAnimate';
 import AppPageMeta from '@crema/components/AppPageMeta';
 import QueueAnim from 'rc-queue-anim';
 import { StyledCartsFooter } from './index.styled';
-import { postDataApi, putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
 import type { CartItemsType } from '@crema/types/models/ecommerce/EcommerceApp';
+import { postDataApi, putDataApi } from '@crema/hooks/APIHooks';
 import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 
 const Carts = () => {

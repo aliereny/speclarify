@@ -1,8 +1,8 @@
-import React from 'react';
-import { Dayjs } from 'dayjs';
-import { DatePicker } from 'antd';
-import { StyledTodoDetailDatePicker } from '../index.styled';
-import { getDateObject, getFormattedDate } from '@crema/helpers/DateHelper';
+import React from "react";
+import { Dayjs } from "dayjs";
+import { DatePicker } from "antd";
+import { StyledTodoDetailDatePicker } from "../index.styled";
+import { getFormattedDate, getDateObject } from "@crema/helpers/DateHelper";
 
 type DatePickerProps = {
   scheduleDate: string | Dayjs;
@@ -24,7 +24,7 @@ const DatePickers: React.FC<DatePickerProps> = ({
   };
 
   return (
-    <StyledTodoDetailDatePicker className='form-field'>
+    <StyledTodoDetailDatePicker className="form-field">
       <DatePicker.RangePicker
         defaultValue={[
           getDateObject(scheduleDate),

@@ -1,13 +1,13 @@
-import React from 'react';
-import { Avatar, Button } from 'antd';
-import { MoreOutlined } from '@ant-design/icons';
+import React from "react";
+import { Button, Avatar } from "antd";
+import { MoreOutlined } from "@ant-design/icons";
 import {
   StyledBadgeRoot,
   StyledContentAction,
   StyledContentArea,
   StyledCustomItem,
-} from './index.styled';
-import type { NewCustomersDataType } from '@crema/types/models/dashboards/Ecommerce';
+} from "./index.styled";
+import type { NewCustomersDataType } from "@crema/types/models/dashboards/Ecommerce";
 
 type CustomerItemProps = {
   item: NewCustomersDataType;
@@ -16,14 +16,14 @@ type CustomerItemProps = {
 const CustomerItem: React.FC<CustomerItemProps> = ({ item }) => {
   const getStatusColor = () => {
     if (item.orders === 0) {
-      return '#F84E4E';
+      return "#F84E4E";
     } else if (item.orders > 0) {
-      return '#43C888';
+      return "#43C888";
     }
   };
 
   return (
-    <StyledCustomItem className='item-hover'>
+    <StyledCustomItem className="item-hover">
       <Avatar src={item.image} />
       <StyledContentArea>
         <h3>{item.name}</h3>
@@ -33,12 +33,12 @@ const CustomerItem: React.FC<CustomerItemProps> = ({ item }) => {
         <StyledBadgeRoot
           style={{
             color: getStatusColor(),
-            backgroundColor: getStatusColor() + '44',
+            backgroundColor: getStatusColor() + "44",
           }}
         >
           {item.orders} orders
         </StyledBadgeRoot>
-        <Button onClick={undefined} shape='circle' icon={<MoreOutlined />} />
+        <Button onClick={undefined} shape="circle" icon={<MoreOutlined />} />
       </StyledContentAction>
     </StyledCustomItem>
   );

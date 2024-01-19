@@ -6,13 +6,13 @@ import { Form, Input } from 'antd';
 import { useIntl } from 'react-intl';
 import AppPageMeta from '@crema/components/AppPageMeta';
 import {
-  StyledUserCard,
-  StyledUserCardHeader,
   StyledUserCardLogo,
-  StyledUserContainer,
   StyledUserForm,
   StyledUserFormBtn,
   StyledUserPages,
+  StyledUserContainer,
+  StyledUserCard,
+  StyledUserCardHeader,
 } from '../index.styled';
 import Image from 'next/image';
 

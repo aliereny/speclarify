@@ -27,7 +27,7 @@ const SpecificFileTypes = () => {
     ));
 
   return (
-    <section className='container'>
+    <section className="container">
       <div {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
         <p>Drag n drop some files here, or click to select files</p>

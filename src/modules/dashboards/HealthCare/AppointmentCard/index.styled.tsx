@@ -1,4 +1,4 @@
-import { ArrowUpOutlined } from '@ant-design/icons';
+import {ArrowUpOutlined} from '@ant-design/icons';
 import styled from 'styled-components';
 
 export const StyledAppointmentContent = styled.div`
@@ -13,8 +13,8 @@ export const StyledAppointmentContentItem = styled.div`
 
   & h3 {
     font-size: 20px;
-    font-weight: ${({ theme }) => theme.font.weight.bold};
-    color: ${({ theme }) => theme.palette.primary.contrastText};
+    font-weight: ${({theme}) => theme.font.weight.bold};
+    color: ${({theme}) => theme.palette.primary.contrastText};
   }
 
   & p {
@@ -22,11 +22,11 @@ export const StyledAppointmentContentItem = styled.div`
   }
 
   & h5 {
-    font-size: ${({ theme }) => theme.font.size.sm};
+    font-size: ${({theme}) => theme.font.size.sm};
     margin-bottom: 12px;
-    font-weight: ${({ theme }) => theme.font.weight.bold};
+    font-weight: ${({theme}) => theme.font.weight.bold};
     text-align: right;
-    color: ${({ theme }) => theme.palette.primary.contrastText};
+    color: ${({theme}) => theme.palette.primary.contrastText};
 
     [dir='rtl'] & {
       text-align: left;

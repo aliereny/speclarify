@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyledCoinInfoCol, StyledCoinInfoRow } from './index.styled';
-import type { BalanceCoinsType } from '@crema/types/models/dashboards/Crypto';
+import React from "react";
+import { StyledCoinInfoCol, StyledCoinInfoRow } from "./index.styled";
+import type { BalanceCoinsType } from "@crema/types/models/dashboards/Crypto";
 
 type CoinsInfoProps = {
   coins: BalanceCoinsType[];

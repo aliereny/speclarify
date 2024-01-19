@@ -1,16 +1,16 @@
-import React from 'react';
-import AppCard from '@crema/components/AppCard';
-import CardDetailItem from './CardDetailItem';
-import MonthlyLimitItem from './MonthlyLimitItem';
-import { useIntl } from 'react-intl';
+import React from "react";
+import AppCard from "@crema/components/AppCard";
+import CardDetailItem from "./CardDetailItem";
+import MonthlyLimitItem from "./MonthlyLimitItem";
+import { useIntl } from "react-intl";
 import {
   StyledCardDetailContainer,
   StyledCardDetailWrapper,
   StyledCardWrapper,
   StyledDetailItemContainer,
   StyledText,
-} from './index.styled';
-import { CardDetailsType } from '@crema/types/models/dashboards/Crypto';
+} from "./index.styled";
+import { CardDetailsType } from "@crema/types/models/dashboards/Crypto";
 
 type Props = {
   cardDetails: CardDetailsType;
@@ -19,7 +19,7 @@ type Props = {
 const CardDetails = ({ cardDetails }: Props) => {
   const { messages } = useIntl();
   return (
-    <AppCard title={messages['dashboard.crypto.cardDetails'] as string}>
+    <AppCard title={messages["dashboard.crypto.cardDetails"] as string}>
       <StyledCardWrapper>
         <StyledCardDetailWrapper>
           {cardDetails.cardDetail.map((data, index) => (
@@ -31,7 +31,7 @@ const CardDetails = ({ cardDetails }: Props) => {
       </StyledCardWrapper>
       <div
         style={{
-          position: 'relative',
+          position: "relative",
         }}
       >
         <StyledText>Monthly Limits</StyledText>

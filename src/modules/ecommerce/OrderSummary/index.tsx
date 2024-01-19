@@ -1,13 +1,13 @@
-import React from 'react';
-import AppCard from '@crema/components/AppCard';
-import { useIntl } from 'react-intl';
-import AppPageMeta from '@crema/components/AppPageMeta';
+import React from "react";
+import AppCard from "@crema/components/AppCard";
+import { useIntl } from "react-intl";
+import AppPageMeta from "@crema/components/AppPageMeta";
 import {
   StyledOrderSummaryItem,
   StyledSummaryOrderDivider,
-} from './index.styled';
-import AppAnimate from '@crema/components/AppAnimate';
-import type { CartItemsType } from '@crema/types/models/ecommerce/EcommerceApp';
+} from "./index.styled";
+import AppAnimate from "@crema/components/AppAnimate";
+import type { CartItemsType } from "@crema/types/models/ecommerce/EcommerceApp";
 
 const getTotalPrice = (cartItems: CartItemsType[]) => {
   let total = 0;
@@ -35,9 +35,9 @@ const OrderSummary = ({ cartItems }: Props) => {
   const totalPrice = getTotalPrice(cartItems);
   const totalDiscount = getTotalDiscount(cartItems);
   return (
-    <AppAnimate animation='transition.slideRightIn' delay={200}>
-      <AppCard title={messages['ecommerce.orderSummary'] as string}>
-        <AppPageMeta title='Order Summery' />
+    <AppAnimate animation="transition.slideRightIn" delay={200}>
+      <AppCard title={messages["ecommerce.orderSummary"] as string}>
+        <AppPageMeta title="Order Summery" />
         <StyledOrderSummaryItem>
           <p>Grand Total: </p>
           <span>${totalPrice}</span>

@@ -8,7 +8,7 @@ type Props = {
 
 const CardWrapper = ({ children, ...rest }: Props) => {
   return (
-    <StyledCardMediaWrapper className='no-card-space-ltr-rtl' {...rest}>
+    <StyledCardMediaWrapper className="no-card-space-ltr-rtl" {...rest}>
       {children}
     </StyledCardMediaWrapper>
   );

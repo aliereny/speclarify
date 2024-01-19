@@ -4,8 +4,8 @@ import React from 'react';
 // import 'velocity-animate/velocity.ui';
 
 type AppAnimateProps = {
-    children: React.ReactNode;
-    [x: string]: any;
+  children: React.ReactNode;
+  [x: string]: any;
 };
 
 // const defaultProps = {
@@ -24,13 +24,13 @@ type AppAnimateProps = {
 // };
 
 export const AppAnimate: React.FC<AppAnimateProps> = (props) => {
-    // const children = React.cloneElement(props.children, {
-    //   style: {
-    //     ...props.children.style,
-    //     visibility: 'hidden',
-    //   },
-    // });
-    return <>{props.children}</>;
+  // const children = React.cloneElement(props.children, {
+  //   style: {
+  //     ...props.children.style,
+  //     visibility: 'hidden',
+  //   },
+  // });
+  return <>{props.children}</>;
 };
 
 // AppAnimate.defaultProps = defaultProps;

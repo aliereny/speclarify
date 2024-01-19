@@ -9,8 +9,8 @@ import {
   StyledSecondaryText,
 } from '../../AddInvoice/AddInvoice/EditTable/index.styled';
 import {
-  InvoiceCurrencyType,
   InvoiceItemType,
+  InvoiceCurrencyType,
 } from '@crema/types/models/invoice';
 
 type Props = {

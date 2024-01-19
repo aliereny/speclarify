@@ -1,8 +1,8 @@
-import React from 'react';
-import VisitorsGraph from './VisitorsGraph';
-import { useIntl } from 'react-intl';
-import AppCard from '@crema/components/AppCard';
-import { green, red } from '@ant-design/colors';
+import React from "react";
+import VisitorsGraph from "./VisitorsGraph";
+import { useIntl } from "react-intl";
+import AppCard from "@crema/components/AppCard";
+import { green, red } from "@ant-design/colors";
 import {
   StyledActiveVisitorContent,
   StyledActiveVisitorContentHeader,
@@ -11,9 +11,9 @@ import {
   StyledActiveVisitorGraphHeader,
   StyledActiveVisitorGraphWrap,
   StyledActiveVisitorLink,
-} from './index.styled';
+} from "./index.styled";
 
-import type { ActiveVisitorsType } from '@crema/types/models/dashboards/Analytics';
+import type { ActiveVisitorsType } from "@crema/types/models/dashboards/Analytics";
 
 type Props = {
   data: ActiveVisitorsType;
@@ -22,11 +22,11 @@ type Props = {
 const ActiveVisitors: React.FC<Props> = ({ data }) => {
   const { messages } = useIntl();
   return (
-    <AppCard className='no-card-space'>
+    <AppCard className="no-card-space">
       <StyledActiveVisitorGraphWrap>
         <StyledActiveVisitorGraphHeader>
-          <h3>{messages['dashboard.analytics.activeVisitors'] as string}</h3>
-          <p>{messages['dashboard.analytics.pageViewPerMinutes'] as string}</p>
+          <h3>{messages["dashboard.analytics.activeVisitors"] as string}</h3>
+          <p>{messages["dashboard.analytics.pageViewPerMinutes"] as string}</p>
         </StyledActiveVisitorGraphHeader>
         <StyledActiveVisitorGraph>
           <VisitorsGraph data={data.graphData} />
@@ -43,7 +43,7 @@ const ActiveVisitors: React.FC<Props> = ({ data }) => {
           <p>{data.slug}</p>
         </div>
         <StyledActiveVisitorFooter>
-          <StyledActiveVisitorLink href='#'>
+          <StyledActiveVisitorLink href="#">
             View Report
           </StyledActiveVisitorLink>
         </StyledActiveVisitorFooter>

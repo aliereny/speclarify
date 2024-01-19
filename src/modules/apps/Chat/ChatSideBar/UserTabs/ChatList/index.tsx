@@ -1,11 +1,11 @@
-import React from 'react';
-import ChatItem from './ChatItem';
-import AppList from '@crema/components/AppList';
-import { useIntl } from 'react-intl';
-import ChatListSkeleton from '@crema/components/AppSkeleton/ChatListSkeleton';
-import { StyledAppScrollbar, StyledChatSidebarTitle } from '../../index.styled';
-import { ConnectionObjType } from '@crema/types/models/apps/Chat';
-import ListEmptyResult from '@crema/components/AppList/ListEmptyResult';
+import React from "react";
+import ChatItem from "./ChatItem";
+import AppList from "@crema/components/AppList";
+import { useIntl } from "react-intl";
+import ChatListSkeleton from "@crema/components/AppSkeleton/ChatListSkeleton";
+import { StyledAppScrollbar, StyledChatSidebarTitle } from "../../index.styled";
+import { ConnectionObjType } from "@crema/types/models/apps/Chat";
+import ListEmptyResult from "@crema/components/AppList/ListEmptyResult";
 
 type ChatListProps = {
   chatListData: ConnectionObjType[];
@@ -28,7 +28,7 @@ const ChatList: React.FC<ChatListProps> = ({
         data={chatListData}
         ListEmptyComponent={
           <ListEmptyResult
-            content={messages['chatApp.noUserFound'] as string}
+            content={messages["chatApp.noUserFound"] as string}
             loading={loading}
             placeholder={<ChatListSkeleton />}
           />

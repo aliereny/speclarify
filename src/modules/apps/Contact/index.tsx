@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import AppsContainer from '@crema/components/AppsContainer';
 import SideBarContent from './ContactSideBar';
 import AppPageMeta from '@crema/components/AppPageMeta';
+import { useGetDataApi } from '@crema/hooks/APIHooks';
 import type { ContactObjType } from '@crema/types/models/apps/Contact';
 import ContactContextProvider from '../context/ContactContextProvider';
 

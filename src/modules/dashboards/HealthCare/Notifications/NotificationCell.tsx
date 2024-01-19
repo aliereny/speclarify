@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import {
   StyledHcNotificationCell,
   StyledNotificationContent,
-} from './index.styled';
-import type { NotificationDataType } from '@crema/types/models/dashboards/HealthCare';
+} from "./index.styled";
+import type { NotificationDataType } from "@crema/types/models/dashboards/HealthCare";
 
 type NotificationCellProps = {
   notification: NotificationDataType;
@@ -13,9 +13,9 @@ const NotificationCell: React.FC<NotificationCellProps> = ({
   notification,
 }) => {
   return (
-    <StyledHcNotificationCell className='item-hover'>
+    <StyledHcNotificationCell className="item-hover">
       <span
-        className='dot'
+        className="dot"
         style={{
           backgroundColor: notification.color,
         }}

@@ -1,10 +1,10 @@
-import React from 'react';
-import Attachments from './Attachments';
-import PostStats from './PostStats';
-import AddComment from './AddComment';
-import CommentsList from './CommentsList';
-import { EllipsisOutlined } from '@ant-design/icons';
-import { getTimeFromNow } from '@crema/helpers/DateHelper';
+import React from "react";
+import Attachments from "./Attachments";
+import PostStats from "./PostStats";
+import AddComment from "./AddComment";
+import CommentsList from "./CommentsList";
+import { EllipsisOutlined } from "@ant-design/icons";
+import { getTimeFromNow } from "@crema/helpers/DateHelper";
 import {
   StyledPostItemAvatar,
   StyledPostItemCard,
@@ -12,8 +12,8 @@ import {
   StyledPostItemPara,
   StyledPostItemUser,
   StyledPostItemUserInfo,
-} from '../index.styled';
-import { PostObjType, WallDataType } from '@crema/types/models/apps/Wall';
+} from "../index.styled";
+import { PostObjType, WallDataType } from "@crema/types/models/apps/Wall";
 
 type PostItemProps = {
   post: PostObjType;
@@ -41,7 +41,7 @@ const PostItem: React.FC<PostItemProps> = ({
   return (
     <StyledPostItemCard
       title={getTitle()}
-      className={isLast ? '' : 'mb-5'}
+      className={isLast ? "" : "mb-5"}
       extra={
         <StyledPostItemExtraBtn>
           <EllipsisOutlined />

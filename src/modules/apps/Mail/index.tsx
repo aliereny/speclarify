@@ -6,7 +6,7 @@ import AppsContainer from '@crema/components/AppsContainer';
 import MailSidebar from './MailSideBar';
 import { useIntl } from 'react-intl';
 import AppPageMeta from '@crema/components/AppPageMeta';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import MailContextProvider from '../context/MailContextProvider';
 
 const Mail = () => {

@@ -22,15 +22,15 @@ const TaskCreatedByInfo = ({ createdBy, createdOn }: Props) => {
       {createdBy.image ? (
         <StyledTodoAvatar30 src={createdBy.image} />
       ) : (
-        <StyledTodoAvatar30 className='todo-avatar-name'>
+        <StyledTodoAvatar30 className="todo-avatar-name">
           {createdBy.name[0]}
         </StyledTodoAvatar30>
       )}
       <StyledTodoCrByInfoContent>
         <StyledTodoCrByName>{createdBy.name}</StyledTodoCrByName>
-        <p className='mb-0'>
+        <p className="mb-0">
           <span>
-            <IntlMessages id='todo.createdThisTask' />
+            <IntlMessages id="todo.createdThisTask" />
           </span>
           <StyledTodoCrOn>{createdOn}</StyledTodoCrOn>
         </p>

@@ -1,14 +1,14 @@
-import React from 'react';
-import { Col } from 'antd';
-import AppRowContainer from '@crema/components/AppRowContainer';
-import Member from './Member';
-import IntlMessages from '@crema/helpers/IntlMessages';
+import React from "react";
+import { Col } from "antd";
+import AppRowContainer from "@crema/components/AppRowContainer";
+import Member from "./Member";
+import IntlMessages from "@crema/helpers/IntlMessages";
 import {
   StyledMemberItem,
   StyledProfileConnection,
   StyledProfileConnectionTitle,
-} from './index.styled';
-import { MemberDataType } from '@crema/types/models/account';
+} from "./index.styled";
+import { MemberDataType } from "@crema/types/models/account";
 
 type ProfileConnectionProps = {
   profileConnection: MemberDataType[];
@@ -20,7 +20,7 @@ const ProfileConnection: React.FC<ProfileConnectionProps> = ({
   return (
     <StyledProfileConnection>
       <StyledProfileConnectionTitle>
-        <IntlMessages id='userProfile.profileConnections' />
+        <IntlMessages id="userProfile.profileConnections" />
       </StyledProfileConnectionTitle>
       <AppRowContainer gutter={16}>
         {profileConnection.map((member, index) => {

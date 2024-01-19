@@ -12,7 +12,6 @@ import {
   StyledPricingWrapper,
 } from './index.styled';
 import { PricingObj } from '@crema/fakedb/extraPages';
-
 type PackageCardProps = {
   pricing: PricingObj;
 };

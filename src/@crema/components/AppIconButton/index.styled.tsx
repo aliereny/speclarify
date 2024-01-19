@@ -1,10 +1,10 @@
-import { Button } from 'antd';
+import {Button} from 'antd';
 import styled from 'styled-components';
-import { rgba } from 'polished';
+import {rgba} from 'polished';
 
 export const StyledIconBtn = styled(Button)`
   border: 0 none;
-  color: ${({ theme }) => theme.palette.text.secondary};
+  color: ${({theme}) => theme.palette.text.secondary};
   background-color: transparent !important;
   box-shadow: none;
   display: flex;
@@ -15,26 +15,26 @@ export const StyledIconBtn = styled(Button)`
 
   &:hover,
   &:focus {
-    background-color: ${({ theme }) =>
+    background-color: ${({theme}) =>
       rgba(theme.palette.black, 0.05)} !important;
-    color: ${({ theme }) => theme.palette.text.primary};
+    color: ${({theme}) => theme.palette.text.primary};
   }
 
   &.active {
-    color: ${({ theme }) => theme.palette.primary.main};
+    color: ${({theme}) => theme.palette.primary.main};
 
     &:hover,
     &:focus {
-      background-color: ${({ theme }) =>
+      background-color: ${({theme}) =>
         rgba(theme.palette.black, 0.05)} !important;
-      color: ${({ theme }) => theme.palette.primary.main};
+      color: ${({theme}) => theme.palette.primary.main};
     }
   }
   & svg {
     display: block;
     font-size: 18px;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
       font-size: 20px;
     }
   }

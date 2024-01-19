@@ -13,7 +13,7 @@ const Timeslots = () => {
       localizer={localizer}
       step={15}
       timeslots={8}
-      defaultView='week'
+      defaultView="week"
       defaultDate={new Date(2021, 10, 12)}
     />
   );

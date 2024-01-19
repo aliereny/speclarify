@@ -8,9 +8,11 @@ import {
   StyledMailContentHeaderPagination,
   StyledMailSearch,
 } from '../index.styled';
+
+import type { MailObjType } from '@crema/types/models/apps/Mail';
 import {
-  useMailActionsContext,
   useMailContext,
+  useMailActionsContext,
 } from '../../../context/MailContextProvider';
 
 type MailContentHeaderProps = {

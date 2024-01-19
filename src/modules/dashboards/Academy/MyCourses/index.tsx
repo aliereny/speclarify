@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import AppCard from '@crema/components/AppCard';
-import CourseCell from './CourseCell';
-import { useIntl } from 'react-intl';
-import { List } from 'antd';
-import clsx from 'clsx';
+import React, { useState } from "react";
+import AppCard from "@crema/components/AppCard";
+import CourseCell from "./CourseCell";
+import { useIntl } from "react-intl";
+import { List } from "antd";
+import clsx from "clsx";
 import {
   StyledCategoryBadge,
   StyledMyCategoryItem,
   StyledMyCourseHeader,
-} from './index.styled';
+} from "./index.styled";
 
-import { CoursesType } from '@crema/types/models/dashboards/AcademyType';
+import { CoursesType } from "@crema/types/models/dashboards/AcademyType";
 
 type MyCoursesProps = {
   courses: CoursesType;
@@ -18,7 +18,7 @@ type MyCoursesProps = {
 
 const MyCourses: React.FC<MyCoursesProps> = ({ courses }) => {
   const [selectedCategory, setSelectedCategory] = useState(
-    courses.categories[0].slug,
+    courses.categories[0].slug
   );
 
   const handleChangeCategory = (category: string) => {
@@ -29,9 +29,9 @@ const MyCourses: React.FC<MyCoursesProps> = ({ courses }) => {
 
   return (
     <AppCard
-      className='no-card-space-ltr-rtl'
+      className="no-card-space-ltr-rtl"
       heightFull
-      title={messages['academy.myCourses'] as string}
+      title={messages["academy.myCourses"] as string}
     >
       <StyledMyCourseHeader>
         {courses.categories.map((item, index) => (

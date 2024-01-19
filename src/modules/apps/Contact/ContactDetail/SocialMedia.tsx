@@ -1,5 +1,5 @@
-import React from 'react';
-import IntlMessages from '@crema/helpers/IntlMessages';
+import React from "react";
+import IntlMessages from "@crema/helpers/IntlMessages";
 import {
   StyledContactDetailModalItem,
   StyledContactDetailModalItemContent,
@@ -8,8 +8,8 @@ import {
   StyledOtherDetailItem,
   StyledOtherDetailItemContent,
   StyleFiTwitterIcon,
-} from './index.styled';
-import { ContactObjType } from '@crema/types/models/apps/Contact';
+} from "./index.styled";
+import { ContactObjType } from "@crema/types/models/apps/Contact";
 
 type SocialMediaProps = {
   contact: ContactObjType | null;
@@ -19,7 +19,7 @@ const SocialMedia: React.FC<SocialMediaProps> = ({ contact }) => {
   return (
     <StyledContactDetailModalItem>
       <StyledContactDetailModalItemTitle>
-        <IntlMessages id='common.socialMedia' />
+        <IntlMessages id="common.socialMedia" />
       </StyledContactDetailModalItemTitle>
 
       <StyledContactDetailModalItemContent>
@@ -29,7 +29,7 @@ const SocialMedia: React.FC<SocialMediaProps> = ({ contact }) => {
             {contact!.facebookId ? (
               contact!.facebookId
             ) : (
-              <IntlMessages id='common.na' />
+              <IntlMessages id="common.na" />
             )}
           </StyledOtherDetailItemContent>
         </StyledOtherDetailItem>
@@ -40,7 +40,7 @@ const SocialMedia: React.FC<SocialMediaProps> = ({ contact }) => {
             {contact!.twitterId ? (
               contact!.twitterId
             ) : (
-              <IntlMessages id='common.na' />
+              <IntlMessages id="common.na" />
             )}
           </StyledOtherDetailItemContent>
         </StyledOtherDetailItem>

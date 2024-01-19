@@ -1,4 +1,4 @@
-import type { CartItemsType } from '@crema/types/models/ecommerce/EcommerceApp';
+import type { CartItemsType } from "@crema/types/models/ecommerce/EcommerceApp";
 
 export const getTotalPrice = (cartItems: CartItemsType[]) => {
   let total = 0;

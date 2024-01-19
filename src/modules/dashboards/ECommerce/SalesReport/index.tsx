@@ -27,12 +27,12 @@ const SalesReport = () => {
         <StyledFlex>
           <StyledContent>
             <StyledDotAction>
-              <StyledSecondaryText className='dot-icon' />
-              <IntlMessages id='dashboard.eCommerce.return' />
+              <StyledSecondaryText className="dot-icon" />
+              <IntlMessages id="dashboard.eCommerce.return" />
             </StyledDotAction>
             <StyledDotAction>
-              <StyledPrimaryText className='dot-icon' />
-              <IntlMessages id='common.orders' />
+              <StyledPrimaryText className="dot-icon" />
+              <IntlMessages id="common.orders" />
             </StyledDotAction>
           </StyledContent>
           <AppSelect

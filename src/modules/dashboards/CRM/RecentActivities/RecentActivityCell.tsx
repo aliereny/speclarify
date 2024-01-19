@@ -1,20 +1,20 @@
-import React from 'react';
-import { Avatar } from 'antd';
+import React from "react";
+import { Avatar } from "antd";
 import {
   StyledFlexRecentActivity,
   StyledRecentActivityMsg,
   StyledRecentActivityName,
   StyledRecentActivityTitle,
   StyledRecentActivityWrapper,
-} from './index.styled';
-import { RecentActivityType } from '@crema/types/models/dashboards/CRM';
+} from "./index.styled";
+import { RecentActivityType } from "@crema/types/models/dashboards/CRM";
 
 type Props = {
   activity: RecentActivityType;
 };
 const RecentActivityCell = ({ activity }: Props) => {
   return (
-    <StyledRecentActivityWrapper className='item-hover'>
+    <StyledRecentActivityWrapper className="item-hover">
       <Avatar
         style={{
           width: 36,

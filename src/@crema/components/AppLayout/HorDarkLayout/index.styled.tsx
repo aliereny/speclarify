@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { Alert, Drawer, Input, Layout } from 'antd';
+import {Alert, Drawer, Input, Layout} from 'antd';
 import AppHorizontalNav from '../components/AppHorizontalNav';
 import MainSidebar from '../components/MainSidebar';
 import AppScrollbar from '../../AppScrollbar';
 
-const { Header } = Layout;
-const { Search } = Input;
+const {Header} = Layout;
+const {Search} = Input;
 
 export const StyledAppHeaderHorDark = styled(Header)`
   color: inherit !important;
@@ -23,7 +23,7 @@ export const StyledAppHeaderHorDark = styled(Header)`
     padding: 5.5px;
     color: inherit;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
       display: none;
     }
 
@@ -46,7 +46,7 @@ export const StyledHeaderSearchHorDark = styled(Search)`
     margin-right: auto;
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
     margin-right: 20px;
     max-width: 165px;
 
@@ -79,7 +79,7 @@ export const StyledHeaderSearchHorDark = styled(Search)`
       width: 135px;
     }
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
       width: 129px;
 
       &:focus {
@@ -102,21 +102,21 @@ export const StyledHeaderSearchHorDark = styled(Search)`
     > .ant-input-group
     > .ant-input-group-addon:last-child
     .ant-input-search-button {
-    border-radius: ${({ theme }) => theme.sizes.borderRadius.base} 0 0
-      ${({ theme }) => theme.sizes.borderRadius.base};
+    border-radius: ${({theme}) => theme.sizes.borderRadius.base} 0 0
+      ${({theme}) => theme.sizes.borderRadius.base};
   }
 `;
 
 export const StyledHeaderHorDarkMain = styled.div`
   position: relative;
   background-color: inherit;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor};
+  border-bottom: 1px solid ${({theme}) => theme.palette.borderColor};
   min-height: 56px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
     min-height: 71px;
   }
 
@@ -125,12 +125,12 @@ export const StyledHeaderHorDarkMain = styled.div`
     background-color: transparent;
     min-height: auto;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
       padding-left: 12px;
       padding-right: 12px;
     }
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
       padding-left: 20px;
 
       [dir='rtl'] & {
@@ -150,7 +150,7 @@ export const StyledHeaderHorDarkMain = styled.div`
     display: none;
     padding-right: 0;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
       display: flex;
       flex-direction: column;
     }
@@ -192,11 +192,11 @@ export const StyledContainer = styled.div`
   padding-left: 20px;
   padding-right: 20px;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.xl}px) {
     max-width: 1140px;
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
     max-width: 1440px;
   }
 
@@ -208,7 +208,7 @@ export const StyledContainer = styled.div`
 export const StyledHeaderHorDarkSecDesktop = styled.div`
   display: none;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
     display: flex;
     align-items: center;
   }
@@ -217,7 +217,7 @@ export const StyledHeaderHorDarkSecDesktop = styled.div`
 export const StyledHeaderHorDarkSecMobile = styled.div`
   display: block;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
     display: none;
   }
 
@@ -234,10 +234,10 @@ export const StyledHeaderHorDarkSecMobile = styled.div`
 export const StyledHeaderNavHorDark = styled.div`
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor};
+  border-bottom: 1px solid ${({theme}) => theme.palette.borderColor};
   display: none;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
     display: block;
   }
 `;
@@ -250,7 +250,7 @@ export const StyledAppMainHorDarkMainMenu = styled(AppHorizontalNav)`
   &.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item,
   &.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
     padding: 0 10px;
-    border-radius: ${({ theme }) => theme.sizes.borderRadius.base};
+    border-radius: ${({theme}) => theme.sizes.borderRadius.base};
   }
 
   & .ant-menu-submenu .ant-menu-submenu-title {
@@ -306,8 +306,8 @@ export const StyledAppMainHorDarkSidebar = styled(MainSidebar)`
     min-width: 0 !important;
     width: 17.5rem !important;
     transition: all 0.1s linear;
-    background-color: ${({ theme }) => theme.sidebar.light.sidebarBgColor};
-    color: ${({ theme }) => theme.palette.text.primary};
+    background-color: ${({theme}) => theme.sidebar.light.sidebarBgColor};
+    color: ${({theme}) => theme.palette.text.primary};
     position: fixed;
     left: 0;
     top: 0;
@@ -317,7 +317,7 @@ export const StyledAppMainHorDarkSidebar = styled(MainSidebar)`
       right: 0;
     }
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
       width: 17.5rem !important;
     }
   }
@@ -335,7 +335,7 @@ export const StyledAppMainHorDarkSidebar = styled(MainSidebar)`
     width: 0 !important;
     transition: all 200ms linear;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
       width: 4rem !important;
     }
 
@@ -343,7 +343,7 @@ export const StyledAppMainHorDarkSidebar = styled(MainSidebar)`
       width: 100% !important;
       transition: all 200ms linear;
 
-      @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
+      @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
         width: calc(100% - 4rem) !important;
       }
     }
@@ -410,7 +410,7 @@ export const StyledAppMainHorDarkSidebar = styled(MainSidebar)`
 export const StyledAppScrollbar = styled(AppScrollbar)`
   height: calc(100vh - 56px);
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
     height: calc(100vh - 71px);
   }
 `;
@@ -426,7 +426,7 @@ export const StyledAppLayoutHorDark = styled(Layout)`
     position: fixed;
     top: 205px;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
       top: 225px;
     }
   }
@@ -450,8 +450,7 @@ export const StyledAppLayoutHorDarkMain = styled(Layout)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: ${({ theme }) =>
-    theme.palette.background.default} !important;
+  background-color: ${({theme}) => theme.palette.background.default} !important;
 
   & .ant-layout-content {
     background-color: transparent;
@@ -467,7 +466,7 @@ export const StyledHeaderAlertDark = styled(Alert)`
   text-align: center;
   border: 0 none;
   border-radius: 0;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor};
+  border-bottom: 1px solid ${({theme}) => theme.palette.borderColor};
   padding: 10.6px 20px;
   background-color: inherit;
   color: inherit;

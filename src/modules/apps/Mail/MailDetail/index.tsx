@@ -8,7 +8,7 @@ import { StyledMailDetail } from './index.styled';
 import AppAnimate from '@crema/components/AppAnimate';
 import { useGetDataApi } from '@crema/hooks/APIHooks';
 import type { MailObjType } from '@crema/types/models/apps/Mail';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
 const MailDetail = () => {
   const contentRef = createRef<any>();

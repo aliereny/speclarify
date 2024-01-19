@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import {
   StyledAppointmentCell,
   StyledAppointmentCellAction,
   StyledAppointmentCellAvatar,
   StyledAppointmentCellContent,
   StyledAppointmentCellTime,
-} from './index.styled';
-import type { UpcomingAppointmentType } from '@crema/types/models/dashboards/HealthCare';
+} from "./index.styled";
+import type { UpcomingAppointmentType } from "@crema/types/models/dashboards/HealthCare";
 
 type AppointmentCellProps = {
   appointment: UpcomingAppointmentType;
@@ -14,7 +14,7 @@ type AppointmentCellProps = {
 
 const AppointmentCell: React.FC<AppointmentCellProps> = ({ appointment }) => {
   return (
-    <StyledAppointmentCell className='item-hover'>
+    <StyledAppointmentCell className="item-hover">
       <StyledAppointmentCellAvatar src={appointment.profile_pic} />
       <StyledAppointmentCellContent>
         <h5>{appointment.name}</h5>

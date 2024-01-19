@@ -18,7 +18,7 @@ const ProfileCard = () => {
           style={{ height: 80, width: 80 }}
           src={'/assets/images/avatar/A10.jpg'}
         />
-        <h5 className='title'>Talan Phips</h5>
+        <h5 className="title">Talan Phips</h5>
 
         <StyledProfileContentAction>
           <StyledProfileActionItem>

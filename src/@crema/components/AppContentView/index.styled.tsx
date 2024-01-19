@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Layout } from 'antd';
+import {Layout} from 'antd';
 
-const { Content } = Layout;
+const {Content} = Layout;
 
 export const StyledMainContentView = styled(Content)`
   display: flex;
@@ -9,9 +9,9 @@ export const StyledMainContentView = styled(Content)`
   flex-direction: column;
   padding: 20px 20px 0;
   min-height: auto !important;
-  //background-color: ${({ theme }) => theme.palette.background.default};
+  //background-color: ${({theme}) => theme.palette.background.default};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
     padding: 30px 32px 0;
   }
 `;

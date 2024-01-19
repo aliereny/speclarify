@@ -1,8 +1,8 @@
-import React from 'react';
-import AppGrid from '@crema/components/AppGrid';
-import GridItem from './GridItem';
-import ListEmptyResult from '@crema/components/AppList/ListEmptyResult';
-import type { ProductDataType } from '@crema/types/models/ecommerce/EcommerceApp';
+import React from "react";
+import AppGrid from "@crema/components/AppGrid";
+import GridItem from "./GridItem";
+import ListEmptyResult from "@crema/components/AppList/ListEmptyResult";
+import type { ProductDataType } from "@crema/types/models/ecommerce/EcommerceApp";
 
 type Props = {
   ecommerceList: ProductDataType[];
@@ -20,7 +20,7 @@ const ProductGrid = ({ ecommerceList, loading }: Props) => (
     data={ecommerceList}
     renderItem={(item) => <GridItem item={item} key={item.id} />}
     ListEmptyComponent={
-      <ListEmptyResult content='No product found' loading={loading} />
+      <ListEmptyResult content="No product found" loading={loading} />
     }
   />
 );

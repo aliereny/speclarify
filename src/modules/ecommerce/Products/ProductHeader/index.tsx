@@ -27,13 +27,13 @@ const ProductHeader = ({
     <StyledProductHeader>
       <StyledProductHeaderLeft>
         <h3>Watches</h3>
-        <StyledProductHeaderShowingText className='text-truncate'>
+        <StyledProductHeaderShowingText className="text-truncate">
           (Showing 1 – 40 products of 93,723 products)
         </StyledProductHeaderShowingText>
       </StyledProductHeaderLeft>
       <StyledProductHeaderRight>
         <StyledProductHeaderSearch
-          placeholder='Search here'
+          placeholder="Search here"
           onChange={(e) => onChange(e.target.value)}
         />
 

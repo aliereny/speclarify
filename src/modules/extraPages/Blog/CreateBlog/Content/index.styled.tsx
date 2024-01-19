@@ -1,4 +1,3 @@
-import ReactQuill from 'react-quill';
 import styled from 'styled-components';
 
 export const StyledTextPrimary = styled.span`
@@ -17,29 +16,14 @@ export const StyledTextMb = styled.p`
   margin-bottom: 8px;
 `;
 
-export const StyledDetailTextarea = styled(ReactQuill)`
-  width: 100%;
-
-  & .ql-toolbar.ql-snow {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
-
-  & .ql-container {
-    height: 110px !important;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-  }
-`;
-
 export const StyledThumbsContainer = styled.aside`
   display: flex;
   cursor: default;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  flex-wrap: 'wrap';
-  margin-top: 16;
+  flex-wrap: wrap;
+  margin-top: 16px;
 `;
 
 export const StyledThumb = styled.div`

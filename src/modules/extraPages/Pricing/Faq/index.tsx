@@ -1,6 +1,6 @@
 import AppRowContainer from '@crema/components/AppRowContainer';
 import React from 'react';
-import { Col, Collapse, theme, Typography } from 'antd';
+import { Typography, Col, Collapse, theme } from 'antd';
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
 import { StyledPrimaryText, StyledSecondaryText } from './index.styled';
 import type { GeneralFaq } from '@crema/fakedb/extraPages';

@@ -1,15 +1,15 @@
-import React from 'react';
-import SocialMediaGraph from './SocialMediaGraph';
-import AppCard from '@crema/components/AppCard';
-import { useIntl } from 'react-intl';
+import React from "react";
+import SocialMediaGraph from "./SocialMediaGraph";
+import AppCard from "@crema/components/AppCard";
+import { useIntl } from "react-intl";
 import {
   StyledSocialMediaAdvertise,
   StyledSocialMediaAdvertiseItem,
   StyledSocialMediaAdvName,
   StyledSocialMediaAdvValue,
-} from './index.styled';
+} from "./index.styled";
 
-import type { SocialMediaDataType } from '@crema/types/models/dashboards/CRM';
+import type { SocialMediaDataType } from "@crema/types/models/dashboards/CRM";
 
 type SocialMediaAdvertiseProps = {
   socialMediaData: SocialMediaDataType[];
@@ -21,7 +21,7 @@ const SocialMediaAdvertise: React.FC<SocialMediaAdvertiseProps> = ({
   const { messages } = useIntl();
 
   return (
-    <AppCard heightFull title={messages['dashboard.socialMedia'] as string}>
+    <AppCard heightFull title={messages["dashboard.socialMedia"] as string}>
       <SocialMediaGraph socialMediaData={socialMediaData} />
       <StyledSocialMediaAdvertise>
         {socialMediaData.map((item) => {

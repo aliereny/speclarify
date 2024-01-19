@@ -15,9 +15,9 @@ import {
   StyledAppHeaderHorMainFlex,
   StyledAppHorizontalNav,
   StyledContainer,
+  StyledHeaderSearchHorFixed,
   StyledHeaderHorFixedSecDesktop,
   StyledHeaderHorFixedSecMobile,
-  StyledHeaderSearchHorFixed,
 } from './index.styled';
 import { StyledDropdownWrapper } from '../index.styled';
 

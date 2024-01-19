@@ -7,7 +7,6 @@ import AppsContainer from '@crema/components/AppsContainer';
 import AppPageMeta from '@crema/components/AppPageMeta';
 import ProductsSidebar from './ProductsSidebar';
 import { ProductDataFilterType } from '@crema/types/models/ecommerce/EcommerceApp';
-
 export const VIEW_TYPE = {
   GRID: 'grid',
   LIST: 'list',

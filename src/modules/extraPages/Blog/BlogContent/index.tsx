@@ -1,12 +1,12 @@
-import React from 'react';
-import BlogSidebarCard from '../BlogSidebarCard';
-import Blogs from './Blogs';
-import AppRowContainer from '@crema/components/AppRowContainer';
-import { StyledCol1, StyledCol2 } from './index.styled';
+import React from "react";
+import BlogSidebarCard from "../BlogSidebarCard";
+import Blogs from "./Blogs";
+import AppRowContainer from "@crema/components/AppRowContainer";
+import { StyledCol1, StyledCol2 } from "./index.styled";
 import {
   BlogContentType,
   BlogSidebarType,
-} from '@crema/types/models/extrapages/Blog';
+} from "@crema/types/models/extrapages/Blog";
 
 type Props = {
   blogSidebar: BlogSidebarType;

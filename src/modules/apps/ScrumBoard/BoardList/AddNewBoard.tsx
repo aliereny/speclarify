@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import IntlMessages from '@crema/helpers/IntlMessages';
-import { Input } from 'antd';
-import { useIntl } from 'react-intl';
+import IntlMessages from "@crema/helpers/IntlMessages";
+import { Input } from "antd";
+import { useIntl } from "react-intl";
 import {
   StyledScrumAddBoardCard,
   StyledScrumAddBoardFooterBtn,
   StyledScrumBoardAddModal,
-} from './index.styled';
-import { BoardObjType } from '@crema/types/models/apps/ScrumbBoard';
+} from "./index.styled";
+import { BoardObjType } from "@crema/types/models/apps/ScrumbBoard";
 
 type AddNewBoardProps = {
   isModalVisible: boolean;
@@ -26,13 +26,13 @@ const AddNewBoard: React.FC<AddNewBoardProps> = ({
   selectedBoard,
 }) => {
   const [boardName, setBoardName] = useState(() =>
-    selectedBoard ? selectedBoard.name : '',
+    selectedBoard ? selectedBoard.name : ""
   );
 
   const onClickAddButton = () => {
-    if (boardName !== '') {
+    if (boardName !== "") {
       onAddBoard(boardName);
-      setBoardName('');
+      setBoardName("");
       handleCancel();
     }
   };
@@ -40,19 +40,19 @@ const AddNewBoard: React.FC<AddNewBoardProps> = ({
 
   return (
     <StyledScrumBoardAddModal
-      title={messages['scrumboard.addNewBoard'] as string}
+      title={messages["scrumboard.addNewBoard"] as string}
       open={isModalVisible}
       onOk={handleOk}
       onCancel={handleCancel}
       footer={
-        <StyledScrumAddBoardFooterBtn type='primary' onClick={onClickAddButton}>
-          <IntlMessages id='common.add' />
+        <StyledScrumAddBoardFooterBtn type="primary" onClick={onClickAddButton}>
+          <IntlMessages id="common.add" />
         </StyledScrumAddBoardFooterBtn>
       }
     >
       <StyledScrumAddBoardCard>
         <Input
-          placeholder='Basic usage'
+          placeholder="Basic usage"
           value={boardName}
           onChange={(event) => setBoardName(event.target.value)}
         />

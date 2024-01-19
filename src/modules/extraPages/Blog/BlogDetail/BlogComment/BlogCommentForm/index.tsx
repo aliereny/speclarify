@@ -1,12 +1,12 @@
-import React from 'react';
-import { Button, Col, Form, Input } from 'antd';
-import AppRowContainer from '@crema/components/AppRowContainer';
-import { useAuthUser } from '@crema/hooks/AuthHooks';
-import dayjs from 'dayjs';
-import { StyledFormWrapper } from '../index.styled';
-import { useIntl } from 'react-intl';
-import { BlogCommentType } from '@crema/types/models/extrapages/Blog';
-import { generateRandomUniqueNumber } from '@crema/helpers/Common';
+import React from "react";
+import { Form, Col, Input, Button } from "antd";
+import AppRowContainer from "@crema/components/AppRowContainer";
+import { useAuthUser } from "@crema/hooks/AuthHooks";
+import dayjs from "dayjs";
+import { StyledFormWrapper } from "../index.styled";
+import { useIntl } from "react-intl";
+import { BlogCommentType } from "@crema/types/models/extrapages/Blog";
+import { generateRandomUniqueNumber } from "@crema/helpers/Common";
 
 const { TextArea } = Input;
 
@@ -23,7 +23,7 @@ const BlogCommentForm = ({ comments, setComments }: Props) => {
       id: generateRandomUniqueNumber(),
       name: data.name!,
       image: user.photoURL,
-      duration: dayjs().format('MMM DD'),
+      duration: dayjs().format("MMM DD"),
       comment: data.comment!,
     };
     const newList = comments.concat(item);
@@ -33,9 +33,9 @@ const BlogCommentForm = ({ comments, setComments }: Props) => {
   return (
     <Form
       initialValues={{
-        name: '',
-        email: '',
-        comment: '',
+        name: "",
+        email: "",
+        comment: "",
       }}
       onFinish={onCommentSend}
     >
@@ -43,63 +43,63 @@ const BlogCommentForm = ({ comments, setComments }: Props) => {
         <AppRowContainer>
           <Col xs={24} md={12}>
             <Form.Item
-              name='name'
+              name="name"
               rules={[
                 {
                   required: true,
-                  message: messages['validation.nameRequired'] as string,
+                  message: messages["validation.nameRequired"] as string,
                 },
               ]}
             >
-              <Input placeholder={messages['common.fullName'] as string} />
+              <Input placeholder={messages["common.fullName"] as string} />
             </Form.Item>
           </Col>
           <Col xs={24} md={12}>
             <Form.Item
-              name='email'
+              name="email"
               rules={[
                 {
-                  type: 'email',
-                  message: messages['validation.emailFormat'] as string,
+                  type: "email",
+                  message: messages["validation.emailFormat"] as string,
                 },
                 {
                   required: true,
-                  message: messages['validation.emailRequired'] as string,
+                  message: messages["validation.emailRequired"] as string,
                 },
               ]}
             >
               <Input
-                type='mail'
-                placeholder={messages['common.email'] as string}
+                type="mail"
+                placeholder={messages["common.email"] as string}
               />
             </Form.Item>
           </Col>
           <Col xs={24}>
             <Form.Item
-              name='comment'
+              name="comment"
               rules={[
                 {
                   required: true,
-                  message: messages['validation.comment'] as string,
+                  message: messages["validation.comment"] as string,
                 },
               ]}
             >
               <TextArea
                 rows={3}
-                placeholder={messages['common.comments'] as string}
+                placeholder={messages["common.comments"] as string}
               />
             </Form.Item>
           </Col>
           <Col xs={24}>
             <Button
               style={{
-                position: 'relative',
+                position: "relative",
                 minWidth: 100,
               }}
-              type='primary'
-              htmlType='submit'
+              type="primary"
+              htmlType="submit"
             >
-              {messages['common.postComment'] as string}
+              {messages["common.postComment"] as string}
             </Button>
           </Col>
         </AppRowContainer>

@@ -1,5 +1,5 @@
-import { Button, Form } from 'antd';
-import styled from 'styled-components';
+import { Button, Form } from "antd";
+import styled from "styled-components";
 
 export const StyledErrorContainer = styled.div`
   display: flex;
@@ -117,7 +117,7 @@ export const StyledErrorForm = styled(Form)`
   margin-bottom: 12px;
   text-align: left;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     text-align: right;
   }
 

@@ -7,7 +7,7 @@ type Props = {
 
 const TimelineItemContentWrapper = ({ children }: Props) => {
   return (
-    <StyledTimelineItemContent className='timelineItemContent'>
+    <StyledTimelineItemContent className="timelineItemContent">
       {children}
     </StyledTimelineItemContent>
   );

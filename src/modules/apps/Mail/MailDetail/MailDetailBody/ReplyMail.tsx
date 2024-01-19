@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import IntlMessages from '@crema/helpers/IntlMessages';
 import { Form, Input } from 'antd';
 import { useIntl } from 'react-intl';
@@ -10,14 +10,65 @@ import {
   StyledMailDetailForm,
   StyledMailDetailFormFooter,
   StyledMailDetailInput,
-  StyledMailDetailTextarea,
   StyledMailFormFooter,
 } from '../index.styled';
 import { StyledMailModalSuffix } from '../../ComposeMail/index.styled';
 import { getFormattedDate } from '@crema/helpers/DateHelper';
 import { generateUniqueID } from '@crema/helpers/StringHelper';
 import { MessageType } from '@crema/types/models/apps/Mail';
+import JoditEditor from 'jodit-react';
 
+const config = {
+  readonly: false, // all options from https://xdsoft.net/jodit/doc/
+  toolbar: true,
+  minHeight: 300,
+  maxHeight: 500,
+  buttons: [
+    'bold',
+    'strikethrough',
+    'underline',
+    'italic',
+    '|',
+    'ul',
+    'ol',
+    '|',
+    'font',
+    '|',
+    'image',
+    'video',
+    'table',
+    'link',
+    '|',
+    'align',
+    'undo',
+    'redo',
+    'selectall',
+    'cut',
+    '|',
+    'symbol',
+  ],
+  uploader: {
+    insertImageAsBase64URI: true,
+    url: '/api/upload',
+    format: 'json',
+    imagesExtensions: ['jpg', 'png', 'jpeg', 'gif'],
+    headers: {
+      'X-CSRF-TOKEN': 'CSFR-Token',
+      Authorization: 'Bearer <JSON Web Token>',
+    },
+    process: function (resp: any) {
+      return {
+        files: resp.data,
+      };
+    },
+  },
+  style: {
+    '& .jodit .jodit-status-bar': {
+      background: '#29572E',
+      color: 'rgba(255,255,255,0.5)',
+    },
+  },
+};
 type ReplyMailProps = {
   message: MessageType;
   index: number;
@@ -35,7 +86,7 @@ const ReplyMail: React.FC<ReplyMailProps> = ({
 }) => {
   const [isShowCC, onShowCC] = useState(false);
   const [isShowBcc, onShowBcc] = useState(false);
-
+  const editor = useRef(null);
   const { messages } = useIntl();
 
   const onFinish = (values: any) => {
@@ -125,10 +176,7 @@ const ReplyMail: React.FC<ReplyMailProps> = ({
         name='description'
         rules={[{ required: true, message: 'Please input your Content!' }]}
       >
-        <StyledMailDetailTextarea
-          theme='snow'
-          placeholder={messages['common.writeContent'] as string}
-        />
+        <JoditEditor ref={editor} value={''} config={config} />
       </Form.Item>
 
       <StyledMailFormFooter>

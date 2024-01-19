@@ -1,9 +1,9 @@
-import React from 'react';
-import AppCircularProgress from '@crema/components/AppCircularProgress';
-import { rgba } from 'polished';
-import { Typography } from 'antd';
-import { StyledTextNoSpace } from './index.styled';
-import { MonthlyLimitType } from '@crema/types/models/dashboards/Crypto';
+import React from "react";
+import AppCircularProgress from "@crema/components/AppCircularProgress";
+import { rgba } from "polished";
+import { Typography } from "antd";
+import { StyledTextNoSpace } from "./index.styled";
+import { MonthlyLimitType } from "@crema/types/models/dashboards/Crypto";
 
 type Props = {
   monthlyLimit: MonthlyLimitType;
@@ -12,7 +12,7 @@ const MonthlyLimitItem = ({ monthlyLimit }: Props) => {
   return (
     <div
       style={{
-        position: 'relative',
+        position: "relative",
       }}
     >
       <div
@@ -29,7 +29,7 @@ const MonthlyLimitItem = ({ monthlyLimit }: Props) => {
       </div>
       <div
         style={{
-          textAlign: 'center',
+          textAlign: "center",
         }}
       >
         <Typography.Text strong>{monthlyLimit.title}</Typography.Text>

@@ -8,7 +8,7 @@ type EditButtonProps = {
 
 const EditButton = ({ action, title }: EditButtonProps) => {
   return (
-    <Button shape='circle' type='primary' onClick={action} size='large'>
+    <Button shape="circle" type="primary" onClick={action} size="large">
       {title}
     </Button>
   );

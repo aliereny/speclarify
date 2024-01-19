@@ -31,9 +31,9 @@ const renderCustomizedLabel = ({
     <text
       x={x}
       y={y}
-      fill='white'
+      fill="white"
       textAnchor={x > cx ? 'start' : 'end'}
-      dominantBaseline='central'
+      dominantBaseline="central"
     >
       {`${(percent * 100).toFixed(0)}%`}
     </text>
@@ -43,15 +43,15 @@ const renderCustomizedLabel = ({
 class PieChartWithCustomizedLabel extends Component {
   render() {
     return (
-      <ResponsiveContainer width='100%' height={300}>
+      <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie
-            dataKey='value'
+            dataKey="value"
             data={data}
             labelLine={false}
             label={renderCustomizedLabel}
             outerRadius={80}
-            fill='#4299E1'
+            fill="#4299E1"
           >
             {data.map((entry, index) => (
               <Cell key={index} fill={COLORS[index % COLORS.length]} />

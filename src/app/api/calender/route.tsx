@@ -3,12 +3,12 @@ import folderList from '@crema/fakedb/apps/todo/folderList';
 import { labelList } from '@crema/fakedb/apps/todo/labelList';
 import { staffList } from '@crema/fakedb/apps/todo/staffList';
 import priorityList from '@crema/fakedb/apps/todo/priorityList';
-import { NextRequest } from 'next/server';
 import { TodoObjType } from '@crema/types/models/apps/Todo';
+import { NextRequest } from 'next/server';
 
 let todoData = todoList;
 
-export const onGetTaskList = (name: string, data: TodoObjType[]) => {
+const onGetTaskList = (name: string, data: TodoObjType[]) => {
   switch (name) {
     case 'all': {
       return data.filter((task) => task.folderValue !== 126);
@@ -59,8 +59,8 @@ export const GET = async (request: NextRequest) => {
       const labelType = labelList.find(
         (label) => label.alias === params.name,
       )?.id;
-      folderTaskList = todoData.filter((task) => {
-        const label = task.label.find((label) => label.id === labelType);
+      folderTaskList = todoData.filter((task: any) => {
+        const label = task.label.find((label: any) => label.id === labelType);
         if (label && task.folderValue !== 126) {
           return task;
         } else return null;
@@ -98,7 +98,7 @@ export const PUT = async (request: NextRequest) => {
   try {
     const reqBody = await request.json();
     const { taskIds, type, name, page } = reqBody;
-    todoData = todoData.map((task) => {
+    todoData = todoData.map((task: any) => {
       if (taskIds.includes(task.id)) {
         task.folderValue = 126;
         return task;
@@ -111,8 +111,8 @@ export const PUT = async (request: NextRequest) => {
       folderTaskList = onGetTaskList(name, todoData);
     } else {
       const labelType = labelList.find((label) => label.alias === name)?.id;
-      folderTaskList = todoData.filter((task) => {
-        const label = task.label.find((label) => label.id === labelType);
+      folderTaskList = todoData.filter((task: any) => {
+        const label = task.label.find((label: any) => label.id === labelType);
         if (label && task.folderValue !== 126) {
           return task;
         } else return null;

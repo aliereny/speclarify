@@ -1,6 +1,6 @@
-import React from 'react';
-import AppCircularProgress from '@crema/components/AppCircularProgress';
-import { RightOutlined } from '@ant-design/icons';
+import React from "react";
+import AppCircularProgress from "@crema/components/AppCircularProgress";
+import { RightOutlined } from "@ant-design/icons";
 import {
   StyledTopSellingCell,
   StyledTopSellingCellAction,
@@ -10,9 +10,9 @@ import {
   StyledTopSellingCellImg,
   StyledTopSellingCellInfo,
   StyledTopSellingPrice,
-} from './index.styled';
+} from "./index.styled";
 
-import type { TopSellingProductType } from '@crema/types/models/dashboards/Analytics';
+import type { TopSellingProductType } from "@crema/types/models/dashboards/Analytics";
 
 type ProductCellProps = {
   data: TopSellingProductType;
@@ -20,9 +20,9 @@ type ProductCellProps = {
 
 const ProductCell: React.FC<ProductCellProps> = ({ data }) => {
   return (
-    <StyledTopSellingCell key={data.id} className='item-hover'>
+    <StyledTopSellingCell key={data.id} className="item-hover">
       <StyledTopSellingCellInfo>
-        <StyledTopSellingCellImg alt='' src={data.icon} />
+        <StyledTopSellingCellImg alt="" src={data.icon} />
 
         <StyledTopSellingCellContent>
           <h3>{data.name}</h3>
@@ -34,7 +34,7 @@ const ProductCell: React.FC<ProductCellProps> = ({ data }) => {
       <StyledTopSellingCellAction>
         <AppCircularProgress
           strokeColor={data.color}
-          trailColor='rgb(214, 214, 214)'
+          trailColor="rgb(214, 214, 214)"
           percent={70}
           strokeWidth={10}
           format={() => <span />}

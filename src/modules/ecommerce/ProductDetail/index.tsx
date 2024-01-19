@@ -6,7 +6,7 @@ import AppAnimate from '@crema/components/AppAnimate';
 import AppRowContainer from '@crema/components/AppRowContainer';
 import { Col } from 'antd';
 import AppPageMeta from '@crema/components/AppPageMeta';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { StyledProductDetails } from './index.styled';
 import { useGetDataApi } from '@crema/hooks/APIHooks';
 import ProductImageSlide from './ProductImageSlide';

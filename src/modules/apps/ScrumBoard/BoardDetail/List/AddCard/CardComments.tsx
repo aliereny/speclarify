@@ -5,22 +5,22 @@ import { FiSend } from 'react-icons/fi';
 import clsx from 'clsx';
 import IntlMessages from '@crema/helpers/IntlMessages';
 import {
-  StyledCardCommentArea,
-  StyledCardCommentFooter,
-  StyledCommentAvatar,
   StyledCommentCellWrapper,
+  StyledCommentAvatar,
   StyledCommentItemContent,
   StyledCommentItemDate,
-  StyledScrumBoardCardComment,
-  StyledScrumBoardCommentScroll,
-  StyledScrumCardCommentTitle,
+  StyledCardCommentArea,
   StyledScrumCardCommentView,
+  StyledScrumCardCommentTitle,
+  StyledScrumBoardCommentScroll,
+  StyledScrumBoardCardComment,
+  StyledCardCommentFooter,
 } from './index.styled';
 
 type CardCommentsProps = {
   comments: any[];
   onAddNewComment: (comment: string) => void;
-};
+}
 
 const CardComments: React.FC<CardCommentsProps> = ({
   comments,
@@ -37,11 +37,7 @@ const CardComments: React.FC<CardCommentsProps> = ({
 
   const { TextArea } = Input;
 
-  const getCommentCell = (
-    item: any,
-    index: number,
-    isPreviousSender: boolean,
-  ) => {
+  const getCommentCell = (item: any, index: number, isPreviousSender: boolean) => {
     return (
       <StyledCommentCellWrapper
         className={clsx({

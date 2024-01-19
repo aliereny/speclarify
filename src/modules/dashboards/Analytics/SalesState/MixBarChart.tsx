@@ -1,6 +1,6 @@
-import React from 'react';
-import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts';
-import type { ChartDataType } from '@crema/types/models/dashboards/Analytics';
+import React from "react";
+import { BarChart, Bar, XAxis, ResponsiveContainer, Tooltip } from "recharts";
+import type { ChartDataType } from "@crema/types/models/dashboards/Analytics";
 
 type MixBarChartProp = {
   data: ChartDataType[];
@@ -8,7 +8,7 @@ type MixBarChartProp = {
 
 const MixBarChart: React.FC<MixBarChartProp> = ({ data }) => {
   return (
-    <ResponsiveContainer width='100%' height={270}>
+    <ResponsiveContainer width="100%" height={270}>
       <BarChart
         barSize={7}
         data={data}
@@ -19,10 +19,10 @@ const MixBarChart: React.FC<MixBarChartProp> = ({ data }) => {
           bottom: 5,
         }}
       >
-        <XAxis dataKey='name' dy={10} />
+        <XAxis dataKey="name" dy={10} />
         <Tooltip />
-        <Bar dataKey='AS' stackId='a' fill='#49BD65' />
-        <Bar dataKey='Rev' stackId='b' fill='#0A8FDC' />
+        <Bar dataKey="AS" stackId="a" fill="#49BD65" />
+        <Bar dataKey="Rev" stackId="b" fill="#0A8FDC" />
       </BarChart>
     </ResponsiveContainer>
   );

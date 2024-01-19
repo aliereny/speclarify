@@ -1,7 +1,7 @@
-import React from 'react';
-import StatsCard from './StatsCard';
-import AppRowContainer from '@crema/components/AppRowContainer';
-import { Col } from 'antd';
+import React from "react";
+import StatsCard from "./StatsCard";
+import AppRowContainer from "@crema/components/AppRowContainer";
+import { Col } from "antd";
 //import {blue, cyan, geekblue, red} from '@ant-design/colors';
 /*import {
   UserOutlined,
@@ -9,9 +9,9 @@ import { Col } from 'antd';
   FileZipOutlined,
   FileTextOutlined,
 } from '@ant-design/icons';*/
-import IntlMessages from '@crema/helpers/IntlMessages';
+import IntlMessages from "@crema/helpers/IntlMessages";
 
-import type { QuickStatsDataType } from '@crema/types/models/dashboards/CRM';
+import type { QuickStatsDataType } from "@crema/types/models/dashboards/CRM";
 
 type QuickStatsProps = {
   quickStatsData: QuickStatsDataType;
@@ -20,39 +20,39 @@ type QuickStatsProps = {
 const QuickStats: React.FC<QuickStatsProps> = ({ quickStatsData }) => {
   return (
     <>
-      <h2 className='card-outer-title text-uppercase'>
-        <IntlMessages id='dashboard.quickStats' />
+      <h2 className="card-outer-title text-uppercase">
+        <IntlMessages id="dashboard.quickStats" />
       </h2>
       <AppRowContainer>
         <Col xs={24} sm={12}>
           <StatsCard
-            icon={'/assets/images/dashboard/total-clients.svg'}
+            icon={"/assets/images/dashboard/total-clients.svg"}
             data={quickStatsData.clientsData}
-            heading={<IntlMessages id='dashboard.totalClients' />}
+            heading={<IntlMessages id="dashboard.totalClients" />}
           />
         </Col>
 
         <Col xs={24} sm={12}>
           <StatsCard
-            icon={'/assets/images/dashboard/invoices.svg'}
+            icon={"/assets/images/dashboard/invoices.svg"}
             data={quickStatsData.invoiceData}
-            heading={<IntlMessages id='dashboard.paidInvoices' />}
+            heading={<IntlMessages id="dashboard.paidInvoices" />}
           />
         </Col>
 
         <Col xs={24} sm={12}>
           <StatsCard
-            icon={'/assets/images/dashboard/total-projects.svg'}
+            icon={"/assets/images/dashboard/total-projects.svg"}
             data={quickStatsData.totalProjectsData}
-            heading={<IntlMessages id='dashboard.totalProjects' />}
+            heading={<IntlMessages id="dashboard.totalProjects" />}
           />
         </Col>
 
         <Col xs={24} sm={12}>
           <StatsCard
-            icon={'/assets/images/dashboard/open-projects.svg'}
+            icon={"/assets/images/dashboard/open-projects.svg"}
             data={quickStatsData.openProjectsData}
-            heading={<IntlMessages id='dashboard.openProjects' />}
+            heading={<IntlMessages id="dashboard.openProjects" />}
           />
         </Col>
       </AppRowContainer>

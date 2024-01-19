@@ -1,7 +1,7 @@
-import { Select, Tabs } from 'antd';
+import {Select, Tabs} from 'antd';
 import styled from 'styled-components';
 
-const { Option } = Select;
+const {Option} = Select;
 
 export const StyledBitcoinHeader = styled.div`
   display: inline-flex;
@@ -9,10 +9,10 @@ export const StyledBitcoinHeader = styled.div`
 `;
 
 export const StyledBitcoinSelectBox = styled(Select)`
-  font-size: ${({ theme }) => theme.font.size.lg};
-  font-weight: ${({ theme }) => theme.font.weight.bold};
+  font-size: ${({theme}) => theme.font.size.lg};
+  font-weight: ${({theme}) => theme.font.weight.bold};
   cursor: pointer;
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
     margin-right: 8px;
 
     [dir='rtl'] & {
@@ -40,7 +40,7 @@ export const StyledBitcoinSelectBox = styled(Select)`
 export const StyledBitcoinSelectOption = styled(Option)`
   cursor: pointer;
   padding: 12px;
-  font-size: ${({ theme }) => theme.font.size.base};
+  font-size: ${({theme}) => theme.font.size.base};
 `;
 
 export const StyledBitcoinTitle = styled.div`
@@ -51,15 +51,15 @@ export const StyledBitcoinTitle = styled.div`
     margin-left: 8px;
     margin-right: 8px;
     margin-bottom: 0;
-    font-weight: ${({ theme }) => theme.font.weight.medium};
+    font-weight: ${({theme}) => theme.font.weight.medium};
     font-size: 18px;
     color: #1d39c4;
   }
 
   & span {
-    font-weight: ${({ theme }) => theme.font.weight.medium};
-    color: ${({ theme }) => theme.palette.green[6]};
-    font-size: ${({ theme }) => theme.font.size.base};
+    font-weight: ${({theme}) => theme.font.weight.medium};
+    color: ${({theme}) => theme.palette.green[6]};
+    font-size: ${({theme}) => theme.font.size.base};
   }
 `;
 
@@ -67,7 +67,7 @@ export const StyledBitcoinTabs = styled(Tabs)`
   position: relative;
   margin-top: 12px;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
     margin-top: -26px;
   }
 
@@ -77,13 +77,13 @@ export const StyledBitcoinTabs = styled(Tabs)`
 
   & .ant-tabs-nav-wrap,
   & .ant-tabs-nav-list {
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
       justify-content: flex-end;
     }
   }
 
   & .ant-tabs-tab {
-    font-size: ${({ theme }) => theme.font.size.base};
+    font-size: ${({theme}) => theme.font.size.base};
     text-transform: capitalize;
     padding-top: 0;
     padding-bottom: 12px;
@@ -91,12 +91,12 @@ export const StyledBitcoinTabs = styled(Tabs)`
     margin-right: 4px;
     min-width: 10px;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
       margin-left: 6px;
       margin-right: 6px;
     }
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
       margin-left: 20px;
       margin-right: 20px;
     }

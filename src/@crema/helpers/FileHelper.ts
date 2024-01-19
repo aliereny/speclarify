@@ -11,7 +11,7 @@ export const getFileExtension = (filename: string) => {
 export const downloadPdf = (
   noDownload = false,
   elementName = 'pdfdiv',
-  fileName = 'Invoice.pdf',
+  fileName = 'Invoice.pdf'
 ) => {
   const input = document.getElementById(elementName);
   const result = html2canvas(input as HTMLElement, {

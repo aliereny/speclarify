@@ -7,7 +7,7 @@ import styled from 'styled-components';
 export const StyledFlex = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+      gap: 10px;
 `;
 export const StyledTodoSidebarHeader = styled.div`
   padding: 16px;
@@ -70,7 +70,7 @@ export const StyledTodoLabelItem = styled.div`
   position: relative;
   font-size: 15px;
   margin-bottom: 1px;
-  padding-left: 16px;
+      padding-left: 16px;
 
   & a {
     display: flex;

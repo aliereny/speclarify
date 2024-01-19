@@ -1,17 +1,17 @@
-import React from 'react';
-import { useDropzone } from 'react-dropzone';
-import { IoMdAttach } from 'react-icons/io';
-import { AiOutlineDelete } from 'react-icons/ai';
-import AppIconButton from '@crema/components/AppIconButton';
+import React from "react";
+import { useDropzone } from "react-dropzone";
+import { IoMdAttach } from "react-icons/io";
+import { AiOutlineDelete } from "react-icons/ai";
+import AppIconButton from "@crema/components/AppIconButton";
 import {
   StyledScrumBoardCardHeader,
   StyledScrumBoardCardHeaderAction,
-} from './index.styled';
+} from "./index.styled";
 import {
   BoardObjType,
   CardListObjType,
-} from '@crema/types/models/apps/ScrumbBoard';
-import { generateRandomUniqueNumber } from '@crema/helpers/Common';
+} from "@crema/types/models/apps/ScrumbBoard";
+import { generateRandomUniqueNumber } from "@crema/helpers/Common";
 
 type CardHeaderProps = {
   onClickDeleteIcon: () => void;
@@ -29,8 +29,8 @@ const CardHeader: React.FC<CardHeaderProps> = ({
 }) => {
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
-      'image/jpeg': [],
-      'image/png': [],
+      "image/jpeg": [],
+      "image/png": [],
     },
     onDrop: (acceptedFiles) => {
       const files = acceptedFiles.map((file) => {
@@ -46,13 +46,13 @@ const CardHeader: React.FC<CardHeaderProps> = ({
 
   return (
     <StyledScrumBoardCardHeader>
-      <h3 className='text-truncate'>
+      <h3 className="text-truncate">
         {board.name} &gt; {list!.name}
       </h3>
       <StyledScrumBoardCardHeaderAction>
         <AppIconButton
           icon={
-            <div {...getRootProps({ className: 'dropzone' })}>
+            <div {...getRootProps({ className: "dropzone" })}>
               <input {...getInputProps()} />
               <IoMdAttach />
             </div>

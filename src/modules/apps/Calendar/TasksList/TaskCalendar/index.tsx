@@ -98,6 +98,7 @@ const TaskCalender = ({ taskList, onUpdateTask, onSetFilterText }: Props) => {
     return [];
   };
 
+
   return (
     <DragAndDropCalendar
       localizer={localizer}

@@ -1,8 +1,8 @@
-import React from 'react';
-import PackageCard from './PackageCard';
-import { Col } from 'antd';
-import { StyledPackageOneCard, StyledPackageOneRow } from './index.styled';
-import type { PricingOneNewType } from '@crema/types/models/extrapages/Pricing';
+import React from "react";
+import PackageCard from "./PackageCard";
+import { Col } from "antd";
+import { StyledPackageOneCard, StyledPackageOneRow } from "./index.styled";
+import type { PricingOneNewType } from "@crema/types/models/extrapages/Pricing";
 
 type Props = {
   billingFormat: string;

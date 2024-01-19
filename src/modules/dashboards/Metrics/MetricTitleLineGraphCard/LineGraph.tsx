@@ -1,16 +1,16 @@
 import React from 'react';
-import { Line, LineChart } from 'recharts';
+import {Line, LineChart} from 'recharts';
 import {
   StyledMetricTitleLineGraph,
   StyledMetricTitleLineGraphRoot,
 } from './index.styled';
 
 type LineGraphProps = {
-  data: { number: string; value: number }[];
+  data: {number: string; value: number}[];
   graphColor: string;
-};
+}
 
-const LineGraph: React.FC<LineGraphProps> = ({ data, graphColor }) => {
+const LineGraph: React.FC<LineGraphProps> = ({data, graphColor}) => {
   return (
     <StyledMetricTitleLineGraph>
       <StyledMetricTitleLineGraphRoot width={300} height={40} data={data}>

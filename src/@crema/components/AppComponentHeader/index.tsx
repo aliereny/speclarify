@@ -5,8 +5,8 @@ import AppAnimate from '../AppAnimate';
 import {
   StyledContainerHeader,
   StyledHeaderTitle,
-  StyledTextBase,
   StyledTitleH3,
+  StyledTextBase,
 } from './index.styled';
 
 type AppComponentHeaderProps = {

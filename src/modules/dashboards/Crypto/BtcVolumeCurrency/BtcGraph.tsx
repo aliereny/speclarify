@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Cell, Pie, Sector } from 'recharts';
-import { BtcChartDataType } from '@crema/types/models/dashboards/Crypto';
-import { StyledBtcGraph } from './index.styled';
+import React, { useState } from "react";
+import { Cell, Pie, Sector } from "recharts";
+import { BtcChartDataType } from "@crema/types/models/dashboards/Crypto";
+import { StyledBtcGraph } from "./index.styled";
 
 const renderActiveShape = (props: any) => {
   const RADIAN = Math.PI / 180;
@@ -25,11 +25,11 @@ const renderActiveShape = (props: any) => {
   const my = cy + (outerRadius + 30) * sin;
   const ex = mx + (cos >= 0 ? 1 : -1) * 22;
   const ey = my;
-  const textAnchor = cos >= 0 ? 'start' : 'end';
+  const textAnchor = cos >= 0 ? "start" : "end";
 
   return (
     <g>
-      <text x={cx} y={cy} dy={8} textAnchor='middle' fill={fill}>
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
         {payload.value}
       </text>
       <Sector
@@ -53,14 +53,14 @@ const renderActiveShape = (props: any) => {
       <path
         d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
         stroke={fill}
-        fill='none'
+        fill="none"
       />
-      <circle cx={ex} cy={ey} r={2} fill={fill} stroke='none' />
+      <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
         textAnchor={textAnchor}
-        fill='#333'
+        fill="#333"
       >{`${value}`}</text>
     </g>
   );
@@ -87,9 +87,9 @@ const BtcGraph: React.FC<BtcGraphProps> = ({ data }) => {
         cy={190}
         innerRadius={85}
         outerRadius={100}
-        fill='#8884d8'
+        fill="#8884d8"
         paddingAngle={1}
-        dataKey='value'
+        dataKey="value"
         onMouseEnter={onPieEnter}
       >
         {data.map((entry, index) => (

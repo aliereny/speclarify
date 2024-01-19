@@ -27,8 +27,8 @@ export const AppCalendarWrapper = styled.div`
 `;
 const Selectable = () => {
   return (
-    <AppCalendarWrapper className='cr-app-cul-calendar'>
-      <h3 className='cr-app-calendar-title'>
+    <AppCalendarWrapper className="cr-app-cul-calendar">
+      <h3 className="cr-app-calendar-title">
         Click an event to see more info, or drag the mouse over the calendar to
         select a date/time range.
       </h3>
@@ -36,7 +36,7 @@ const Selectable = () => {
         selectable
         events={events}
         localizer={localizer}
-        defaultView='week'
+        defaultView="week"
         scrollToTime={new Date(1970, 1, 1, 6)}
         defaultDate={new Date(2021, 10, 12)}
         onSelectEvent={(event) => alert(event)}
@@ -44,7 +44,7 @@ const Selectable = () => {
           alert(
             `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +
               `\nend: ${slotInfo.end.toLocaleString()}` +
-              `\naction: ${slotInfo.action}`,
+              `\naction: ${slotInfo.action}`
           )
         }
       />

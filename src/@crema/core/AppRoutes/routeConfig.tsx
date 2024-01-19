@@ -422,14 +422,6 @@ const routesConfig = [
         path: '/third-party/react-notification',
       },
       {
-        id: 'react-gallery',
-        title: 'Gallery',
-        messageId: 'sidebar.gallery',
-        icon: <FaRegImages />,
-        path: '/third-party/react-gallery',
-      },
-
-      {
         id: 'react-player',
         title: 'Player',
         messageId: 'sidebar.player',

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ResponsiveContainer } from 'recharts';
+import {ResponsiveContainer} from 'recharts';
 
 export const StyledGoalProgressContent = styled.div`
   margin-top: 20px;
@@ -8,7 +8,7 @@ export const StyledGoalProgressContent = styled.div`
   padding-right: 8px;
   display: flex;
   align-items: center;
-  font-size: ${({ theme }) => theme.font.size.base};
+  font-size: ${({theme}) => theme.font.size.base};
   justify-content: space-between;
 
   & .dot {
@@ -19,7 +19,7 @@ export const StyledGoalProgressContent = styled.div`
       margin-left: 8px;
     }
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+    @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
       height: 16px;
       width: 16px;
     }

@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import { useBottomScrollListener } from 'react-bottom-scroll-listener';
-import AppAnimateGroup from '../AppAnimateGroup';
-import { useThemeContext } from '@crema/context/AppContextProvider/ThemeContextProvider';
+import React, { ReactNode } from "react";
+import { useBottomScrollListener } from "react-bottom-scroll-listener";
+import AppAnimateGroup from "../AppAnimateGroup";
+import { useThemeContext } from "@crema/context/AppContextProvider/ThemeContextProvider";
 
 type ListViewProps = {
   className?: string;
@@ -45,7 +45,7 @@ const ListView: React.FC<ListViewProps> = ({
   ListFooterComponent,
   ListEmptyComponent,
   interval = 50,
-  type = 'top',
+  type = "top",
   duration = 300,
   delay = 0,
   animation,
@@ -58,7 +58,7 @@ const ListView: React.FC<ListViewProps> = ({
     border: `1px solid ${theme.palette.divider}`,
     backgroundColor: theme.palette.background.paper,
     borderRadius: 4,
-    overflow: 'hidden',
+    overflow: "hidden",
   };
 
   if (!onEndReached) {
@@ -80,7 +80,7 @@ const ListView: React.FC<ListViewProps> = ({
       {data.length > 0
         ? data.map((item, index) => {
             return (
-              <div key={'listItem-' + item.id + '-' + index}>
+              <div key={"listItem-" + item.id + "-" + index}>
                 {renderItem(item, index)}
               </div>
             );

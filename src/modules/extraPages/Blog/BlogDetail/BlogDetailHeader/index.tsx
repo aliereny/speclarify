@@ -1,21 +1,21 @@
-import React from 'react';
-import BlogDetailHeaderWrapper from './BlogDetailHeaderWrapper';
-import { BiCommentDetail, BiUserCircle } from 'react-icons/bi';
-import { AiOutlineCalendar } from 'react-icons/ai';
+import React from "react";
+import BlogDetailHeaderWrapper from "./BlogDetailHeaderWrapper";
+import { BiCommentDetail, BiUserCircle } from "react-icons/bi";
+import { AiOutlineCalendar } from "react-icons/ai";
 import {
   StyledFlex1,
   StyledFlex2,
   StyledFlex3,
   StyledIconWrapper,
   StyledTitle2,
-} from '../index.styled';
-import { BlogDetailHeaderType } from '@crema/types/models/extrapages/Blog';
+} from "../index.styled";
+import { BlogDetailHeaderType } from "@crema/types/models/extrapages/Blog";
 
 const getBlogDetailHeaderIcon = (icon: string) => {
   switch (icon) {
-    case 'BiUserCircle':
+    case "BiUserCircle":
       return <BiUserCircle />;
-    case 'AiOutlineCalendar':
+    case "AiOutlineCalendar":
       return <AiOutlineCalendar />;
     default:
       return <BiCommentDetail />;

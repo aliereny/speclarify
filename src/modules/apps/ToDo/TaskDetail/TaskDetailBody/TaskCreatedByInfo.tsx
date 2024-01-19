@@ -14,7 +14,7 @@ type TaskCreatedByInfoProps = {
     image?: string;
   };
   createdOn: string;
-};
+}
 
 const TaskCreatedByInfo: React.FC<TaskCreatedByInfoProps> = ({
   createdBy,

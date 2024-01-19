@@ -1,22 +1,22 @@
-import AppCard from '@crema/components/AppCard';
-import React from 'react';
-import AppRowContainer from '@crema/components/AppRowContainer';
-import dayjs from 'dayjs';
-import { Col, DatePicker, InputNumber, Select, Switch } from 'antd';
-import { StyledFormWrapper } from './index.styled';
-import { FilterType } from '@crema/types/models/ecommerce/EcommerceApp';
+import AppCard from "@crema/components/AppCard";
+import React from "react";
+import AppRowContainer from "@crema/components/AppRowContainer";
+import dayjs from "dayjs";
+import { Col, DatePicker, InputNumber, Select, Switch } from "antd";
+import { StyledFormWrapper } from "./index.styled";
+import { FilterType } from "@crema/types/models/ecommerce/EcommerceApp";
 
 const { Option } = Select;
 
 const statusList = [
   {
     id: 1,
-    name: 'In Stock',
+    name: "In Stock",
     value: true,
   },
   {
     id: 2,
-    name: 'Out of Stock',
+    name: "Out of Stock",
     value: false,
   },
 ];
@@ -28,12 +28,12 @@ type Props = {
 
 const Filter = ({ filterData, setFilterData }: Props) => {
   return (
-    <AppCard title='Filter '>
+    <AppCard title="Filter ">
       <StyledFormWrapper>
         <AppRowContainer>
           <Col xs={24}>
             <Select
-              placeholder='status'
+              placeholder="status"
               onChange={(value) => {
                 setFilterData((prev) => ({
                   ...prev,
@@ -50,7 +50,7 @@ const Filter = ({ filterData, setFilterData }: Props) => {
           </Col>
           <Col xs={24} md={12}>
             <InputNumber
-              placeholder='Start Price'
+              placeholder="Start Price"
               onChange={(value) => {
                 setFilterData((prev) => ({
                   ...prev,
@@ -61,7 +61,7 @@ const Filter = ({ filterData, setFilterData }: Props) => {
           </Col>
           <Col xs={24} md={12}>
             <InputNumber
-              placeholder='End Price'
+              placeholder="End Price"
               onChange={(value) => {
                 setFilterData((prev) => ({
                   ...prev,
@@ -76,14 +76,14 @@ const Filter = ({ filterData, setFilterData }: Props) => {
               allowClear={false}
               onChange={(value) => {
                 console.log(
-                  'DatePickervalue',
+                  "DatePickervalue",
                   value,
-                  dayjs(value).format('DD MMM YYYY'),
+                  dayjs(value).format("DD MMM YYYY")
                 );
                 setFilterData((prev) => ({
                   ...prev,
                   createdAt: {
-                    start: dayjs(value).format('DD MMM YYYY'),
+                    start: dayjs(value).format("DD MMM YYYY"),
                     end: filterData?.createdAt?.end,
                   },
                 }));
@@ -99,7 +99,7 @@ const Filter = ({ filterData, setFilterData }: Props) => {
                   ...prev,
                   createdAt: {
                     start: filterData?.createdAt?.start,
-                    end: dayjs(value).format('DD MMM YYYY'),
+                    end: dayjs(value).format("DD MMM YYYY"),
                   },
                 }))
               }
@@ -107,7 +107,7 @@ const Filter = ({ filterData, setFilterData }: Props) => {
           </Col>
           <Col xs={24}>
             <Switch />
-            <span className='notification'>Notifications</span>
+            <span className="notification">Notifications</span>
           </Col>
         </AppRowContainer>
       </StyledFormWrapper>

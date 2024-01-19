@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import clsx from 'clsx';
-import ItemMenu from './ItemMenu';
-import AppsStarredIcon from '@crema/components/AppsStarredIcon';
-import { Avatar, Checkbox } from 'antd';
-import ActionBtnHover from './ActionBtnHover';
+import React, { useState } from "react";
+import clsx from "clsx";
+import ItemMenu from "./ItemMenu";
+import AppsStarredIcon from "@crema/components/AppsStarredIcon";
+import { Avatar, Checkbox } from "antd";
+import ActionBtnHover from "./ActionBtnHover";
 import {
-  StyledContactListExportIcon,
   StyledContactListItem,
-  StyledContactListItemAction,
   StyledContactListItemAvatar,
   StyledContactListItemAvatarView,
   StyledContactListItemCheckView,
   StyledContactListItemCol,
   StyledContactListItemCompany,
   StyledContactListItemMail,
-  StyledContactListItemMenuView,
   StyledContactListItemTitle,
-} from '../index.styled';
-import { ContactObjType, LabelObjType } from '@crema/types/models/apps/Contact';
+  StyledContactListItemAction,
+  StyledContactListExportIcon,
+  StyledContactListItemMenuView,
+} from "../index.styled";
+import { ContactObjType, LabelObjType } from "@crema/types/models/apps/Contact";
 
 type ContactListItemProps = {
   contact: ContactObjType;
@@ -47,13 +47,13 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
     if (labelId) {
       return labelList?.find((label) => label.id === labelId)!.color;
     }
-    return '';
+    return "";
   };
 
   return (
     <StyledContactListItem
       key={contact.id}
-      className={clsx('item-hover', {
+      className={clsx("item-hover", {
         rootCheck: checkedContacts.includes(contact.id),
       })}
       onClick={() => onViewContactDetail(contact)}
@@ -83,25 +83,25 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
           </StyledContactListItemAvatar>
         )}
       </StyledContactListItemAvatarView>
-      <StyledContactListItemTitle className='text-truncate'>
+      <StyledContactListItemTitle className="text-truncate">
         {contact.name}
       </StyledContactListItemTitle>
 
-      <StyledContactListItemMail className='text-truncate'>
-        <span className='text-truncate'>
+      <StyledContactListItemMail className="text-truncate">
+        <span className="text-truncate">
           {contact.email ? contact.email : null}
         </span>
       </StyledContactListItemMail>
-      <StyledContactListItemCol className='text-truncate'>
-        <span className='text-truncate'>{contact.contact}</span>
+      <StyledContactListItemCol className="text-truncate">
+        <span className="text-truncate">{contact.contact}</span>
       </StyledContactListItemCol>
-      <StyledContactListItemCompany className='text-truncate contact-list-item-company'>
-        <span className='text-truncate'>
+      <StyledContactListItemCompany className="text-truncate contact-list-item-company">
+        <span className="text-truncate">
           {contact.company ? contact.company : null}
         </span>
       </StyledContactListItemCompany>
 
-      <StyledContactListItemAction className='contact-list-item-action'>
+      <StyledContactListItemAction className="contact-list-item-action">
         <StyledContactListExportIcon
           style={{ color: onGetLabelColor(contact.label) }}
         />

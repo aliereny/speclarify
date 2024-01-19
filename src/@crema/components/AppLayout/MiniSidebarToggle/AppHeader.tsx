@@ -30,13 +30,13 @@ const AppHeader = ({ isCollapsed, onToggleSidebar }: AppHeaderProps) => {
   const { messages } = useIntl();
 
   return (
-    <StyledHeaderMiniSidebar className='app-header-mini-sidebar'>
+    <StyledHeaderMiniSidebar className="app-header-mini-sidebar">
       {React.createElement(
         isCollapsed ? AiOutlineMenuUnfold : AiOutlineMenuFold,
         {
           className: 'trigger',
           onClick: onToggleSidebar,
-        },
+        }
       )}
       <AppLogo />
 
@@ -52,12 +52,12 @@ const AppHeader = ({ isCollapsed, onToggleSidebar }: AppHeaderProps) => {
         <StyledDropdownWrapper>
           <Dropdown
             menu={{ items }}
-            overlayClassName='dropdown-wrapper'
+            overlayClassName="dropdown-wrapper"
             getPopupContainer={(triggerNode) => triggerNode}
             trigger={['click']}
           >
             <a
-              className='ant-dropdown-link-mobile'
+              className="ant-dropdown-link-mobile"
               onClick={(e) => e.preventDefault()}
             >
               <FiMoreVertical />

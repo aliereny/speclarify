@@ -8,7 +8,6 @@ import {
   StyledBannerImgDiv,
   StyledBannerItems,
 } from './index.styled';
-
 const bannerItems = [
   {
     name: 'Figma',

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import ColorItem from './ColorItem';
-import AppCard from '@crema/components/AppCard';
-import { useIntl } from 'react-intl';
-import { List } from 'antd';
-import { StyledColorScrollbar } from './index.styled';
-import type { ColorsListType } from '@crema/types/models/dashboards/Widgets';
+import React, { useState } from "react";
+import ColorItem from "./ColorItem";
+import AppCard from "@crema/components/AppCard";
+import { useIntl } from "react-intl";
+import { List } from "antd";
+import { StyledColorScrollbar } from "./index.styled";
+import type { ColorsListType } from "@crema/types/models/dashboards/Widgets";
 
 type ColorsProps = {
   data: ColorsListType[];
@@ -16,7 +16,7 @@ const Colors: React.FC<ColorsProps> = ({ data }) => {
   const handleChange = (e: any, color: ColorsListType) => {
     color.isChecked = e.target.checked;
     const list = colorsList.map((item) =>
-      item.id === color.id ? color : item,
+      item.id === color.id ? color : item
     );
     handleList(list);
   };
@@ -24,8 +24,8 @@ const Colors: React.FC<ColorsProps> = ({ data }) => {
   return (
     <AppCard
       heightFull
-      className='no-card-space-ltr-rtl'
-      title={messages['dashboard.colors'] as string}
+      className="no-card-space-ltr-rtl"
+      title={messages["dashboard.colors"] as string}
     >
       <StyledColorScrollbar>
         <List

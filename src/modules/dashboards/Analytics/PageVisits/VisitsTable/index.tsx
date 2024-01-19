@@ -1,20 +1,20 @@
-import React from 'react';
-import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
-import { StyledPageVisitTable } from '../index.styled';
-import type { PageVisitType } from '@crema/types/models/dashboards/Analytics';
+import React from "react";
+import { CaretUpOutlined, CaretDownOutlined } from "@ant-design/icons";
+import { StyledPageVisitTable } from "../index.styled";
+import type { PageVisitType } from "@crema/types/models/dashboards/Analytics";
 
 const columns = [
   {
-    title: 'Page name',
-    dataIndex: 'page',
-    key: 'page',
+    title: "Page name",
+    dataIndex: "page",
+    key: "page",
   },
   {
-    title: 'Page Views',
-    dataIndex: 'pageView',
-    key: 'pageView',
+    title: "Page Views",
+    dataIndex: "pageView",
+    key: "pageView",
     render: (pageView: PageVisitType) => (
-      <span className='up-icon'>
+      <span className="up-icon">
         <>
           <CaretUpOutlined />
           {pageView}
@@ -23,11 +23,11 @@ const columns = [
     ),
   },
   {
-    title: 'Unique Visitors',
-    dataIndex: 'visitors',
-    key: 'visitors',
+    title: "Unique Visitors",
+    dataIndex: "visitors",
+    key: "visitors",
     render: (visitors: any) => (
-      <span className='down-icon'>
+      <span className="down-icon">
         <>
           <CaretDownOutlined />
           {visitors.visitors}

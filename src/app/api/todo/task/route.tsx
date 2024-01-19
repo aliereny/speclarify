@@ -8,7 +8,7 @@ export const PUT = async (request: NextRequest) => {
     const reqBody = await request.json();
     const { task } = reqBody;
     todoData = todoData.map((item) => (item.id === task.id ? task : item));
-    return new Response(JSON.stringify({ task }), {
+    return new Response(JSON.stringify({  task }), {
       status: 200,
     });
   } catch (error) {

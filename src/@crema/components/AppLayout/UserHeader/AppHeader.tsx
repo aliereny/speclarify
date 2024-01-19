@@ -32,7 +32,7 @@ const AppHeader = ({ isCollapsed, onToggleSidebar }: AppHeaderProps) => {
 
   return (
     <StyledAppUserHeader>
-      <a className='trigger' onClick={() => onToggleSidebar(!isCollapsed)}>
+      <a className="trigger" onClick={() => onToggleSidebar(!isCollapsed)}>
         <AiOutlineMenu />
       </a>
       <AppLogo />
@@ -49,12 +49,12 @@ const AppHeader = ({ isCollapsed, onToggleSidebar }: AppHeaderProps) => {
         <StyledDropdownWrapper>
           <Dropdown
             menu={{ items }}
-            overlayClassName='dropdown-wrapper'
+            overlayClassName="dropdown-wrapper"
             getPopupContainer={(triggerNode) => triggerNode}
             trigger={['click']}
           >
             <a
-              className='ant-dropdown-link-mobile'
+              className="ant-dropdown-link-mobile"
               onClick={(e) => e.preventDefault()}
             >
               <FiMoreVertical />

@@ -1,12 +1,12 @@
-import React from 'react';
-import { Button } from 'antd';
+import React from "react";
+import { Button } from "antd";
 import {
-  StyledDoctorAction,
+  StyledDoctorContent,
   StyledDoctorAvatar,
   StyledDoctorCell,
-  StyledDoctorContent,
-} from './index.styled';
-import type { TopDoctorDataType } from '@crema/types/models/dashboards/HealthCare';
+  StyledDoctorAction,
+} from "./index.styled";
+import type { TopDoctorDataType } from "@crema/types/models/dashboards/HealthCare";
 
 type DoctorCellProps = {
   doctor: TopDoctorDataType;
@@ -14,7 +14,7 @@ type DoctorCellProps = {
 
 const DoctorCell: React.FC<DoctorCellProps> = ({ doctor }) => {
   return (
-    <StyledDoctorCell className='item-hover'>
+    <StyledDoctorCell className="item-hover">
       <StyledDoctorAvatar src={doctor.profile_pic} />
       <StyledDoctorContent>
         <h5>{doctor.name}</h5>
@@ -22,9 +22,9 @@ const DoctorCell: React.FC<DoctorCellProps> = ({ doctor }) => {
       </StyledDoctorContent>
       <StyledDoctorAction>
         {doctor.scheduled ? (
-          <Button className='btn-secondary-outline'>Remove</Button>
+          <Button className="btn-secondary-outline">Remove</Button>
         ) : (
-          <Button className='btn-primary-outline'>Schedule</Button>
+          <Button className="btn-primary-outline">Schedule</Button>
         )}
       </StyledDoctorAction>
     </StyledDoctorCell>

@@ -1,12 +1,12 @@
-import React from 'react';
-import { Rate } from 'antd';
+import React from "react";
+import { Rate } from "antd";
 import {
   StyledItemBy,
   StyledReviewBy,
   StyledReviewItem,
   StyledReviewItemHeader,
-} from './index.styled';
-import type { ReviewsListType } from '@crema/types/models/dashboards/Widgets';
+} from "./index.styled";
+import type { ReviewsListType } from "@crema/types/models/dashboards/Widgets";
 
 type ReviewItemProps = {
   item: ReviewsListType;
@@ -14,7 +14,7 @@ type ReviewItemProps = {
 
 const ReviewItem: React.FC<ReviewItemProps> = ({ item }) => {
   return (
-    <StyledReviewItem className='item-hover' key={item.id}>
+    <StyledReviewItem className="item-hover" key={item.id}>
       <StyledReviewItemHeader>
         <Rate value={item.rating} />
         <StyledReviewBy>{item.time}</StyledReviewBy>

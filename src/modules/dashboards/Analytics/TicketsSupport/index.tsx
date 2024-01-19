@@ -15,7 +15,6 @@ const { Panel } = Collapse;
 function callback(key: any) {
   console.log(key);
 }
-
 const genExtra = (data: TicketsType) => (
   <>
     <span> {data.opened} Open</span>

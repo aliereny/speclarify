@@ -1,23 +1,23 @@
-import React from 'react';
-import { Avatar } from 'antd';
+import React from "react";
+import { Avatar } from "antd";
 import {
   StyledTicketSupportTable,
   StyledTicketSupportUserInfo,
   StyledTicketSupportUserInfoContent,
-} from '../index.styled';
-import type { TicketSupportDataType } from '@crema/types/models/dashboards/CRM';
-import { ColumnsType } from 'antd/es/table';
+} from "../index.styled";
+import type { TicketSupportDataType } from "@crema/types/models/dashboards/CRM";
+import { ColumnsType } from "antd/es/table";
 
 const columns: ColumnsType<TicketSupportDataType> = [
   {
-    title: 'No.',
+    title: "No.",
     dataIndex: `id`,
-    key: 'id',
+    key: "id",
   },
   {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
+    title: "Name",
+    dataIndex: "name",
+    key: "name",
     render: (name, record) => (
       <StyledTicketSupportUserInfo>
         <Avatar src={record.image} />
@@ -28,19 +28,19 @@ const columns: ColumnsType<TicketSupportDataType> = [
     ),
   },
   {
-    title: 'Ticket ID',
-    dataIndex: 'ticketId',
-    key: 'ticketId',
+    title: "Ticket ID",
+    dataIndex: "ticketId",
+    key: "ticketId",
   },
   {
-    title: 'Create Date',
-    dataIndex: 'created',
-    key: 'created',
+    title: "Create Date",
+    dataIndex: "created",
+    key: "created",
   },
   {
-    title: 'Contact',
-    dataIndex: 'contact',
-    key: 'contact',
+    title: "Contact",
+    dataIndex: "contact",
+    key: "contact",
   },
 ];
 
@@ -61,7 +61,7 @@ const TicketSupportTable: React.FC<TicketSupportTableProps> = ({
 }) => {
   return (
     <StyledTicketSupportTable
-      scroll={{ x: 'auto', y: 340 }}
+      scroll={{ x: "auto", y: 340 }}
       hoverColor
       data={ticketSupportData}
       columns={columns}

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useAuthUser } from '@crema/hooks/AuthHooks';
 import { initialUrl } from '@crema/constants/AppConst';
@@ -14,6 +14,7 @@ import {
   StyledNavButton,
   StyledResponsiveMenubar,
 } from './index.styled';
+import { log } from 'util';
 
 const menuItems = [
   {

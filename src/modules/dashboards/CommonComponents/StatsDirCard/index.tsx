@@ -8,11 +8,11 @@ import { getAssetsUrl } from '@crema/helpers/UrlHelper';
 import {
   StyledDurationWrapper,
   StyledFlexContainer,
-  StyledFlexSuccessContainer,
   StyledFlexWrapper,
+  StyledFlexSuccessContainer,
   StyledIconWrapper,
-  StyledTitleWrapper,
   StyledToggleContainer,
+  StyledTitleWrapper,
 } from '../index.styled';
 import { StateDataType } from '@crema/types/models/dashboards/CRM';
 import Image from 'next/image';

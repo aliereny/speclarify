@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   StyledProfileBox,
   StyledProfileContainer,
@@ -9,9 +9,9 @@ import {
   StyledProfilePic,
   StyledProfileSecondary,
   StyledProfileWrapper,
-} from './index.styled';
-import { Avatar, Typography } from 'antd';
-import { ProfileSlideType } from '@crema/types/models/thirdParty/reactSlick';
+} from "./index.styled";
+import { Avatar, Typography } from "antd";
+import { ProfileSlideType } from "@crema/types/models/thirdParty/reactSlick";
 
 type Props = {
   profile: ProfileSlideType;
@@ -21,7 +21,7 @@ const ProfileItem = ({ profile }: Props) => {
   return (
     <StyledProfileItemWrapper>
       <StyledProfilePic>
-        <Avatar className='avatar-pic' src={profile.srcImg} size={84} />
+        <Avatar className="avatar-pic" src={profile.srcImg} size={84} />
       </StyledProfilePic>
       <StyledProfileName>{profile.name}</StyledProfileName>
       <StyledProfileDesig>{profile.designation}</StyledProfileDesig>

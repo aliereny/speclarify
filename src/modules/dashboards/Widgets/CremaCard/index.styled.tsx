@@ -6,7 +6,7 @@ export const StyledCremaCardHeader = styled.div`
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
     margin-bottom: 24px;
   }
 `;
@@ -32,7 +32,7 @@ export const StyledCremaLogo = styled.div`
     margin-left: 12px;
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
     margin-right: 14px;
 
     [dir='rtl'] & {
@@ -47,26 +47,26 @@ export const StyledCremaLogo = styled.div`
 `;
 
 export const StyledCremaUserInfoContent = styled.div`
-  font-size: ${({ theme }) => theme.font.size.base};
+  font-size: ${({theme}) => theme.font.size.base};
   width: calc(100% - 56px);
 
   & p {
-    color: ${({ theme }) => theme.palette.primary.contrastText};
+    color: ${({theme}) => theme.palette.primary.contrastText};
     margin-bottom: 0;
   }
 `;
 
 export const StyledCremaTitle = styled.h4`
-  color: ${({ theme }) => theme.palette.primary.contrastText};
-  font-weight: ${({ theme }) => theme.font.weight.bold};
-  font-size: ${({ theme }) => theme.font.size.lg};
+  color: ${({theme}) => theme.palette.primary.contrastText};
+  font-weight: ${({theme}) => theme.font.weight.bold};
+  font-size: ${({theme}) => theme.font.size.lg};
   letter-spacing: 0.1em;
   margin-bottom: 2px;
 `;
 
 export const StyledSocialLink = styled.span`
   margin-left: auto;
-  color: ${({ theme }) => theme.palette.primary.contrastText};
+  color: ${({theme}) => theme.palette.primary.contrastText};
   font-size: 20px;
 
   [dir='rtl'] & {
@@ -76,10 +76,10 @@ export const StyledSocialLink = styled.span`
 `;
 
 export const StyledCremaPara = styled.p`
-  color: ${({ theme }) => theme.palette.primary.contrastText};
+  color: ${({theme}) => theme.palette.primary.contrastText};
   margin-bottom: 4px;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
     margin-bottom: 16px;
   }
 `;

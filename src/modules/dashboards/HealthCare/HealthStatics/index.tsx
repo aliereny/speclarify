@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import AppCard from '@crema/components/AppCard';
-import AppSelect from '@crema/components/AppSelect';
-import { useIntl } from 'react-intl';
-import StaticsGraph from './StaticsGraph';
-import type { HeathStaticsDataType } from '@crema/types/models/dashboards/HealthCare';
+import React, { useState } from "react";
+import AppCard from "@crema/components/AppCard";
+import AppSelect from "@crema/components/AppSelect";
+import { useIntl } from "react-intl";
+import StaticsGraph from "./StaticsGraph";
+import type { HeathStaticsDataType } from "@crema/types/models/dashboards/HealthCare";
 
 type HealthStaticsProps = {
   data: HeathStaticsDataType;
@@ -29,13 +29,13 @@ const HealthStatics: React.FC<HealthStaticsProps> = ({ data }) => {
 
   const handleMonthChange = (value: string) => {
     switch (value) {
-      case 'June':
+      case "June":
         setGraphData(data.dataTwo);
         break;
-      case 'July':
+      case "July":
         setGraphData(data.dataThree);
         break;
-      case 'August':
+      case "August":
         setGraphData(data.dataOne);
         break;
       default:
@@ -46,9 +46,9 @@ const HealthStatics: React.FC<HealthStaticsProps> = ({ data }) => {
   const { messages } = useIntl();
   return (
     <AppCard
-      title={messages['healthCare.staticsHealthCare'] as string}
+      title={messages["healthCare.staticsHealthCare"] as string}
       extra={
-        <div className='ant-row ant-row-middle'>
+        <div className="ant-row ant-row-middle">
           <AppSelect
             menus={[2021, 2018, 2017]}
             defaultValue={2021}
@@ -56,11 +56,11 @@ const HealthStatics: React.FC<HealthStaticsProps> = ({ data }) => {
           />
           <AppSelect
             menus={[
-              messages['common.june'],
-              messages['common.july'],
-              messages['common.august'],
+              messages["common.june"],
+              messages["common.july"],
+              messages["common.august"],
             ]}
-            defaultValue={messages['common.june']}
+            defaultValue={messages["common.june"]}
             onChange={handleMonthChange}
           />
         </div>

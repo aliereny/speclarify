@@ -1,12 +1,12 @@
-import React from 'react';
-import LineGraph from './LineGraph';
-import IntlMessages from '@crema/helpers/IntlMessages';
+import React from "react";
+import LineGraph from "./LineGraph";
+import IntlMessages from "@crema/helpers/IntlMessages";
 import {
   StyledMetricTitleLineGraphAction,
   StyledMetricTitleLineGraphCard,
   StyledMetricTitleLineGraphView,
-} from './index.styled';
-import type { MetricsLineGraphDataType } from '@crema/types/models/dashboards/Metrics';
+} from "./index.styled";
+import type { MetricsLineGraphDataType } from "@crema/types/models/dashboards/Metrics";
 
 type MetricTitleLineGraphCardProps = {
   title: any;
@@ -38,7 +38,7 @@ const MetricTitleLineGraphCard: React.FC<MetricTitleLineGraphCardProps> = ({
       <StyledMetricTitleLineGraphAction style={{ color: differenceColor }}>
         <span>{data.difference}</span>
         <span>
-          <IntlMessages id='dashboard.thisMonth' />
+          <IntlMessages id="dashboard.thisMonth" />
         </span>
         <span>{data.differencePercent}</span>
       </StyledMetricTitleLineGraphAction>

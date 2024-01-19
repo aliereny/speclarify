@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import StatsGraph from './StatsGraph';
-import { useIntl } from 'react-intl';
-import AppSelect from '@crema/components/AppSelect';
-import AppCard from '@crema/components/AppCard';
-import type { StatsGraphDataType } from '@crema/types/models/dashboards/Metrics';
+import React, { useState } from "react";
+import StatsGraph from "./StatsGraph";
+import { useIntl } from "react-intl";
+import AppSelect from "@crema/components/AppSelect";
+import AppCard from "@crema/components/AppCard";
+import type { StatsGraphDataType } from "@crema/types/models/dashboards/Metrics";
 
 type StatsProps = {
   data: StatsGraphDataType;
@@ -30,13 +30,13 @@ const Stats: React.FC<StatsProps> = ({ data }) => {
 
   const handleMonthChange = (value: string) => {
     switch (value) {
-      case 'June':
+      case "June":
         setGraphData(data.dataTwo);
         break;
-      case 'July':
+      case "July":
         setGraphData(data.dataThree);
         break;
-      case 'August':
+      case "August":
         setGraphData(data.dataOne);
         break;
       default:
@@ -49,7 +49,7 @@ const Stats: React.FC<StatsProps> = ({ data }) => {
   return (
     <AppCard
       heightFull
-      title={messages['dashboard.companyProduction'] as string}
+      title={messages["dashboard.companyProduction"] as string}
       extra={
         <>
           <AppSelect
@@ -59,11 +59,11 @@ const Stats: React.FC<StatsProps> = ({ data }) => {
           />
           <AppSelect
             menus={[
-              messages['common.june'],
-              messages['common.july'],
-              messages['common.august'],
+              messages["common.june"],
+              messages["common.july"],
+              messages["common.august"],
             ]}
-            defaultValue={messages['common.june']}
+            defaultValue={messages["common.june"]}
             onChange={handleMonthChange}
           />
         </>

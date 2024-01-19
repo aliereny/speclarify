@@ -1,11 +1,11 @@
 import React from 'react';
-import { Area, AreaChart, ResponsiveContainer } from 'recharts';
+import {Area, AreaChart, ResponsiveContainer} from 'recharts';
 
 type RevenueGrowthGraphProps = {
   data: any[];
-};
+}
 
-const RevenueGrowthGraph: React.FC<RevenueGrowthGraphProps> = ({ data }) => {
+const RevenueGrowthGraph: React.FC<RevenueGrowthGraphProps> = ({data}) => {
   return (
     <ResponsiveContainer height={200} width='100%'>
       <AreaChart
@@ -17,8 +17,7 @@ const RevenueGrowthGraph: React.FC<RevenueGrowthGraphProps> = ({ data }) => {
           right: 0,
           left: 0,
           bottom: 0,
-        }}
-      >
+        }}>
         <defs>
           <linearGradient id='colorg13' x1='0' y1='0' x2='0' y2='1'>
             <stop offset='5%' stopColor='#3182CE' stopOpacity={0.8} />

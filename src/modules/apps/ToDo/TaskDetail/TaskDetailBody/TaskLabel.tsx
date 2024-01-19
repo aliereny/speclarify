@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
 import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 
-import { LabelObjType, TodoObjType } from '@crema/types/models/apps/Todo';
+import { TodoObjType, LabelObjType } from '@crema/types/models/apps/Todo';
 
 type TaskLabelProps = {
   selectedTask: TodoObjType;

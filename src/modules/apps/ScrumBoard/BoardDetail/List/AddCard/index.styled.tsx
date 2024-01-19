@@ -426,7 +426,7 @@ export const StyledScrumBoardCardHeaderAction = styled.div`
 
 export const StyledScrumBoardAppCardDrawer = styled(Drawer)`
   & .anticon-close {
-    color: ${({theme}) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
   }
 
   & .ant-drawer-body {

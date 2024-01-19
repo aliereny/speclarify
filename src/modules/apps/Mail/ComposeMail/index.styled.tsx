@@ -1,7 +1,6 @@
 import AppScrollbar from '@crema/components/AppScrollbar';
 import { Button, Form, Modal } from 'antd';
 import styled from 'styled-components';
-import ReactQuill from 'react-quill';
 
 export const StyledMailModal = styled(Modal)`
   position: relative;
@@ -55,11 +54,6 @@ export const StyledMailModalSuffix = styled.span`
       margin-right: 16px;
     }
   }
-`;
-
-export const StyledMailModalTextArea = styled(ReactQuill)`
-  width: 100%;
-  height: 150px;
 `;
 
 export const StyledMainModalFooter = styled.div`

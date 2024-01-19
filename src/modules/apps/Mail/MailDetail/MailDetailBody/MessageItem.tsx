@@ -5,8 +5,6 @@ import IntlMessages from '@crema/helpers/IntlMessages';
 import { HiOutlineReply } from 'react-icons/hi';
 import AppsStarredIcon from '@crema/components/AppsStarredIcon';
 import { RiShareForwardLine } from 'react-icons/ri';
-// @ts-ignore
-import renderHTML from 'react-render-html';
 import ReplyMail from './ReplyMail';
 import { BiChevronDown } from 'react-icons/bi';
 import { getFormattedDate } from '@crema/helpers/DateHelper';
@@ -181,7 +179,7 @@ const MessageItem: React.FC<ReplyMailProps> = ({
 
       {isExpanded ? (
         <StyledMailDetailDesc>
-          {renderHTML(message.description)}
+          <div dangerouslySetInnerHTML={{ __html: `${message.description}` }} />
         </StyledMailDetailDesc>
       ) : null}
       {isReply || isForward ? (

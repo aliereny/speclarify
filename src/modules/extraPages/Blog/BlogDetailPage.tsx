@@ -2,7 +2,7 @@
 import { useGetDataApi } from '@crema/hooks/APIHooks';
 import AppLoader from '@crema/components/AppLoader';
 import BlogDetail from './BlogDetail';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { isEmptyObject } from '@crema/helpers/ApiHelper';
 import type {

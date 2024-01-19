@@ -1,24 +1,23 @@
 import mailData from '@crema/fakedb/apps/mail/mailList';
 import { NextRequest } from 'next/server';
-
 let mailList = mailData;
 export const GET = async (request: NextRequest) => {
-    try {
-        const params: any = Object.fromEntries(request.nextUrl.searchParams);
+  try {
+    const params: any = Object.fromEntries(request.nextUrl.searchParams);
 
-        mailList = mailList.map((mail) => {
-            if (params.id === mail.id) {
-                mail.isRead = false;
-                return mail;
-            } else {
-                return mail;
-            }
-        });
-        const response = mailList.find((mail) => mail.id === parseInt(params.id));
-        return new Response(JSON.stringify(response), {status: 200});
-    } catch (error) {
-        return new Response('Internal Server Error', {status: 500});
-    }
+    mailList = mailList.map((mail) => {
+      if (params.id === mail.id) {
+        mail.isRead = false;
+        return mail;
+      } else {
+        return mail;
+      }
+    });
+    const response = mailList.find((mail) => mail.id === parseInt(params.id));
+    return new Response(JSON.stringify(response), { status: 200 });
+  } catch (error) {
+    return new Response('Internal Server Error', { status: 500 });
+  }
 };
 // export const PUT = async (request) => {
 //   try {

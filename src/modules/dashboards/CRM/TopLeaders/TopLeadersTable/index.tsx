@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 import {
   StyledAvatarWrapper,
   StyledDot,
   StyledFlex,
   StyledText,
-} from '../index.styled';
-import { Avatar, Typography } from 'antd';
-import { StyledTicketSupportTable } from '../../TicketSupport/index.styled';
-import { TopLeaderType } from '@crema/types/models/dashboards/CRM';
-import { ColumnsType } from 'antd/es/table';
+} from "../index.styled";
+import { Avatar, Typography } from "antd";
+import { StyledTicketSupportTable } from "../../TicketSupport/index.styled";
+import { TopLeaderType } from "@crema/types/models/dashboards/CRM";
+import { ColumnsType } from "antd/es/table";
 
 type Props = {
   topLeaders: TopLeaderType[];
@@ -16,9 +16,9 @@ type Props = {
 
 const columns: ColumnsType<TopLeaderType> = [
   {
-    title: 'Team Lead',
-    dataIndex: 'id',
-    key: 'id',
+    title: "Team Lead",
+    dataIndex: "id",
+    key: "id",
     render: (lead, record) => (
       <StyledFlex>
         <Avatar
@@ -43,19 +43,19 @@ const columns: ColumnsType<TopLeaderType> = [
     ),
   },
   {
-    title: 'Project',
-    dataIndex: 'project',
-    key: 'project',
-    align: 'left',
+    title: "Project",
+    dataIndex: "project",
+    key: "project",
+    align: "left",
   },
   {
-    title: 'Team',
-    dataIndex: 'team',
-    key: 'team',
-    align: 'center',
+    title: "Team",
+    dataIndex: "team",
+    key: "team",
+    align: "center",
     render: (data, record) => (
       <StyledAvatarWrapper>
-        <Avatar.Group maxCount={2} style={{ justifyContent: 'center' }}>
+        <Avatar.Group maxCount={2} style={{ justifyContent: "center" }}>
           {record.team.map((data) => (
             <Avatar size={40} key={data.id} src={data.image} />
           ))}
@@ -64,9 +64,9 @@ const columns: ColumnsType<TopLeaderType> = [
     ),
   },
   {
-    title: 'Status',
-    dataIndex: 'color',
-    key: 'color',
+    title: "Status",
+    dataIndex: "color",
+    key: "color",
     render: (color) => (
       <StyledDot
         style={{
@@ -76,14 +76,14 @@ const columns: ColumnsType<TopLeaderType> = [
     ),
   },
   {
-    title: 'Weeks',
-    dataIndex: 'weeks',
-    key: 'weeks',
+    title: "Weeks",
+    dataIndex: "weeks",
+    key: "weeks",
   },
   {
-    title: 'Budget',
-    dataIndex: 'budgets',
-    key: 'budgets',
+    title: "Budget",
+    dataIndex: "budgets",
+    key: "budgets",
     render: (budgets) => <Typography.Text strong>{budgets}</Typography.Text>,
   },
 ];
@@ -91,7 +91,7 @@ const columns: ColumnsType<TopLeaderType> = [
 const TopLeadersTable = ({ topLeaders }: Props) => {
   return (
     <StyledTicketSupportTable
-      scroll={{ x: 'auto', y: 268 }}
+      scroll={{ x: "auto", y: 268 }}
       hoverColor
       data={topLeaders}
       columns={columns}

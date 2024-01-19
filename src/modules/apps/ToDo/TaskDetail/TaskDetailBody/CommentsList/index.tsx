@@ -1,15 +1,15 @@
-import React from 'react';
-import IntlMessages from '@crema/helpers/IntlMessages';
-import AppList from '@crema/components/AppList';
-import CommentsListItem from './CommentsListItem';
+import React from "react";
+import IntlMessages from "@crema/helpers/IntlMessages";
+import AppList from "@crema/components/AppList";
+import CommentsListItem from "./CommentsListItem";
 import {
   StyledTodoComment,
   StyledTodoCommentArea,
   StyledTodoCommentBody,
   StyledTodoCommentScroll,
   StyledTodoCommentTitle,
-} from '../../index.styled';
-import { CommentObjType } from '@crema/types/models/apps/Todo';
+} from "../../index.styled";
+import { CommentObjType } from "@crema/types/models/apps/Todo";
 
 type CommentsListProps = {
   comments: CommentObjType[];
@@ -19,7 +19,7 @@ const CommentsList: React.FC<CommentsListProps> = ({ comments }) => {
   return comments.length > 0 ? (
     <StyledTodoComment>
       <StyledTodoCommentTitle>
-        <IntlMessages id='common.comments' />
+        <IntlMessages id="common.comments" />
       </StyledTodoCommentTitle>
       <StyledTodoCommentBody>
         <StyledTodoCommentScroll>

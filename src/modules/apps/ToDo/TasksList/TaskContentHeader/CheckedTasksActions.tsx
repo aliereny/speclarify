@@ -1,12 +1,12 @@
 import React from 'react';
 import IntlMessages from '@crema/helpers/IntlMessages';
 import AppsDeleteIcon from '@crema/components/AppsDeleteIcon';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Dropdown } from 'antd';
 import { MdLabelOutline } from 'react-icons/md';
 import AppIconButton from '@crema/components/AppIconButton';
 import { StyledTodoHeaderCheckedAction } from '../index.styled';
-import { putDataApi } from '@crema/hooks/APIHooks';
+import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
 import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 
 import { LabelObjType, TodoObjType } from '@crema/types/models/apps/Todo';
@@ -40,7 +40,7 @@ const CheckedTasksActions: React.FC<CheckedTasksActionsProps> = ({
       page,
     })
       .then((data) => {
-        setTodoData({ data: data.data, count: data.count });
+        setTodoData({ data:data.data, count: data.count });
         infoViewActionsContext.showMessage('Task Deleted Successfully');
       })
       .catch((error) => {

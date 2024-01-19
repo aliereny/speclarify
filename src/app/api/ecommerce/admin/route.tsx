@@ -1,6 +1,5 @@
 import ecommerceData from '@crema/fakedb/ecommerce/ecommerceData';
 import { NextRequest } from 'next/server';
-
 let ecommerceListingData = ecommerceData;
 export const GET = async (request: NextRequest) => {
   const { filterData = [], page = 0 }: any = Object.fromEntries(

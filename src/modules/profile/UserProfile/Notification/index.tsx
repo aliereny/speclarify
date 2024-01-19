@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button, Switch } from 'antd';
-import IntlMessages from '@crema/helpers/IntlMessages';
+import React from "react";
+import { Button, Switch } from "antd";
+import IntlMessages from "@crema/helpers/IntlMessages";
 import {
   StyledNotificationList,
   StyledNotificationListItem,
@@ -8,8 +8,8 @@ import {
   StyledUserProfileForm,
   StyledUserProfileFormTitle,
   StyledUserProfileGroupBtn,
-} from '../index.styled';
-import { NotificationType } from '@crema/types/models/account';
+} from "../index.styled";
+import { NotificationType } from "@crema/types/models/account";
 
 type NotificationProps = {
   notification: NotificationType;
@@ -17,11 +17,11 @@ type NotificationProps = {
 
 const Notification = ({ notification }: NotificationProps) => {
   const onFinish = (values: any) => {
-    console.log('Success:', values);
+    console.log("Success:", values);
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+    console.log("Failed:", errorInfo);
   };
 
   function onChange(checked: boolean) {
@@ -34,9 +34,9 @@ const Notification = ({ notification }: NotificationProps) => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
-      <StyledProfileNotification className='profile-notification'>
+      <StyledProfileNotification className="profile-notification">
         <StyledUserProfileFormTitle>
-          <IntlMessages id='userProfile.activity' />
+          <IntlMessages id="userProfile.activity" />
         </StyledUserProfileFormTitle>
         <StyledNotificationList>
           {notification.activity.map((activity, index) => {
@@ -46,16 +46,16 @@ const Notification = ({ notification }: NotificationProps) => {
                   defaultChecked={activity.defaultChecked}
                   onChange={onChange}
                 />
-                <label className='label'>{activity.title}</label>
+                <label className="label">{activity.title}</label>
               </StyledNotificationListItem>
             );
           })}
         </StyledNotificationList>
       </StyledProfileNotification>
 
-      <StyledProfileNotification className='profile-notification'>
+      <StyledProfileNotification className="profile-notification">
         <StyledUserProfileFormTitle>
-          <IntlMessages id='userProfile.application' />
+          <IntlMessages id="userProfile.application" />
         </StyledUserProfileFormTitle>
         <StyledNotificationList>
           {notification.application.map((application, index: number) => {
@@ -65,7 +65,7 @@ const Notification = ({ notification }: NotificationProps) => {
                   defaultChecked={application.defaultChecked}
                   onChange={onChange}
                 />
-                <label className='label'>{application.title}</label>
+                <label className="label">{application.title}</label>
               </StyledNotificationListItem>
             );
           })}
@@ -74,9 +74,9 @@ const Notification = ({ notification }: NotificationProps) => {
 
       <StyledUserProfileGroupBtn
         shouldUpdate
-        className='user-profile-group-btn'
+        className="user-profile-group-btn"
       >
-        <Button type='primary' htmlType='submit'>
+        <Button type="primary" htmlType="submit">
           Save Changes
         </Button>
         <Button>Cancel</Button>

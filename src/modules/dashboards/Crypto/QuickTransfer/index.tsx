@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import AppCard from '@crema/components/AppCard';
-import RecentContact from './RecentContact';
-import AppScrollbar from '@crema/components/AppScrollbar';
-import CoinDropdown from './CoinDropdown';
-import { useIntl } from 'react-intl';
+import React, { useState } from "react";
+import AppCard from "@crema/components/AppCard";
+import RecentContact from "./RecentContact";
+import AppScrollbar from "@crema/components/AppScrollbar";
+import CoinDropdown from "./CoinDropdown";
+import { useIntl } from "react-intl";
 import {
   StyledAmountTag,
   StyledAmountWrapper,
@@ -12,16 +12,16 @@ import {
   StyledFlexWrapper,
   StyledRecentContact,
   StyledSecondaryText,
-} from './index.styled';
-import { Button } from 'antd';
-import { QuickTransferType } from '@crema/types/models/dashboards/Crypto';
+} from "./index.styled";
+import { Button } from "antd";
+import { QuickTransferType } from "@crema/types/models/dashboards/Crypto";
 
 type Props = {
   quickTransfer: QuickTransferType;
 };
 const QuickTransfer = ({ quickTransfer }: Props) => {
   const [selectedCoinId, setSelectedCoinID] = useState(
-    quickTransfer.coinList[0].id,
+    quickTransfer.coinList[0].id
   );
 
   const selectedCoin = () => {
@@ -34,7 +34,7 @@ const QuickTransfer = ({ quickTransfer }: Props) => {
   const { messages } = useIntl();
   return (
     <AppCard
-      title={messages['dashboard.crypto.quickTransfer'] as string}
+      title={messages["dashboard.crypto.quickTransfer"] as string}
       extra={
         <CoinDropdown
           coinList={quickTransfer.coinList}
@@ -44,7 +44,7 @@ const QuickTransfer = ({ quickTransfer }: Props) => {
       }
     >
       <StyledCoinWrapper>
-        <StyledCoinInput style={{ padding: '14px 0' }} />
+        <StyledCoinInput style={{ padding: "14px 0" }} />
         <StyledAmountTag>Amount {coin?.shortName}</StyledAmountTag>
       </StyledCoinWrapper>
       <StyledAmountWrapper>
@@ -61,10 +61,10 @@ const QuickTransfer = ({ quickTransfer }: Props) => {
       </StyledAmountWrapper>
       <div
         style={{
-          textAlign: 'right',
+          textAlign: "right",
         }}
       >
-        <Button type='primary'>TRANSFER NOW</Button>
+        <Button type="primary">TRANSFER NOW</Button>
       </div>
     </AppCard>
   );

@@ -10,7 +10,6 @@ import TemperatureCard from './TemperatureCard';
 import DateSelector from './DatePicker';
 import VisitorAnalysis from './VisitorAnalysis';
 import BirthdayCard from './BirthdayCard';
-import CountryMap from './CountryMap';
 import RecentActivity from './RecentActivity';
 import IllustrationDesign from './IllustrationDesign';
 import CityInfo from './CityInfo';
@@ -56,24 +55,6 @@ const Widgets = () => {
             <Col xs={24} lg={12} key={'b'}>
               <HollywoodMovie />
             </Col>
-            <Col xs={24} lg={8} key={'c'}>
-              <TemperatureCard temperatures={widgetsData.temperatures} />
-            </Col>
-            <Col xs={24} lg={8} key={'d'}>
-              <DateSelector />
-            </Col>
-            <Col xs={24} lg={8} key={'e'}>
-              <VisitorAnalysis />
-            </Col>
-            <Col xs={24} lg={8} key={'f'}>
-              <BirthdayCard />
-            </Col>
-            <Col xs={24} lg={8} key={'g'}>
-              <CountryMap />
-            </Col>
-            <Col xs={24} lg={8} key={'h'}>
-              <RecentActivity data={widgetsData.recentActivity} />
-            </Col>
             <Col xs={24} lg={8} key={'i'}>
               <IllustrationDesign />
             </Col>
@@ -91,10 +72,10 @@ const Widgets = () => {
             </Col>
             <Col xs={24} lg={8} key={'n'}>
               <Profile data={widgetsData.profile} />
-            </Col>
+            </Col>{' '}
             <Col xs={24} lg={8} key={'o'}>
               <Messages data={widgetsData.messages} />
-            </Col>
+            </Col>{' '}
             <Col xs={24} lg={8} key={'p'}>
               <TaskList data={widgetsData.taskList} />
             </Col>
@@ -114,7 +95,6 @@ const Widgets = () => {
                 </Col>
               </AppRowContainer>
             </Col>
-
             <Col xs={24} lg={8} key={'v'}>
               <CremaCard
                 data={widgetsData.mateInfo.facebookInfo}
@@ -122,7 +102,6 @@ const Widgets = () => {
                 icon={<FaFacebookF />}
               />
             </Col>
-
             <Col xs={24} lg={8} key={'w'}>
               <CremaCard
                 data={widgetsData.mateInfo.twitterInfo}
@@ -130,9 +109,26 @@ const Widgets = () => {
                 icon={<TwitterOutlined />}
               />
             </Col>
-
             <Col xs={24} lg={8} key={'x'}>
               <Formats data={widgetsData.formatList} />
+            </Col>
+            <Col xs={24} lg={8} key={'c'}>
+              <TemperatureCard temperatures={widgetsData.temperatures} />
+            </Col>
+            <Col xs={24} lg={8} key={'d'}>
+              <DateSelector />
+            </Col>
+            <Col xs={24} lg={8} key={'e'}>
+              <VisitorAnalysis />
+            </Col>
+            <Col xs={24} lg={8} key={'f'}>
+              <BirthdayCard />
+            </Col>
+            {/*<Col xs={24} lg={8} key={'g'}>*/}
+            {/*  <CountryMap />*/}
+            {/*</Col>*/}
+            <Col xs={24} lg={8} key={'h'}>
+              <RecentActivity data={widgetsData.recentActivity} />
             </Col>
           </AppRowContainer>
         </>

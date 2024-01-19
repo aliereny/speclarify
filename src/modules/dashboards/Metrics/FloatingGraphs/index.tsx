@@ -1,6 +1,6 @@
-import React from 'react';
-import GraphFile from './GraphFile';
-import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
+import React from "react";
+import GraphFile from "./GraphFile";
+import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import {
   StyledFloatingCardTitle,
   StyledFloatingGraph,
@@ -9,8 +9,8 @@ import {
   StyledFloatingGraphCardTitleGrowth,
   StyledFloatingGraphCardTitleValue,
   StyledFloatingGraphGrowthValue,
-} from './index.styled';
-import type { MetricsFloatingChildDataType } from '@crema/types/models/dashboards/Metrics';
+} from "./index.styled";
+import type { MetricsFloatingChildDataType } from "@crema/types/models/dashboards/Metrics";
 
 type FloatingGraphsProps = {
   data: MetricsFloatingChildDataType;
@@ -35,7 +35,7 @@ const FloatingGraphs: React.FC<FloatingGraphsProps> = ({ data, title }) => {
             </StyledFloatingGraphGrowthValue>
           </StyledFloatingGraphCardTitleGrowth>
         ) : (
-          <StyledFloatingGraphCardTitleGrowth className='down'>
+          <StyledFloatingGraphCardTitleGrowth className="down">
             <StyledFloatingGraphArrow>
               <ArrowDownOutlined />
             </StyledFloatingGraphArrow>

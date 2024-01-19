@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -6,24 +6,24 @@ import {
   LinkedinShareButton,
   TwitterIcon,
   TwitterShareButton,
-} from 'react-share';
-import { Rate } from 'antd';
+} from "react-share";
+import { Rate } from "antd";
 import {
   StyledProductDetailHeader,
   StyledProductDetailHeaderContent,
   StyledProductDetailHeaderInfo,
-  StyledProductDetailSocial,
   StyledProfileMbText,
   StyledProfileReviewText,
-} from './index.styled';
-import type { ProductDataType } from '@crema/types/models/ecommerce/EcommerceApp';
+  StyledProductDetailSocial,
+} from "./index.styled";
+import type { ProductDataType } from "@crema/types/models/ecommerce/EcommerceApp";
 
 type Props = {
   product: ProductDataType;
 };
 
 const Header = ({ product }: Props) => {
-  const shareUrl = 'http://crema-react.firebaseapp.com/';
+  const shareUrl = "http://crema-react.firebaseapp.com/";
 
   return (
     <StyledProductDetailHeader>
@@ -32,12 +32,12 @@ const Header = ({ product }: Props) => {
         <StyledProductDetailHeaderContent>
           <Rate defaultValue={product.rating} disabled />
           <StyledProfileReviewText>
-            {product.reviews || 0 + ' reviews'}
+            {product.reviews || 0 + " reviews"}
           </StyledProfileReviewText>
 
           <span>
-            SKU :{' '}
-            <StyledProfileMbText> {product.SKU || 'MB023'}</StyledProfileMbText>
+            SKU :{" "}
+            <StyledProfileMbText> {product.SKU || "MB023"}</StyledProfileMbText>
           </span>
         </StyledProductDetailHeaderContent>
       </StyledProductDetailHeaderInfo>

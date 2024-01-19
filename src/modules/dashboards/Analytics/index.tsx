@@ -11,7 +11,6 @@ import SalesState from './SalesState';
 import VisitorPageView from './VisitorPageView';
 import ActiveVisitors from './ActiveVisitors';
 import TopSelling from './TopSelling';
-import EarningByCountry from './EarningByCountry';
 import TicketsSupport from './TicketsSupport';
 import InfoWidget from './InfoWidget';
 import PageVisits from './PageVisits';
@@ -56,12 +55,7 @@ const Analytics = () => {
             <Col xs={24} lg={8} xxl={6} key={'g'}>
               <ActiveVisitors data={analyticsData.activeVisitors} />
             </Col>
-            <Col xs={24} lg={12} key={'h'}>
-              <TopSelling products={analyticsData.topSellingProduct} />
-            </Col>
-            <Col xs={24} lg={12} key={'i'}>
-              <EarningByCountry earningData={analyticsData.earningData} />
-            </Col>
+
             <Col xs={24} lg={12} className='mb-0' key={'j'}>
               <AppRowContainer>
                 <Col xs={24}>
@@ -84,6 +78,9 @@ const Analytics = () => {
             </Col>
             <Col xs={24} lg={6} key={'o'}>
               <TrafficSource trafficData={analyticsData.trafficData} />
+            </Col>
+            <Col xs={24} lg={12} key={'h'}>
+              <TopSelling products={analyticsData.topSellingProduct} />
             </Col>
           </AppRowContainer>
         </AppAnimate>

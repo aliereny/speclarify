@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import Carousel, { Dots } from '@brainhubeu/react-carousel';
-import '@brainhubeu/react-carousel/lib/style.css';
 import { Button } from 'antd';
 import { useRouter } from 'next/navigation';
 import { HeartFilled, HeartOutlined } from '@ant-design/icons';
 import {
+  StyledMediaSlider,
   StyledProductFav,
   StyledProductImageSlide,
   StyledProductImageSlideAction,
@@ -14,6 +13,7 @@ import { postDataApi } from '@crema/hooks/APIHooks';
 import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 import type { ProductDataType } from '@crema/types/models/ecommerce/EcommerceApp';
 import Image from 'next/image';
+import Slider from 'react-slick';
 
 type Props = {
   product: ProductDataType;
@@ -58,24 +58,47 @@ const ProductImageSlide = ({ product }: Props) => {
   const OnFavorite = () => {
     setIsFavorite(!isFavorite);
   };
-
+  const settings = {
+    dots: true,
+    arrows: true,
+    infinite: true,
+    speed: 500,
+    autoplay: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
     <StyledProductImageSlide>
       <StyledProductImageSlideRoot>
-        <Dots
-          rtl={false}
-          thumbnails={slides}
-          value={value}
-          onChange={onChange}
-          number={slides.length}
-        />
-        <Carousel
-          // position='left'
-          value={value}
-          slides={slides}
-          onChange={onChange}
-        />
-
+        <StyledMediaSlider>
+          <div
+            style={{
+              height: 'auto',
+              width: '100%',
+              overflow: 'hidden',
+            }}
+          >
+            <Slider {...settings}>
+              {product.image.map((item, index) => (
+                <div key={index} style={{ padding: 3, height: '100%' }}>
+                  <Image
+                    src={`${item.src}`}
+                    alt='watch'
+                    width={191}
+                    height={259}
+                    sizes='100vh'
+                    style={{
+                      objectFit: 'contain',
+                      width: '100%',
+                      maxHeight: '450px',
+                      height: '100%',
+                    }}
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </StyledMediaSlider>
         <StyledProductFav onClick={OnFavorite}>
           {isFavorite ? <HeartFilled /> : <HeartOutlined />}
         </StyledProductFav>

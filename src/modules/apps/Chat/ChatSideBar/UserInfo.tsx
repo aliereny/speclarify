@@ -1,8 +1,8 @@
-import React from 'react';
-import { Dropdown } from 'antd';
-import { green, red } from '@ant-design/colors';
-import { DownOutlined } from '@ant-design/icons';
-import { BiCheck } from 'react-icons/bi';
+import React from "react";
+import { Dropdown } from "antd";
+import { green, red } from "@ant-design/colors";
+import { DownOutlined } from "@ant-design/icons";
+import { BiCheck } from "react-icons/bi";
 
 import {
   StyledChatUserAvatar,
@@ -14,9 +14,9 @@ import {
   StyledChatUserStatusDot,
   StyledChatUserStatusText,
   StyledDropDownItem,
-} from './userInfo.styled';
-import { ConnectionObjType } from '@crema/types/models/apps/Chat';
-import IntlMessages from '@crema/helpers/IntlMessages';
+} from "./userInfo.styled";
+import { ConnectionObjType } from "@crema/types/models/apps/Chat";
+import IntlMessages from "@crema/helpers/IntlMessages";
 
 type UserInfoProps = {
   user: ConnectionObjType;
@@ -47,8 +47,8 @@ const UserInfo: React.FC<UserInfoProps> = ({
     {
       key: 1,
       label: (
-        <StyledDropDownItem className='active'>
-          <BiCheck className='icon' /> Active
+        <StyledDropDownItem className="active">
+          <BiCheck className="icon" /> Active
         </StyledDropDownItem>
       ),
     },
@@ -56,7 +56,7 @@ const UserInfo: React.FC<UserInfoProps> = ({
       key: 2,
       label: (
         <StyledDropDownItem>
-          <BiCheck className='icon' /> Away
+          <BiCheck className="icon" /> Away
         </StyledDropDownItem>
       ),
     },
@@ -64,7 +64,7 @@ const UserInfo: React.FC<UserInfoProps> = ({
       key: 3,
       label: (
         <StyledDropDownItem>
-          <BiCheck className='icon' /> Do not distrub
+          <BiCheck className="icon" /> Do not distrub
         </StyledDropDownItem>
       ),
     },
@@ -72,7 +72,7 @@ const UserInfo: React.FC<UserInfoProps> = ({
       key: 4,
       label: (
         <StyledDropDownItem>
-          <BiCheck className='icon' />
+          <BiCheck className="icon" />
           Invisible
         </StyledDropDownItem>
       ),
@@ -91,23 +91,23 @@ const UserInfo: React.FC<UserInfoProps> = ({
           ? null
           : showStatus && (
               <StyledChatUserStatusDot
-                className='chat-user-status-dot chat-user-status-dot-only'
+                className="chat-user-status-dot chat-user-status-dot-only"
                 style={{
-                  backgroundColor: user.status === 'online' ? green[6] : red[6],
+                  backgroundColor: user.status === "online" ? green[6] : red[6],
                 }}
               />
             )}
         {showStatusActive && (
           <StyledChatUserStatus>
             <StyledChatUserStatusDot
-              className='chat-user-status-dot'
+              className="chat-user-status-dot"
               style={{
-                backgroundColor: user.status === 'online' ? green[6] : red[6],
+                backgroundColor: user.status === "online" ? green[6] : red[6],
               }}
             />
-            <Dropdown menu={{ items }} trigger={['click']}>
+            <Dropdown menu={{ items }} trigger={["click"]}>
               <a
-                className='ant-dropdown-link'
+                className="ant-dropdown-link"
                 onClick={(e) => e.preventDefault()}
               >
                 <DownOutlined />
@@ -117,18 +117,18 @@ const UserInfo: React.FC<UserInfoProps> = ({
         )}
       </StyledChatUserAvatarView>
       <StyledChatUserInfoContext>
-        <StyledChatUserName className='text-truncate'>
+        <StyledChatUserName className="text-truncate">
           {user.displayName || user.name
             ? user.displayName || user.name
             : user.email}
         </StyledChatUserName>
         {user.isGroup ? (
-          <StyledChatUserStatusText className='pointer'>
-            {user?.members?.length} <IntlMessages id='chatApp.participants' />
+          <StyledChatUserStatusText className="pointer">
+            {user?.members?.length} <IntlMessages id="chatApp.participants" />
           </StyledChatUserStatusText>
         ) : (
-          <StyledChatUserStatusText className='text-truncate'>
-            {user.status ? user.status : 'Online'}
+          <StyledChatUserStatusText className="text-truncate">
+            {user.status ? user.status : "Online"}
           </StyledChatUserStatusText>
         )}
       </StyledChatUserInfoContext>

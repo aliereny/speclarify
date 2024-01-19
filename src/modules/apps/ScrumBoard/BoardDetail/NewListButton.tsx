@@ -10,9 +10,10 @@ import {
 
 type NewListButtonProps = {
   onClick: () => void;
-};
+}
 
 const NewListButton: React.FC<NewListButtonProps> = ({ onClick }) => {
+
   return (
     <StyledScrumBoardAddListCard>
       <StyledScrumBoardAddList>

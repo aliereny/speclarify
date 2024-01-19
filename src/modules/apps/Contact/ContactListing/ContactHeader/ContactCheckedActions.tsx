@@ -36,6 +36,7 @@ const ContactCheckedActions: React.FC<ContactCheckedActionsProps> = ({
   };
 
   const onSelectLabel = (key: number) => {
+
     putDataApi('contact/labels', infoViewActionsContext, {
       contactIds: checkedContacts,
       type: +key,

@@ -50,11 +50,11 @@ const StyledDropzone = () => {
       ...(isDragAccept ? acceptStyle : {}),
       ...(isDragReject ? rejectStyle : {}),
     }),
-    [isDragActive, isDragAccept, isDragReject],
+    [isDragActive, isDragAccept, isDragReject]
   ) as CSSProperties;
 
   return (
-    <div className='container'>
+    <div className="container">
       <div {...getRootProps({ style })}>
         <input {...getInputProps()} />
         <p>Drag n drop some files here, or click to select files</p>

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import AppRowContainer from '@crema/components/AppRowContainer';
-import { Button, Col, Divider, Form, Input, Space, Typography } from 'antd';
-import { MdEdit } from 'react-icons/md';
+import React, { useState } from "react";
+import AppRowContainer from "@crema/components/AppRowContainer";
+import { Button, Col, Divider, Form, Input, Space, Typography } from "antd";
+import { MdEdit } from "react-icons/md";
 import {
   StyledSecondaryText,
   StyledSecondaryText1,
   StyledShadowWrapper,
-} from '../index.styled';
-import { InvoiceSettingItem } from '@crema/types/models/invoice';
+} from "../index.styled";
+import { InvoiceSettingItem } from "@crema/types/models/invoice";
 
 type Props = {
   settings: { [key: string]: string };
@@ -19,14 +19,14 @@ const General = ({ settings, onUpdateSettings }: Props) => {
 
   return (
     <Form
-      layout='vertical'
+      layout="vertical"
       initialValues={settings}
       onFinish={(data) => {
-        onUpdateSettings('general', data);
+        onUpdateSettings("general", data);
         setIsEdit(false);
       }}
     >
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
           <Typography.Title level={4}>General Settings</Typography.Title>
           <StyledSecondaryText>
@@ -37,7 +37,7 @@ const General = ({ settings, onUpdateSettings }: Props) => {
           {!isEdit && (
             <MdEdit
               size={25}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
               onClick={() => setIsEdit(true)}
             />
           )}
@@ -55,13 +55,13 @@ const General = ({ settings, onUpdateSettings }: Props) => {
           <StyledShadowWrapper>
             <AppRowContainer>
               <Col xs={24} md={12}>
-                <Form.Item label='Account type' name='accountType'>
-                  <Input placeholder='Account type' readOnly={!isEdit} />
+                <Form.Item label="Account type" name="accountType">
+                  <Input placeholder="Account type" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='Agency Name' name='agencyName'>
-                  <Input placeholder='Agency Name' readOnly={!isEdit} />
+                <Form.Item label="Agency Name" name="agencyName">
+                  <Input placeholder="Agency Name" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
             </AppRowContainer>
@@ -80,23 +80,23 @@ const General = ({ settings, onUpdateSettings }: Props) => {
           <StyledShadowWrapper>
             <AppRowContainer>
               <Col xs={24} md={12}>
-                <Form.Item label='Language' name='language'>
-                  <Input placeholder='Language' readOnly={!isEdit} />
+                <Form.Item label="Language" name="language">
+                  <Input placeholder="Language" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='Date Format' name='dateFormat'>
-                  <Input placeholder='Date Format' readOnly={!isEdit} />
+                <Form.Item label="Date Format" name="dateFormat">
+                  <Input placeholder="Date Format" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='Default Currency' name='currency'>
-                  <Input placeholder='Default Currency' readOnly={!isEdit} />
+                <Form.Item label="Default Currency" name="currency">
+                  <Input placeholder="Default Currency" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='Decimal Separator' name='decimalSeparator'>
-                  <Input placeholder='Decimal Separator' readOnly={!isEdit} />
+                <Form.Item label="Decimal Separator" name="decimalSeparator">
+                  <Input placeholder="Decimal Separator" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
             </AppRowContainer>
@@ -114,28 +114,28 @@ const General = ({ settings, onUpdateSettings }: Props) => {
           <StyledShadowWrapper>
             <AppRowContainer>
               <Col xs={24}>
-                <Form.Item label='Street/Number' name='street'>
-                  <Input placeholder='Street/Number' readOnly={!isEdit} />
+                <Form.Item label="Street/Number" name="street">
+                  <Input placeholder="Street/Number" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='Zip Code' name='zipCode'>
-                  <Input placeholder='Zip Code' readOnly={!isEdit} />
+                <Form.Item label="Zip Code" name="zipCode">
+                  <Input placeholder="Zip Code" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='City' name='city'>
-                  <Input placeholder='City' readOnly={!isEdit} />
+                <Form.Item label="City" name="city">
+                  <Input placeholder="City" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='State' name='state'>
-                  <Input placeholder='State' readOnly={!isEdit} />
+                <Form.Item label="State" name="state">
+                  <Input placeholder="State" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='Country' name='country'>
-                  <Input placeholder='Country' readOnly={!isEdit} />
+                <Form.Item label="Country" name="country">
+                  <Input placeholder="Country" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
             </AppRowContainer>
@@ -154,13 +154,13 @@ const General = ({ settings, onUpdateSettings }: Props) => {
           <StyledShadowWrapper>
             <AppRowContainer>
               <Col xs={24} md={12}>
-                <Form.Item label='Phone Number' name='phoneNumber'>
-                  <Input placeholder='Phone Number' readOnly={!isEdit} />
+                <Form.Item label="Phone Number" name="phoneNumber">
+                  <Input placeholder="Phone Number" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
               <Col xs={24} md={12}>
-                <Form.Item label='Alternate Number' name='alternateNumber'>
-                  <Input placeholder='Alternate Number' readOnly={!isEdit} />
+                <Form.Item label="Alternate Number" name="alternateNumber">
+                  <Input placeholder="Alternate Number" readOnly={!isEdit} />
                 </Form.Item>
               </Col>
             </AppRowContainer>
@@ -170,10 +170,10 @@ const General = ({ settings, onUpdateSettings }: Props) => {
       {isEdit && (
         <Space
           size={15}
-          style={{ display: 'flex', marginTop: 12, justifyContent: 'flex-end' }}
+          style={{ display: "flex", marginTop: 12, justifyContent: "flex-end" }}
         >
           <Button onClick={() => setIsEdit(false)}>Cancel</Button>
-          <Button type='primary' htmlType='submit'>
+          <Button type="primary" htmlType="submit">
             Save
           </Button>
         </Space>

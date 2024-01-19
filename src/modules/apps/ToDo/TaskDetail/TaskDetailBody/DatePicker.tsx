@@ -13,7 +13,7 @@ const DatePickers: React.FC<DatePickerProps> = ({
   setScheduleDate,
 }) => {
   return (
-    <StyledTodoDetailDatePicker className='form-field'>
+    <StyledTodoDetailDatePicker className="form-field">
       <DatePicker
         defaultValue={dayjs(scheduleDate, 'MMM DD,YYYY')}
         onChange={(value) => setScheduleDate(value as Dayjs)}

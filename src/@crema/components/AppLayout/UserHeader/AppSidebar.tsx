@@ -1,12 +1,12 @@
-import React from 'react';
-import clsx from 'clsx';
-import AppVerticalMenu from '../components/AppVerticalNav';
-import { useSidebarContext } from '@crema/context/AppContextProvider/SidebarContextProvider';
+import React from "react";
+import clsx from "clsx";
+import AppVerticalMenu from "../components/AppVerticalNav";
+import { useSidebarContext } from "@crema/context/AppContextProvider/SidebarContextProvider";
 import {
   StyledUserHeaderSidebar,
   StyledUserSidebarScrollbar,
-} from './index.styled';
-import { RouterConfigData } from '@crema/types/models/Apps';
+} from "./index.styled";
+import { RouterConfigData } from "@crema/types/models/Apps";
 
 type AppSidebarProps = {
   isCollapsed: boolean;
@@ -19,10 +19,10 @@ const AppSidebar = ({ isCollapsed, routesConfig }: AppSidebarProps) => {
   return (
     <StyledUserHeaderSidebar
       className={clsx({
-        'userHeader-sidebar-img-background': allowSidebarBgImage,
+        "userHeader-sidebar-img-background": allowSidebarBgImage,
       })}
       collapsible
-      breakpoint='xl'
+      breakpoint="xl"
       collapsed={isCollapsed}
     >
       <StyledUserSidebarScrollbar scrollToTop={false}>

@@ -1,9 +1,9 @@
-import React from 'react';
-import SlideItem from './SlideItem';
-import AppCard from '@crema/components/AppCard';
-import Slider from 'react-slick';
-import MediaSlider from './MediaSlider';
-import { SlideBasicType } from '@crema/types/models/thirdParty/reactSlick';
+import React from "react";
+import SlideItem from "./SlideItem";
+import AppCard from "@crema/components/AppCard";
+import Slider from "react-slick";
+import MediaSlider from "./MediaSlider";
+import { SlideBasicType } from "@crema/types/models/thirdParty/reactSlick";
 
 const settings = {
   dots: true,

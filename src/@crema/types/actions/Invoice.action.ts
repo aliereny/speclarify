@@ -1,8 +1,8 @@
 import {
-  ClientType,
-  InvFolderType,
-  InvoiceSettingType,
   InvoiceType,
+  ClientType,
+  InvoiceSettingType,
+  InvFolderType,
 } from '../models/invoice';
 
 export const GET_INVOICE_LIST = 'GET_INVOICE_LIST';

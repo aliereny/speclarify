@@ -1,7 +1,7 @@
 import {
+  NOTIFICATION_TYPE,
   NOTIFICATION_CONTAINER,
   NOTIFICATION_INSERTION,
-  NOTIFICATION_TYPE,
 } from 'react-notifications-component';
 
 const notifications = {

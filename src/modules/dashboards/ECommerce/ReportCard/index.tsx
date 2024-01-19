@@ -1,6 +1,6 @@
-import React from 'react';
-import AppCard from '@crema/components/AppCard';
-import StatGraphs from './StaticsGraph';
+import React from "react";
+import AppCard from "@crema/components/AppCard";
+import StatGraphs from "./StaticsGraph";
 import {
   StyledContainer,
   StyledFlex,
@@ -9,25 +9,25 @@ import {
   StyledSecondary,
   StyledSuccess,
   StyledTitle,
-} from './index.styled';
-import { rgba } from 'polished';
-import type { ReportCardsType } from '@crema/types/models/dashboards/Ecommerce';
+} from "./index.styled";
+import { rgba } from "polished";
+import type { ReportCardsType } from "@crema/types/models/dashboards/Ecommerce";
 import {
   MdAccountBalanceWallet,
   MdBarChart,
   MdPieChart,
   MdPublic,
-} from 'react-icons/md';
+} from "react-icons/md";
 
 const getIcon = (icon: string) => {
   switch (icon) {
-    case 'public':
+    case "public":
       return <MdPublic size={30} />;
-    case 'pie_chart':
+    case "pie_chart":
       return <MdPieChart size={30} />;
-    case 'bar_chart':
+    case "bar_chart":
       return <MdBarChart size={30} />;
-    case 'account_balance_wallet':
+    case "account_balance_wallet":
       return <MdAccountBalanceWallet size={30} />;
   }
 };
@@ -47,10 +47,10 @@ const ReportCard: React.FC<ReportCardProps> = ({ data }) => {
               <StyledSuccess>
                 <StyledPercentage
                   style={{
-                    color: data.percentageChange > 0 ? '#11C15B' : '#F04F47',
+                    color: data.percentageChange > 0 ? "#11C15B" : "#F04F47",
                   }}
                 >
-                  {data.percentageChange > 0 ? '+' : ''}
+                  {data.percentageChange > 0 ? "+" : ""}
                   {data.percentageChange}%
                 </StyledPercentage>
               </StyledSuccess>
@@ -63,7 +63,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ data }) => {
             color: data.color,
             padding: 8,
             backgroundColor: rgba(data.color, 0.1),
-            borderRadius: '50%',
+            borderRadius: "50%",
           }}
         >
           {getIcon(data.icon)}

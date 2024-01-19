@@ -5,8 +5,8 @@ import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
 import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 import { StyledTypographyWrapper } from '../index.styled';
 import {
-  InvoiceSettingItem,
   InvoiceSettingType,
+  InvoiceSettingItem,
 } from '@crema/types/models/invoice';
 
 const InvoiceSettingsPage = () => {

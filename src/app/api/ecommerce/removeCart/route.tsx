@@ -1,4 +1,6 @@
-import { cartItems } from '@crema/fakedb/ecommerce/ecommerceData';
+import ecommerceData, {
+  cartItems,
+} from '@crema/fakedb/ecommerce/ecommerceData';
 import { NextRequest } from 'next/server';
 
 let cartItemsData = cartItems;

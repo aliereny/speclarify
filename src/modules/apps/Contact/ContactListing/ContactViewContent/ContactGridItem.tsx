@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import IntlMessages from '@crema/helpers/IntlMessages';
-import ItemMenu from './ItemMenu';
-import { Checkbox } from 'antd';
-import ActionBtnHover from './ActionBtnHover';
+import React, { useState } from "react";
+import IntlMessages from "@crema/helpers/IntlMessages";
+import ItemMenu from "./ItemMenu";
+import { Checkbox } from "antd";
+import ActionBtnHover from "./ActionBtnHover";
 import {
   StyledContactGridCard,
   StyledContactGridHeader,
@@ -15,8 +15,8 @@ import {
   StyledGridCardTitle,
   StyledIdcardOutlined,
   StyledPhoneOutlined,
-} from '../index.styled';
-import { ContactObjType, LabelObjType } from '@crema/types/models/apps/Contact';
+} from "../index.styled";
+import { ContactObjType, LabelObjType } from "@crema/types/models/apps/Contact";
 
 type ContactGridItemProps = {
   contact: ContactObjType;
@@ -43,7 +43,7 @@ const ContactGridItem: React.FC<ContactGridItemProps> = ({
   const [isChecked, setIsChecked] = useState(false);
   return (
     <StyledContactGridCard
-      className='card-hover'
+      className="card-hover"
       onClick={() => onViewContactDetail(contact)}
     >
       <StyledContactGridHeader>
@@ -88,23 +88,23 @@ const ContactGridItem: React.FC<ContactGridItemProps> = ({
 
       <StyledGridCardContent>
         <StyledGridCardTitle>{contact.name}</StyledGridCardTitle>
-        <p className='text-truncate'>{contact.email ? contact.email : null}</p>
+        <p className="text-truncate">{contact.email ? contact.email : null}</p>
       </StyledGridCardContent>
 
       <StyledGridCardAction>
         <StyledGridCardActionItem>
           <StyledIdcardOutlined />
-          <p className='text-truncate mb-0'>
+          <p className="text-truncate mb-0">
             {contact.company ? (
               contact.company
             ) : (
-              <IntlMessages id='common.na' />
+              <IntlMessages id="common.na" />
             )}
           </p>
         </StyledGridCardActionItem>
         <StyledGridCardActionItem>
           <StyledPhoneOutlined />
-          <p className='text-truncate mb-0'>{contact.contact}</p>
+          <p className="text-truncate mb-0">{contact.contact}</p>
         </StyledGridCardActionItem>
       </StyledGridCardAction>
     </StyledContactGridCard>

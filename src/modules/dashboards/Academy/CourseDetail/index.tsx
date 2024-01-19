@@ -1,14 +1,14 @@
-import React from 'react';
-import AppCard from '@crema/components/AppCard';
-import CourseGraph from './CourseGraph';
-import AppMenu from '@crema/components/AppMenu';
+import React from "react";
+import AppCard from "@crema/components/AppCard";
+import CourseGraph from "./CourseGraph";
+import AppMenu from "@crema/components/AppMenu";
 import {
   StyledCourseDetailContent,
   StyledCourseDetailHeader,
   StyledCourseDetailHeaderInfo,
   StyledCourseDetailThumb,
-} from './index.styled';
-import { CourseDetailsType } from '@crema/types/models/dashboards/AcademyType';
+} from "./index.styled";
+import { CourseDetailsType } from "@crema/types/models/dashboards/AcademyType";
 
 type CourseDetailProps = {
   course: CourseDetailsType;
@@ -17,10 +17,10 @@ type CourseDetailProps = {
 const CourseDetail: React.FC<CourseDetailProps> = ({ course }) => {
   const getTitle = () => (
     <StyledCourseDetailHeader>
-      <StyledCourseDetailThumb alt='' src={course.thumb} />
+      <StyledCourseDetailThumb alt="" src={course.thumb} />
       <StyledCourseDetailHeaderInfo>
-        <h3 className='text-truncate'>{course.title}</h3>
-        <p className='mb-0 text-truncate'>{course.level}</p>
+        <h3 className="text-truncate">{course.title}</h3>
+        <p className="mb-0 text-truncate">{course.level}</p>
       </StyledCourseDetailHeaderInfo>
     </StyledCourseDetailHeader>
   );

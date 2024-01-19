@@ -12,7 +12,7 @@ import {
 type AddCardButtonProps = {
   laneId: string;
   t: (laneId: string) => void;
-};
+}
 
 const AddCardButton: React.FC<AddCardButtonProps> = (props) => {
   return (

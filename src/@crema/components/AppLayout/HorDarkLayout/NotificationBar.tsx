@@ -8,8 +8,8 @@ export default function NotificationBar() {
 
   return (
     <StyledHeaderAlertDark
-      message=' Get flat 60% off on your first purchase'
-      type='warning'
+      message=" Get flat 60% off on your first purchase"
+      type="warning"
       closable
       onClose={onClose}
     />

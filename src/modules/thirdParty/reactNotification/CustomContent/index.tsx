@@ -13,7 +13,7 @@ import {
   StyledReactNotification,
   StyledReactNotificationItem,
 } from '../index.styled';
-import Image from 'next/image';
+import Image from "next/image";
 
 export default class CustomContentExample extends React.Component {
   addCustomIcon = (type: string, iconClassName: string) => {
@@ -33,7 +33,7 @@ export default class CustomContentExample extends React.Component {
         container: getContainer(),
         content: (
           <StyledNotificationCustom className={`notification-custom-${type}`}>
-            <StyledNotificationCustomIcon className='notification-custom-icon'>
+            <StyledNotificationCustomIcon className="notification-custom-icon">
               <i className={iconClassName} />
             </StyledNotificationCustomIcon>
             <StyledNotificationCustomContent>
@@ -41,7 +41,7 @@ export default class CustomContentExample extends React.Component {
             </StyledNotificationCustomContent>
           </StyledNotificationCustom>
         ),
-      }),
+      })
     );
   };
 
@@ -52,18 +52,13 @@ export default class CustomContentExample extends React.Component {
         container: getContainer(),
         content: (
           <StyledNotificationCustomImage>
-            <Image
-              src='/assets/images/logo.png'
-              alt=''
-              width={104}
-              height={137}
-            />
+            <Image src="/assets/images/logo.png" alt="" width={104} height={137}/>
             <StyledNotificationCustomImageContent>
               Crema Admin
             </StyledNotificationCustomImageContent>
           </StyledNotificationCustomImage>
         ),
-      }),
+      })
     );
   };
 
@@ -71,13 +66,13 @@ export default class CustomContentExample extends React.Component {
     return (
       <StyledReactNotification>
         <StyledReactNotificationItem>
-          <Button type='primary' onClick={this.add}>
+          <Button type="primary" onClick={this.add}>
             Custom Image Content
           </Button>
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
           <Button
-            type='primary'
+            type="primary"
             onClick={() => this.addCustomIcon('success', 'fas fa-check-circle')}
           >
             Success with Icon
@@ -85,7 +80,7 @@ export default class CustomContentExample extends React.Component {
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
           <Button
-            type='primary'
+            type="primary"
             onClick={() =>
               this.addCustomIcon('danger', 'fas fa-exclamation-circle')
             }
@@ -95,7 +90,7 @@ export default class CustomContentExample extends React.Component {
         </StyledReactNotificationItem>
         <StyledReactNotificationItem>
           <Button
-            type='primary'
+            type="primary"
             onClick={() =>
               this.addCustomIcon('warning', 'fas fa-exclamation-triangle')
             }

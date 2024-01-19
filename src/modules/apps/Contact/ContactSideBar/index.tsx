@@ -16,8 +16,8 @@ import {
 } from './index.styled';
 import ContactListLabelItem from './LabelItem';
 import {
-  useContactActionsContext,
   useContactContext,
+  useContactActionsContext,
 } from '../../context/ContactContextProvider';
 
 const SideBarContent = () => {

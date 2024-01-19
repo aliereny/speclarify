@@ -1,11 +1,11 @@
-import React from 'react';
-import { Typography } from 'antd';
+import React from "react";
+import { Typography } from "antd";
 import {
   StyledCategoryItem,
   StyledCategoryItemIcon,
   StyledCategoryText,
-} from './index.styled';
-import { EmailMarketingType } from '@crema/types/models/dashboards/CRM';
+} from "./index.styled";
+import { EmailMarketingType } from "@crema/types/models/dashboards/CRM";
 
 type Props = {
   category: EmailMarketingType;

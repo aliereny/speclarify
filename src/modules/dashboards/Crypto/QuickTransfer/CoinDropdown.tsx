@@ -1,7 +1,7 @@
-import React from 'react';
-import CurrencyCell from './CurrencyCell';
-import { StyledSelect } from './index.styled';
-import { CoinList2Type } from '@crema/types/models/dashboards/Crypto';
+import React from "react";
+import CurrencyCell from "./CurrencyCell";
+import { StyledSelect } from "./index.styled";
+import { CoinList2Type } from "@crema/types/models/dashboards/Crypto";
 
 type Props = {
   handleCoinChange: (value: any) => void;

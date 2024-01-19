@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   CartesianGrid,
   Line,
@@ -7,48 +7,48 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-} from 'recharts';
-import { AtcStaticType } from '@crema/types/models/dashboards/Crypto';
+} from "recharts";
+import { AtcStaticType } from "@crema/types/models/dashboards/Crypto";
 
 type Props = {
   data: AtcStaticType[];
 };
 const StatGraphs = ({ data = [] }: Props) => {
   return (
-    <ResponsiveContainer width='100%' height={320}>
+    <ResponsiveContainer width="100%" height={320}>
       <LineChart
         data={data}
         margin={{ top: 50, right: 0, left: -5, bottom: 0 }}
       >
         <XAxis
-          dataKey='name'
+          dataKey="name"
           tickLine={false}
           padding={{ left: 20, right: 20 }}
         />
         <YAxis tickLine={false} axisLine={false} />
         <Tooltip
-          labelStyle={{ color: 'black' }}
+          labelStyle={{ color: "black" }}
           contentStyle={{
             borderRadius: 12,
-            borderColor: '#31354188',
-            background: '#FFFFFFCA',
+            borderColor: "#31354188",
+            background: "#FFFFFFCA",
           }}
         />
-        <CartesianGrid stroke='#eee' horizontal={true} vertical={false} />
+        <CartesianGrid stroke="#eee" horizontal={true} vertical={false} />
         <Line
-          type='monotone'
-          dataKey='Buy'
-          stroke='#0A8FDC'
+          type="monotone"
+          dataKey="Buy"
+          stroke="#0A8FDC"
           dot={false}
           strokeWidth={2}
           activeDot={{ r: 4 }}
         />
         <Line
-          type='monotone'
+          type="monotone"
           dot={false}
           strokeWidth={2}
-          dataKey='Sell'
-          stroke='#F04F47'
+          dataKey="Sell"
+          stroke="#F04F47"
         />
       </LineChart>
     </ResponsiveContainer>

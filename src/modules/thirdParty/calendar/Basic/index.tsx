@@ -1,8 +1,8 @@
-import React, {JSXElementConstructor, ReactElement} from 'react';
-import {momentLocalizer} from 'react-big-calendar';
+import React, { JSXElementConstructor, ReactElement } from 'react';
+import { momentLocalizer } from 'react-big-calendar';
 import events from '../events';
 import moment from 'moment';
-import {StyledCalendar} from '../index.styled';
+import { StyledCalendar } from '../index.styled';
 
 // const allViews = Object.keys(Views).map((k) => Views[k]);
 

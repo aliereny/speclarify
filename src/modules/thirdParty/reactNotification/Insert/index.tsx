@@ -13,16 +13,16 @@ const InsertExample = () => {
         insert,
         message: getMessage(type),
         title: getTitle(type),
-      }),
+      })
     );
   };
 
   return (
     <div>
-      <StyledNotificationInsetBtn type='primary' onClick={() => add('top')}>
+      <StyledNotificationInsetBtn type="primary" onClick={() => add('top')}>
         Top
       </StyledNotificationInsetBtn>
-      <StyledNotificationInsetBtn type='primary' onClick={() => add('bottom')}>
+      <StyledNotificationInsetBtn type="primary" onClick={() => add('bottom')}>
         Bottom
       </StyledNotificationInsetBtn>
     </div>

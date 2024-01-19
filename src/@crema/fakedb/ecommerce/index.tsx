@@ -5,9 +5,9 @@ import ecommerceData, {
   customersData,
   discountList,
   idealFor,
-  productCategory,
   productColors,
   recentOrders,
+  productCategory,
 } from './ecommerceData';
 
 export {

@@ -343,6 +343,6 @@ export const StyledMailContentHeaderPagination = styled(AppsPagination)`
 export const StyledMailDots = styled.span`
   height: 12px;
   width: 12px;
-  border-radius: ${({theme}) => theme.sizes.borderRadius.circle};
+  border-radius: ${({ theme }) => theme.sizes.borderRadius.circle};
   display: block;
 `;

@@ -1,8 +1,8 @@
-import React from 'react';
-import { VideoPromoDataType } from '@crema/types/models/dashboards/AcademyType';
-import { ClockCircleOutlined, CloudDownloadOutlined } from '@ant-design/icons';
+import React from "react";
+import { VideoPromoDataType } from "@crema/types/models/dashboards/AcademyType";
+import { ClockCircleOutlined, CloudDownloadOutlined } from "@ant-design/icons";
 
-import { Button, Tabs } from 'antd';
+import { Button, Tabs } from "antd";
 import {
   StyledBorderRightBefore,
   StyledReactPlayer,
@@ -18,13 +18,13 @@ import {
   StyledVideoTabsActionLeft,
   StyledVideoTabsActionRight,
   StyledVideoTabsContent,
-} from './index.styled';
+} from "./index.styled";
 
 const tabs = [
-  { id: 1, title: 'Class Detail', slug: 'class' },
-  { id: 2, title: 'Assignments', slug: 'assignments' },
-  { id: 3, title: 'Projects', slug: 'projects' },
-  { id: 4, title: 'Exams', slug: 'exams' },
+  { id: 1, title: "Class Detail", slug: "class" },
+  { id: 2, title: "Assignments", slug: "assignments" },
+  { id: 3, title: "Projects", slug: "projects" },
+  { id: 4, title: "Exams", slug: "exams" },
 ];
 
 type VideoPromoProps = {
@@ -37,13 +37,12 @@ const VideoPromo: React.FC<VideoPromoProps> = ({ videoPromo }) => {
   function callback(key: string) {
     console.log(key);
   }
-
   return (
     <StyledVideoPromoCard heightFull>
       <StyledReactPlayerView>
         <StyledReactPlayer
           controls={true}
-          url='https://www.youtube.com/embed/X1dz0xRbSJc'
+          url="https://www.youtube.com/embed/X1dz0xRbSJc"
         />
       </StyledReactPlayerView>
       <StyledVideoPromo>
@@ -57,20 +56,20 @@ const VideoPromo: React.FC<VideoPromoProps> = ({ videoPromo }) => {
               <StyledBorderRightBefore>
                 {videoPromo.category}
               </StyledBorderRightBefore>
-              <span className='text-primary'>+ Follow Mentor</span>
+              <span className="text-primary">+ Follow Mentor</span>
             </p>
           </StyledVideoPromoHeaderContent>
           <StyledVideoPromoHeaderAction>
             <StyledVideoPromoHeaderIcon>
               <ClockCircleOutlined />
             </StyledVideoPromoHeaderIcon>
-            <StyledVideoPromoHeaderIcon className='cloud'>
+            <StyledVideoPromoHeaderIcon className="cloud">
               <CloudDownloadOutlined />
             </StyledVideoPromoHeaderIcon>
           </StyledVideoPromoHeaderAction>
         </StyledVideoPromoHeader>
 
-        <StyledVideoPromoTabs defaultActiveKey='1' onChange={callback}>
+        <StyledVideoPromoTabs defaultActiveKey="1" onChange={callback}>
           {tabs.map((item, index) => (
             <TabPane tab={item.title} key={index}>
               {item.slug}
@@ -85,23 +84,23 @@ const VideoPromo: React.FC<VideoPromoProps> = ({ videoPromo }) => {
             <StyledVideoTabsAction>
               <StyledVideoTabsActionLeft>
                 <Button
-                  size='small'
-                  className='btn-primary-outline'
-                  style={{ fontSize: 10, whiteSpace: 'nowrap' }}
+                  size="small"
+                  className="btn-primary-outline"
+                  style={{ fontSize: 10, whiteSpace: "nowrap" }}
                 >
                   See Calendar
                 </Button>
                 <Button
-                  size='small'
-                  style={{ fontSize: 10, whiteSpace: 'nowrap' }}
-                  type='primary'
+                  size="small"
+                  style={{ fontSize: 10, whiteSpace: "nowrap" }}
+                  type="primary"
                 >
                   View details
                 </Button>
               </StyledVideoTabsActionLeft>
               <StyledVideoTabsActionRight>
                 <span>{item.students} Students enrolled</span>
-                <span className='text-secondary'>
+                <span className="text-secondary">
                   {item.daysLeft} Days left
                 </span>
               </StyledVideoTabsActionRight>

@@ -24,7 +24,7 @@ const AppIconButton: React.FC<AppIconButtonProps> = ({
       <Tooltip title={title}>
         <StyledIconBtn
           className={clsx('icon-btn', className)}
-          shape='circle'
+          shape="circle"
           icon={icon}
           onClick={(e) => {
             e.stopPropagation();
@@ -39,7 +39,7 @@ const AppIconButton: React.FC<AppIconButtonProps> = ({
   return (
     <StyledIconBtn
       className={clsx('icon-btn', className)}
-      shape='circle'
+      shape="circle"
       icon={icon}
       onClick={(e) => {
         e.stopPropagation();

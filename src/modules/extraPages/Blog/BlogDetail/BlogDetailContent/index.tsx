@@ -3,8 +3,6 @@ import { AiFillHeart } from 'react-icons/ai';
 import Tag from '../../BlogContent/Tag';
 import BlogPost from './BlogPost';
 import Social from './Social';
-// @ts-ignore
-import renderHTML from 'react-render-html';
 import {
   StyledBlogPostWrapper,
   StyledCard,
@@ -32,7 +30,11 @@ const BlogDetailContent = ({ blogDetailContent }: Props) => {
       }
     >
       <p style={{ marginBottom: 28 }}>{blogDetailContent.description}</p>
-      <div> {renderHTML(blogDetailContent.content)}</div>
+      <div>
+        <div
+          dangerouslySetInnerHTML={{ __html: `${blogDetailContent.content}` }}
+        />
+      </div>
       <StyledFlex>
         <div style={{ marginBottom: 8 }}>
           <Tag tag={blogDetailContent.tag} />

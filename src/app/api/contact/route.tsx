@@ -18,9 +18,8 @@ export const GET = async (request: NextRequest) => {
         folderContactList = contactList;
       }
     } else {
-      const labelType = labelList.find(
-        (label) => label.alias === params.name,
-      )?.id;
+      const labelType = labelList.find((label) => label.alias === params.name)
+        ?.id;
       folderContactList = contactList.filter(
         (contact) => contact.label === labelType,
       );

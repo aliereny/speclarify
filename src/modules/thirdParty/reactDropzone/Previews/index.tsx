@@ -1,6 +1,6 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import Image from 'next/image';
+import Image from "next/image";
 
 const thumbsContainer = {
   display: 'flex',
@@ -45,8 +45,8 @@ const Previews = () => {
         acceptedFiles.map((file) =>
           Object.assign(file, {
             preview: URL.createObjectURL(file),
-          }),
-        ),
+          })
+        )
       );
     },
   });
@@ -54,13 +54,7 @@ const Previews = () => {
   const thumbs = files.map((file: any) => (
     <div style={thumb} key={file.name}>
       <div style={thumbInner}>
-        <Image
-          alt='preview'
-          src={file.preview}
-          height={90}
-          width={90}
-          style={img}
-        />
+        <Image alt="preview" src={file.preview} height={90} width={90} style={img} />
       </div>
     </div>
   ));
@@ -70,11 +64,11 @@ const Previews = () => {
       // Make sure to revoke the db uris to avoid memory leaks
       files.forEach((file: any) => URL.revokeObjectURL(file.preview));
     },
-    [files],
+    [files]
   );
 
   return (
-    <section className='container'>
+    <section className="container">
       <div {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
         <p>Drag n drop some files here, or click to select files</p>

@@ -1,9 +1,9 @@
 import React from 'react';
 import {
   StyledEmptyResult,
-  StyledEmptyResultBtn,
-  StyledParaText,
   StyledTitle,
+  StyledParaText,
+  StyledEmptyResultBtn,
 } from './index.styled';
 import IntlMessages from '@crema/helpers/IntlMessages';
 
@@ -15,7 +15,7 @@ type AppEmptyResultProps = {
 };
 
 const AppEmptyResult: React.FC<AppEmptyResultProps> = ({
-  title = <IntlMessages id='common.noRecordFound' />,
+  title = <IntlMessages id="common.noRecordFound" />,
   description = '',
   actionTitle,
   onAction,

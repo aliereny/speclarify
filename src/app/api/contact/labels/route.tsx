@@ -1,7 +1,6 @@
 import labelList from '@crema/fakedb/apps/contact/labelList';
 import contactData from '@crema/fakedb/apps/contact/contactList';
 import { NextRequest } from 'next/server';
-
 let contactList = contactData;
 export const GET = async () => {
   try {

@@ -14,8 +14,8 @@ import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/Inf
 import type { ContactObjType } from '@crema/types/models/apps/Contact';
 import { DataType } from '../index';
 import {
-  useContactActionsContext,
   useContactContext,
+  useContactActionsContext,
 } from '../../context/ContactContextProvider';
 
 const ContactListing = () => {

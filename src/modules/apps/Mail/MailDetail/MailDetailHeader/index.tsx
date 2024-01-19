@@ -12,7 +12,7 @@ import {
   StyledMailDetailActionHeader,
   StyledMailDetailArrow,
 } from '../index.styled';
-import { putDataApi } from '@crema/hooks/APIHooks';
+import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
 import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 
 import type { LabelObjType, MailObjType } from '@crema/types/models/apps/Mail';

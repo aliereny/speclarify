@@ -41,7 +41,7 @@ export const getFileSize = (bytes: number) => {
 export const multiPropsFilter = (
   products: any[],
   filters: any,
-  stringKey = 'title',
+  stringKey = 'title'
 ) => {
   const filterKeys = Object.keys(filters);
   return products.filter((product) => {
@@ -50,7 +50,7 @@ export const multiPropsFilter = (
       // Loops again if product[key] is an array (for material attribute).
       if (Array.isArray(product[key])) {
         return product[key].some((keyEle: any) =>
-          filters[key].includes(keyEle),
+          filters[key].includes(keyEle)
         );
       }
       if (filters[key]?.start || filters[key]?.end) {

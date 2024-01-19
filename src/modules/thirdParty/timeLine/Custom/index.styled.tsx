@@ -372,8 +372,8 @@ export const StyledTimelineCircle = styled.span`
 `;
 
 export const StyledTimelineCircleInner = styled.span`
-  background-color: ${({theme}) => theme.palette.secondary.main};
-  border-radius: ${({theme}) => theme.sizes.borderRadius.circle};
+  background-color: ${({ theme }) => theme.palette.secondary.main};
+  border-radius: ${({ theme }) => theme.sizes.borderRadius.circle};
   width: 16px;
   height: 16px;
 `;

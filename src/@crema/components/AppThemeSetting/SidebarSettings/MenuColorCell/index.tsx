@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import {
   useSidebarActionsContext,
   useSidebarContext,
-} from '@crema/context/AppContextProvider/SidebarContextProvider';
-import { MenuStyle, NavStyle, ThemeMode } from '@crema/constants/AppEnums';
-import clsx from 'clsx';
-import { useLayoutContext } from '@crema/context/AppContextProvider/LayoutContextProvider';
-import AppSelectedIcon from '../../../AppSelectedIcon';
-import defaultConfig, { SidebarData } from '@crema/constants/defaultConfig';
+} from "@crema/context/AppContextProvider/SidebarContextProvider";
+import { MenuStyle, NavStyle, ThemeMode } from "@crema/constants/AppEnums";
+import clsx from "clsx";
+import { useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
+import AppSelectedIcon from "../../../AppSelectedIcon";
+import defaultConfig, { SidebarData } from "@crema/constants/defaultConfig";
 import {
   StyledMenuColorCell,
   StyledMenuColorCellContent,
@@ -17,7 +17,7 @@ import {
   StyledMenuColorCellHeaderContentLine,
   StyledMenuColorCellItem,
   StyledMenuColorCellItemSelected,
-} from './index.styled';
+} from "./index.styled";
 
 type Props = {
   sidebarColors: SidebarData;
@@ -90,11 +90,11 @@ const MenuColorCell: React.FC<Props> = ({ sidebarColors }) => {
         </StyledMenuColorCellItem>
         <StyledMenuColorCellItemSelected
           className={clsx({
-            'rounded-menu': menuStyle === MenuStyle.ROUNDED,
-            'rounded-menu-reverse': menuStyle === MenuStyle.ROUNDED_REVERSE,
-            'standard-menu': menuStyle === MenuStyle.STANDARD,
-            'default-menu': menuStyle === MenuStyle.DEFAULT,
-            'curved-menu': menuStyle === MenuStyle.CURVED_MENU,
+            "rounded-menu": menuStyle === MenuStyle.ROUNDED,
+            "rounded-menu-reverse": menuStyle === MenuStyle.ROUNDED_REVERSE,
+            "standard-menu": menuStyle === MenuStyle.STANDARD,
+            "default-menu": menuStyle === MenuStyle.DEFAULT,
+            "curved-menu": menuStyle === MenuStyle.CURVED_MENU,
           })}
           style={{
             backgroundColor: sidebarColors.sidebarMenuSelectedBgColor,

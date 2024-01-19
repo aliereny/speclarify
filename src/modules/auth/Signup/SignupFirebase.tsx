@@ -103,7 +103,7 @@ const SignupFirebase = () => {
             <StyledSignUpTestGrey>
               <IntlMessages id='common.alreadyHaveAccount' />
             </StyledSignUpTestGrey>
-            <StyledSignLinkTag href='/signIn'>
+            <StyledSignLinkTag href='/signin'>
               <IntlMessages id='common.signIn' />
             </StyledSignLinkTag>
           </div>

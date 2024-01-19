@@ -1,4 +1,4 @@
-import { Button, Form } from 'antd';
+import {Button, Form} from 'antd';
 import styled from 'styled-components';
 
 export const StyledForgotForm = styled(Form)`
@@ -20,10 +20,10 @@ export const StyledForgotContent = styled.div`
 export const StyledForgotPara = styled.p`
   line-height: 1.5;
   margin-bottom: 24px;
-  font-size: ${({ theme }) => theme.font.size.base};
+  font-size: ${({theme}) => theme.font.size.base};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
-    font-size: ${({ theme }) => theme.font.size.lg};
+  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+    font-size: ${({theme}) => theme.font.size.lg};
     margin-bottom: 48px;
   }
 
@@ -35,7 +35,7 @@ export const StyledForgotPara = styled.p`
 export const StyledFormFooter = styled.p`
   margin-top: auto;
   font-size: 15px;
-  color: ${({ theme }) => theme.palette.gray[500]};
+  color: ${({theme}) => theme.palette.gray[500]};
   margin-bottom: 0;
 
   & a {
@@ -52,7 +52,7 @@ export const StyledFormFooter = styled.p`
 
 export const StyledForgotBtn = styled(Button)`
   width: 100%;
-  font-weight: ${({ theme }) => theme.font.weight.regular};
+  font-weight: ${({theme}) => theme.font.weight.regular};
   text-transform: capitalize;
-  font-size: ${({ theme }) => theme.font.size.base};
+  font-size: ${({theme}) => theme.font.size.base}; ;
 `;

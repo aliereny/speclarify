@@ -1,7 +1,7 @@
-import React from 'react';
-import { Bar, BarChart, Tooltip, XAxis, YAxis } from 'recharts';
-import { StyledGoalChart } from './index.styled';
-import type { ProgressGraphDataType } from '@crema/types/models/dashboards/CRM';
+import React from "react";
+import { Bar, BarChart, Tooltip, XAxis, YAxis } from "recharts";
+import { StyledGoalChart } from "./index.styled";
+import type { ProgressGraphDataType } from "@crema/types/models/dashboards/CRM";
 
 type GoalProgressGraphProps = {
   progressGraphData: ProgressGraphDataType[];
@@ -18,11 +18,11 @@ const GoalProgressGraph: React.FC<GoalProgressGraphProps> = ({
         data={progressGraphData}
         margin={{ top: 50 }}
       >
-        <XAxis dataKey='name' axisLine={false} tickLine={false} />
+        <XAxis dataKey="name" axisLine={false} tickLine={false} />
         <YAxis hide />
-        <Tooltip labelStyle={{ color: 'black' }} />
-        <Bar dataKey='progress' stackId='a' fill='#3182CE' />
-        <Bar dataKey='actual' stackId='a' fill='#E53E3E' />
+        <Tooltip labelStyle={{ color: "black" }} />
+        <Bar dataKey="progress" stackId="a" fill="#3182CE" />
+        <Bar dataKey="actual" stackId="a" fill="#E53E3E" />
       </BarChart>
     </StyledGoalChart>
   );

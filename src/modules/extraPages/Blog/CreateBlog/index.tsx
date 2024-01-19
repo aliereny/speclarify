@@ -11,9 +11,9 @@ import { StyledTitle } from './index.styled';
 import { Form } from 'antd';
 import type {
   BlogContentType,
-  FileType,
   TagType,
 } from '@crema/types/models/extrapages/Blog';
+import type { FileType } from '@crema/types/models/extrapages/Blog';
 
 type Props = {
   selectedBlog?: BlogContentType;
@@ -114,6 +114,7 @@ export const CreateBlog = ({ selectedBlog }: Props) => {
       >
         <AppRowContainer>
           <BlogContent
+            content={selectedBlog?.blogDetailContent?.content || ''}
             uploadedFiles={uploadedFiles}
             setUploadedFiles={setUploadedFiles}
           />

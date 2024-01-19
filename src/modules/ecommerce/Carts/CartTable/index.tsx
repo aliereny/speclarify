@@ -1,8 +1,19 @@
 import React from 'react';
-import {Avatar, Table} from 'antd';
-import {CloseCircleOutlined, MinusOutlined, PlusOutlined,} from '@ant-design/icons';
-import {StyledCartIncDec, StyledCartTable, StyledCartUser, StyledCartUserInfo,} from '../index.styled';
-import type {CartItemsType} from '@crema/types/models/ecommerce/EcommerceApp';
+import { Avatar, Table } from 'antd';
+import {
+  CloseCircleOutlined,
+  MinusOutlined,
+  PlusOutlined,
+} from '@ant-design/icons';
+import {
+  StyledCartIncDec,
+  StyledCartTable,
+  StyledCartUser,
+  StyledCartUserInfo,
+} from '../index.styled';
+import type { CartItemsType } from '@crema/types/models/ecommerce/EcommerceApp';
+
+import { CompoundedComponent } from 'antd/es/float-button/interface';
 // import { StyledComponent } from 'styled-components';
 
 type Props = {

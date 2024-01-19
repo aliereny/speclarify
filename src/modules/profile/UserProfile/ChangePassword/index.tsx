@@ -24,33 +24,33 @@ const ChangePassword = () => {
       onFinishFailed={onFinishFailed}
     >
       <StyledUserProfileFormTitle>
-        <IntlMessages id='userProfile.changePassword' />
+        <IntlMessages id="userProfile.changePassword" />
       </StyledUserProfileFormTitle>
       <AppRowContainer gutter={16}>
         <Col xs={24} md={12}>
           <Form.Item
-            name='oldPassword'
+            name="oldPassword"
             rules={[
               { required: true, message: 'Please input your Enter Password' },
             ]}
           >
-            <Input.Password placeholder='Enter password' />
+            <Input.Password placeholder="Enter password" />
           </Form.Item>
         </Col>
         <Col xs={24} md={12} />
         <Col xs={24} md={12}>
           <Form.Item
-            name='password'
+            name="password"
             rules={[
               { required: true, message: 'Please input your New Password!' },
             ]}
           >
-            <Input.Password placeholder='Enter new password' />
+            <Input.Password placeholder="Enter new password" />
           </Form.Item>
         </Col>
         <Col xs={24} md={12}>
           <Form.Item
-            name='confirmPassword'
+            name="confirmPassword"
             rules={[
               {
                 required: true,
@@ -62,21 +62,21 @@ const ChangePassword = () => {
                     return Promise.resolve();
                   }
                   return Promise.reject(
-                    'The Confirm Password that you entered do not match!',
+                    'The Confirm Password that you entered do not match!'
                   );
                 },
               }),
             ]}
           >
-            <Input.Password placeholder='Confirm new password' />
+            <Input.Password placeholder="Confirm new password" />
           </Form.Item>
         </Col>
         <Col xs={24} md={24}>
           <StyledUserProfileGroupBtn
             shouldUpdate
-            className='user-profile-group-btn'
+            className="user-profile-group-btn"
           >
-            <Button type='primary' htmlType='submit'>
+            <Button type="primary" htmlType="submit">
               Save Changes
             </Button>
             <Button>Cancel</Button>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import AppCard from '@crema/components/AppCard';
-import { Button, Input } from 'antd';
+import { Input, Button } from 'antd';
 
 export const StyledSubCard = styled(AppCard)`
   background-color: ${({ theme }) => theme.palette.red[6]};

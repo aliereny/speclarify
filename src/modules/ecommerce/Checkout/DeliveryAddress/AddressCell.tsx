@@ -1,14 +1,14 @@
-import React from 'react';
-import { Button } from 'antd';
-import { EditOutlined } from '@ant-design/icons';
+import React from "react";
+import { Button } from "antd";
+import { EditOutlined } from "@ant-design/icons";
 import {
   StyledDeliveryAddrCell,
   StyledDeliveryAddressItem,
   StyledDeliveryAddrRow,
   StyledDeliveryEditBtn,
   StyledDeliveryRadio,
-} from '../index.styled';
-import type { AddressesType } from '@crema/types/models/ecommerce/EcommerceApp';
+} from "../index.styled";
+import type { AddressesType } from "@crema/types/models/ecommerce/EcommerceApp";
 
 type Props = {
   address: AddressesType;
@@ -20,15 +20,15 @@ const AddressCell = ({ address, selectedAddress, setSelectAddress }: Props) => {
   return (
     <StyledDeliveryAddrCell
       onClick={() => setSelectAddress(address)}
-      className='item-hover'
+      className="item-hover"
     >
       <StyledDeliveryAddrRow>
         <StyledDeliveryRadio checked={isActive}>
           {address.name}
         </StyledDeliveryRadio>
-        <p className='mb-0'>{address.mobile}</p>
+        <p className="mb-0">{address.mobile}</p>
         {isActive ? (
-          <StyledDeliveryEditBtn size='small'>
+          <StyledDeliveryEditBtn size="small">
             <EditOutlined />
           </StyledDeliveryEditBtn>
         ) : null}
@@ -38,7 +38,7 @@ const AddressCell = ({ address, selectedAddress, setSelectAddress }: Props) => {
       </StyledDeliveryAddressItem>
       {isActive ? (
         <StyledDeliveryAddressItem>
-          <Button type='primary'>Deliver Here</Button>
+          <Button type="primary">Deliver Here</Button>
         </StyledDeliveryAddressItem>
       ) : null}
     </StyledDeliveryAddrCell>

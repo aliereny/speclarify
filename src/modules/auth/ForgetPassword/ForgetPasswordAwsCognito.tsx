@@ -4,11 +4,11 @@ import { Form, Input } from 'antd';
 import IntlMessages from '@crema/helpers/IntlMessages';
 import { useIntl } from 'react-intl';
 import {
-  StyledForgotBtn,
-  StyledForgotContent,
   StyledForgotForm,
+  StyledForgotContent,
   StyledForgotPara,
   StyledFormFooter,
+  StyledForgotBtn,
 } from './index.styled';
 
 const onFinish = (values: any) => {
@@ -25,21 +25,21 @@ const ForgetPasswordAwsCognito = () => {
   return (
     <StyledForgotContent>
       <StyledForgotPara>
-        <IntlMessages id='common.forgetPasswordTextOne' />
+        <IntlMessages id="common.forgetPasswordTextOne" />
         <span>
-          <IntlMessages id='common.forgetPasswordTextTwo' />
+          <IntlMessages id="common.forgetPasswordTextTwo" />
         </span>
       </StyledForgotPara>
 
       <StyledForgotForm
-        name='basic'
+        name="basic"
         initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
       >
         <Form.Item
-          name='email'
-          className='form-field'
+          name="email"
+          className="form-field"
           rules={[
             { required: true, message: 'Please input your Email Address!' },
           ]}
@@ -47,16 +47,16 @@ const ForgetPasswordAwsCognito = () => {
           <Input placeholder={messages['common.emailAddress'] as string} />
         </Form.Item>
 
-        <div className='form-field'>
-          <StyledForgotBtn type='primary' htmlType='submit'>
-            <IntlMessages id='common.sendNewPassword' />
+        <div className="form-field">
+          <StyledForgotBtn type="primary" htmlType="submit">
+            <IntlMessages id="common.sendNewPassword" />
           </StyledForgotBtn>
         </div>
 
         <StyledFormFooter>
-          <IntlMessages id='common.alreadyHavePassword' />
-          <Link href='/signin'>
-            <IntlMessages id='common.signIn' />
+          <IntlMessages id="common.alreadyHavePassword" />
+          <Link href="/signin">
+            <IntlMessages id="common.signIn" />
           </Link>
         </StyledFormFooter>
       </StyledForgotForm>

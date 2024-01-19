@@ -1,4 +1,3 @@
-import ReactQuill from 'react-quill';
 import styled from 'styled-components';
 
 export const StyledTitle = styled.h2`
@@ -11,20 +10,6 @@ export const StyledTitle = styled.h2`
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
     margin-bottom: 16px;
-  }
-`;
-
-export const StyledTextarea = styled(ReactQuill)`
-  width: 100%;
-
-  & .ql-toolbar.ql-snow {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
-
-  & .ql-container {
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
   }
 `;
 

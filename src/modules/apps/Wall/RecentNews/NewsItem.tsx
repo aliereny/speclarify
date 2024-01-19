@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import {
   StyledNewsAvatar,
   StyledRecentNewsItem,
   StyledRecentNewsItemContent,
   StyledRecentNewsItewLink,
-} from './index.styled';
-import { RecentNewsObjType } from '@crema/types/models/apps/Wall';
+} from "./index.styled";
+import { RecentNewsObjType } from "@crema/types/models/apps/Wall";
 
 type RecentNewsProps = {
   item: RecentNewsObjType;
@@ -13,7 +13,7 @@ type RecentNewsProps = {
 
 const NewsItem: React.FC<RecentNewsProps> = ({ item }) => {
   return (
-    <StyledRecentNewsItem className='item-hover'>
+    <StyledRecentNewsItem className="item-hover">
       <StyledNewsAvatar src={item.user.profilePic} />
       <StyledRecentNewsItemContent>
         <h4>{item.title}</h4>

@@ -1,20 +1,20 @@
-import React from 'react';
-import { Avatar } from 'antd';
-import AppMenu from '@crema/components/AppMenu';
+import React from "react";
+import { Avatar } from "antd";
+import AppMenu from "@crema/components/AppMenu";
 import {
   StyledRecentPatientBadge,
   StyledRecentPatientTable,
   StyledRecentPatientUserInfo,
   StyledRecentPatientUserInfoContent,
-} from '../index.styled';
-import type { RecentPatientDataType } from '@crema/types/models/dashboards/HealthCare';
-import { ColumnsType } from 'antd/es/table';
+} from "../index.styled";
+import type { RecentPatientDataType } from "@crema/types/models/dashboards/HealthCare";
+import { ColumnsType } from "antd/es/table";
 
 const columns: ColumnsType<RecentPatientDataType> = [
   {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
+    title: "Name",
+    dataIndex: "name",
+    key: "name",
     render: (name, record) => (
       <StyledRecentPatientUserInfo>
         <Avatar src={record.profile_pic} />
@@ -25,34 +25,34 @@ const columns: ColumnsType<RecentPatientDataType> = [
     ),
   },
   {
-    title: 'Gender',
-    dataIndex: 'gender',
-    key: 'gender',
+    title: "Gender",
+    dataIndex: "gender",
+    key: "gender",
   },
   {
-    title: 'Weight',
-    dataIndex: 'weight',
-    key: 'weight',
+    title: "Weight",
+    dataIndex: "weight",
+    key: "weight",
   },
   {
-    title: 'Assigned Dr',
-    dataIndex: 'assignedDr',
-    key: 'assignedDr',
+    title: "Assigned Dr",
+    dataIndex: "assignedDr",
+    key: "assignedDr",
   },
   {
-    title: 'Admit Date',
-    dataIndex: 'date',
-    key: 'date',
+    title: "Admit Date",
+    dataIndex: "date",
+    key: "date",
   },
   {
-    title: 'Status',
-    dataIndex: 'status',
-    key: 'status',
+    title: "Status",
+    dataIndex: "status",
+    key: "status",
     render: (status, record) => (
       <StyledRecentPatientBadge
         style={{
           color: record.color,
-          backgroundColor: record.color + '44',
+          backgroundColor: record.color + "44",
         }}
       >
         {record.name}
@@ -60,9 +60,9 @@ const columns: ColumnsType<RecentPatientDataType> = [
     ),
   },
   {
-    title: 'Actions',
-    dataIndex: 'actions',
-    key: 'actions',
+    title: "Actions",
+    dataIndex: "actions",
+    key: "actions",
     render: () => <AppMenu />,
   },
 ];

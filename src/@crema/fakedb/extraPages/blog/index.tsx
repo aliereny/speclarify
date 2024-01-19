@@ -254,8 +254,8 @@ export const blogDetail: BlogDetailType = {
 };
 
 export const blogContent: BlogContentType[] = Array.from(
-    {length: 7},
-    (_, index) => index + 1,
+  { length: 7 },
+  (_, index) => index + 1,
 ).map((item) => {
-    return {...blogDetail, id: item};
+  return { ...blogDetail, id: item };
 });

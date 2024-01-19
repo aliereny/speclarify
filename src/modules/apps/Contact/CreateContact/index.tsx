@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import AddContactForm from './AddContactForm';
-import { StyledContactModal } from './index.styled';
-import type { ContactObjType } from '@crema/types/models/apps/Contact';
+import React, { useState } from "react";
+import AddContactForm from "./AddContactForm";
+import { StyledContactModal } from "./index.styled";
+import type { ContactObjType } from "@crema/types/models/apps/Contact";
 
 type CreateContactProps = {
   isAddContact: boolean;
@@ -21,7 +21,7 @@ const CreateContact: React.FC<CreateContactProps> = ({
   const [userImage, setUserImage] = useState(
     selectContact && selectContact.image
       ? selectContact.image
-      : '/assets/images/placeholder.jpg',
+      : "/assets/images/placeholder.jpg"
   );
 
   return (
