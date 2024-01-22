@@ -9,6 +9,9 @@ const items: MenuProps["items"] = [
   {
     key: "projects",
     label: "Projects",
+  },  {
+    key: "elicitation",
+    label: "Elicitation",
   },
 ];
 
