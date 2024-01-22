@@ -9,27 +9,26 @@ import {
   Typography,
 } from "antd";
 import React, { useEffect, useState } from "react";
-import styles from "./RemoveDuplicatesPage.module.scss";
+import styles from "./RemoveInconsistenciesPage.module.scss";
 import { useIsClient } from "@/hooks/useIsClient";
-import { Requirement, useRequirementsStore } from "@/stores/requirementsStore";
+import { useRequirementsStore } from "@/stores/requirementsStore";
 import { CheckOutlined } from "@ant-design/icons";
-import { CreateRequirement } from "@/ui/organisms/create-requirement/createRequirement";
 import { DuplicateRequirementCard } from "@/ui/molecules/duplicate-requirement-card/duplicateRequirementCard";
 
-export default function RemoveDuplicatesPage({
+export default function RemoveInconsistenciesPage({
   params,
 }: {
   params: { projectId: string };
 }) {
   const { projectId } = params;
-  const { error, loading, duplicates, findDuplicates } =
+  const { error, loading, inconsistencies, findInconsistencies } =
     useRequirementsStore();
   const isClient = useIsClient();
 
   const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
-    findDuplicates(parseInt(projectId));
+    findInconsistencies(parseInt(projectId));
   }, []);
 
   if (!isClient) {
@@ -38,18 +37,18 @@ export default function RemoveDuplicatesPage({
 
   return (
     <Flex vertical className={styles.wrapper} gap={16}>
-      <Typography.Title level={3}>Remove duplicates</Typography.Title>
+      <Typography.Title level={3}>Remove inconsistencies</Typography.Title>
       <Typography.Text>
-        Identify and remove any duplicate requirements to maintain a concise
+        Identify and remove any inconsistent requirements to maintain a concise
         specification.
       </Typography.Text>
       {error && <Alert message={error} type={"error"} showIcon />}
-      {!loading && duplicates.length === 0 && (
-        <Empty description={"No duplicates found."} />
+      {!loading && inconsistencies.length === 0 && (
+        <Empty description={"No inconsistencies found."} />
       )}
       {loading && <Skeleton active />}
       {!loading &&
-        duplicates
+        inconsistencies
           .slice((page - 1) * 5, page * 5)
           .map(({ either, other }) => (
             <DuplicateRequirementCard
@@ -63,12 +62,12 @@ export default function RemoveDuplicatesPage({
         style={{ alignSelf: "center", width: "auto" }}
         current={page}
         onChange={setPage}
-        total={duplicates.length}
+        total={inconsistencies.length}
         pageSize={5}
       />
       <Button
         type="primary"
-        href={`/projects/${projectId}/remove-inconsistencies`}
+        href={`/projects/${projectId}/fix-ambiguities`}
         icon={<CheckOutlined />}
       >
         Confirm

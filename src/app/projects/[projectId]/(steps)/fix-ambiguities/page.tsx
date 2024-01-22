@@ -66,7 +66,7 @@ export default function AmbiguityPage({
       />
       <Button
         type="primary"
-        href={`/projects/${projectId}/remove-duplicates`}
+        href={`/projects/${projectId}/prioritize`}
         icon={<CheckOutlined />}
       >
         Confirm

@@ -28,6 +28,7 @@ export interface Ambiguity {
 export interface RequirementsState {
   requirements: Requirement[];
   duplicates: DuplicateRequirementPair[];
+  inconsistencies: DuplicateRequirementPair[];
   ambiguities: Ambiguity[];
   loading: boolean;
   error: string | null;
@@ -50,6 +51,7 @@ export interface RequirementsState {
     requirementId: number,
   ) => Promise<void>;
   findDuplicates: (projectId: number) => Promise<void>;
+  findInconsistencies: (projectId: number) => Promise<void>;
   findAmbiguities: (projectId: number) => Promise<void>;
   updateRequirementPriority: (
     projectId: number,
@@ -69,6 +71,7 @@ export const useRequirementsStore = create(
     (set, get) => ({
       requirements: [],
       duplicates: [],
+      inconsistencies: [],
       ambiguities: [],
       loading: false,
       error: null,
@@ -197,6 +200,19 @@ export const useRequirementsStore = create(
             `/projects/${projectId}/requirements/duplicates`,
           );
           set({ duplicates: response.data });
+        } catch (error) {
+          set({ error: "Failed to find duplicates" });
+        } finally {
+          set({ loading: false });
+        }
+      },
+      findInconsistencies: async (projectId) => {
+        set({ loading: true, error: null });
+        try {
+          const response = await axiosClient.get<DuplicateRequirementPair[]>(
+            `/projects/${projectId}/requirements/inconsistencies`,
+          );
+          set({ inconsistencies: response.data });
         } catch (error) {
           set({ error: "Failed to find duplicates" });
         } finally {

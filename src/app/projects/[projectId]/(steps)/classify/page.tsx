@@ -66,7 +66,7 @@ export default function ClassifyPage({
       />
       <Button
         type="primary"
-        href={`/projects/${projectId}/classify`}
+        href={`/projects/${projectId}/export`}
         icon={<CheckOutlined />}
       >
         Confirm

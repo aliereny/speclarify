@@ -35,6 +35,7 @@ export default function DashboardLayout({
     `/projects/${params.projectId}/upload`,
     `/projects/${params.projectId}/review`,
     `/projects/${params.projectId}/remove-duplicates`,
+    `/projects/${params.projectId}/remove-inconsistencies`,
     `/projects/${params.projectId}/fix-ambiguities`,
     `/projects/${params.projectId}/prioritize`,
     `/projects/${params.projectId}/classify`,
@@ -64,6 +65,9 @@ export default function DashboardLayout({
             },
             {
               title: "Remove duplicates",
+            },
+            {
+              title: "Remove Inconsistencies",
             },
             {
               title: "Fix ambiguities",
