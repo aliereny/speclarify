@@ -115,7 +115,7 @@ const SenderMessageItem: React.FC<SenderMessageItemProps> = ({
 }) => {
   const [index, setIndex] = useState(-1);
   const getUserAvatar = () => {
-    const name = authUser.displayName;
+    const name = authUser.name;
     if (name) {
       return name.charAt(0).toUpperCase();
     }
@@ -178,11 +178,11 @@ const SenderMessageItem: React.FC<SenderMessageItemProps> = ({
           </StyledMsgChat>
         </StyledMsgChatItem>
         <StyledMsgChatSender className='message-chat-sender'>
-          {authUser.photoURL ? (
+          {authUser.photo ? (
             <StyledMsgChatAvatar
               size={34}
               className='message-chat-avatar'
-              src={authUser.photoURL}
+              src={authUser.photo}
             />
           ) : (
             <StyledMsgChatAvatar className='message-chat-avatar'>

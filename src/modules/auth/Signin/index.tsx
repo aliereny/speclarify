@@ -1,4 +1,4 @@
 'use client';
-import SignInFirebase from './SigninFirebase';
+import SignInJwtAuth from './SigninJwtAuth';
 
-export default SignInFirebase;
+export default SignInJwtAuth;

@@ -15,7 +15,7 @@ import AppLogo from '../../@crema/components/AppLayout/components/AppLogo';
 export default function AuthLayout({ children }: any) {
   return (
     <AppAnimateGroup
-      type='scale'
+      type="scale"
       animateStyle={{
         flex: 1,
       }}
@@ -33,10 +33,11 @@ export default function AuthLayout({ children }: any) {
           </StyledAuthMainContent>
           <StyledAuthWellAction>
             <StyledAuthWelContent>
-              <h2>Welcome to Crema!</h2>
+              <h2>Welcome to Speclarify!</h2>
               <p>
-                Crema is purely based on Ant Design components and follows Ant
-                Design guidelines.
+                Speclarify is a software tool that utilizes advanced NLP and
+                LLMs to improve Requirements Engineering by analyzing,
+                clarifying, and optimizing software requirements.
               </p>
             </StyledAuthWelContent>
           </StyledAuthWellAction>

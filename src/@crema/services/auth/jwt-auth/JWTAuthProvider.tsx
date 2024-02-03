@@ -22,7 +22,7 @@ interface SignUpProps {
   password: string;
 }
 
-interface SignInProps {
+export interface SignInProps {
   email: string;
   password: string;
 }
@@ -106,12 +106,11 @@ const JWTAuthAuthProvider: React.FC<JWTAuthAuthProviderProps> = ({
   }) => {
     infoViewActionsContext.fetchStart();
     try {
-      const { data } = await jwtAxios.post('auth', { email, password });
-      localStorage.setItem('token', data.token);
-      setAuthToken(data.token);
-      const res = await jwtAxios.get('/auth');
+      const { data } = await jwtAxios.post('authentication/sign-in', { email, password });
+      localStorage.setItem('token', data.accessToken);
+      setAuthToken(data.accessToken);
       setJWTAuthData({
-        user: res.data,
+        user: data.user,
         isAuthenticated: true,
         isLoading: false,
       });

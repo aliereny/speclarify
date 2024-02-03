@@ -2,7 +2,7 @@ import axios from '@crema/services/axios';
 import type { AxiosResponse } from 'axios';
 
 const jwtAxios = axios.create({
-  baseURL: 'https://crema-gomango.herokuapp.com/api/', // YOUR_API_URL HERE
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
     'Content-Type': 'application/json',
   },

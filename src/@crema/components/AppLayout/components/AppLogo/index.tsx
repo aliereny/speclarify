@@ -14,14 +14,14 @@ const AppLogo: React.FC<AppLogoProps> = ({ hasSidebarColor }) => {
         <Image
           src='/assets/images/logo-white-with-name.png'
           alt='crema-logo'
-          width={110}
+          width={162.45}
           height={36}
         />
       ) : (
         <Image
           src='/assets/images/logo-with-name.png'
           alt='crema-logo'
-          width={110}
+          width={162.45}
           height={36}
         />
       )}

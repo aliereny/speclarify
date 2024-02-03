@@ -194,7 +194,7 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
         displayName: name,
       });
       setFirebaseData({
-        user: { ...user, displayName: name } as AuthUserType,
+        user: { ...user, name: name } as AuthUserType,
         isAuthenticated: true,
         isLoading: false,
       });

@@ -121,8 +121,8 @@ const AddCardForm: React.FC<AddCardFormProps> = ({
         comment: comment,
         sender: {
           id: authUser!.id,
-          name: authUser!.displayName ? authUser!.displayName : 'User',
-          image: authUser!.photoURL,
+          name: authUser!.name ? authUser!.name : 'User',
+          image: authUser!.photo,
         },
         date: dayjs().format('MMM DD'),
       }),
