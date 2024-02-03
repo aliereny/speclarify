@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
-import { useAuthUser } from '@crema/hooks/AuthHooks';
 import { useIntl } from 'react-intl';
 import ChangeStaff from './ChangeStaff';
 import TaskStatus from './TaskStatus';
@@ -38,6 +37,8 @@ import TaskLabels from '../../TasksList/Labels';
 import { useCalendarContext } from '../../../context/CalendarContextProvider';
 import { TodoObjType } from '@crema/types/models/apps/Todo';
 import { getDateObject, getFormattedDate } from '@crema/helpers/DateHelper';
+import { useAppSelector } from '@/redux/appStore';
+import { User } from '@/redux/slices/userSlice';
 
 type Props = {
   selectedTask: TodoObjType;
@@ -48,7 +49,7 @@ const TaskDetailBody = (props: Props) => {
   const { selectedTask, onUpdateSelectedTask } = props;
   const infoViewActionsContext = useInfoViewActionsContext();
   const { staffList } = useCalendarContext();
-  const { user } = useAuthUser();
+  const user = useAppSelector((state) => state.user.currentUser) as User;
 
   const [isEdit, setEdit] = useState(false);
 
@@ -98,8 +99,8 @@ const TaskDetailBody = (props: Props) => {
     const task = selectedTask;
     task.comments = task.comments.concat({
       comment: comment,
-      name: user.displayName ? user.displayName : 'User',
-      image: user.photoURL,
+      name: user.name ? user.name : 'User',
+      image: user.photo,
       date: dayjs().format('MMM DD'),
     });
     putDataApi<{ task: TodoObjType }>(
@@ -143,7 +144,7 @@ const TaskDetailBody = (props: Props) => {
             <h2>{selectedTask.title}</h2>
           )}
 
-          <StyledTodoDetailContentHeaderLabel className='ant-row ant-row-middle'>
+          <StyledTodoDetailContentHeaderLabel className="ant-row ant-row-middle">
             {selectedTask.label ? (
               <TaskLabels labels={selectedTask.label} />
             ) : null}
@@ -246,8 +247,8 @@ const TaskDetailBody = (props: Props) => {
           onChange={({ target: { value } }) => setComment(value)}
         />
         <StyledTodoDetailBtn
-          shape='circle'
-          type='primary'
+          shape="circle"
+          type="primary"
           disabled={!comment}
           onClick={onAddComments}
         >

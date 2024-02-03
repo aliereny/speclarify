@@ -1,7 +1,7 @@
 import axios from '@crema/services/axios';
 import type { AxiosResponse } from 'axios';
 
-const jwtAxios = axios.create({
+export const jwtAxios = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
     'Content-Type': 'application/json',

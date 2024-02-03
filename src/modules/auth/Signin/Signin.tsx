@@ -3,7 +3,6 @@ import { useIntl } from 'react-intl';
 import { Checkbox, Form, Input } from 'antd';
 
 import IntlMessages from '@crema/helpers/IntlMessages';
-import { useAuthMethod } from '@crema/hooks/AuthHooks';
 import {
   SignInButton,
   StyledRememberMe,
@@ -14,13 +13,14 @@ import {
   StyledSignLinkTag,
   StyledSignTextGrey,
 } from './index.styled';
-import { SignInProps } from '@crema/services/auth/jwt-auth/JWTAuthProvider';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { useRouter } from 'next/navigation';
+import { useAppDispatch } from '@/redux/appStore';
+import { signInRequest, SignInRequestPayload } from '@/redux/slices/userSlice';
 
-const SignInJwtAuth = () => {
+const Signin = () => {
   const router = useRouter();
-  const { signInUser } = useAuthMethod();
+  const dispatch = useAppDispatch();
 
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
@@ -43,14 +43,12 @@ const SignInJwtAuth = () => {
           name="basic"
           initialValues={{
             remember: true,
-            email: 'crema.demo@gmail.com',
-            password: 'Pass@1!@all',
           }}
-          onFinish={(values) => signInUser(values as SignInProps)}
+          onFinish={(values) => dispatch(signInRequest(values as SignInRequestPayload))}
           onFinishFailed={onFinishFailed}
           layout={'vertical'}
         >
-          <Form.Item<SignInProps>
+          <Form.Item<SignInRequestPayload>
             name="email"
             className="form-field"
             label={messages['common.email'] as string}
@@ -59,7 +57,7 @@ const SignInJwtAuth = () => {
             <Input placeholder={messages['common.email'] as string} />
           </Form.Item>
 
-          <Form.Item<SignInProps>
+          <Form.Item<SignInRequestPayload>
             name="password"
             className="form-field"
             label={messages['common.password'] as string}
@@ -98,4 +96,4 @@ const SignInJwtAuth = () => {
   );
 };
 
-export default SignInJwtAuth;
+export default Signin;

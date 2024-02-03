@@ -3,7 +3,6 @@ import IntlMessages from '@crema/helpers/IntlMessages';
 import { useIntl } from 'react-intl';
 import { Col, Form, Input, Select } from 'antd';
 import AppRowContainer from '@crema/components/AppRowContainer';
-import { useAuthUser } from '@crema/hooks/AuthHooks';
 import {
   StyledAddTaskFormDate,
   StyledSelectRow,
@@ -18,13 +17,11 @@ import {
 import { postDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
 import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 import dayjs from 'dayjs';
-import {
-  LabelObjType,
-  PriorityObjType,
-  StaffObjType,
-} from '@crema/types/models/apps/Todo';
+import { LabelObjType, PriorityObjType, StaffObjType } from '@crema/types/models/apps/Todo';
 import { getDateObject, getFormattedDate } from '@crema/helpers/DateHelper';
 import { generateRandomUniqueNumber } from '@crema/helpers/Common';
+import { useAppSelector } from '@/redux/appStore';
+import { User } from '@/redux/slices/userSlice';
 
 type AddTaskFormProps = {
   reCallAPI?: any;
@@ -33,16 +30,16 @@ type AddTaskFormProps = {
 };
 
 const AddTaskForm: React.FC<AddTaskFormProps> = ({
-  onCloseAddTask,
-  selectedDate,
-  reCallAPI,
-}) => {
+                                                   onCloseAddTask,
+                                                   selectedDate,
+                                                   reCallAPI,
+                                                 }) => {
   const [{ apiData: labelList }] = useGetDataApi('todo/labels', []);
   const [{ apiData: priorityList }] = useGetDataApi('todo/priority', []);
   const [{ apiData: staffList }] = useGetDataApi('todo/staff', []);
 
   const infoViewActionsContext = useInfoViewActionsContext();
-  const { user } = useAuthUser();
+  const user = useAppSelector((state) => state.user.currentUser) as User;
 
   const onFinish = (values: any) => {
     const staff = staffList.find(
@@ -64,8 +61,8 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({
       isRead: true,
       folderValue: 120,
       createdBy: {
-        name: user.displayName ? user.displayName : 'user',
-        image: user.photoURL ? user.photoURL : '/assets/images/dummy2.jpg',
+        name: user.name ? user.name : 'user',
+        image: user.photo ? user.photo : '/assets/images/dummy2.jpg',
       },
       startDate: getFormattedDate(values.scheduleDate),
       assignedTo: staff,
@@ -101,7 +98,7 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({
 
   return (
     <StyledTodoAddTaskForm
-      name='basic'
+      name="basic"
       initialValues={{
         startDate: selectedDate ? getDateObject(selectedDate) : getDateObject(),
       }}
@@ -110,8 +107,8 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({
     >
       <StyledTodoModelContent>
         <Form.Item
-          className='form-field'
-          name='title'
+          className="form-field"
+          name="title"
           rules={[{ required: true, message: 'Please input your Task Title!' }]}
         >
           <StyledTodoInput placeholder={messages['todo.taskTitle'] as string} />
@@ -119,7 +116,7 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({
 
         <AppRowContainer>
           <Col xs={24} sm={12} md={6}>
-            <Form.Item name='staffList' className='form-field'>
+            <Form.Item name="staffList" className="form-field">
               <Select placeholder={messages['common.staff'] as string}>
                 {staffList.map((staff: StaffObjType) => {
                   return (
@@ -132,7 +129,7 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({
                             {staff.name.toUpperCase()}
                           </StyledTodoSelectAvatar>
                         )}
-                        <StyledTodoSelectName className='text-truncate'>
+                        <StyledTodoSelectName className="text-truncate">
                           {staff.name}
                         </StyledTodoSelectName>
                       </StyledSelectRow>
@@ -144,13 +141,13 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({
           </Col>
 
           <Col xs={24} sm={12} md={6}>
-            <Form.Item className='form-field' name='startDate'>
+            <Form.Item className="form-field" name="startDate">
               <StyledAddTaskFormDate />
             </Form.Item>
           </Col>
 
           <Col xs={24} sm={12} md={6}>
-            <Form.Item className='form-field' name='priorityList'>
+            <Form.Item className="form-field" name="priorityList">
               <Select placeholder={messages['common.priority'] as string}>
                 {priorityList.map((priority: PriorityObjType) => {
                   return (
@@ -164,10 +161,10 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({
           </Col>
 
           <Col xs={24} sm={12} md={6}>
-            <Form.Item className='form-field' name='labelList'>
+            <Form.Item className="form-field" name="labelList">
               <Select
                 placeholder={messages['common.label'] as string}
-                mode='multiple'
+                mode="multiple"
                 maxTagCount={2}
               >
                 {labelList.map((label: LabelObjType) => {
@@ -182,7 +179,7 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({
           </Col>
         </AppRowContainer>
 
-        <Form.Item className='form-field' name='content'>
+        <Form.Item className="form-field" name="content">
           <Input.TextArea
             placeholder={messages['common.description'] as string}
             autoSize={{ minRows: 3, maxRows: 5 }}
@@ -191,8 +188,8 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({
       </StyledTodoModelContent>
 
       <StyledTodoModalFooter>
-        <StyledTodoModelBtn type='primary' htmlType='submit'>
-          <IntlMessages id='common.save' />
+        <StyledTodoModelBtn type="primary" htmlType="submit">
+          <IntlMessages id="common.save" />
         </StyledTodoModelBtn>
       </StyledTodoModalFooter>
     </StyledTodoAddTaskForm>

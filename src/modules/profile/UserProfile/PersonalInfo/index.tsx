@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Form, Col, Input, Button } from 'antd';
+import { Button, Col, Form, Input } from 'antd';
 import AppRowContainer from '@crema/components/AppRowContainer';
 import { useDropzone } from 'react-dropzone';
-import { useAuthUser } from '@crema/hooks/AuthHooks';
 import {
   StyledInfoUpload,
   StyledInfoUploadAvatar,
@@ -10,9 +9,11 @@ import {
   StyledInfoUploadContent,
 } from './index.styled';
 import { StyledUserProfileGroupBtn } from '../index.styled';
+import { useAppSelector } from '../../../../redux/appStore';
+import { User } from '../../../../redux/slices/userSlice';
 
 const PersonalInfo = () => {
-  const { user } = useAuthUser();
+  const currentUser = useAppSelector((state) => state.user.currentUser) as User;
 
   const [userImage, setUserImage] = useState('/assets/images/placeholder.jpg');
 
@@ -38,9 +39,9 @@ const PersonalInfo = () => {
     <Form
       onFinish={onFinish}
       initialValues={{
-        ...user,
-        userImage: user.photoURL
-          ? user.photoURL
+        ...currentUser,
+        userImage: currentUser.photo
+          ? currentUser.photo
           : '/assets/images/placeholder.jpg',
       }}
     >

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
-import { useAuthUser } from '@crema/hooks/AuthHooks';
 import { useIntl } from 'react-intl';
 import ChangeStaff from './ChangeStaff';
 import TaskStatus from './TaskStatus';
@@ -29,7 +28,7 @@ import {
   StyledTodoDetailTextAreaForm,
   StyledTodoDivider,
 } from '../index.styled';
-import { useGetDataApi, putDataApi } from '@crema/hooks/APIHooks';
+import { putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
 import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 import CommentsLists from './CommentsList';
 import AssignedStaff from './AssignedStaff';
@@ -38,6 +37,8 @@ import TodoDatePicker from './DatePicker';
 import TaskLabels from '../../TasksList/TaskListItem/Labels';
 import { StaffObjType, TodoObjType } from '@crema/types/models/apps/Todo';
 import { getDateObject, getFormattedDate } from '@crema/helpers/DateHelper';
+import { useAppSelector } from '@/redux/appStore';
+import { User } from '@/redux/slices/userSlice';
 
 type TaskDetailBodyProps = {
   selectedTask: TodoObjType;
@@ -50,7 +51,7 @@ const TaskDetailBody: React.FC<TaskDetailBodyProps> = ({
 }) => {
   const infoViewActionsContext = useInfoViewActionsContext();
 
-  const { user } = useAuthUser();
+  const user = useAppSelector((state) => state.user.currentUser) as User;
 
   const [{ apiData: staffList }] = useGetDataApi<StaffObjType[]>(
     'todo/staff',
@@ -106,8 +107,8 @@ const TaskDetailBody: React.FC<TaskDetailBodyProps> = ({
     const task = selectedTask;
     task.comments = task.comments.concat({
       comment: comment,
-      name: user.displayName ? user.displayName : 'User',
-      image: user.photoURL,
+      name: user.name ? user.name : 'User',
+      image: user.photo,
       date: dayjs().format('MMM DD'),
     });
     putDataApi<{ task: TodoObjType }>('todo/task', infoViewActionsContext, {

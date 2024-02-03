@@ -2,17 +2,13 @@ import React, { useState } from 'react';
 import AppConfirmationModal from '@crema/components/AppConfirmationModal';
 import IntlMessages from '@crema/helpers/IntlMessages';
 import AddCardForm from './AddCardForm';
-import { useAuthUser } from '@crema/hooks/AuthHooks';
 import { StyledScrumBoardAppCardDrawer } from './index.styled';
 import { postDataApi } from '@crema/hooks/APIHooks';
 import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 import CardHeader from './CardHeader';
-import {
-  AttachmentObjType,
-  BoardObjType,
-  CardListObjType,
-  CardObjType,
-} from '@crema/types/models/apps/ScrumbBoard';
+import { AttachmentObjType, BoardObjType, CardListObjType, CardObjType } from '@crema/types/models/apps/ScrumbBoard';
+import { useAppSelector } from '@/redux/appStore';
+import { User } from '@/redux/slices/userSlice';
 
 type AddCardProps = {
   isModalVisible: boolean;
@@ -25,15 +21,15 @@ type AddCardProps = {
 };
 
 const AddCard: React.FC<AddCardProps> = ({
-  isModalVisible,
-  handleCancel,
-  board,
-  list,
-  selectedCard,
-  setData,
-}) => {
+                                           isModalVisible,
+                                           handleCancel,
+                                           board,
+                                           list,
+                                           selectedCard,
+                                           setData,
+                                         }) => {
   const infoViewActionsContext = useInfoViewActionsContext();
-  const { user } = useAuthUser();
+  const user = useAppSelector((state) => state.user.currentUser) as User;
 
   const [checkedList, setCheckedList] = useState(() =>
     selectedCard ? selectedCard.checkedList : [],
@@ -96,7 +92,7 @@ const AddCard: React.FC<AddCardProps> = ({
   return (
     <StyledScrumBoardAppCardDrawer
       open={isModalVisible}
-      width='80%'
+      width="80%"
       title={
         <CardHeader
           onAddAttachments={onAddAttachments}
@@ -133,8 +129,8 @@ const AddCard: React.FC<AddCardProps> = ({
           open={isDeleteDialogOpen}
           onDeny={setDeleteDialogOpen}
           onConfirm={onDeleteCard}
-          modalTitle={<IntlMessages id='scrumboard.deleteCard' />}
-          paragraph={<IntlMessages id='common.deleteItem' />}
+          modalTitle={<IntlMessages id="scrumboard.deleteCard" />}
+          paragraph={<IntlMessages id="common.deleteItem" />}
         />
       ) : null}
     </StyledScrumBoardAppCardDrawer>

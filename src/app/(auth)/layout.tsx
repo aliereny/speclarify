@@ -1,18 +1,18 @@
 'use client';
 import React, { useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useAuthUser } from '@crema/hooks/AuthHooks';
 import { initialUrl } from '@crema/constants/AppConst';
 import AppLoader from '@crema/components/AppLoader';
 import { useLayoutActionsContext } from '@crema/context/AppContextProvider/LayoutContextProvider';
 import { useSidebarActionsContext } from '@crema/context/AppContextProvider/SidebarContextProvider';
 import AuthLayout from './AuthLayout';
+import { useAppSelector } from '../../redux/appStore';
 
 export default function RootLayout({ children }: any) {
   const { updateNavStyle } = useLayoutActionsContext();
   const { updateMenuStyle, setSidebarBgImage } = useSidebarActionsContext();
   const searchParams = useSearchParams();
-  const { user, isLoading } = useAuthUser();
+  const {currentUser, loading} = useAppSelector((state) => state.user);
   const layout = searchParams.get('layout');
   const menuStyle = searchParams.get('menuStyle');
   const sidebarImage = searchParams.get('sidebarImage');
@@ -26,12 +26,12 @@ export default function RootLayout({ children }: any) {
   }, [layout, menuStyle, sidebarImage, updateMenuStyle, updateNavStyle]);
 
   useEffect(() => {
-    if (user) {
+    if (currentUser) {
       router.push(initialUrl + (queryParams ? '?' + queryParams : ''));
     }
-  }, [queryParams, user]);
+  }, [queryParams, currentUser]);
 
-  if (isLoading || user) return <AppLoader />;
+  if (loading || currentUser) return <AppLoader />;
 
   return <AuthLayout>{children}</AuthLayout>;
 }

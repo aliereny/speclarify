@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { Dropdown } from 'antd';
 import { FaChevronDown } from 'react-icons/fa';
 import { useThemeContext } from '@crema/context/AppContextProvider/ThemeContextProvider';
-import { useAuthMethod, useAuthUser } from '@crema/hooks/AuthHooks';
 import { useSidebarContext } from '@crema/context/AppContextProvider/SidebarContextProvider';
 import {
   StyledCrUserDesignation,
@@ -16,24 +15,26 @@ import {
   StyledUsername,
   StyledUsernameInfo,
 } from './index.styled';
+import { useAppDispatch, useAppSelector } from '@/redux/appStore';
+import { signOutRequest, User } from '@/redux/slices/userSlice';
 
 type UserInfoProps = {
   hasColor?: boolean;
 };
 const UserInfo: React.FC<UserInfoProps> = ({ hasColor }) => {
   const { themeMode } = useThemeContext();
-  const { logout } = useAuthMethod();
-  const { user } = useAuthUser();
+  const dispatch = useAppDispatch()
+  const currentUser = useAppSelector(state => state.user.currentUser) as User;
   const router = useRouter();
   const { sidebarColorSet } = useSidebarContext();
   const { allowSidebarBgImage } = useSidebarContext();
 
   const getUserAvatar = () => {
-    if (user.displayName) {
-      return user.displayName.charAt(0).toUpperCase();
+    if (currentUser.name) {
+      return currentUser.name.charAt(0).toUpperCase();
     }
-    if (user.email) {
-      return user.email.charAt(0).toUpperCase();
+    if (currentUser.email) {
+      return currentUser.email.charAt(0).toUpperCase();
     }
   };
 
@@ -44,7 +45,9 @@ const UserInfo: React.FC<UserInfoProps> = ({ hasColor }) => {
     },
     {
       key: 2,
-      label: <div onClick={() => logout()}>Logout</div>,
+      label: <div onClick={() => {
+        dispatch(signOutRequest())
+      }}>Logout</div>,
     },
   ];
 
@@ -65,34 +68,34 @@ const UserInfo: React.FC<UserInfoProps> = ({ hasColor }) => {
           <Dropdown
             menu={{ items }}
             trigger={['click']}
-            placement='bottomRight'
+            placement="bottomRight"
             overlayStyle={{
               zIndex: 1052,
               minWidth: 150,
             }}
           >
-            <StyledCrUserInfoInner className='ant-dropdown-link'>
-              {user.photoURL ? (
-                <StyledCrUserInfoAvatar src={user.photoURL} />
+            <StyledCrUserInfoInner className="ant-dropdown-link">
+              {currentUser.photo ? (
+                <StyledCrUserInfoAvatar src={currentUser.photo} />
               ) : (
                 <StyledCrUserInfoAvatar>
                   {getUserAvatar()}
                 </StyledCrUserInfoAvatar>
               )}
-              <StyledCrUserInfoContent className='cr-user-info-content'>
+              <StyledCrUserInfoContent className="cr-user-info-content">
                 <StyledUsernameInfo>
                   <StyledUsername
                     className={clsx('text-truncate', {
                       light: themeMode === 'light',
                     })}
                   >
-                    {user.displayName ? user.displayName : 'admin user '}
+                    {currentUser.name ? currentUser.name : 'admin user '}
                   </StyledUsername>
-                  <StyledUserArrow className='cr-user-arrow'>
+                  <StyledUserArrow className="cr-user-arrow">
                     <FaChevronDown />
                   </StyledUserArrow>
                 </StyledUsernameInfo>
-                <StyledCrUserDesignation className='text-truncate'>
+                <StyledCrUserDesignation className="text-truncate">
                   System Manager
                 </StyledCrUserDesignation>
               </StyledCrUserInfoContent>
@@ -108,34 +111,34 @@ const UserInfo: React.FC<UserInfoProps> = ({ hasColor }) => {
           <Dropdown
             menu={{ items }}
             trigger={['click']}
-            placement='bottomRight'
+            placement="bottomRight"
             overlayStyle={{
               zIndex: 1052,
               minWidth: 150,
             }}
           >
-            <StyledCrUserInfoInner className='ant-dropdown-link'>
-              {user.photoURL ? (
-                <StyledCrUserInfoAvatar src={user.photoURL} />
+            <StyledCrUserInfoInner className="ant-dropdown-link">
+              {currentUser.photo ? (
+                <StyledCrUserInfoAvatar src={currentUser.photo} />
               ) : (
                 <StyledCrUserInfoAvatar>
                   {getUserAvatar()}
                 </StyledCrUserInfoAvatar>
               )}
-              <StyledCrUserInfoContent className='cr-user-info-content'>
+              <StyledCrUserInfoContent className="cr-user-info-content">
                 <StyledUsernameInfo>
                   <StyledUsername
                     className={clsx('text-truncate', {
                       light: themeMode === 'light',
                     })}
                   >
-                    {user.displayName ? user.displayName : 'admin user '}
+                    {currentUser.name ? currentUser.name : 'admin user '}
                   </StyledUsername>
-                  <StyledUserArrow className='cr-user-arrow'>
+                  <StyledUserArrow className="cr-user-arrow">
                     <FaChevronDown />
                   </StyledUserArrow>
                 </StyledUsernameInfo>
-                <StyledCrUserDesignation className='text-truncate cr-user-designation'>
+                <StyledCrUserDesignation className="text-truncate cr-user-designation">
                   System Manager
                 </StyledCrUserDesignation>
               </StyledCrUserInfoContent>

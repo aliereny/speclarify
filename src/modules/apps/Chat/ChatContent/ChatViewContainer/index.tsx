@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import dayjs from 'dayjs';
 import IntlMessages from '@crema/helpers/IntlMessages';
-import { useAuthUser } from '@crema/hooks/AuthHooks';
 import {
   StyledMessageScreen,
   StyledMsgAppsFooter,
@@ -12,15 +11,12 @@ import {
 import { postDataApi, putDataApi, useGetDataApi } from '@crema/hooks/APIHooks';
 import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
 import AppsHeader from '@crema/components/AppsContainer/AppsHeader';
-import {
-  ConnectionObjType,
-  MessageDataObjType,
-  MessageObjType,
-  MessageType,
-} from '@crema/types/models/apps/Chat';
+import { ConnectionObjType, MessageDataObjType, MessageObjType, MessageType } from '@crema/types/models/apps/Chat';
 import AddNewMessage from '../MessagesScreen/AddNewMessage';
 import MessagesList from '../MessagesScreen/MessagesList';
 import Header from '../MessagesScreen/Header';
+import { useAppSelector } from '@/redux/appStore';
+import { User } from '@/redux/slices/userSlice';
 
 type MessagesScreenProps = {
   selectedUser: ConnectionObjType | null;
@@ -40,10 +36,10 @@ type ChatProps = {
   connectionData: ConnectionObjType[];
 };
 const MessagesScreen: React.FC<MessagesScreenProps> = ({
-  selectedUser,
-  setConnectionData,
-  setSelectedUser,
-}) => {
+                                                         selectedUser,
+                                                         setConnectionData,
+                                                         setSelectedUser,
+                                                       }) => {
   const [message, setMessage] = useState('');
   const [isEdit, setIsEdit] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -55,7 +51,7 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
   const [{ apiData: userMessages }, { setQueryParams, setData }] =
     useGetDataApi<MessageObjType>('chat');
 
-  const { user } = useAuthUser();
+  const user = useAppSelector((state) => state.user.currentUser) as User;
 
   const _scrollBarRef = useRef<RefProps | null>(null);
   useEffect(() => {
@@ -218,7 +214,7 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
       ) : (
         <StyledScrollChatNoMain>
           <StyledNoMsg>
-            <IntlMessages id='chatApp.sayHi' /> {selectedUser?.name}
+            <IntlMessages id="chatApp.sayHi" /> {selectedUser?.name}
           </StyledNoMsg>
         </StyledScrollChatNoMain>
       )}

@@ -82,8 +82,8 @@ const UserInfo: React.FC<UserInfoProps> = ({
   return (
     <StyledChatUserInfo>
       <StyledChatUserAvatarView>
-        {user.photoURL || user.image ? (
-          <StyledChatUserAvatar src={user.photoURL || user.image} />
+        {user.photo || user.image ? (
+          <StyledChatUserAvatar src={user.photo || user.image} />
         ) : (
           <StyledChatUserAvatar>{getUserAvatar()}</StyledChatUserAvatar>
         )}
@@ -118,8 +118,8 @@ const UserInfo: React.FC<UserInfoProps> = ({
       </StyledChatUserAvatarView>
       <StyledChatUserInfoContext>
         <StyledChatUserName className="text-truncate">
-          {user.displayName || user.name
-            ? user.displayName || user.name
+          {user.name || user.name
+            ? user.name || user.name
             : user.email}
         </StyledChatUserName>
         {user.isGroup ? (

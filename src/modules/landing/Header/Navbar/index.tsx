@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useAuthUser } from '@crema/hooks/AuthHooks';
 import { initialUrl } from '@crema/constants/AppConst';
 import { Drawer } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
@@ -15,6 +14,7 @@ import {
   StyledResponsiveMenubar,
 } from './index.styled';
 import { log } from 'util';
+import { useAppSelector } from '../../../../redux/appStore';
 
 const menuItems = [
   {
@@ -33,7 +33,7 @@ const menuItems = [
 const NavBar = ({ scrollTop }: any) => {
   // const [scrollTop, setScroll] = useState(false);
   const [open, setOpen] = useState(false);
-  const { isAuthenticated } = useAuthUser();
+  const {accessToken} = useAppSelector((state) => state.user);
   // window.onscroll = () => {
   //   myFunction()
   // };
@@ -99,13 +99,13 @@ const NavBar = ({ scrollTop }: any) => {
           </StyledResponsiveMenubar>
           <StyledMenubar>
             <StyledNavButton
-              href={isAuthenticated ? initialUrl : '/signin'}
+              href={accessToken !== null ? initialUrl : '/signin'}
               style={{
                 backgroundColor: scrollTop ? '#0A8FDC' : 'red',
                 color: '#fff',
               }}
             >
-              {isAuthenticated ? 'Go to Dashboard' : 'Sign In'}
+              {accessToken !== null ? 'Go to Dashboard' : 'Sign In'}
             </StyledNavButton>
             <StyledMenuIcon
               style={{

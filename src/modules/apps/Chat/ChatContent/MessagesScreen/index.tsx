@@ -4,7 +4,6 @@ import MessagesList from './MessagesList';
 import dayjs from 'dayjs';
 import Header from './Header';
 import IntlMessages from '@crema/helpers/IntlMessages';
-import { useAuthUser } from '@crema/hooks/AuthHooks';
 import {
   StyledMessageScreen,
   StyledMsgAppsFooter,
@@ -19,9 +18,10 @@ import {
   ChatApiResponseType,
   ConnectionObjType,
   MessageDataObjType,
-  MessageObjType,
   MessageType,
 } from '@crema/types/models/apps/Chat';
+import { useAppSelector } from '@/redux/appStore';
+import { User } from '@/redux/slices/userSlice';
 
 type MessagesScreenProps = {
   selectedUser: ConnectionObjType;
@@ -30,10 +30,10 @@ type MessagesScreenProps = {
 };
 
 const MessagesScreen: React.FC<MessagesScreenProps> = ({
-  selectedUser,
-  setConnectionData,
-  setSelectedUser,
-}) => {
+                                                         selectedUser,
+                                                         setConnectionData,
+                                                         setSelectedUser,
+                                                       }) => {
   const [message, setMessage] = useState('');
   const [isEdit, setIsEdit] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -53,7 +53,7 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
       false,
     );
 
-  const { user } = useAuthUser();
+  const user = useAppSelector((state) => state.user.currentUser) as User;
   const _scrollBarRef = useRef<any>(null);
   useEffect(() => {
     if (setQueryParams) setQueryParams({ id: selectedUser?.channelId });
@@ -222,7 +222,7 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
       ) : (
         <StyledScrollChatNoMain>
           <StyledNoMsg>
-            <IntlMessages id='chatApp.sayHi' /> {selectedUser.name}
+            <IntlMessages id="chatApp.sayHi" /> {selectedUser.name}
           </StyledNoMsg>
         </StyledScrollChatNoMain>
       )}

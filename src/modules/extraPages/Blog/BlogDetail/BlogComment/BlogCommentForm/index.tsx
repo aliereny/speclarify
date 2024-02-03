@@ -1,12 +1,13 @@
 import React from "react";
 import { Form, Col, Input, Button } from "antd";
 import AppRowContainer from "@crema/components/AppRowContainer";
-import { useAuthUser } from "@crema/hooks/AuthHooks";
 import dayjs from "dayjs";
 import { StyledFormWrapper } from "../index.styled";
 import { useIntl } from "react-intl";
 import { BlogCommentType } from "@crema/types/models/extrapages/Blog";
 import { generateRandomUniqueNumber } from "@crema/helpers/Common";
+import { User } from "@/redux/slices/userSlice";
+import { useAppSelector } from "@/redux/appStore";
 
 const { TextArea } = Input;
 
@@ -15,14 +16,14 @@ type Props = {
   setComments: (comments: BlogCommentType[]) => void;
 };
 const BlogCommentForm = ({ comments, setComments }: Props) => {
-  const { user } = useAuthUser();
+  const user  = useAppSelector((state) => state.user.currentUser) as User;
   const { messages } = useIntl();
 
   const onCommentSend = (data: Partial<BlogCommentType>) => {
     const item: BlogCommentType = {
       id: generateRandomUniqueNumber(),
       name: data.name!,
-      image: user.photoURL,
+      image: user.photo,
       duration: dayjs().format("MMM DD"),
       comment: data.comment!,
     };

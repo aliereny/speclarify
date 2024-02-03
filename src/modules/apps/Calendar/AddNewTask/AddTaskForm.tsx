@@ -3,7 +3,6 @@ import IntlMessages from '@crema/helpers/IntlMessages';
 import { useIntl } from 'react-intl';
 import { Col, Form, Input, Select } from 'antd';
 import AppRowContainer from '@crema/components/AppRowContainer';
-import { useAuthUser } from '@crema/hooks/AuthHooks';
 import {
   StyledAddTaskFormDate,
   StyledSelectRow,
@@ -23,6 +22,8 @@ import {
 } from '../../context/CalendarContextProvider';
 import { generateRandomUniqueNumber } from '@crema/helpers/Common';
 import { getFormattedDate } from '@crema/helpers/DateHelper';
+import { useAppSelector } from '@/redux/appStore';
+import { User } from '@/redux/slices/userSlice';
 
 type Props = {
   selectedDate?: string;
@@ -35,7 +36,7 @@ const AddTaskForm = ({ onCloseAddTask, selectedDate }: Props) => {
   const [form] = Form.useForm();
 
   const infoViewActionsContext = useInfoViewActionsContext();
-  const { user } = useAuthUser();
+  const currentUser = useAppSelector((state) => state.user.currentUser) as User;
 
   const onFinish = (values: any) => {
     const staff = staffList.find((staff) => staff.id === +values.staffList);
@@ -56,8 +57,8 @@ const AddTaskForm = ({ onCloseAddTask, selectedDate }: Props) => {
       isRead: true,
       folderValue: 120,
       createdBy: {
-        name: user.displayName ? user.displayName : 'user',
-        image: user.photoURL ? user.photoURL : '/assets/images/dummy2.jpg',
+        name: currentUser.name ? currentUser.name : 'user',
+        image: currentUser.photo ? currentUser.photo : '/assets/images/dummy2.jpg',
       },
       startDate: getFormattedDate(values.dateRange[0]),
       endDate: getFormattedDate(values.dateRange[1]),

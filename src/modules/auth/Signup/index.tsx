@@ -1,4 +1,4 @@
 'use client';
-import SignupFirebase from './SignupFirebase';
+import Signup from './Signup';
 
-export default SignupFirebase;
+export default Signup;

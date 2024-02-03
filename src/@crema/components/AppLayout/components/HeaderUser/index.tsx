@@ -67,16 +67,16 @@
 //   const user = useAuthUser();
 //
 //   const getUserAvatar = () => {
-//     if (user.displayName) {
-//       return user.displayName.charAt(0).toUpperCase();
+//     if (user.name) {
+//       return user.name.charAt(0).toUpperCase();
 //     }
 //     if (user.email) {
 //       return user.email.charAt(0).toUpperCase();
 //     }
 //   };
 //   const getUserAvatarView = () => {
-//     if (user.photoURL) {
-//       return <Avatar className={classes.profilePic} src={user.photoURL} />;
+//     if (user.photo) {
+//       return <Avatar className={classes.profilePic} src={user.photo} />;
 //     } else {
 //       return <Avatar className={classes.profilePic}>{getUserAvatar()}</Avatar>;
 //     }
@@ -95,7 +95,7 @@
 //             justifyContent='space-between'>
 //             <Hidden mdDown>
 //               <Box ml={4} mb={1.5} className={classes.userName}>
-//                 {user.displayName ? user.displayName : user.email}
+//                 {user.name ? user.name : user.email}
 //                 <Box
 //                   fontSize={13}
 //                   fontWeight={Fonts.LIGHT}

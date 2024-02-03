@@ -56,7 +56,7 @@ const ComposeMail: React.FC<ComposeMailProps> = ({
         {
           description: values.content ? values.content : 'No Message',
           sender: {
-            name: values.displayName ? values.displayName : values.username,
+            name: values.name ? values.name : values.username,
             email: values.username,
             profilePic: '',
           },

@@ -1,4 +1,4 @@
 'use client';
-import SignInJwtAuth from './SigninJwtAuth';
+import Signin from './Signin';
 
-export default SignInJwtAuth;
+export default Signin;
