@@ -18,7 +18,7 @@ export interface UserState {
   error: string | null;
 }
 
-export const initialState: UserState = {
+const initialState: UserState = {
   accessToken: null,
   refreshToken: null,
   currentUser: null,
@@ -128,6 +128,17 @@ const userSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    refreshTokenRequest: (state, action: PayloadAction<string>) => {
+      state.loading = true;
+    },
+    refreshTokenSuccess: (state, action: PayloadAction<string>) => {
+      state.loading = false;
+      state.accessToken = action.payload;
+    },
+    refreshTokenFailure: (state, action: PayloadAction<string>) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
   },
 });
 
@@ -150,6 +161,9 @@ export const {
   verifyEmailRequest,
   verifyEmailSuccess,
   verifyEmailFailure,
+  refreshTokenRequest,
+  refreshTokenSuccess,
+  refreshTokenFailure,
 } = userSlice.actions;
 
 export const UserReducer = userSlice.reducer;

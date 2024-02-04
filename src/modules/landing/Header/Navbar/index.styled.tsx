@@ -51,14 +51,7 @@ export const StyledMenuItems = styled(Link)`
   //  color: #fff000;
   //}
 `;
-export const StyledStickyMenu = styled(Link)`
-  color: #000;
-  text-decoration: none;
 
-  &:hover {
-    color: red !important;
-  }
-`;
 export const StyledNavButton = styled(Button)`
   display: grid;
   place-items: center;

@@ -3,6 +3,9 @@ import {
   fetchCurrentUserFailure,
   fetchCurrentUserRequest,
   fetchCurrentUserSuccess,
+  refreshTokenFailure,
+  refreshTokenRequest,
+  refreshTokenSuccess,
   signInFailure,
   signInRequest,
   SignInRequestPayload,
@@ -26,7 +29,7 @@ import {
   verifyEmailSuccess,
 } from '../slices/userSlice';
 import { AxiosResponse } from 'axios';
-import jwtAxios, { setAuthToken } from '@crema/services/auth';
+import jwtAxios from '@crema/services/auth';
 import { all, call, put, takeLatest } from '@redux-saga/core/effects';
 import { errorMessage, navigateOutsideJSX } from '../utils';
 import { ApiResponse } from '@/redux/types';
@@ -40,13 +43,12 @@ function* signInSaga(action: PayloadAction<SignInRequestPayload>) {
     );
 
     yield put(signInSuccess(response.data.data));
-    yield call(setAuthToken, response.data.data.accessToken);
   } catch (e) {
     yield put(signInFailure(errorMessage(e)));
   }
 }
 
-export function* watchSignIn() {
+function* watchSignIn() {
   yield takeLatest(signInRequest.type, signInSaga);
 }
 
@@ -66,7 +68,7 @@ function* signUpSaga(action: PayloadAction<SignUpRequestPayload>) {
 }
 
 
-export function* watchSignUp() {
+function* watchSignUp() {
   yield takeLatest(signUpRequest.type, signUpSaga);
 }
 
@@ -74,13 +76,12 @@ function* signOutSaga() {
   try {
     yield call(jwtAxios.post, '/authentication/invalidate-token');
     yield put(signOutSuccess());
-    yield call(setAuthToken, undefined);
   } catch (e) {
     yield put(signOutFailure(errorMessage(e)));
   }
 }
 
-export function* watchSignOut() {
+function* watchSignOut() {
   yield takeLatest(signOutRequest.type, signOutSaga);
 }
 
@@ -93,11 +94,11 @@ function* updateProfileSaga(action: PayloadAction<UpdateProfileRequestPayload>) 
   }
 }
 
-export function* watchUpdateProfile() {
+function* watchUpdateProfile() {
   yield takeLatest(updateProfileRequest.type, updateProfileSaga);
 }
 
-export function* fetchCurrentUserSaga() {
+function* fetchCurrentUserSaga() {
   try {
     const response: AxiosResponse<ApiResponse<User>> = yield call(jwtAxios.get, '/users/me');
     yield put(fetchCurrentUserSuccess(response.data.data));
@@ -111,11 +112,10 @@ function* watchFetchCurrentUser() {
   yield takeLatest(fetchCurrentUserRequest.type, fetchCurrentUserSaga);
 }
 
-export function* verifyEmailSaga(action: PayloadAction<VerifyEmailRequestPayload>) {
+function* verifyEmailSaga(action: PayloadAction<VerifyEmailRequestPayload>) {
   try {
     const response: AxiosResponse<ApiResponse<SignInSuccessPayload>> = yield call(jwtAxios.post, `/authentication/verify-email`, action.payload);
     yield put(verifyEmailSuccess(response.data.data));
-    yield call(setAuthToken, response.data.data.accessToken);
   } catch (e) {
     yield put(verifyEmailFailure(errorMessage(e)));
   }
@@ -125,6 +125,21 @@ function* watchVerifyEmail() {
   yield takeLatest(verifyEmailRequest.type, verifyEmailSaga);
 }
 
+function* refreshTokenSaga(action: PayloadAction<string>) {
+  try {
+    const response: AxiosResponse<ApiResponse<{
+      accessToken: string;
+    }>> = yield call(jwtAxios.post, '/authentication/refresh-token', { refreshToken: action.payload });
+    yield put(refreshTokenSuccess(response.data.data.accessToken));
+  } catch (e) {
+    yield put(refreshTokenFailure(errorMessage(e)));
+  }
+}
+
+export function* watchRefreshToken() {
+  yield takeLatest(refreshTokenRequest.type, refreshTokenSaga);
+}
+
 export function* userSaga() {
-  yield all([watchSignIn(), watchSignUp(), watchSignOut(), watchUpdateProfile(), watchFetchCurrentUser(), watchVerifyEmail()]);
+  yield all([watchSignIn(), watchSignUp(), watchSignOut(), watchUpdateProfile(), watchFetchCurrentUser(), watchVerifyEmail(), watchRefreshToken()]);
 }

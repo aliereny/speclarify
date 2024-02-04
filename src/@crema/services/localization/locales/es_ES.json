@@ -1,4 +1,7 @@
 {
+  "sidebar.organizations": "Organizaciones",
+  "sidebar.workspace": "Espacio de trabajo",
+  "sidebar.newOrganization": "Nueva organización",
   "button.click_me": "Haz click en mi",
   "dashboard.quickStats": "Estadísticas rápidas",
   "dashboard.totalClients": "Clientes totales",

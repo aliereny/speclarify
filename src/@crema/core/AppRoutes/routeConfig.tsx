@@ -7,14 +7,7 @@ import {
   RiShieldUserLine,
   RiTodoLine,
 } from 'react-icons/ri';
-import {
-  BiBookReader,
-  BiCartAlt,
-  BiDollar,
-  BiErrorCircle,
-  BiRss,
-  BiTask,
-} from 'react-icons/bi';
+import { BiBookReader, BiCartAlt, BiDollar, BiErrorCircle, BiRss, BiTask } from 'react-icons/bi';
 import {
   MdInvertColors,
   MdOutlineAnalytics,
@@ -24,16 +17,10 @@ import {
   MdOutlineManageAccounts,
   MdTimeline,
 } from 'react-icons/md';
-import {
-  BsBriefcase,
-  BsCart4,
-  BsChatDots,
-  BsCurrencyBitcoin,
-  BsQuestionDiamond,
-} from 'react-icons/bs';
-import { FaRegCalendarAlt, FaRegHospital, FaRegImages } from 'react-icons/fa';
+import { BsBriefcase, BsCart4, BsChatDots, BsCurrencyBitcoin, BsQuestionDiamond } from 'react-icons/bs';
+import { FaRegBuilding, FaRegCalendarAlt, FaRegHospital } from 'react-icons/fa';
 import { CgAttachment, CgFeed, CgUserList } from 'react-icons/cg';
-import { FiMail, FiMap, FiUsers } from 'react-icons/fi';
+import { FiMail, FiMap, FiPlusCircle, FiUsers } from 'react-icons/fi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { DiHtml5Multimedia } from 'react-icons/di';
 import { RoutePermittedRole } from '@crema/constants/AppEnums';

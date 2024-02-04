@@ -829,5 +829,15 @@
   "sidebar.layout.grid": "Grid",
   "sidebar.layout.layout": "Layout",
   "sidebar.layout.space": "Space",
-  "sidebar.components.layout": "Layout"
+  "sidebar.components.layout": "Layout",
+  "sidebar.organizations": "Organizations",
+  "sidebar.workspace": "Workspace",
+  "sidebar.newOrganization": "New Organization",
+  "organizations.addOrganization": "Add Organization",
+  "validation.nameTooLong": "Name is too long",
+  "validation.emailTooLong": "Email is too long",
+  "validation.addressRequired": "Please enter Address!",
+  "validation.addressTooLong": "Address is too long",
+  "validation.websiteRequired": "Please enter Website!",
+  "validation.websiteTooLong": "Website is too long"
 }

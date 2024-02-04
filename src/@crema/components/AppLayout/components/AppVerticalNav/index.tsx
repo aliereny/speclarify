@@ -49,7 +49,7 @@ const AppVerticalNav: React.FC<Props> = ({ routesConfig }) => {
       })}
       openKeys={openKeys}
       onOpenChange={onOpenChange}
-      // selectedKeys={[selectedKeys[selectedKeys.length - 1]]}
+      selectedKeys={[selectedKeys[selectedKeys.length - 1]]}
       defaultSelectedKeys={[selectedKeys[1]] || [selectedKeys[0]]}
       items={getRouteMenus(routesConfig, messages)}
     />

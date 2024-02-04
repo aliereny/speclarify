@@ -1,4 +1,7 @@
 {
+  "sidebar.organizations": "组织",
+  "sidebar.workspace": "工作区",
+  "sidebar.newOrganization": "新组织",
   "button.click_me": "点击我",
   "dashboard.quickStats": "快速统计",
   "dashboard.totalClients": "客户总数",

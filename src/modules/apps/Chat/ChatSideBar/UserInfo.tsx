@@ -1,8 +1,8 @@
-import React from "react";
-import { Dropdown } from "antd";
-import { green, red } from "@ant-design/colors";
-import { DownOutlined } from "@ant-design/icons";
-import { BiCheck } from "react-icons/bi";
+import React from 'react';
+import { Dropdown } from 'antd';
+import { green, red } from '@ant-design/colors';
+import { DownOutlined } from '@ant-design/icons';
+import { BiCheck } from 'react-icons/bi';
 
 import {
   StyledChatUserAvatar,
@@ -14,29 +14,28 @@ import {
   StyledChatUserStatusDot,
   StyledChatUserStatusText,
   StyledDropDownItem,
-} from "./userInfo.styled";
-import { ConnectionObjType } from "@crema/types/models/apps/Chat";
-import IntlMessages from "@crema/helpers/IntlMessages";
+} from './userInfo.styled';
+import IntlMessages from '@crema/helpers/IntlMessages';
+import { User } from '@/redux/slices/userSlice';
 
 type UserInfoProps = {
-  user: ConnectionObjType;
+  user: User;
   showStatus?: boolean;
   showStatusActive?: boolean;
 };
 
+const randBool = () => {
+  return new Date().getSeconds() % 2 === 0;
+};
+
 const UserInfo: React.FC<UserInfoProps> = ({
-  user,
-  showStatus = false,
-  showStatusActive,
-}) => {
+                                             user,
+                                             showStatus = false,
+                                             showStatusActive,
+                                           }) => {
   const getUserAvatar = () => {
     const name = user.name;
-    if (name) {
-      return name.charAt(0).toUpperCase();
-    }
-    if (user.username) {
-      return user.username.charAt(0).toUpperCase();
-    }
+    return name.charAt(0).toUpperCase();
   };
 
   if (!user) {
@@ -82,30 +81,30 @@ const UserInfo: React.FC<UserInfoProps> = ({
   return (
     <StyledChatUserInfo>
       <StyledChatUserAvatarView>
-        {user.photo || user.image ? (
-          <StyledChatUserAvatar src={user.photo || user.image} />
+        {user.photo || user.photo ? (
+          <StyledChatUserAvatar src={user.photo || user.photo} />
         ) : (
           <StyledChatUserAvatar>{getUserAvatar()}</StyledChatUserAvatar>
         )}
-        {user.isGroup
+        {randBool()
           ? null
           : showStatus && (
-              <StyledChatUserStatusDot
-                className="chat-user-status-dot chat-user-status-dot-only"
-                style={{
-                  backgroundColor: user.status === "online" ? green[6] : red[6],
-                }}
-              />
-            )}
+          <StyledChatUserStatusDot
+            className="chat-user-status-dot chat-user-status-dot-only"
+            style={{
+              backgroundColor: randBool() ? green[6] : red[6],
+            }}
+          />
+        )}
         {showStatusActive && (
           <StyledChatUserStatus>
             <StyledChatUserStatusDot
               className="chat-user-status-dot"
               style={{
-                backgroundColor: user.status === "online" ? green[6] : red[6],
+                backgroundColor: randBool() ? green[6] : red[6],
               }}
             />
-            <Dropdown menu={{ items }} trigger={["click"]}>
+            <Dropdown menu={{ items }} trigger={['click']}>
               <a
                 className="ant-dropdown-link"
                 onClick={(e) => e.preventDefault()}
@@ -122,13 +121,13 @@ const UserInfo: React.FC<UserInfoProps> = ({
             ? user.name || user.name
             : user.email}
         </StyledChatUserName>
-        {user.isGroup ? (
+        {randBool() ? (
           <StyledChatUserStatusText className="pointer">
-            {user?.members?.length} <IntlMessages id="chatApp.participants" />
+            {Math.random() * 10} <IntlMessages id="chatApp.participants" />
           </StyledChatUserStatusText>
         ) : (
           <StyledChatUserStatusText className="text-truncate">
-            {user.status ? user.status : "Online"}
+            {randBool() ? 'Custom status' : 'Online'}
           </StyledChatUserStatusText>
         )}
       </StyledChatUserInfoContext>

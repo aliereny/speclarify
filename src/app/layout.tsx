@@ -13,7 +13,9 @@ import '../../public/styles/index.css';
 import { GlobalStyles } from '@crema/core/theme/GlobalStyle';
 import { Normalize } from 'styled-normalize';
 import { Provider } from 'react-redux';
-import { AppStore } from '../redux/appStore';
+import { AppStore, AppPersistor } from '../redux/appStore';
+import { PersistGate } from 'redux-persist/integration/react';
+import AppLoader from '@crema/components/AppLoader';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -37,20 +39,22 @@ export default function RootLayout({ children }: any) {
     </head>
     <body>
     <Provider store={AppStore}>
-      <AppContextProvider>
-        <AppThemeProvider>
-          <AppLocaleProvider>
-            <InfoViewContextProvider>
+      <PersistGate loading={<AppLoader />} persistor={AppPersistor}>
+        <AppContextProvider>
+          <AppThemeProvider>
+            <AppLocaleProvider>
+              <InfoViewContextProvider>
                 <AuthRoutes>
                   <AppPageMeta />
                   <GlobalStyles />
                   <Normalize />
                   {children}
                 </AuthRoutes>
-            </InfoViewContextProvider>
-          </AppLocaleProvider>
-        </AppThemeProvider>
-      </AppContextProvider>
+              </InfoViewContextProvider>
+            </AppLocaleProvider>
+          </AppThemeProvider>
+        </AppContextProvider>
+      </PersistGate>
     </Provider>
     </body>
     </html>

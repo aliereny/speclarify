@@ -19,7 +19,7 @@ import { useAppSelector } from '@/redux/appStore';
 import { User } from '@/redux/slices/userSlice';
 
 type MessagesScreenProps = {
-  selectedUser: ConnectionObjType | null;
+  selectedUser: User | null;
   setConnectionData: (data: ConnectionObjType[]) => void;
   setSelectedUser: (data: ConnectionObjType | null) => void;
 };
@@ -195,7 +195,7 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
         <Header
           isChecked={isChecked}
           onChangeStarred={onChangeStarred}
-          selectedUser={selectedUser as ConnectionObjType}
+          selectedUser={selectedUser as User}
           deleteConversation={deleteConversation}
           clearChatHistory={clearChatHistory}
         />
@@ -206,7 +206,7 @@ const MessagesScreen: React.FC<MessagesScreenProps> = ({
           <MessagesList
             userMessages={userMessages}
             authUser={user}
-            selectedUser={selectedUser as ConnectionObjType}
+            selectedUser={selectedUser as User}
             onClickEditMessage={onClickEditMessage}
             deleteMessage={deleteMessage}
           />

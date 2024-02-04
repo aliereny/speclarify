@@ -3,7 +3,6 @@ import { Grid } from 'antd';
 import AppSidebar from './AppSidebar';
 import AppHeader from './AppHeader';
 import AppContentView from '../../AppContentView';
-import AppThemeSetting from '../../AppThemeSetting';
 import AppFooter from '../components/AppFooter';
 import clsx from 'clsx';
 import { FooterType } from '@crema/constants/AppEnums';
@@ -59,7 +58,6 @@ const DefaultLayout: React.FC<Props> = ({ children, routesConfig }) => {
           <AppFooter />
         </StyledMainScrollbar>
       </StyledAppLayoutMain>
-      <AppThemeSetting />
     </StyledAppLayout>
   );
 };

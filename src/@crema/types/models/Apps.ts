@@ -25,7 +25,7 @@ export type UserList = {
 export type RouterConfigData = {
   id: string;
   title: string;
-  messageId: string;
+  messageId?: string;
   icon?: string | ReactNode;
   type: 'item' | 'group' | 'collapse' | 'divider';
   children?: RouterConfigData[];

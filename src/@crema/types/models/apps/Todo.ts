@@ -36,7 +36,7 @@ export type StatusObjType = {
 export type CommentObjType = {
   comment: string;
   name: string;
-  image: string;
+  image?: string;
   date: string;
   time?: string;
 };

@@ -10,9 +10,10 @@ import { MdOutlinePhone } from "react-icons/md";
 import { BiVideo } from "react-icons/bi";
 import { StyledChatHeader, StyledChatHeaderAction } from "../index.styled";
 import { ConnectionObjType } from "@crema/types/models/apps/Chat";
+import { User } from '@/redux/slices/userSlice';
 
 type HeaderProps = {
-  selectedUser: ConnectionObjType;
+  selectedUser: User;
   onChangeStarred: (checked: boolean) => void;
   clearChatHistory: () => void;
   deleteConversation: () => void;

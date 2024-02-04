@@ -2,64 +2,6 @@ import {Form, Tabs} from 'antd';
 import {rgba} from 'polished';
 import styled from 'styled-components';
 
-export const StyledUserProfileForm = styled(Form)`
-  position: relative;
-`;
-
-export const StyledUserProfileFormTitle = styled.h3`
-  font-size: ${({ theme }) => theme.font.size.lg};
-  font-weight: ${({ theme }) => theme.font.weight.bold};
-  margin-bottom: 16px;
-`;
-
-export const StyledUserProfileGroupBtn = styled(Form.Item)`
-  position: relative;
-
-  & .ant-btn {
-    & + .ant-btn {
-      margin-left: 12px;
-
-      [dir='rtl'] & {
-        margin-left: 0;
-        margin-right: 12px;
-      }
-    }
-  }
-`;
-
-export const StyledProfileNotification = styled.div`
-  position: relative;
-
-  & + .profile-notification {
-    margin-left: -20px;
-    margin-right: -20px;
-    margin-top: 16px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 24px;
-    border-top: 1px solid ${({ theme }) => theme.palette.borderColor};
-  }
-`;
-
-export const StyledNotificationList = styled.div`
-  position: relative;
-`;
-
-export const StyledNotificationListItem = styled.div`
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-
-  & .label {
-    margin-left: 15px;
-
-    [dir='rtl'] & {
-      margin-left: 0;
-      margin-right: 15px;
-    }
-  }
-`;
-
 export const StyledUserProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
