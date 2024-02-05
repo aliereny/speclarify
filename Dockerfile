@@ -20,6 +20,8 @@ RUN \
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
+ARG STAGE
+COPY --from=deps /app/.env.$STAGE ./.env.production
 COPY . .
 
 # Next.js collects completely anonymous telemetry data about general usage.
