@@ -67,16 +67,22 @@ const projectSlice = createSlice({
   name: 'project',
   initialState,
   reducers: {
-    fetchProjectsRequest: (state, action: PayloadAction<FetchProjectsRequestPayload>) => {
+    fetchProjectsRequest: (
+      state,
+      action: PayloadAction<FetchProjectsRequestPayload>,
+    ) => {
       state.loading = true;
       state.projects = {
         ...state.projects,
         currentPage: action.payload.pageNumber || 1,
         pageSize: action.payload.pageSize || 10,
-      }
+      };
       state.error = null;
     },
-    fetchProjectsSuccess: (state, action: PayloadAction<PageResponse<Project>>) => {
+    fetchProjectsSuccess: (
+      state,
+      action: PayloadAction<PageResponse<Project>>,
+    ) => {
       state.projects = action.payload;
       state.loading = false;
     },
@@ -84,7 +90,10 @@ const projectSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    fetchProjectRequest: (state, action: PayloadAction<FetchProjectRequestPayload>) => {
+    fetchProjectRequest: (
+      state,
+      action: PayloadAction<FetchProjectRequestPayload>,
+    ) => {
       state.loading = true;
       state.error = null;
     },
@@ -96,7 +105,10 @@ const projectSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    createProjectRequest: (state, action: PayloadAction<CreateProjectRequestPayload>) => {
+    createProjectRequest: (
+      state,
+      action: PayloadAction<CreateProjectRequestPayload>,
+    ) => {
       state.loading = true;
       state.error = null;
     },
@@ -107,7 +119,10 @@ const projectSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    updateProjectRequest: (state, action: PayloadAction<UpdateProjectRequestPayload>) => {
+    updateProjectRequest: (
+      state,
+      action: PayloadAction<UpdateProjectRequestPayload>,
+    ) => {
       state.loading = true;
       state.error = null;
     },
@@ -118,7 +133,10 @@ const projectSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    deleteProjectRequest: (state: ProjectState, action: PayloadAction<DeleteProjectRequestPayload>) => {
+    deleteProjectRequest: (
+      state: ProjectState,
+      action: PayloadAction<DeleteProjectRequestPayload>,
+    ) => {
       state.loading = true;
       state.error = null;
     },
@@ -128,6 +146,9 @@ const projectSlice = createSlice({
     deleteProjectFailure: (state, action: PayloadAction<string>) => {
       state.loading = false;
       state.error = action.payload;
+    },
+    clearError: (state) => {
+      state.error = null;
     },
   },
 });

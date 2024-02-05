@@ -46,12 +46,19 @@ export interface SignUpRequestPayload {
 
 export interface UpdateProfileRequestPayload {
   name: string;
+  email: string;
   photo?: Blob;
 }
 
 export interface VerifyEmailRequestPayload {
   email: string;
   code: string;
+}
+
+export interface ChangePasswordRequestPayload {
+  currentPassword: string;
+  confirmPassword: string;
+  newPassword: string;
 }
 
 const userSlice = createSlice({
@@ -94,7 +101,10 @@ const userSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    updateProfileRequest: (state, action: PayloadAction<UpdateProfileRequestPayload>) => {
+    updateProfileRequest: (
+      state,
+      action: PayloadAction<UpdateProfileRequestPayload>,
+    ) => {
       state.loading = true;
     },
     updateProfileSuccess: (state) => {
@@ -115,10 +125,16 @@ const userSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    verifyEmailRequest: (state, action: PayloadAction<VerifyEmailRequestPayload>) => {
+    verifyEmailRequest: (
+      state,
+      action: PayloadAction<VerifyEmailRequestPayload>,
+    ) => {
       state.loading = true;
     },
-    verifyEmailSuccess: (state, action: PayloadAction<SignInSuccessPayload>) => {
+    verifyEmailSuccess: (
+      state,
+      action: PayloadAction<SignInSuccessPayload>,
+    ) => {
       state.loading = false;
       state.accessToken = action.payload.accessToken;
       state.refreshToken = action.payload.refreshToken;
@@ -138,6 +154,22 @@ const userSlice = createSlice({
     refreshTokenFailure: (state, action: PayloadAction<string>) => {
       state.loading = false;
       state.error = action.payload;
+    },
+    changePasswordRequest: (
+      state,
+      action: PayloadAction<ChangePasswordRequestPayload>,
+    ) => {
+      state.loading = true;
+    },
+    changePasswordSuccess: (state) => {
+      state.loading = false;
+    },
+    changePasswordFailure: (state, action: PayloadAction<string>) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    clearError: (state) => {
+      state.error = null;
     },
   },
 });
@@ -164,6 +196,9 @@ export const {
   refreshTokenRequest,
   refreshTokenSuccess,
   refreshTokenFailure,
+  changePasswordFailure,
+  changePasswordSuccess,
+  changePasswordRequest,
 } = userSlice.actions;
 
 export const UserReducer = userSlice.reducer;

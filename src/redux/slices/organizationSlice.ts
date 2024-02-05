@@ -63,16 +63,22 @@ const organizationSlice = createSlice({
   name: 'organization',
   initialState,
   reducers: {
-    fetchOrganizationsRequest: (state, action: PayloadAction<FetchOrganizationsRequestPayload>) => {
+    fetchOrganizationsRequest: (
+      state,
+      action: PayloadAction<FetchOrganizationsRequestPayload>,
+    ) => {
       state.loading = true;
       state.organizations = {
         ...state.organizations,
         currentPage: action.payload.pageNumber || 1,
         pageSize: action.payload.pageSize || 10,
-      }
+      };
       state.error = null;
     },
-    fetchOrganizationsSuccess: (state, action: PayloadAction<PageResponse<Organization>>) => {
+    fetchOrganizationsSuccess: (
+      state,
+      action: PayloadAction<PageResponse<Organization>>,
+    ) => {
       state.organizations = action.payload;
       state.loading = false;
     },
@@ -92,7 +98,10 @@ const organizationSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    createOrganizationRequest: (state, action: PayloadAction<CreateOrganizationRequestPayload>) => {
+    createOrganizationRequest: (
+      state,
+      action: PayloadAction<CreateOrganizationRequestPayload>,
+    ) => {
       state.loading = true;
       state.error = null;
     },
@@ -103,7 +112,10 @@ const organizationSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    updateOrganizationRequest: (state, action: PayloadAction<UpdateOrganizationRequestPayload>) => {
+    updateOrganizationRequest: (
+      state,
+      action: PayloadAction<UpdateOrganizationRequestPayload>,
+    ) => {
       state.loading = true;
       state.error = null;
     },
@@ -114,7 +126,10 @@ const organizationSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    deleteOrganizationRequest: (state: OrganizationState, action: PayloadAction<string>) => {
+    deleteOrganizationRequest: (
+      state: OrganizationState,
+      action: PayloadAction<string>,
+    ) => {
       state.loading = true;
       state.error = null;
     },
@@ -124,6 +139,9 @@ const organizationSlice = createSlice({
     deleteOrganizationFailure: (state, action: PayloadAction<string>) => {
       state.loading = false;
       state.error = action.payload;
+    },
+    clearError: (state) => {
+      state.error = null;
     },
   },
 });

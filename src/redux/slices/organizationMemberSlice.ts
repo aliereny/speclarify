@@ -69,7 +69,10 @@ const organizationMemberSlice = createSlice({
   name: 'organizationMember',
   initialState,
   reducers: {
-    fetchOrganizationMembersRequest: (state, action: PayloadAction<FetchOrganizationMembersRequestPayload>) => {
+    fetchOrganizationMembersRequest: (
+      state,
+      action: PayloadAction<FetchOrganizationMembersRequestPayload>,
+    ) => {
       state.loading = true;
       state.organizationMembers = {
         ...state.organizationMembers,
@@ -78,7 +81,10 @@ const organizationMemberSlice = createSlice({
       };
       state.error = null;
     },
-    fetchOrganizationMembersSuccess: (state, action: PayloadAction<PageResponse<OrganizationMember>>) => {
+    fetchOrganizationMembersSuccess: (
+      state,
+      action: PayloadAction<PageResponse<OrganizationMember>>,
+    ) => {
       state.organizationMembers = action.payload;
       state.loading = false;
     },
@@ -86,11 +92,17 @@ const organizationMemberSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    fetchOrganizationMemberRequest: (state, action: PayloadAction<FetchOrganizationMemberRequestPayload>) => {
+    fetchOrganizationMemberRequest: (
+      state,
+      action: PayloadAction<FetchOrganizationMemberRequestPayload>,
+    ) => {
       state.loading = true;
       state.error = null;
     },
-    fetchOrganizationMemberSuccess: (state, action: PayloadAction<OrganizationMember>) => {
+    fetchOrganizationMemberSuccess: (
+      state,
+      action: PayloadAction<OrganizationMember>,
+    ) => {
       state.currentOrganizationMember = action.payload;
       state.loading = false;
     },
@@ -98,7 +110,10 @@ const organizationMemberSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    createOrganizationMemberRequest: (state, action: PayloadAction<CreateOrganizationMemberRequestPayload>) => {
+    createOrganizationMemberRequest: (
+      state,
+      action: PayloadAction<CreateOrganizationMemberRequestPayload>,
+    ) => {
       state.loading = true;
       state.error = null;
     },
@@ -109,7 +124,10 @@ const organizationMemberSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    updateOrganizationMemberRequest: (state, action: PayloadAction<UpdateOrganizationMemberRequestPayload>) => {
+    updateOrganizationMemberRequest: (
+      state,
+      action: PayloadAction<UpdateOrganizationMemberRequestPayload>,
+    ) => {
       state.loading = true;
       state.error = null;
     },
@@ -120,7 +138,10 @@ const organizationMemberSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    deleteOrganizationMemberRequest: (state: OrganizationMemberState, action: PayloadAction<DeleteOrganizationMemberRequestPayload>) => {
+    deleteOrganizationMemberRequest: (
+      state: OrganizationMemberState,
+      action: PayloadAction<DeleteOrganizationMemberRequestPayload>,
+    ) => {
       state.loading = true;
       state.error = null;
     },
@@ -130,6 +151,9 @@ const organizationMemberSlice = createSlice({
     deleteOrganizationMemberFailure: (state, action: PayloadAction<string>) => {
       state.loading = false;
       state.error = action.payload;
+    },
+    clearError: (state) => {
+      state.error = null;
     },
   },
 });
