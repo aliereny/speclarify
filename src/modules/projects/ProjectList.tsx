@@ -9,37 +9,42 @@ import { fetchProjectsRequest, Project } from '@/redux/slices/projectSlice';
 import { StyledTypographyWrapper } from '@/modules/projects/Project.styled';
 import { ProjectItem } from '@/modules/projects/ProjectItem';
 import AppsPagination from '@crema/components/AppsPagination';
+import { StyledEmpty } from '@/modules/organizations/Organization.styled';
 
 export const ProjectList = () => {
   const router = useRouter();
   const { messages } = useIntl();
 
-  const { projects, loading } = useAppSelector(state => state.projects);
+  const { projects, loading } = useAppSelector((state) => state.projects);
 
   const orgPath = useParams().orgPath as string;
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchProjectsRequest({
-      orgPath,
-      pageNumber: 1,
-      pageSize: 10,
-    }));
+    dispatch(
+      fetchProjectsRequest({
+        orgPath,
+        pageNumber: 1,
+        pageSize: 10,
+      }),
+    );
   }, []);
 
   const handlePage = (pageNumber: number) => {
-    dispatch(fetchProjectsRequest({
-      orgPath,
-      pageNumber,
-      pageSize: 10,
-    }))
+    dispatch(
+      fetchProjectsRequest({
+        orgPath,
+        pageNumber,
+        pageSize: 10,
+      }),
+    );
   };
 
   return (
     <StyledTypographyWrapper>
       <div>
         <Button
-          type="primary"
+          type='primary'
           style={{ display: 'block', marginLeft: 'auto', marginBottom: 12 }}
           onClick={() => router.push(`/organizations/${orgPath}/projects/new`)}
         >
@@ -58,8 +63,13 @@ export const ProjectList = () => {
         data={projects.items}
         renderItem={(project: Project) => <ProjectItem project={project} />}
       />
-      <AppsPagination count={projects.totalItems} page={projects.currentPage} pageSize={projects.pageSize} onChange={handlePage} />
+      {projects.totalItems === 0 && <StyledEmpty />}
+      <AppsPagination
+        count={projects.totalItems}
+        page={projects.currentPage}
+        pageSize={projects.pageSize}
+        onChange={handlePage}
+      />
     </StyledTypographyWrapper>
   );
 };
-

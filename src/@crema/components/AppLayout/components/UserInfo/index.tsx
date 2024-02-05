@@ -95,9 +95,6 @@ const UserInfo: React.FC<UserInfoProps> = ({ hasColor }) => {
                     <FaChevronDown />
                   </StyledUserArrow>
                 </StyledUsernameInfo>
-                <StyledCrUserDesignation className="text-truncate">
-                  System Manager
-                </StyledCrUserDesignation>
               </StyledCrUserInfoContent>
             </StyledCrUserInfoInner>
           </Dropdown>
@@ -138,9 +135,6 @@ const UserInfo: React.FC<UserInfoProps> = ({ hasColor }) => {
                     <FaChevronDown />
                   </StyledUserArrow>
                 </StyledUsernameInfo>
-                <StyledCrUserDesignation className="text-truncate cr-user-designation">
-                  System Manager
-                </StyledCrUserDesignation>
               </StyledCrUserInfoContent>
             </StyledCrUserInfoInner>
           </Dropdown>

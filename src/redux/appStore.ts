@@ -7,6 +7,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import { OrganizationReducer } from '@/redux/slices/organizationSlice';
 import { ProjectReducer } from '@/redux/slices/projectSlice';
+import { OrganizationMemberReducer } from '@/redux/slices/organizationMemberSlice';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -18,7 +19,8 @@ const persistConfig = {
 const combinedReducer = combineReducers({
   user: UserReducer,
   organizations: OrganizationReducer,
-  projects: ProjectReducer
+  projects: ProjectReducer,
+  organizationMembers: OrganizationMemberReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducer);
