@@ -7,6 +7,7 @@ type AppsPaginationProps = {
   page: number;
   onChange: (page: number) => void;
   rowsPerPage?: number;
+  pageSize?: number;
 
   [x: string]: any;
 };

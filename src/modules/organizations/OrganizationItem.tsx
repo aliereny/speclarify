@@ -7,16 +7,17 @@ import { GoLocation } from 'react-icons/go';
 import { useRouter } from 'next/navigation';
 import AppCard from '@crema/components/AppCard';
 import { Button, Dropdown, MenuProps, Typography } from 'antd';
-import { MoreOutlined } from '@ant-design/icons';
+import { CalendarOutlined, MoreOutlined } from '@ant-design/icons';
 import { StyledAvatar, StyledSecondaryText } from './Organization.styled';
 import { deleteOrganizationRequest, Organization } from '@/redux/slices/organizationSlice';
 import { useAppDispatch } from '@/redux/appStore';
 
 type Props = {
   organization: Organization;
+  hideNavigation?: boolean
 };
 
-export const OrganizationItem = ({ organization }: Props) => {
+export const OrganizationItem = ({ organization, hideNavigation }: Props) => {
   const router = useRouter();
 
   const dispatch = useAppDispatch();
@@ -78,6 +79,26 @@ export const OrganizationItem = ({ organization }: Props) => {
           <Typography.Link href={organization.website}>{organization.website}</Typography.Link>
         </StyledSecondaryText>
       </div>
+      <div style={{ display: 'flex', marginBottom: 16 }}>
+        <CalendarOutlined size={20} />
+        <StyledSecondaryText>
+          Created on{' '}
+          {new Date(organization.createdAt).toLocaleDateString(
+            'en-US',
+            {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            },
+          )}
+        </StyledSecondaryText>
+      </div>
+      {
+        !hideNavigation &&
+        <Button type="primary" onClick={() => router.push(`/organizations/${organization.path}`)}>
+          View organization
+        </Button>
+      }
     </AppCard>
   );
 };

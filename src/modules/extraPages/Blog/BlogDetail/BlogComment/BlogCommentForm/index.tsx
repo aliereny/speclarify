@@ -23,7 +23,7 @@ const BlogCommentForm = ({ comments, setComments }: Props) => {
     const item: BlogCommentType = {
       id: generateRandomUniqueNumber(),
       name: data.name!,
-      image: user.photo,
+      image: user.photo!,
       duration: dayjs().format("MMM DD"),
       comment: data.comment!,
     };

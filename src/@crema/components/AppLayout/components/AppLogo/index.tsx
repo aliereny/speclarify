@@ -9,7 +9,7 @@ type AppLogoProps = {
 const AppLogo: React.FC<AppLogoProps> = ({ hasSidebarColor }) => {
   const { sidebarColorSet } = useSidebarContext();
   return (
-    <StyledAppLogo>
+    <StyledAppLogo href={"/organizations"}>
       {hasSidebarColor && sidebarColorSet.mode === 'dark' ? (
         <Image
           src='/assets/images/logo-white-with-name.png'

@@ -53,7 +53,7 @@ export const OrganizationForm = ({ selectedOrganization, onSave }: Props) => {
               },
             ]}
           >
-            <Input placeholder="Client Name" />
+            <Input placeholder="Organization Name" />
           </Form.Item>
 
           <Typography.Title level={4} style={{ marginTop: 16 }}>

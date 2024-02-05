@@ -18,14 +18,15 @@ import {
   MdTimeline,
 } from 'react-icons/md';
 import { BsBriefcase, BsCart4, BsChatDots, BsCurrencyBitcoin, BsQuestionDiamond } from 'react-icons/bs';
-import { FaRegBuilding, FaRegCalendarAlt, FaRegHospital } from 'react-icons/fa';
+import { FaRegCalendarAlt, FaRegHospital } from 'react-icons/fa';
 import { CgAttachment, CgFeed, CgUserList } from 'react-icons/cg';
-import { FiMail, FiMap, FiPlusCircle, FiUsers } from 'react-icons/fi';
+import { FiMail, FiMap, FiUsers } from 'react-icons/fi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { DiHtml5Multimedia } from 'react-icons/di';
 import { RoutePermittedRole } from '@crema/constants/AppEnums';
 import { GrUserAdmin } from 'react-icons/gr';
 import { TbFileInvoice } from 'react-icons/tb';
+import { RouterConfigData } from '@crema/types/models/Apps';
 
 const routesConfig = [
   {
@@ -40,6 +41,7 @@ const routesConfig = [
         messageId: 'sidebar.app.dashboard.crypto',
         icon: <BsCurrencyBitcoin />,
         path: '/dashboards/crypto',
+        type: 'item',
       },
       {
         id: 'crm',
@@ -47,6 +49,7 @@ const routesConfig = [
         messageId: 'sidebar.app.dashboard.crm',
         icon: <RiCustomerService2Line />,
         path: '/dashboards/crm',
+        type: 'item',
       },
       {
         id: 'analytics',
@@ -54,6 +57,7 @@ const routesConfig = [
         messageId: 'sidebar.app.dashboard.analytics',
         icon: <MdOutlineAnalytics />,
         path: '/dashboards/analytics',
+        type: 'item',
       },
       {
         id: 'health-care',
@@ -62,6 +66,7 @@ const routesConfig = [
         messageId: 'sidebar.healthCare',
         icon: <FaRegHospital />,
         path: '/dashboards/health-care',
+        type: 'item',
       },
       {
         id: 'e-commerce',
@@ -69,6 +74,7 @@ const routesConfig = [
         messageId: 'sidebar.app.dashboard.eCommerce',
         icon: <BsCart4 />,
         path: '/dashboards/e-commerce',
+        type: 'item',
       },
       {
         id: 'academy',
@@ -76,6 +82,7 @@ const routesConfig = [
         messageId: 'sidebar.app.dashboard.academy',
         icon: <HiOutlineAcademicCap />,
         path: '/dashboards/academy',
+        type: 'item',
       },
       {
         id: 'metrics',
@@ -83,6 +90,7 @@ const routesConfig = [
         messageId: 'sidebar.app.metrics',
         icon: <HiOutlineChartSquareBar />,
         path: '/dashboards/metrics',
+        type: 'item',
       },
       {
         id: 'widgets',
@@ -90,6 +98,7 @@ const routesConfig = [
         messageId: 'sidebar.app.widgets',
         icon: <RiDashboardLine />,
         path: '/dashboards/widgets',
+        type: 'item',
       },
     ],
   },
@@ -641,4 +650,4 @@ const routesConfig = [
     ],
   },
 ];
-export default routesConfig;
+export default routesConfig as unknown as RouterConfigData[];

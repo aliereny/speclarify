@@ -2,31 +2,34 @@
 import AppGrid from '@crema/components/AppGrid';
 import { Button } from 'antd';
 import React, { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useIntl } from 'react-intl';
 import { useAppDispatch, useAppSelector } from '@/redux/appStore';
-import { fetchOrganizationsRequest, Organization } from '@/redux/slices/organizationSlice';
-import { StyledTypographyWrapper } from '@/modules/organizations/Organization.styled';
-import { OrganizationItem } from '@/modules/organizations/OrganizationItem';
+import { fetchProjectsRequest, Project } from '@/redux/slices/projectSlice';
+import { StyledTypographyWrapper } from '@/modules/projects/Project.styled';
+import { ProjectItem } from '@/modules/projects/ProjectItem';
 import AppsPagination from '@crema/components/AppsPagination';
 
-export const OrganizationList = () => {
+export const ProjectList = () => {
   const router = useRouter();
   const { messages } = useIntl();
 
-  const { organizations, loading } = useAppSelector(state => state.organizations);
+  const { projects, loading } = useAppSelector(state => state.projects);
 
+  const orgPath = useParams().orgPath as string;
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchOrganizationsRequest({
+    dispatch(fetchProjectsRequest({
+      orgPath,
       pageNumber: 1,
       pageSize: 10,
     }));
   }, []);
 
   const handlePage = (pageNumber: number) => {
-    dispatch(fetchOrganizationsRequest({
+    dispatch(fetchProjectsRequest({
+      orgPath,
       pageNumber,
       pageSize: 10,
     }))
@@ -38,9 +41,9 @@ export const OrganizationList = () => {
         <Button
           type="primary"
           style={{ display: 'block', marginLeft: 'auto', marginBottom: 12 }}
-          onClick={() => router.push('/organizations/new')}
+          onClick={() => router.push(`/organizations/${orgPath}/projects/new`)}
         >
-          Create Organization
+          Create Project
         </Button>
       </div>
       <AppGrid
@@ -52,10 +55,10 @@ export const OrganizationList = () => {
           xl: 4,
         }}
         loading={loading}
-        data={organizations.items}
-        renderItem={(organization: Organization) => <OrganizationItem organization={organization} />}
+        data={projects.items}
+        renderItem={(project: Project) => <ProjectItem project={project} />}
       />
-      <AppsPagination count={organizations.totalItems} page={organizations.currentPage} pageSize={organizations.pageSize} onChange={handlePage} />
+      <AppsPagination count={projects.totalItems} page={projects.currentPage} pageSize={projects.pageSize} onChange={handlePage} />
     </StyledTypographyWrapper>
   );
 };

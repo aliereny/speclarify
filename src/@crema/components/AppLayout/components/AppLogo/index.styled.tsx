@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledAppLogo = styled.div`
+export const StyledAppLogo = styled.a`
   display: flex;
   flex-direction: row;
   cursor: pointer;

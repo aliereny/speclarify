@@ -65,6 +65,11 @@ const organizationSlice = createSlice({
   reducers: {
     fetchOrganizationsRequest: (state, action: PayloadAction<FetchOrganizationsRequestPayload>) => {
       state.loading = true;
+      state.organizations = {
+        ...state.organizations,
+        currentPage: action.payload.pageNumber || 1,
+        pageSize: action.payload.pageSize || 10,
+      }
       state.error = null;
     },
     fetchOrganizationsSuccess: (state, action: PayloadAction<PageResponse<Organization>>) => {
