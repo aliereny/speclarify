@@ -52,7 +52,6 @@ export interface UpdateProfileRequestPayload {
 }
 
 export interface VerifyEmailRequestPayload {
-  email: string;
   code: string;
 }
 
