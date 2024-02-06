@@ -8,6 +8,7 @@ import {
   StyledUploadWrapper,
 } from "@/ui/atoms/image-upload/imagedUpload.styled";
 import { UploadFile } from "antd";
+import Image from "next/image";
 
 interface ImageUploadProps {
   value?: UploadFile;
@@ -46,7 +47,19 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
   return (
     <StyledUploadWrapper>
       {fileList.length === 0 && existing && (
-        <img src={existing} alt="image" width={100} height={100} />
+        <div>
+          <img
+            src={existing}
+            alt="image"
+            style={{
+              height: 100,
+              width: 100,
+              objectFit: "contain",
+              border: "1px solid #e0e0e0",
+              borderRadius: 4,
+            }}
+          />
+        </div>
       )}
       <StyledUpload
         listType="picture-card"

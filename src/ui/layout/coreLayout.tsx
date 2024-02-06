@@ -5,7 +5,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { AppPersistor, AppStore } from "@/redux/appStore";
 import { ConfigProvider } from "antd";
 
-export const AppLayout = ({ children }: { children: React.ReactNode }) => {
+export const CoreLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Provider store={AppStore}>
       <PersistGate persistor={AppPersistor}>

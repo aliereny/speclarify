@@ -1,11 +1,16 @@
+import { AxiosError } from "axios";
 
 export function errorMessage(error: any): string {
   if (error.response) {
-    return error.response.data.message;
+    if (error.response.data.message) {
+      return error.response.data.message;
+    } else {
+      return error.response.statusText;
+    }
   } else if (error.request) {
-    return 'No response from server';
+    return "No response from server";
   } else {
-    return 'Something went wrong';
+    return "Something went wrong";
   }
 }
 

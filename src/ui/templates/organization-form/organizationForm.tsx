@@ -5,6 +5,7 @@ import {
 } from "@/redux/slices/organizationSlice";
 import { Button, Form, Input } from "antd";
 import { ImageUpload } from "@/ui/atoms/image-upload/imageUpload";
+import { useAppSelector } from "@/redux/appStore";
 
 type Props = {
   selectedOrganization?: Organization;
@@ -17,10 +18,16 @@ export const OrganizationForm = ({
   onSave,
   title,
 }: Props) => {
+  const { loading } = useAppSelector((state) => state.organizations);
+
   return (
     <div>
       <h1>{title}</h1>
       <Form<CreateOrganizationRequestPayload>
+        style={{
+          maxWidth: 500,
+        }}
+        disabled={loading}
         initialValues={
           selectedOrganization
             ? {

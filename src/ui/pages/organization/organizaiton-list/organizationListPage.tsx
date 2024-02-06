@@ -16,7 +16,7 @@ import {
 } from "antd";
 import { OrganizationCard } from "@/ui/molecules/organization-card/organizationCard";
 
-export const OrganizationList = () => {
+export const OrganizationListPage = () => {
   const router = useRouter();
 
   const { organizations, loading } = useAppSelector(

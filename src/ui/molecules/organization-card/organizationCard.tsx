@@ -20,7 +20,7 @@ export const OrganizationCard = ({ organization }: Props) => {
   const router = useRouter();
   return (
     <StyledOrganizationCard
-      onClick={() => router.push(`organizations/${organization.path}`)}
+      onClick={() => router.push(`/organizations/${organization.path}`)}
     >
       <Avatar src={organization.photo} shape={"square"} size={100}>
         {organization.photo

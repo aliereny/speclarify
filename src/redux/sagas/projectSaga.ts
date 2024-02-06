@@ -154,6 +154,10 @@ export function* deleteProjectSaga(
         pageSize: 10,
       }),
     );
+    yield call(
+      navigateOutsideJSX,
+      `/organizations/${action.payload.orgPath}/projects`,
+    );
   } catch (e) {
     yield put(deleteProjectFailure(errorMessage(e)));
   }
