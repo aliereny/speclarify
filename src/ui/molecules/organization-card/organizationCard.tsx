@@ -1,3 +1,4 @@
+"use client";
 import { Organization } from "@/redux/slices/organizationSlice";
 import React from "react";
 import { Avatar, Space } from "antd";
