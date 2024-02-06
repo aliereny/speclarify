@@ -1,18 +1,10 @@
 "use client";
-import {
-  Alert,
-  Button,
-  Checkbox,
-  Flex,
-  Form,
-  Input,
-  Space,
-  Typography,
-} from "antd";
+import { Button, Flex, Form, Input, Typography } from "antd";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/redux/appStore";
-import { signInRequest, signUpRequest } from "@/redux/slices/userSlice";
+import { signUpRequest } from "@/redux/slices/userSlice";
 import { ImageUpload } from "@/ui/atoms/image-upload/imageUpload";
+import { StyledFormFooter } from "@/ui/pages/authentication/authentication.styled";
 
 type FormValues = {
   name: string;
@@ -23,12 +15,12 @@ type FormValues = {
 };
 
 export const SignUpPage = () => {
-  const dipatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-  const { error, loading } = useAppSelector((state) => state.user);
+  const { loading } = useAppSelector((state) => state.user);
 
   const onFinish = (values: FormValues) => {
-    dipatch(signUpRequest(values));
+    dispatch(signUpRequest(values));
   };
 
   const [form] = Form.useForm();
@@ -36,15 +28,6 @@ export const SignUpPage = () => {
   return (
     <Flex vertical gap={8}>
       <Typography.Title level={2}>Sign In</Typography.Title>
-      {error && (
-        <Alert
-          message={"Error"}
-          description={error}
-          type={"error"}
-          showIcon
-          closable
-        />
-      )}
       <Form<FormValues>
         layout={"vertical"}
         disabled={loading}
@@ -113,15 +96,18 @@ export const SignUpPage = () => {
         >
           <Input.Password placeholder={"Password"} />
         </Form.Item>
-        <Form.Item<FormValues> name={"photo"} initialValue={true}>
+        <Form.Item<FormValues> name={"photo"} label={"Profile Photo"}>
           <ImageUpload />
         </Form.Item>
-        <Button type={"primary"} htmlType={"submit"}>
+        <Button type={"primary"} htmlType={"submit"} block>
           Sign Up
         </Button>
-        <div>
-          <Link href={"/signin"}>Sign In</Link>
-        </div>
+        <StyledFormFooter>
+          <Typography.Text>
+            Already have an account? Click <Link href={"/signin"}>here</Link> to
+            sign in.
+          </Typography.Text>
+        </StyledFormFooter>
       </Form>
     </Flex>
   );

@@ -199,6 +199,7 @@ export const {
   changePasswordFailure,
   changePasswordSuccess,
   changePasswordRequest,
+  clearError,
 } = userSlice.actions;
 
 export const UserReducer = userSlice.reducer;

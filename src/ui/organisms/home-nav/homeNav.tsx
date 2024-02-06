@@ -27,7 +27,7 @@ export const HomeNav = () => {
   }, []);
 
   return (
-    <StyledHomeNav scrolled={scrolled}>
+    <StyledHomeNav $scrolled={scrolled}>
       <StyledHomeNavLogo>
         <Link href="/">
           <Image
@@ -39,8 +39,8 @@ export const HomeNav = () => {
         </Link>
       </StyledHomeNavLogo>
       <StyledNavList>
-        <Link href="/login">
-          <StyledNavItem>Login</StyledNavItem>
+        <Link href="/signin">
+          <StyledNavItem>Sign in</StyledNavItem>
         </Link>
       </StyledNavList>
     </StyledHomeNav>

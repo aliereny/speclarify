@@ -21,14 +21,13 @@ export const ConfirmEmailPage = () => {
   return (
     <div>
       {loading && <Spin size="large" />}
-      {!loading && !error && (
+      {!loading && (
         <Alert
-          message="Email Verified"
-          description="Your email has been verified successfully."
-          type="success"
+          message="Invalid Code"
+          description="Your email cannot be verified."
+          type="error"
         />
       )}
-      {error && <Alert message="Error" description={error} type="error" />}
     </div>
   );
 };

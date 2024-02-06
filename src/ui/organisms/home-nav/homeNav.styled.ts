@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Button } from "antd";
 
 export const StyledHomeNav = styled.nav<{
-  scrolled: boolean;
+  $scrolled: boolean;
 }>`
   display: flex;
   align-items: center;
@@ -26,21 +26,27 @@ export const StyledHomeNav = styled.nav<{
     border-radius: 2rem;
   }
 
-  ${({ scrolled, theme }) =>
-    scrolled &&
-    `
+  ${({ $scrolled, theme }) =>
+    $scrolled
+      ? `
         background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         & button {
           background-color: #32b98e;
             color: #fff;
         }
-    `}
+    `
+      : undefined}
 `;
 
 export const StyledHomeNavLogo = styled.div`
   display: flex;
   align-items: center;
+
+  & > a {
+    display: inline-flex;
+    align-items: center;
+  }
 `;
 
 export const StyledNavList = styled.ul`

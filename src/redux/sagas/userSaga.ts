@@ -4,6 +4,7 @@ import {
   changePasswordRequest,
   ChangePasswordRequestPayload,
   changePasswordSuccess,
+  clearError,
   fetchCurrentUserFailure,
   fetchCurrentUserRequest,
   fetchCurrentUserSuccess,
@@ -31,12 +32,13 @@ import {
   verifyEmailRequest,
   VerifyEmailRequestPayload,
   verifyEmailSuccess,
-} from "../slices/userSlice";
+} from "@/redux/slices/userSlice";
 import { AxiosResponse } from "axios";
 import { all, call, put, takeLatest } from "@redux-saga/core/effects";
 import { errorMessage, navigateOutsideJSX } from "../utils";
 import { ApiResponse } from "@/redux/types";
 import { ApiClient } from "@/redux/api/apiClient";
+import { message } from "antd";
 
 function* signInSaga(action: PayloadAction<SignInRequestPayload>) {
   try {
@@ -62,10 +64,7 @@ function* signUpSaga(action: PayloadAction<SignUpRequestPayload>) {
     yield call(ApiClient.post, "/authentication/sign-up", action.payload);
 
     yield put(signUpSuccess());
-    yield call(
-      navigateOutsideJSX,
-      "/confirm-signup?email=" + action.payload.email,
-    );
+    yield call(navigateOutsideJSX, "/email-sent?email=" + action.payload.email);
   } catch (e) {
     yield put(signUpFailure(errorMessage(e)));
   }
@@ -139,6 +138,7 @@ function* verifyEmailSaga(action: PayloadAction<VerifyEmailRequestPayload>) {
         action.payload,
       );
     yield put(verifyEmailSuccess(response.data.data));
+    yield call(navigateOutsideJSX, "/organizations");
   } catch (e) {
     yield put(verifyEmailFailure(errorMessage(e)));
   }
@@ -188,6 +188,27 @@ export function* watchChangePassword() {
   yield takeLatest(changePasswordRequest.type, changePasswordSaga);
 }
 
+export function* errorHandlerSaga(action: PayloadAction<string>) {
+  yield call(message.error, action.payload);
+  yield put(clearError());
+}
+
+export function* watchErrorHandler() {
+  yield takeLatest(
+    [
+      signInFailure.type,
+      signUpFailure.type,
+      signOutFailure.type,
+      updateProfileFailure.type,
+      fetchCurrentUserFailure.type,
+      verifyEmailFailure.type,
+      refreshTokenFailure.type,
+      changePasswordFailure.type,
+    ],
+    errorHandlerSaga,
+  );
+}
+
 export function* userSaga() {
   yield all([
     watchSignIn(),
@@ -198,5 +219,6 @@ export function* userSaga() {
     watchVerifyEmail(),
     watchRefreshToken(),
     watchChangePassword(),
+    watchErrorHandler(),
   ]);
 }

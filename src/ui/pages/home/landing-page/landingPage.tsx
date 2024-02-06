@@ -7,9 +7,6 @@ import {
   StyledHeroButton,
   StyledHeroImage,
   StyledHowItWorks,
-  StyledSection,
-  StyledTestimonial,
-  StyledTestimonials,
   StyledWhySpeclarify,
 } from "@/ui/pages/home/landing-page/landingPage.styled";
 import { HomeNav } from "@/ui/organisms/home-nav/homeNav";
@@ -133,17 +130,17 @@ export const LandingPage = () => {
         </Typography.Title>
         <Flex gap={16}>
           <CheckOutlined />
-          <Typography.Title level={3}>
+          <Typography.Title level={5}>
             {"Upload your SRS Document"}
           </Typography.Title>
         </Flex>
         <Flex gap={16}>
           <CheckOutlined />
-          <Typography.Title level={3}>{"AI-Powered Analysis"}</Typography.Title>
+          <Typography.Title level={5}>{"AI-Powered Analysis"}</Typography.Title>
         </Flex>
         <Flex gap={16}>
           <CheckOutlined />
-          <Typography.Title level={3}>
+          <Typography.Title level={5}>
             {"Review and Implement Suggestions"}
           </Typography.Title>
         </Flex>
@@ -195,7 +192,7 @@ export const LandingPage = () => {
         <Typography.Title level={2}>
           {"Ready to Enhance Your Software Engineering Process?"}
         </Typography.Title>
-        <Button type={"primary"} size={"large"}>
+        <Button type={"primary"} size={"large"} href={"/signin"}>
           {"Discover"}
         </Button>
       </StyledCTABanner>

@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { PageResponse } from '@/redux/types';
-import { RcFile } from 'antd/lib/upload/interface';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PageResponse } from "@/redux/types";
+import { RcFile } from "antd/lib/upload/interface";
 
 export interface Project {
   id: string;
@@ -64,7 +64,7 @@ export interface DeleteProjectRequestPayload {
 }
 
 const projectSlice = createSlice({
-  name: 'project',
+  name: "project",
   initialState,
   reducers: {
     fetchProjectsRequest: (
@@ -169,6 +169,7 @@ export const {
   fetchProjectSuccess,
   fetchProjectsFailure,
   fetchProjectRequest,
+  clearError,
 } = projectSlice.actions;
 
 export const ProjectReducer = projectSlice.reducer;

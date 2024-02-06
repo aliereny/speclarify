@@ -1,12 +1,12 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { PageResponse } from '@/redux/types';
-import { User } from '@/redux/slices/userSlice';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PageResponse } from "@/redux/types";
+import { User } from "@/redux/slices/userSlice";
 
 export enum OrganizationRole {
-  Owner = 'owner',
-  Admin = 'admin',
-  Editor = 'editor',
-  Viewer = 'viewer',
+  Owner = "owner",
+  Admin = "admin",
+  Editor = "editor",
+  Viewer = "viewer",
 }
 
 export interface OrganizationMember {
@@ -66,7 +66,7 @@ export interface DeleteOrganizationMemberRequestPayload {
 }
 
 const organizationMemberSlice = createSlice({
-  name: 'organizationMember',
+  name: "organizationMember",
   initialState,
   reducers: {
     fetchOrganizationMembersRequest: (
@@ -174,6 +174,7 @@ export const {
   fetchOrganizationMemberSuccess,
   fetchOrganizationMembersFailure,
   fetchOrganizationMemberRequest,
+  clearError,
 } = organizationMemberSlice.actions;
 
 export const OrganizationMemberReducer = organizationMemberSlice.reducer;

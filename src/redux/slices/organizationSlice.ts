@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { PageResponse } from '@/redux/types';
-import { RcFile } from 'antd/lib/upload/interface';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PageResponse } from "@/redux/types";
+import { RcFile } from "antd/lib/upload/interface";
 
 export interface Organization {
   id: string;
@@ -60,7 +60,7 @@ export interface UpdateOrganizationRequestPayload {
 }
 
 const organizationSlice = createSlice({
-  name: 'organization',
+  name: "organization",
   initialState,
   reducers: {
     fetchOrganizationsRequest: (
@@ -162,6 +162,7 @@ export const {
   fetchOrganizationSuccess,
   fetchOrganizationsFailure,
   fetchOrganizationRequest,
+  clearError,
 } = organizationSlice.actions;
 
 export const OrganizationReducer = organizationSlice.reducer;

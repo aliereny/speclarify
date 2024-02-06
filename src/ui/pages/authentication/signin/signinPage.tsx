@@ -1,17 +1,9 @@
 "use client";
-import {
-  Alert,
-  Button,
-  Checkbox,
-  Flex,
-  Form,
-  Input,
-  Space,
-  Typography,
-} from "antd";
+import { Button, Checkbox, Flex, Form, Input, Space, Typography } from "antd";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/redux/appStore";
 import { signInRequest } from "@/redux/slices/userSlice";
+import { StyledFormFooter } from "@/ui/pages/authentication/authentication.styled";
 
 type FormValues = {
   email: string;
@@ -20,26 +12,17 @@ type FormValues = {
 };
 
 export const SignInPage = () => {
-  const dipatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-  const { error, loading } = useAppSelector((state) => state.user);
+  const { loading } = useAppSelector((state) => state.user);
 
   const onFinish = (values: FormValues) => {
-    dipatch(signInRequest(values));
+    dispatch(signInRequest(values));
   };
 
   return (
     <Flex vertical gap={8}>
       <Typography.Title level={2}>Sign In</Typography.Title>
-      {error && (
-        <Alert
-          message={"Error"}
-          description={error}
-          type={"error"}
-          showIcon
-          closable
-        />
-      )}
       <Form<FormValues>
         layout={"vertical"}
         disabled={loading}
@@ -79,15 +62,15 @@ export const SignInPage = () => {
             <Typography.Text>Remember me</Typography.Text>
           </Space>
         </Form.Item>
-        <Button type={"primary"} htmlType={"submit"}>
+        <Button type={"primary"} htmlType={"submit"} block>
           Sign In
         </Button>
-        <div>
-          <Link href={"/forgot-password"}>Forgot Password?</Link>
-        </div>
-        <div>
-          <Link href={"/signup"}>Sign Up</Link>
-        </div>
+        <StyledFormFooter>
+          <Typography.Text>
+            {"Don't"} have an account? Click <Link href={"/signup"}>here</Link>{" "}
+            to sign up.
+          </Typography.Text>
+        </StyledFormFooter>
       </Form>
     </Flex>
   );
