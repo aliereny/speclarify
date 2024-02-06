@@ -1,3 +1,4 @@
+"use client";
 import { OrganizationForm } from "@/ui/templates/organization-form/organizationForm";
 import {
   createOrganizationRequest,

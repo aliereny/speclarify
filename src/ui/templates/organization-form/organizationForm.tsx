@@ -3,7 +3,7 @@ import {
   CreateOrganizationRequestPayload,
   Organization,
 } from "@/redux/slices/organizationSlice";
-import { Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { ImageUpload } from "@/ui/atoms/image-upload/imageUpload";
 
 type Props = {
@@ -82,17 +82,6 @@ export const OrganizationForm = ({
               required: true,
               message: "Phone number is required",
             },
-            () => ({
-              validator(_, value) {
-                if (!value) {
-                  return Promise.resolve();
-                }
-                if (!/^[0-9]{10}$/.test(value)) {
-                  return Promise.reject("Enter a valid phone number!");
-                }
-                return Promise.resolve();
-              },
-            }),
           ]}
         >
           <Input placeholder="Phone Number" />
@@ -131,6 +120,11 @@ export const OrganizationForm = ({
         </Form.Item>
         <Form.Item name="photo" label="Photo">
           <ImageUpload existing={selectedOrganization?.photo} />
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit">
+            {selectedOrganization ? "Edit" : "Add"} Organization
+          </Button>
         </Form.Item>
       </Form>
     </div>

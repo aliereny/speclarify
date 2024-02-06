@@ -1,5 +1,4 @@
-import * as nextRouter from "next/router";
-import * as antd from "antd";
+"use client";
 import { Alert, Spin } from "antd";
 import { useAppDispatch, useAppSelector } from "@/redux/appStore";
 import { useEffect } from "react";

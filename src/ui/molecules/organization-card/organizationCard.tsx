@@ -1,7 +1,7 @@
 "use client";
 import { Organization } from "@/redux/slices/organizationSlice";
 import React from "react";
-import { Avatar, Space } from "antd";
+import { Avatar, Space, Typography } from "antd";
 import {
   CalendarOutlined,
   EnvironmentOutlined,
@@ -9,15 +9,20 @@ import {
   MailOutlined,
   PhoneOutlined,
 } from "@ant-design/icons";
+import { StyledOrganizationCard } from "@/ui/molecules/organization-card/organizationCard.styled";
+import { useRouter } from "next/navigation";
 
 export interface Props {
   organization: Organization;
 }
 
 export const OrganizationCard = ({ organization }: Props) => {
+  const router = useRouter();
   return (
-    <div>
-      <Avatar src={organization.photo}>
+    <StyledOrganizationCard
+      onClick={() => router.push(`organizations/${organization.path}`)}
+    >
+      <Avatar src={organization.photo} shape={"square"} size={100}>
         {organization.photo
           ? ""
           : organization.name
@@ -26,7 +31,7 @@ export const OrganizationCard = ({ organization }: Props) => {
               .join("")
               .toUpperCase()}
       </Avatar>
-      <h2>{organization.name}</h2>
+      <Typography.Title level={3}>{organization.name}</Typography.Title>
       <Space>
         <MailOutlined />
         <span>{organization.email}</span>
@@ -54,6 +59,6 @@ export const OrganizationCard = ({ organization }: Props) => {
           })}
         </span>
       </Space>
-    </div>
+    </StyledOrganizationCard>
   );
 };

@@ -4,7 +4,17 @@ import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/redux/appStore";
 import { useEffect } from "react";
 import { fetchOrganizationsRequest } from "@/redux/slices/organizationSlice";
-import { Button, Empty, Pagination, Skeleton } from "antd";
+import {
+  Button,
+  Col,
+  Empty,
+  Flex,
+  Pagination,
+  Row,
+  Skeleton,
+  Typography,
+} from "antd";
+import { OrganizationCard } from "@/ui/molecules/organization-card/organizationCard";
 
 export const OrganizationList = () => {
   const router = useRouter();
@@ -34,18 +44,31 @@ export const OrganizationList = () => {
   };
 
   return (
-    <div>
-      <Button type="primary" onClick={() => router.push("/organizations/new")}>
-        Create Organization
-      </Button>
+    <Flex vertical gap={16}>
+      <Flex justify={"space-between"}>
+        <Typography.Title level={3}>Organizations</Typography.Title>
+        <Button
+          type="primary"
+          onClick={() => router.push("/organizations/new")}
+        >
+          Create Organization
+        </Button>
+      </Flex>
       {loading && <Skeleton active />}
-      {!loading &&
-        organizations.items.map((organization) => (
-          <div key={organization.id}>
-            <h2>{organization.name}</h2>
-            <p>{organization.email}</p>
-          </div>
-        ))}
+      {!loading && (
+        <Row
+          gutter={[
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+          ]}
+        >
+          {organizations.items.map((organization) => (
+            <Col key={organization.id} xs={24} sm={12} md={8} lg={6}>
+              <OrganizationCard organization={organization} />
+            </Col>
+          ))}
+        </Row>
+      )}
       {!loading && organizations.items.length === 0 && (
         <Empty description={"No organizations found"} />
       )}
@@ -55,6 +78,6 @@ export const OrganizationList = () => {
         total={organizations.totalItems}
         onChange={handlePage}
       />
-    </div>
+    </Flex>
   );
 };
