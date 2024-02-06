@@ -30,7 +30,7 @@ import { PayloadAction } from "@reduxjs/toolkit";
 import { ApiClient } from "@/redux/api/apiClient";
 import { message } from "antd";
 
-export function* fetchProjectsSaga(
+function* fetchProjectsSaga(
   action: PayloadAction<FetchProjectsRequestPayload>,
 ) {
   try {
@@ -52,9 +52,7 @@ function* watchFetchProjects() {
   yield takeLatest(fetchProjectsRequest.type, fetchProjectsSaga);
 }
 
-export function* fetchProjectSaga(
-  action: PayloadAction<FetchProjectRequestPayload>,
-) {
+function* fetchProjectSaga(action: PayloadAction<FetchProjectRequestPayload>) {
   try {
     const response: AxiosResponse<ApiResponse<Project>> = yield call(
       ApiClient.get,
@@ -66,11 +64,11 @@ export function* fetchProjectSaga(
   }
 }
 
-export function* watchFetchProject() {
+function* watchFetchProject() {
   yield takeLatest(fetchProjectRequest.type, fetchProjectSaga);
 }
 
-export function* createProjectSaga(
+function* createProjectSaga(
   action: PayloadAction<CreateProjectRequestPayload>,
 ) {
   try {
@@ -100,11 +98,11 @@ export function* createProjectSaga(
   }
 }
 
-export function* watchCreateProject() {
+function* watchCreateProject() {
   yield takeLatest(createProjectRequest.type, createProjectSaga);
 }
 
-export function* updateProjectSaga(
+function* updateProjectSaga(
   action: PayloadAction<UpdateProjectRequestPayload>,
 ) {
   try {
@@ -134,11 +132,11 @@ export function* updateProjectSaga(
   }
 }
 
-export function* watchUpdateProject() {
+function* watchUpdateProject() {
   yield takeLatest(updateProjectRequest.type, updateProjectSaga);
 }
 
-export function* deleteProjectSaga(
+function* deleteProjectSaga(
   action: PayloadAction<DeleteProjectRequestPayload>,
 ) {
   try {
@@ -163,16 +161,16 @@ export function* deleteProjectSaga(
   }
 }
 
-export function* watchDeleteProject() {
+function* watchDeleteProject() {
   yield takeLatest(deleteProjectRequest.type, deleteProjectSaga);
 }
 
-export function* errorHandlerSaga(action: PayloadAction<string>) {
+function* errorHandlerSaga(action: PayloadAction<string>) {
   yield call(message.error, action.payload);
   yield put(clearError());
 }
 
-export function* watchErrorHandler() {
+function* watchErrorHandler() {
   yield takeLatest(
     [
       fetchProjectsFailure.type,

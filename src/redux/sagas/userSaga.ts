@@ -163,11 +163,11 @@ function* refreshTokenSaga(action: PayloadAction<string>) {
   }
 }
 
-export function* watchRefreshToken() {
+function* watchRefreshToken() {
   yield takeLatest(refreshTokenRequest.type, refreshTokenSaga);
 }
 
-export function* changePasswordSaga(
+function* changePasswordSaga(
   action: PayloadAction<ChangePasswordRequestPayload>,
 ) {
   try {
@@ -184,16 +184,16 @@ export function* changePasswordSaga(
   }
 }
 
-export function* watchChangePassword() {
+function* watchChangePassword() {
   yield takeLatest(changePasswordRequest.type, changePasswordSaga);
 }
 
-export function* errorHandlerSaga(action: PayloadAction<string>) {
+function* errorHandlerSaga(action: PayloadAction<string>) {
   yield call(message.error, action.payload);
   yield put(clearError());
 }
 
-export function* watchErrorHandler() {
+function* watchErrorHandler() {
   yield takeLatest(
     [
       signInFailure.type,

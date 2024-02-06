@@ -7,16 +7,16 @@ import { verifyEmailRequest } from "@/redux/slices/userSlice";
 
 export const ConfirmEmailPage = () => {
   const searchParams = useSearchParams();
-  const code = searchParams.get("code");
+  const token = searchParams.get("token");
   const dispatch = useAppDispatch();
 
   const { error, loading } = useAppSelector((state) => state.user);
 
   useEffect(() => {
-    if (code) {
-      dispatch(verifyEmailRequest({ code }));
+    if (token) {
+      dispatch(verifyEmailRequest({ code: token }));
     }
-  }, [code]);
+  }, [token]);
 
   return (
     <div>
