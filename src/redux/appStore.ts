@@ -9,6 +9,7 @@ import { OrganizationReducer } from "@/redux/slices/organizationSlice";
 import { ProjectReducer } from "@/redux/slices/projectSlice";
 import { OrganizationMemberReducer } from "@/redux/slices/organizationMemberSlice";
 import { DocumentReducer } from "@/redux/slices/documentSlice";
+import { RequirementReducer } from "@/redux/slices/requirementSlice";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -23,6 +24,7 @@ const combinedReducer = combineReducers({
   projects: ProjectReducer,
   organizationMembers: OrganizationMemberReducer,
   documents: DocumentReducer,
+  requirements: RequirementReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducer);
