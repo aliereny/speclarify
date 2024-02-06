@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {
   DeleteFilled,
   EditFilled,
+  PlayCircleFilled,
   ProjectFilled,
   SmileFilled,
 } from "@ant-design/icons";
@@ -29,7 +30,7 @@ export const StyledStatsCardBody = styled.div`
   justify-content: center;
   gap: 1rem;
 `;
-export const StyledSmileFilled = styled(SmileFilled)`
+export const StyledPlayCircleFilled = styled(PlayCircleFilled)`
   font-size: 4rem;
   color: #2f54eb;
 `;

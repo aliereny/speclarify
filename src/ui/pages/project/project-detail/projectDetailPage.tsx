@@ -4,6 +4,7 @@ import { Col, Popconfirm, Result, Row, Skeleton } from "antd";
 import {
   StyledDeleteFilled,
   StyledEditFilled,
+  StyledPlayCircleFilled,
   StyledProjectDetailWrapper,
   StyledProjectFilled,
   StyledStatsCard,
@@ -50,28 +51,16 @@ export const ProjectDetailPage = () => {
             <Col span={24}>
               <ProjectCard project={currentProject} />
             </Col>
-            <Col key={"goto"} xs={24} sm={12} lg={12}>
-              <Link href={`/projects/${orgPath}/projects`}>
+            <Col key={"goto"} span={24}>
+              <Link
+                href={`/organizations/${orgPath}/projects/${projectPath}/requirements`}
+              >
                 <StyledStatsCard>
-                  <StyledProjectFilled />
+                  <StyledPlayCircleFilled />
                   <StyledStatsCardBody>
-                    <StyledStatsCardTitle>Projects</StyledStatsCardTitle>
-                    <StyledStatsCardValue>
-                      {projects.totalItems.toString() || "0"}
-                    </StyledStatsCardValue>
-                  </StyledStatsCardBody>
-                </StyledStatsCard>
-              </Link>
-            </Col>
-            <Col key={"members"} xs={24} sm={12} lg={12}>
-              <Link href={`/organizations/${orgPath}/projects`}>
-                <StyledStatsCard>
-                  <StyledProjectFilled />
-                  <StyledStatsCardBody>
-                    <StyledStatsCardTitle>Projects</StyledStatsCardTitle>
-                    <StyledStatsCardValue>
-                      {projects.totalItems.toString() || "0"}
-                    </StyledStatsCardValue>
+                    <StyledStatsCardTitle>
+                      Work on this project
+                    </StyledStatsCardTitle>
                   </StyledStatsCardBody>
                 </StyledStatsCard>
               </Link>
