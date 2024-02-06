@@ -48,7 +48,7 @@ export const RequirementsPage = () => {
           type={"primary"}
           href={`/organizations/${orgPath}/projects/${projectPath}/requirements/new`}
         >
-          Create Document
+          Create Requirement
         </Button>
       </Flex>
 
@@ -119,11 +119,7 @@ export const RequirementsPage = () => {
                   title={"Are you sure?"}
                   onConfirm={() => handleDelete(record.id)}
                 >
-                  <Button
-                    type="primary"
-                    danger
-                    onClick={() => handleDelete(record.id)}
-                  >
+                  <Button type="primary" danger>
                     Delete
                   </Button>
                 </Popconfirm>

@@ -105,7 +105,7 @@ function* updateRequirementSaga(
     const { orgPath, projectPath, ...data } = action.payload;
     yield call(
       ApiClient.put,
-      `/organizations/${orgPath}/projects/${projectPath}/requirements`,
+      `/organizations/${orgPath}/projects/${projectPath}/requirements/${action.payload.requirementId}`,
       data,
     );
     yield put(updateRequirementSuccess());

@@ -81,11 +81,7 @@ export const DocumentsPage = () => {
                   title={"Are you sure?"}
                   onConfirm={() => handleDelete(record.id)}
                 >
-                  <Button
-                    type="primary"
-                    danger
-                    onClick={() => handleDelete(record.id)}
-                  >
+                  <Button type="primary" danger>
                     Delete
                   </Button>
                 </Popconfirm>
