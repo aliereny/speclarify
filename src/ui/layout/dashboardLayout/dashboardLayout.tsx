@@ -7,6 +7,7 @@ import {
   StyledDashboardContentWrapper,
   StyledDashboardLayout,
 } from "@/ui/layout/dashboardLayout/dashboardLayout.styled";
+import { DashboardNav } from "@/ui/organisms/dashboard-nav/dashboardNav";
 
 export const DashboardLayout = ({
   children,
@@ -24,7 +25,7 @@ export const DashboardLayout = ({
 
   return (
     <StyledDashboardLayout>
-      <AuthNav />
+      <DashboardNav />
       <StyledDashboardContentWrapper>{children}</StyledDashboardContentWrapper>
     </StyledDashboardLayout>
   );

@@ -40,7 +40,7 @@ export const AuthNav = () => {
             label: <Link href={"/signup"}>Sign up</Link>,
           },
         ]}
-        style={{ flex: 1, minWidth: 0 }}
+        style={{ flex: 1, minWidth: 0, justifyContent: "flex-end" }}
       />
     </Layout.Header>
   );
