@@ -20,7 +20,7 @@ import { clearError } from "@/redux/slices/projectSlice";
 import { AxiosResponse } from "axios";
 import { ApiResponse } from "@/redux/types";
 import { ApiClient } from "@/redux/api/apiClient";
-import { errorMessage } from "@/redux/utils";
+import { errorMessage, navigateOutsideJSX } from "@/redux/utils";
 
 function* createDocumentSaga(
   action: PayloadAction<CreateDocumentRequestPayload>,
@@ -39,6 +39,10 @@ function* createDocumentSaga(
       },
     );
     yield put(createDocumentSuccess());
+    yield call(
+      navigateOutsideJSX,
+      `/organizations/${action.payload.orgPath}/projects/${action.payload.projectPath}/documents`,
+    );
   } catch (e) {
     yield put(createDocumentFailure(errorMessage(e)));
   }
