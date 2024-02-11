@@ -11,6 +11,7 @@ import {
 } from "@ant-design/icons";
 import { StyledOrganizationCard } from "@/ui/molecules/organization-card/organizationCard.styled";
 import { useRouter } from "next/navigation";
+import { StyledProjectImage } from "@/ui/molecules/project-card/projectCard.styled";
 
 export interface Props {
   organization: Organization;
@@ -22,15 +23,17 @@ export const OrganizationCard = ({ organization }: Props) => {
     <StyledOrganizationCard
       onClick={() => router.push(`/organizations/${organization.path}`)}
     >
-      <Avatar src={organization.photo} shape={"square"} size={100}>
-        {organization.photo
-          ? ""
-          : organization.name
-              .split(" ")
-              .map((word) => word[0])
-              .join("")
-              .toUpperCase()}
-      </Avatar>
+      {organization.photo ? (
+        <StyledProjectImage src={organization.photo} />
+      ) : (
+        <Avatar shape={"square"} size={100}>
+          {organization.name
+            .split(" ")
+            .map((word) => word[0])
+            .join("")
+            .toUpperCase()}
+        </Avatar>
+      )}
       <Typography.Title level={3}>{organization.name}</Typography.Title>
       <Space>
         <MailOutlined />

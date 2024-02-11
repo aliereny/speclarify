@@ -2,15 +2,11 @@
 import { Project } from "@/redux/slices/projectSlice";
 import React from "react";
 import { Avatar, Space, Typography } from "antd";
+import { CalendarOutlined, FileTextOutlined } from "@ant-design/icons";
 import {
-  CalendarOutlined,
-  EnvironmentOutlined,
-  FileTextOutlined,
-  LinkOutlined,
-  MailOutlined,
-  PhoneOutlined,
-} from "@ant-design/icons";
-import { StyledProjectCard } from "@/ui/molecules/project-card/projectCard.styled";
+  StyledProjectCard,
+  StyledProjectImage,
+} from "@/ui/molecules/project-card/projectCard.styled";
 import { useParams, useRouter } from "next/navigation";
 
 export interface Props {
@@ -26,15 +22,17 @@ export const ProjectCard = ({ project }: Props) => {
         router.push(`/organizations/${orgPath}/projects/${project.path}`)
       }
     >
-      <Avatar src={project.photo} shape={"square"} size={100}>
-        {project.photo
-          ? ""
-          : project.name
-              .split(" ")
-              .map((word) => word[0])
-              .join("")
-              .toUpperCase()}
-      </Avatar>
+      {project.photo ? (
+        <StyledProjectImage src={project.photo} />
+      ) : (
+        <Avatar shape={"square"} size={100}>
+          {project.name
+            .split(" ")
+            .map((word) => word[0])
+            .join("")
+            .toUpperCase()}
+        </Avatar>
+      )}
       <Typography.Title level={3}>{project.name}</Typography.Title>
       <Space>
         <FileTextOutlined />

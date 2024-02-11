@@ -31,3 +31,11 @@ export const StyledProjectCard = styled.div`
     object-fit: contain;
   }
 `;
+
+export const StyledProjectImage = styled.img`
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+`;
