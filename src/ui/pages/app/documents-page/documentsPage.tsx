@@ -10,7 +10,7 @@ import {
 } from "@/redux/slices/documentSlice";
 
 export const DocumentsPage = () => {
-  const { documents } = useAppSelector((state) => state.documents);
+  const { documents, loading } = useAppSelector((state) => state.documents);
 
   const orgPath = useParams().orgPath as string;
   const projectPath = useParams().projectPath as string;
@@ -51,6 +51,7 @@ export const DocumentsPage = () => {
       <Table
         dataSource={documents}
         rowKey={"id"}
+        loading={loading}
         columns={[
           {
             title: "Name",

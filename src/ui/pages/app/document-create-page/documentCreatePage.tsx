@@ -1,5 +1,5 @@
 "use client";
-import { Button, Flex, Form, Typography } from "antd";
+import { Alert, Button, Flex, Form, Typography } from "antd";
 import { RcFile } from "antd/lib/upload/interface";
 import { DocumentUpload } from "@/ui/atoms/document-upload/documentUpload";
 import { useAppDispatch, useAppSelector } from "@/redux/appStore";
@@ -30,6 +30,20 @@ export const DocumentCreatePage = () => {
   return (
     <Flex vertical>
       <Typography.Title level={1}>Create Document</Typography.Title>
+      <Alert
+        type={"info"}
+        message={
+          "Available file types: Microsoft Word, Microsoft Excel, PDF, Plain Text"
+        }
+      />
+      <Alert
+        type={"info"}
+        message={
+          "For the Excel files, there should be 3 columns: Identifier, Description, and Classification (optional). " +
+          "Available classifications are: Functional, Availability, Legal, Look and Feel, Maintainability, Operational, " +
+          "Performance, Scalability, Security, Usability, Fault Tolerance, and Portability"
+        }
+      />
       <Form<FormData>
         layout={"vertical"}
         onFinish={onFinish}
