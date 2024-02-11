@@ -28,7 +28,7 @@ export const DashboardNav = () => {
       }}
     >
       <StyledHomeNavLogo>
-        <Link href="/">
+        <Link href="/organizations">
           <Image src={"/logo-white.png"} alt="Logo" width={116} height={26} />
         </Link>
       </StyledHomeNavLogo>
