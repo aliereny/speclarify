@@ -8,6 +8,7 @@ import {
   StyledDashboardLayout,
 } from "@/ui/layout/dashboardLayout/dashboardLayout.styled";
 import { DashboardNav } from "@/ui/organisms/dashboard-nav/dashboardNav";
+import { useNotification } from "@/hooks/useNotification";
 
 export const DashboardLayout = ({
   children,
@@ -22,6 +23,8 @@ export const DashboardLayout = ({
       router.push("/");
     }
   }, [accessToken]);
+
+  useNotification();
 
   return (
     <StyledDashboardLayout>
