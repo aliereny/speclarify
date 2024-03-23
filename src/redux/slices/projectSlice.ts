@@ -25,6 +25,8 @@ const initialState: ProjectState = {
     currentPage: 1,
     totalPages: 1,
     pageSize: 10,
+    lastPage: true,
+    firstPage: true,
   },
   currentProject: null,
   loading: false,

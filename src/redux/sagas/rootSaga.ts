@@ -5,6 +5,7 @@ import { projectSaga } from "@/redux/sagas/projectSaga";
 import { organizationMemberSaga } from "@/redux/sagas/organizationMemberSaga";
 import { documentSaga } from "@/redux/sagas/documentSaga";
 import { requirementSaga } from "@/redux/sagas/requirementSaga";
+import { notificationSaga } from "@/redux/sagas/notificationSaga";
 
 export function* RootSaga() {
   yield all([
@@ -14,5 +15,6 @@ export function* RootSaga() {
     organizationMemberSaga(),
     documentSaga(),
     requirementSaga(),
+    notificationSaga(),
   ]);
 }

@@ -30,6 +30,8 @@ const initialState: OrganizationMemberState = {
     currentPage: 1,
     totalPages: 1,
     pageSize: 10,
+    lastPage: true,
+    firstPage: true,
   },
   currentOrganizationMember: null,
   loading: false,

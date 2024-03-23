@@ -42,6 +42,8 @@ const initialState: RequirementState = {
     currentPage: 1,
     totalPages: 1,
     pageSize: 10,
+    lastPage: true,
+    firstPage: true,
   },
   currentRequirement: null,
   loading: false,

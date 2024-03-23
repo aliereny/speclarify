@@ -10,6 +10,7 @@ import { ProjectReducer } from "@/redux/slices/projectSlice";
 import { OrganizationMemberReducer } from "@/redux/slices/organizationMemberSlice";
 import { DocumentReducer } from "@/redux/slices/documentSlice";
 import { RequirementReducer } from "@/redux/slices/requirementSlice";
+import { NotificationReducer } from "@/redux/slices/notificationSlice";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -25,6 +26,7 @@ const combinedReducer = combineReducers({
   organizationMembers: OrganizationMemberReducer,
   documents: DocumentReducer,
   requirements: RequirementReducer,
+  notifications: NotificationReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducer);
